@@ -1,0 +1,156 @@
+<!-- Title area -->
+<div class="titleArea">
+    <div class="wrapper">
+        <div class="pageTitle">
+            <h5>Affichage du profil de <%= @user.full_name %></h5>
+            <span>Afficher le détail des informations liées au compte.</span>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<%= render "devise/registrations/shared/sub_menu" %>
+
+<div class="line"></div>
+
+<!-- Main content wrapper -->
+<div class="wrapper">
+
+  <%= flash_messages! %>
+  <%= form_for(@user, url: registration_path(@user), html: { method: :put, class: 'form' }) do |f| %>
+    <fieldset>
+      <div class="widget">
+        <div class="title">
+          <img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" />
+          <h6>Profil détaillé</h6>
+          <div class="topIcons">
+            <a href="javascript:history.go(-1);" class="tipS">Revenir en arrière</a>
+          </div>
+        </div>
+
+        <div class="formRow">
+          <%= image_tag @user.avatar.url(:medium) rescue "" %>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label>Statut</label>
+          <div class="formRight">
+            <b><%= @user.confirmed_at.blank? ? 'En attente de confirmation' : (@user.published == false ? 'Désactivé' : 'Activé') %></b>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :first_name %></label>
+          <div class="formRight">
+            <%= f.text_field :first_name, class: 'form-control', disabled: true %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :last_name %></label>
+          <div class="formRight">
+            <%= f.text_field :last_name, class: 'form-control', disabled: true %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :email %></label>
+          <div class="formRight">
+            <%= f.text_field :email, class: 'form-control', disabled: true %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :phone_number %></label>
+          <div class="formRight">
+            <%= f.text_field :phone_number, class: 'form-control', disabled: true %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :mobile_number %></label>
+          <div class="formRight">
+            <%= f.text_field :mobile_number, class: 'form-control', disabled: true %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :identity_card_id %></label>
+          <div class="formRight">
+            <%= f.text_field :identity_card_id, class: 'form-control', disabled: true %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :address %></label>
+          <div class="formRight">
+            <%= f.text_field :address, class: 'form-control', disabled: true %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :created_by %></label>
+          <div class="formRight">
+            <b><%= User.find_by_id(@user.created_by).full_name rescue "#" %></b>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :created_at %></label>
+          <div class="formRight">
+            <b><%= @user.created_at.strftime("%d-%m-%Y") + " à " + @user.created_at.strftime("%Hh %Mmn") %></b>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :published_by %></label>
+          <div class="formRight">
+            <b><%= User.find_by_id(@user.published_by).full_name rescue "#" %></b>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :published_at %></label>
+          <div class="formRight">
+            <b><%= (@user.published_at.strftime("%d-%m-%Y") rescue "#") + " à " + (@user.published_at.strftime("%Hh %Mmn") rescue "#") %></b>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :unpublished_by %></label>
+          <div class="formRight">
+            <b><%= User.find_by_id(@user.unpublished_by).full_name rescue "#" %></b>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :unpublished_at %></label>
+          <div class="formRight">
+            <b><%= (@user.unpublished_at.strftime("%d-%m-%Y") rescue "#") + " à " + (@user.unpublished_at.strftime("%Hh %Mmn") rescue "#") %></b>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+      </div>
+    <fieldset>
+  <% end %>
+
+</div>
+<!-- End Main content wrapper -->

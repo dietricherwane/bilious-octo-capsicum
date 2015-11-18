@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+<title>COCOFCI::Administration::500</title>
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body class="nobg errorPage">
+
+<!-- Top fixed navigation -->
+<div class="topNav">
+    <div class="wrapper">
+        <div class="welcome"><%= image_tag(current_user.avatar.url(:small), width: "18px") rescue "" %><span><%= current_user.full_name rescue "" %></span></div>
+        <div class="userNav">
+            <ul>
+              <% if current_user.blank? %>
+                <li>
+                </li>
+              <% else %>
+                <li>
+                  <a href="<%= edit_user_registration_path(current_user.id) %>" title=""><img src="<%= asset_path 'icons/topnav/profile.png' %>" alt="" /><span>Profil</span></a>
+                </li>
+                <li>
+                  <a data-method="delete" href="/users/sign_out" rel="nofollow"><img src="<%= asset_path 'icons/topnav/logout.png' %>" alt="" /><span>Se déconnecter</span></a>
+                </li>
+              <% end %>
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<!-- Main content wrapper -->
+<div class="errorWrapper">
+    <span class="sadEmo"></span>
+    <span class="errorTitle">Un évènement inattendu s'est produit.</span>
+    <span class="errorNum">500</span>
+    <span class="errorDesc">La page que vous recherchez n'a pas été trouvée!</span>
+    <%= go_back() %>
+</div>
+
+</body>
+</html>
