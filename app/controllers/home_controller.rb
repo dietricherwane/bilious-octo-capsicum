@@ -12,9 +12,15 @@ class HomeController < ApplicationController
     previous_locale = I18n.locale
     I18n.locale = params[:user_locale]
 
+    if request.base_url + "/" == request.referrer
+      back_url = request.referrer + I18n.locale.to_s
+    else
+      back_url = request.referrer.sub(previous_locale.to_s, I18n.locale.to_s)
+    end
+
     set_front_page_content
 
-    redirect_to request.referrer.sub(previous_locale.to_s, I18n.locale.to_s)
+    redirect_to back_url
   end
 
 end
