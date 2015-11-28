@@ -1,0 +1,154 @@
+<!-- Title area -->
+<div class="titleArea">
+    <div class="wrapper">
+        <div class="pageTitle">
+            <h5>Création de comptes Administrateurs</h5>
+            <span>Créez un compte lié à un profil lui permettant d'interagir avec le système.</span>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<%#= render "devise/registrations/shared/sub_menu" %>
+
+<div class="line"></div>
+
+<!-- Main content wrapper -->
+<div class="wrapper">
+
+  <%= flash_messages! %>
+  <%= form_for(@fr_content, url: update_fr_home_front_content_path, method: :post, html: {class: 'form'}) do |f| %>
+
+    <fieldset>
+      <div class="widget">
+        <div class="title">
+          <img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" />
+          <h6>FR | Barre d'outils</h6>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :home_toolbar_phone_number %></label>
+          <div class="formRight">
+            <%= f.text_field :home_toolbar_phone_number, placeholder: "Veuillez entrer le numéro de téléphone", class: 'form-control' %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :home_toolbar_email %></label>
+          <div class="formRight">
+            <%= f.text_field :home_toolbar_email, placeholder: "Veuillez entrer l'email", class: 'form-control' %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :home_toolbar_language_fr %></label>
+          <div class="formRight">
+            <%= f.text_field :home_toolbar_language_fr, placeholder: "Veuillez entrer l'intitulé de la langue française", class: 'form-control' %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :home_toolbar_language_en %></label>
+          <div class="formRight">
+            <%= f.text_field :home_toolbar_language_en, placeholder: "Veuillez entrer l'intitulé de la langue anglaise", class: 'form-control' %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :home_toolbar_registration %></label>
+          <div class="formRight">
+            <%= f.text_field :home_toolbar_registration, placeholder: "Veuillez entrer l'intitulé du menu d'inscription", class: 'form-control' %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :home_toolbar_my_account %></label>
+          <div class="formRight">
+            <%= f.text_field :home_toolbar_my_account, placeholder: "Veuillez entrer l'intitulé du menu mon compte", class: 'form-control' %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <%= f.submit "Valider", class: 'basic' %>
+        </div>
+      </div>
+    </fieldset>
+  <% end %>
+
+  <%= form_for(@en_content, url: update_en_home_front_content_path, method: :post, html: {class: 'form'}) do |f| %>
+
+    <fieldset>
+      <div class="widget">
+
+        <div class="title">
+          <img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" />
+          <h6>EN | Barre d'outils</h6>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :home_toolbar_phone_number %></label>
+          <div class="formRight">
+            <%= f.text_field :home_toolbar_phone_number, placeholder: "Veuillez entrer le numéro de téléphone", class: 'form-control' %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :home_toolbar_email %></label>
+          <div class="formRight">
+            <%= f.text_field :home_toolbar_email, placeholder: "Veuillez entrer l'email", class: 'form-control' %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :home_toolbar_language_fr %></label>
+          <div class="formRight">
+            <%= f.text_field :home_toolbar_language_fr, placeholder: "Veuillez entrer l'intitulé de la langue française", class: 'form-control' %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :home_toolbar_language_en %></label>
+          <div class="formRight">
+            <%= f.text_field :home_toolbar_language_en, placeholder: "Veuillez entrer l'intitulé de la langue anglaise", class: 'form-control' %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :home_toolbar_registration %></label>
+          <div class="formRight">
+            <%= f.text_field :home_toolbar_registration, placeholder: "Veuillez entrer l'intitulé du menu d'inscription", class: 'form-control' %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :home_toolbar_my_account %></label>
+          <div class="formRight">
+            <%= f.text_field :home_toolbar_my_account, placeholder: "Veuillez entrer l'intitulé du menu mon compte", class: 'form-control' %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <%= f.submit "Valider", class: 'basic' %>
+        </div>
+      </div>
+
+    </fieldset>
+  <% end %>
+
+</div>
+<!-- End Main content wrapper -->

@@ -26,25 +26,25 @@
                 	<div class="tagline_items">
                     	<div class="language_select">
                             <div class="selectBox">
-                                <span class="selected"></span>
-                                <span class="selectArrow"></span>
+
+                                <span class="selectArrow"><span class=""><%= front_language_menu %></span></span>
                                 <div class="selectOptions" >
-                                    <span class="selectOption" data-value="french"><img src="<%= asset_path 'front/imgs/FR-Flag.ico' %>" alt="" width="22px"  />French</span>
-                                    <span class="selectOption" data-value="english"><img src="<%= asset_path 'front/imgs/uk_flag.png' %>" alt="" />English</span>
+                                    <span class="selectOption" data-value="french"><img src="<%= asset_path 'front/imgs/FR-Flag.ico' %>" alt="" width="22px"  /><%= link_to @front_page_content.home_toolbar_language_fr, set_user_locale_path("fr") %></span>
+                                    <span class="selectOption" data-value="english"><img src="<%= asset_path 'front/imgs/uk_flag.png' %>" alt="" /><%= link_to @front_page_content.home_toolbar_language_en, set_user_locale_path("en") %></span>
 
                                 </div>
                             </div>
 
                         </div>
-                        <div class="log_in_out"><a href="https://cocofci-lp2iprci.db.em2.oraclecloudapps.com/apex/f?p=30200141:IDENTIFICATION:2391100172140:::::" target="_blank"><i class="icon-sign-in"></i> Inscription</a></div>
+                        <div class="log_in_out"><a href="https://cocofci-lp2iprci.db.em2.oraclecloudapps.com/apex/f?p=30200141:IDENTIFICATION:2391100172140:::::" target="_blank"><i class="icon-sign-in"></i> <%= @front_page_content.home_toolbar_registration %></a></div>
                         <div class="cart_btn">
-                        	<a href="https://cocofci-lp2iprci.db.em2.oraclecloudapps.com/apex/f?p=30200222:LOGIN::::::" class="view_cart_btn" target="_blank"><i class="icon-users"></i> Mon Compte </a>
+                        	<a href="https://cocofci-lp2iprci.db.em2.oraclecloudapps.com/apex/f?p=30200222:LOGIN::::::" class="view_cart_btn" target="_blank"><i class="icon-users"></i> <%= @front_page_content.home_toolbar_my_account %> </a>
                         </div>
                     </div>
                 </div>
                 <div class="fleft">
-                    <div class="phone"><i class="icon-phone"></i>+225 22 47 58 63</div>
-                    <div class="email"><a href="mailto:#"><i class="icon-envelope"></i>info@competencesfeminines.gouv.ci</a></div>
+                    <div class="phone"><i class="icon-phone"></i><%= @front_page_content.home_toolbar_phone_number %></div>
+                    <div class="email"><a href="mailto:<%= @front_page_content.home_toolbar_email %>"><i class="icon-envelope"></i><%= @front_page_content.home_toolbar_email %></a></div>
                 </div>
                 <div class="clear"></div>
             </div>
@@ -57,11 +57,11 @@
                 <div class="container">
                 	<a class="top_menu_toggler" href="javascript:void(0)"></a>
                 	<div class="logo_sect">
-                        <a href="index.html" class="logo"><img src="<%= asset_path 'front/logo_cocofci-02.png' %>" class="logo_def" alt="" /><img src="<%= asset_path 'front/logo_cocofci-02.png' %>" class="logo_retina" alt="" /></a>
+                        <a href="<%= root_path %>" class="logo"><img src="<%= asset_path 'front/logo_cocofci-02.png' %>" class="logo_def" alt="" /><img src="<%= asset_path 'front/logo_cocofci-02.png' %>" class="logo_retina" alt="" /></a>
                     </div>
 
                     <div class="logo_sect1">
-                        <img src="<%= asset_path 'front/logo_efpod-04.png' %>" alt="" height="" />
+                        <a href="http://www.chaire-unesco.org/" target = "_blank"><img src="<%= asset_path 'front/logo_efpod-04.png' %>" alt="" height="" /></a>
                     </div>
 
                     <nav>

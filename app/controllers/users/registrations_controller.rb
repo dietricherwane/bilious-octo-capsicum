@@ -73,7 +73,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
       #respond_with resource
     end
 
-    redirect_to edit_user_registration_path(current_user.id)
+    render :edit
+    #render "/#{I18n.locale}/users/edit.#{current_user.id}"
   end
 
   # DELETE /resource

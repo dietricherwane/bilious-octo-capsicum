@@ -32,4 +32,18 @@ module ApplicationHelper
     link_to('<span>Revenir en arrière</span>'.html_safe, 'javascript:history.go(-1);', class: 'button redB')
   end
 
+  def front_language_menu
+    if I18n.locale == :fr
+      html = <<-HTML
+        <img src="#{asset_path 'front/imgs/FR-Flag.ico'}" alt="" width="22px" />#{@front_page_content.home_toolbar_language_fr}</span>
+      HTML
+    else
+      html = <<-HTML
+        <img src="#{asset_path 'front/imgs/uk_flag.png'}" alt="" />#{@front_page_content.home_toolbar_language_en}</span>
+      HTML
+    end
+
+    html.html_safe
+  end
+
 end

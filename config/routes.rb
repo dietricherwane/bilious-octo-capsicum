@@ -18,7 +18,11 @@ Rails.application.routes.draw do
     get "users/administrators/enable/:user_id" => "users#enable_administrator_account", as: :enable_administrator_account
     get "users/administrators/show/:user_id" => "users#display_administrator_profile", as: :display_administrator_profile
 
+    get "set_locale/:user_locale" => "home#set_user_locale", as: :set_user_locale
 
+    get "/administrator/manage_content_home" => "manage_front_content#home_page", as: :manage_home_front_content
+    post "/administrator/update_fr_content_home" => "manage_front_fr_content#update_home_page_content", as: :update_fr_home_front_content
+    post "/administrator/update_en_content_home" => "manage_front_en_content#update_home_page_content", as: :update_en_home_front_content
 
 
     # The priority is based upon order of creation: first created -> highest priority.
