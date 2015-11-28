@@ -7,7 +7,7 @@ Rails.application.configure do
   config.cache_classes = false
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-
+=begin
   ActionMailer::Base.smtp_settings = {
   	:openssl_verify_mode => 'none',
 		:address => "smtp.gmail.com",
@@ -17,6 +17,18 @@ Rails.application.configure do
 		:user_name => "mensah.dietrich@gmail.com",
 		:password => 'Ras444Al464Gul'
 	}
+=end
+
+#config.action_mailer.default_url_options = { :host => '41.189.40.193:10000' }
+  ActionMailer::Base.smtp_settings = {
+               :openssl_verify_mode => "none",
+               :address => "de2608.ispfr.net",
+               :enable_starttls_auto => true,
+               :port => 587,
+               :authentication => :login,
+               :user_name => "serviceclients@de2608.ispfr.net",
+               :password => "clients#2015"
+       }
 
   # Do not eager load code on boot.
   config.eager_load = false

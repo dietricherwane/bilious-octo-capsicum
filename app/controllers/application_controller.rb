@@ -4,6 +4,16 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_locale
+
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
+
+  def default_url_options(options={})
+    { locale: I18n.locale }
+  end
 
   #def after_sign_out_path_for(resource_or_scope)
 	  #new_user_session_path
@@ -35,6 +45,12 @@ class ApplicationController < ActionController::Base
 
       redirect_to new_user_session_path
     end
+  end
+
+  def select_front_menu_highlight_class(current_menu)
+    @home_menu_highlight_style = @compendium_menu_highlight_style = @blog_menu_highlight_style = @gallery_menu_highlight_style = @contact_menu_highlight_style = "menu-item-has-children"
+
+    instance_variable_set(("@" + current_menu), "current-menu-parent menu-item-has-children")
   end
 
   protected

@@ -1,0 +1,359 @@
+/* 
+    Document   : slider.css
+    Author     : jackh
+    Description:
+        News Carousel
+*/
+
+/* Import base css, this is a must.*/
+@import url("../base/slider.css");
+
+/**
+ *---------------------------------------------------------------------
+ * Slider CSS Override.
+ * This override base css, only certain/necessary rules are overridden.
+ *---------------------------------------------------------------------
+ */
+
+/**
+ * Slider navigation
+ */
+.xpro-slider-nav {
+    width:22px;
+    height:22px;
+    background-repeat:no-repeat;
+    background-position: center center;
+    position:absolute;
+    z-index:999999;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 3px;
+    
+    top: auto;
+    left: auto;
+    right: 10px;
+    bottom: 10px;
+    
+    -webkit-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    transition: all 0.6s;
+    -o-transition: all 0.6s;
+}
+
+/**
+ * Vertical slider navigation
+ */
+.xpro-vertical-slider .xpro-slider-nav {
+    width:22px;
+    height:22px;
+    
+    top:auto;
+    bottom:auto;
+    left:auto;
+    right:15px;
+}
+
+/**
+ * Slider navigation active, applied when mouse hover over the slider
+ */
+.xpro-slider-nav-selected {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/**
+* Nav item hover, applied when mouse hover over the navigation button
+*/
+.xpro-slider-nav-hover {
+    opacity: 1;
+    background-color: rgba(204, 0, 0, 1);
+}
+
+/**
+ * Previous button
+ */
+.xpro-slider-nav-prev {    
+    right:35px;    
+}
+
+.xpro-slider-nav-prev .xpro-slider-icon {    
+    background-position: -16px -128px;
+    width: 16px; height: 16px;
+}
+
+/**
+ * Next button
+ */
+.xpro-slider-nav-next {    
+    right:10px;
+}
+
+.xpro-slider-nav-next .xpro-slider-icon {
+    background-position: 0px -128px;
+    width: 16px; height: 16px;
+}
+
+/**
+ * Previous button(vertical)
+ */
+.xpro-vertical-slider .xpro-slider-nav-prev {
+    bottom: 35px;
+}
+
+.xpro-vertical-slider .xpro-slider-nav-prev .xpro-slider-icon {
+    background-position: -32px -128px;
+    width: 16px; height: 16px;
+}
+
+/**
+ * Next button (vertical)
+ */
+.xpro-vertical-slider .xpro-slider-nav-next {    
+     bottom: 10px;    
+}
+
+.xpro-vertical-slider .xpro-slider-nav-next .xpro-slider-icon {
+    background-position: -48px -128px;
+    width: 16px; height: 16px;
+}
+
+/**
+* Bullet item
+*/
+
+.xpro-thumbnails {
+    margin-top: 20px;
+}
+
+.xpro-thumb-item {
+    width: 16px;height: 16px;
+    background-image: url(../images/bullet-s.png);
+    background-position: -32px 0px;
+}
+
+.xpro-thumb-selected {
+    width: 16px;height: 16px;
+    background-image: url(../images/bullet-s.png);
+    background-position: -64px 0px;
+}
+
+/**
+* Slider item
+*/
+.xpro-slider-item {
+    padding: 3px;
+}
+
+/*----------------------------------------------------*/
+/* Below are content related template css. This css
+ * only control the content in slider, not slider itself
+/*----------------------------------------------------*/
+
+/*----------------------------------------------------------------------------*/
+/* News Carousel - classic Template */
+/*----------------------------------------------------------------------------*/
+
+.xp-news-classic-block {
+    position:relative;
+    overflow: hidden;
+    height: 100%;
+    margin: 0px;
+    font-weight: 300;
+    background-color: #ffffff;
+    border: #d8d8d8 0px solid;
+    box-shadow: #c8c8c8 0px 0px 3px;
+    color: #000000;
+}
+
+.xp-news-classic-block .xp-hover-image {
+    position:relative;
+    text-align: center;
+    
+    -webkit-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    transition: all 0.6s;
+    -o-transition: all 0.6s;    
+}
+
+.xp-news-classic-block .xp-hover-image .xp-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0);
+    
+    -webkit-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    transition: all 0.6s;
+    -o-transition: all 0.6s;      
+}
+
+.xp-news-classic-block .xp-hover-image:hover .xp-overlay {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.xp-news-classic-block .xp-hover-image .xp-sosmed-buttons {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    bottom: 0;
+    text-align: center;
+    font-size: 18px;
+    color: #ffffff;
+    
+    -webkit-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    transition: all 0.6s;
+    -o-transition: all 0.6s;     
+}
+
+.xp-news-classic-block .xp-hover-image .xp-sosmed-buttons a {
+    margin: 3px 5px;
+    color: inherit;
+}
+
+.xp-news-classic-block .xp-hover-image .xp-view-lightbox {
+    position: absolute;
+    color: #ffffff !important;
+    width: 32px;
+    height: 32px;
+    border-radius: 5px;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+    margin: auto;
+    text-align: center;
+    font-size: 20px;
+    background-color: rgba(0,0,0,0.3);
+    opacity: 0;
+    padding-top: 2px;
+    
+    -webkit-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    transition: all 0.6s;
+    -o-transition: all 0.6s;  
+}
+
+.xp-news-classic-block .xp-hover-image .xp-view-lightbox:hover {
+    background-color: rgba(180,0,0,0.5);
+}
+
+.xp-news-classic-block .xp-hover-image:hover .xp-sosmed-buttons,
+.xp-news-classic-block .xp-hover-image:hover .xp-view-lightbox {
+    opacity: 0.8;
+    
+    -webkit-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    transition: all 0.6s;
+    -o-transition: all 0.6s;      
+}
+
+.xp-news-classic-block .xp-news-detail {
+    padding: 10px;
+}
+
+.xp-news-classic-block .xp-news-detail h4 {
+    margin-top: 5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    overflow: hidden;
+    font-weight: 500;
+}
+
+.xp-news-classic-block .xp-news-detail a {
+    color: #000000;
+}
+
+.xp-news-classic-block .xp-news-detail .xp-news-footer {
+    font-size: 12px;
+    color: #686868;
+    text-align:right;    
+}
+
+
+/*----------------------------------------------------------------------------*/
+/* News Carousel - modern Template */
+/*----------------------------------------------------------------------------*/
+.xp-news-modern-block {
+    position:relative;
+    overflow: hidden;
+    height: 100%;
+    margin: 0px;
+    font-weight: 300;
+    background-color: #ffffff;
+    border: #d8d8d8 0px solid;
+    box-shadow: #c8c8c8 0px 0px 3px;
+    color: #000000;
+}
+
+.xp-news-modern-block a {
+    color: inherit;
+}
+
+.xp-news-modern-block .xp-slide-bar {
+    position:absolute;
+    width: 100%;
+    bottom:0px;
+    color: #ffffff;
+    background-color: rgba(0,0,0,0.5);    
+    text-align: center;    
+}
+
+.xp-news-modern-block .xp-slide-bar div {    
+    height: 0px;  
+
+    -webkit-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    transition: all 0.6s;
+    -o-transition: all 0.6s;    
+}
+
+.xp-news-modern-block .xp-slide-bar:hover div {
+    height: 60px;
+}
+
+/*----------------------------------------------------------------------------*/
+/* Video Carousel Template */
+/*----------------------------------------------------------------------------*/
+
+.xp-video-item-block {
+    position:relative;
+    overflow: hidden;
+    height: 100%;
+    margin: 0px;
+    font-weight: 300;
+    background-color: #ffffff;
+    border: #d8d8d8 0px solid;
+    box-shadow: #c8c8c8 0px 0px 3px;
+    color: #000000;
+}
+
+.xp-quad-item {
+    padding: 8px;
+    background-color: #ffffff;
+}
+
+.xp-quad-item .xp-half {
+    width:50%;
+    float:left;
+}
+
+.xp-quad-item .xp-topleft {
+    width:100%;    
+    margin-bottom: 1px;
+}
+
+.xp-quad-item .xp-bottomleft {
+    width:100%;    
+}
+
+.xp-quad-item .xp-topright {
+    width:100%;
+    margin-bottom: 1px;
+    margin-left: 1px;
+}
+
+.xp-quad-item .xp-bottomright {
+    width:100%;
+    margin-left: 1px;
+}

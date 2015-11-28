@@ -1,0 +1,186 @@
+/* 
+    Document   : slider.css
+    Author     : jackh
+    Description:
+        Gallery with thumbnails.
+*/
+
+/* Import base css*/
+@import url("../base/slider.css");
+
+/**
+--------------------------------------
+Slider css
+--------------------------------------
+*/
+
+.xpro-slider-container {
+    position:relative;
+}
+
+.xpro-slider {    
+    /*float:left;
+    margin-top: -95px;*/
+    border:#000000 1px solid;
+}
+
+.xpro-slider-item {    
+    background-color: #282828;
+    text-align:center;
+}
+
+.xpro-slider-info {
+    color:#ffffff;    
+}
+
+/**
+--------------------------------------
+Video Item
+--------------------------------------
+*/
+
+.xpro-video-item {
+    position:relative;
+    height:100%;
+}
+
+/**
+--------------------------------
+Thumbnail style
+--------------------------------
+*/
+
+.xpro-thumbnails {
+    width:100%;    
+    height:85px;
+    position: absolute;
+    margin:0px;
+    
+    overflow:hidden;
+    text-align: left;
+    z-index: 10000;
+    border-left: transparent 2px solid;
+    border-right: transparent 2px solid;
+    clear:both; /*needed to force thumbnails down below slider*/
+}
+
+.xpro-thumb-content {
+    white-space: nowrap;
+    position:absolute;    
+}
+
+.xpro-thumb-item {
+    position: relative;
+    display: inline-block;
+    overflow:hidden;
+    opacity:0.2;
+    width:110px; height:85px;
+    cursor: pointer;
+    padding: 5px;
+    background-image: none;
+    
+    -webkit-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    transition: all 0.6s;
+    -o-transition: all 0.6s;
+}
+
+.xpro-thumb-item img {
+    width:100%;
+    height:100%;
+    border: #000000 1px solid;
+}
+
+.xpro-thumb-selected {
+    opacity: 1;
+}
+
+.xpro-thumb-selected img{
+    border: #ffffff 1px solid;
+}
+
+.xpro-thumb-nav {
+    width:25px;
+    height:25px;
+    background-repeat:no-repeat;
+    background-position: center center;
+    z-index:999999;
+    position:absolute;
+    cursor: pointer;
+    opacity: 0;
+    background-color:transparent;
+    margin: auto;
+
+    -webkit-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    transition: all 0.6s;
+    -o-transition: all 0.6s;
+}
+
+.xpro-thumb-nav-selected {
+    opacity: 1;
+    
+}
+
+.xpro-thumb-nav-prev {
+    left:0px;
+    top: 0;
+    bottom: 0;
+}
+
+.xpro-thumb-nav-next {
+    right:0px;
+    top: 0;
+    bottom: 0;
+}
+
+.xpro-vert-thumbnails {
+    position: absolute;
+    width: 120px;
+    height: 100%;
+}
+
+.xpro-vert-thumbnails .xpro-thumb-content {
+    height: auto;
+}
+
+.xpro-vert-thumbnails .xpro-thumb-nav-prev {
+    top:0px;
+    bottom: auto;
+}
+
+.xpro-vert-thumbnails .xpro-thumb-nav-next {
+    top:auto;
+    bottom:0px;
+}
+
+/**
+--------------------------------
+Navigation
+--------------------------------
+*/
+
+.xpro-slider-nav {
+    width: 48px;
+    height: 60px;
+}
+
+.xpro-slider-nav-selected {
+    opacity:1;
+}
+
+.xpro-slider-nav-hover {
+    background-color: rgba(200,0,0,0.8);
+}
+
+.xpro-slider-nav-prev {
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    left:-12px;
+}
+
+.xpro-slider-nav-next {
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    right:-12px;
+}
