@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="shortcut icon" href="img/logo.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="img/apple_icons_57x57.png">
+<title>COCOFCI</title>
+
+<%= stylesheet_link_tag 'front/application', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'front/application_header', 'data-turbolinks-track' => true %>
+<% if controller_name == "home" && action_name == "index" %>
+<%= javascript_include_tag 'front/slider_initializer', 'data-turbolinks-track' => true %>
+<% end %>
+
+<%= csrf_meta_tags %>
+</head>
+
+<body>
+	<div class="main_header type1">
+
+        <!-- Top Header -->
+        <div class="tagline">
+            <div class="container">
+                <div class="fright">
+                	<div class="tagline_items">
+                    	<div class="language_select">
+                            <div class="selectBox">
+
+                                <span class="selectArrow"><span class=""><%= front_language_menu %></span></span>
+                                <div class="selectOptions" >
+                                    <span class="selectOption" data-value="french"><img src="<%= asset_path 'front/imgs/FR-Flag.ico' %>" alt="" width="22px"  /><%= link_to @front_page_content.home_toolbar_language_fr, set_user_locale_path("fr") %></span>
+                                    <span class="selectOption" data-value="english"><img src="<%= asset_path 'front/imgs/uk_flag.png' %>" alt="" /><%= link_to @front_page_content.home_toolbar_language_en, set_user_locale_path("en") %></span>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="log_in_out"><a href="https://cocofci-lp2iprci.db.em2.oraclecloudapps.com/apex/f?p=30200141:IDENTIFICATION:2391100172140:::::" target="_blank"><i class="icon-sign-in"></i> <%= @front_page_content.home_toolbar_registration %></a></div>
+                        <div class="cart_btn">
+                        	<a href="https://cocofci-lp2iprci.db.em2.oraclecloudapps.com/apex/f?p=30200222:LOGIN::::::" class="view_cart_btn" target="_blank"><i class="icon-users"></i> <%= @front_page_content.home_toolbar_my_account %> </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="fleft">
+                    <div class="phone"><i class="icon-phone"></i><%= @front_page_content.home_toolbar_phone_number %></div>
+                    <div class="email"><a href="mailto:<%= @front_page_content.home_toolbar_email %>"><i class="icon-envelope"></i><%= @front_page_content.home_toolbar_email %></a></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+        <!-- Nvigation Menu -->
+
+        <div class="header_parent_wrap">
+            <header>
+                <div class="container">
+                	<a class="top_menu_toggler" href="javascript:void(0)"></a>
+                	<div class="logo_sect">
+                        <a href="<%= root_path %>" class="logo"><img src="<%= asset_path 'front/logo_cocofci-02.png' %>" class="logo_def" alt="" /><img src="<%= asset_path 'front/logo_cocofci-02.png' %>" class="logo_retina" alt="" /></a>
+                    </div>
+
+                    <div class="logo_sect1">
+                        <a href="http://www.chaire-unesco.org/" target = "_blank"><img src="<%= asset_path 'front/logo_efpod-04.png' %>" alt="" height="" /></a>
+                    </div>
+
+                    <nav>
+                        <ul class="menu">
+                            <li class="<%= @home_menu_highlight_style %>"><a href="index.html">Accueil</a> </li>
+                            <li class="<%= @compendium_menu_highlight_style %>"><a href="lecompendium.html">Compendium</a></li>
+                            <li class="<%= @blog_menu_highlight_style %>"><a href="coming_soon.html">Blog</a></li>
+                            <li class="<%= @gallery_menu_highlight_style %>"><a href="galerie.html">Galerie</a></li>
+                            <li class="<%= @contact_menu_highlight_style %>"><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </nav>
+
+                    <div class="clear"></div>
+                </div>
+            </header>
+        </div>
+    </div>
+
+    <%= yield %>
+
+ <div class="footer">
+    	<div class="container">
+        	<div class="pre_footer">
+            	<div class="row">
+
+                    <div class="col-sm-3">
+                    	<div class="sidepanel widget_text">
+                        	<h4 class="title">Contact</h4>
+                            <p><span>Telephone :</span><br/> +225 09 79 73 18 <br/> +225 56 10 95 68</p>
+                            <p><span>Bureau :</span> <br/>
+                                BP 641 cidex 3 Abidjan <br/>
+Abidjan cocody riviera<br/> Route de Bingerville <br/>Bvd Mitterrand <Br/>Imm ARMISI 5ème étage</p>
+                            <p><span>Email :</span> <br/><a href="mailto:#">info@competencesfeminines.gouv.ci</a></p>
+                            <p><span>Reseau Social :</span> <a href="https://www.facebook.com/compendium-des-comp%C3%A9tences-f%C3%A9minines-de-C%C3%B4te-Ivoire-278515642187549/" class="soc_fb" target="_blank"><i class="icon-facebook-square"></i></a></p>
+
+
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                    	<div class="sidepanel widget_posts">
+                        	<h4 class="title">Liens Utiles</h4>
+                            <ul>
+                                <li><a href="http://chaireunesco-efpod.org/index.php" class="title" style="color:#9ba1ac">Chaire UNESCO - EFPOD</a> </li>
+                                <li><a href="http://www.premierministre.ci/Main.html" href="javascript:void(0);" class="title"  style="color:#9ba1ac" target="_blank">Primature</a></li>
+                                <li><a href="http://www.gouv.ci/Main.php" href="javascript:void(0);" class="title" style="color:#9ba1ac" target="_blank">Le Gouvernement</a></li>
+                                <li><a href="http://www.famille.gouv.ci/" href="javascript:void(0);" class="title" style="color:#9ba1ac" target="_blank">Ministère de la Famille, de la Femme et de l’Enfant</a></li>
+                                <li><a href="http://jeunesse.gouv.ci" href="javascript:void(0);" class="title" style="color:#9ba1ac" target="_blank">Ministère de la Promotion Jeunesse et du Service Civique</a></li>
+                                <li><a href="http://www.ci.undp.org/" href="javascript:void(0);" class="title" style="color:#9ba1ac" target="_blank">PNUD CÔTE D’IVOIRE</a></li>
+                                <li><a href="http://countryoffice.unfpa.org/cotedivoire/" href="javascript:void(0);" class="title" style="color:#9ba1ac" target="_blank">UNFPA CÔTE D’IVOIRE</a></li>
+                                <li><a href= "http://www.onuci.org/en.php3" href="javascript:void(0);" class="title" style="color:#9ba1ac" target="_blank">ONUCI</a></li>
+                                <li><a href="http://www.rigrh.org/" href="javascript:void(0);" class="title" style="color:#9ba1ac" target="_blank">Reseau ivoirien des Gestionnaires de Ressources Humaines
+</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="sidepanel widget_posts">
+                        	<h4 class="title">Recent Posts</h4>
+                            <ul class="recent_posts">
+                                <li class="with_img">
+                                    <div class="recent_posts_content">
+                                    	<img src="<%= asset_path 'front/imgs/widget_post1.jpg' %>" alt="" />
+                                        <a href="http://127.0.0.1:60848/post_fullwidth.html" href="javascript:void(0);" class="title" target="_blank">Business Cards Design Trends</a>
+                                        <div class="recent_posts_info">Dec 02, 2020  /  <a href="javascript:void(0);">2 comments</a></div>
+                                    </div>
+                                </li>
+                                <li class="with_img">
+                                    <div class="recent_posts_content">
+                                    	<img src="<%= asset_path 'front/imgs/widget_post2.jpg' %>" alt="" />
+                                        <a href="javascript:void(0);" class="title">This Maravelous App</a>
+                                        <div class="recent_posts_info">Nov 18, 2020  /  <a href="javascript:void(0);">9 comments</a></div>
+                                    </div>
+                                </li>
+                                <li class="with_img">
+                                    <div class="recent_posts_content">
+                                    	<img src="<%= asset_path 'front/imgs/widget_post3.jpg' %>" alt="" />
+                                        <a href="javascript:void(0);" class="title">Brand Paper Niceties</a>
+                                        <div class="recent_posts_info">Nov 10, 2020  /  <a href="javascript:void(0);">0 comments</a></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                    	<div class="sidepanel widget_review">
+                        	<h4 class="title">Navigation</h4>
+
+                            	<p><a href="index.html" style="color:#9ba1ac" >Acceuil</a></p>
+                                <p><a href="index.html" style="color:#9ba1ac">Compendium</a></p>
+                                <p><a href="index.html" style="color:#9ba1ac">Blog</a></p>
+                                <p><a href="index.html" style="color:#9ba1ac">Galerie</a></p>
+                                <p><a href="index.html" style="color:#9ba1ac">Contact</a></p>
+
+                        </div>
+                        <div class="sidepanel widget_review">
+                            <h4 class="title">Nombre de Visites :</h4>
+
+                        </div>
+                    </div>
+
+                 </div>
+            </div>
+            <div class="footer_bottom">
+            	<div class="copyright">&copy; 2015 COCOFCI. TOUS DROITS RESERVES.
+                    <a href="#"> CONFIDENTIALITE </a> <span> | </span> <a href="#"> CONDITION D'UTILISATIONS.</a></div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed-menu"></div>
+
+ <%= javascript_include_tag 'front/application_footer', 'data-turbolinks-track' => true %>
+</body>
+</html>

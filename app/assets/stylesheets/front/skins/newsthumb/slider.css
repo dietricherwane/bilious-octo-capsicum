@@ -1,0 +1,173 @@
+/* 
+    Document   : slider.css
+    Author     : jackh
+    Description:
+        News Thumb stylesheet
+*/
+
+/* Import base css*/
+@import url("../base/slider.css");
+
+/* --------------------------------------
+ * Slider element style override 
+ * --------------------------------------
+ */
+
+/**
+ * Slider navigation
+ */
+.xpro-slider-nav {
+    width:22px;
+    height:22px;
+    background-repeat:no-repeat;
+    background-position: center center;
+    position:absolute;
+    z-index:999999;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 3px;
+    
+    top: auto;    
+    bottom: 10px;
+    
+    -webkit-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    transition: all 0.6s;
+    -o-transition: all 0.6s;
+}
+
+/**
+ * Vertical slider navigation
+ */
+.xpro-vertical-slider .xpro-slider-nav {
+    width:22px;
+    height:22px;
+    
+    top:auto;
+    bottom:auto;
+    left:auto;
+    right:10px;
+}
+
+/**
+ * Slider navigation active, applied when mouse hover over the slider
+ */
+.xpro-slider-nav-selected {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/**
+* Nav item hover, applied when mouse hover over the navigation button
+*/
+.xpro-slider-nav-hover {
+    opacity: 1;
+    background-color: rgba(204, 0, 0, 1);
+}
+
+/**
+ * Previous button
+ */
+.xpro-slider-nav-prev {
+    left:10px;
+    right: auto;
+}
+
+.xpro-slider-nav-prev .xpro-slider-icon {    
+    background-position: -16px -128px;
+    width: 16px; height: 16px;
+}
+
+/**
+ * Next button
+ */
+.xpro-slider-nav-next {
+    right:10px;
+}
+
+.xpro-slider-nav-next .xpro-slider-icon {
+    background-position: 0px -128px;
+    width: 16px; height: 16px;
+}
+
+/**
+ * Previous button(vertical)
+ */
+.xpro-vertical-slider .xpro-slider-nav-prev {
+    bottom: 35px;
+}
+
+.xpro-vertical-slider .xpro-slider-nav-prev .xpro-slider-icon {
+    background-position: -32px -128px;
+    width: 16px; height: 16px;
+}
+
+/**
+ * Next button (vertical)
+ */
+.xpro-vertical-slider .xpro-slider-nav-next {
+    bottom: 10px;    
+}
+
+.xpro-vertical-slider .xpro-slider-nav-next .xpro-slider-icon {
+    background-position: -48px -128px;
+    width: 16px; height: 16px;
+}
+
+/* Slider item */
+
+.xpro-slider-item-selected {
+    background-color: #000000;
+}
+
+.xpro-slider-item-selected img {
+    transform: scale(1) !important;
+    
+    -webkit-transition: all 0.8s;
+    -moz-transition: all 0.8s;
+    transition: all 0.8s;
+    -o-transition: all 0.8s;      
+}
+
+.xpro-slider-item {
+    cursor: pointer;
+}
+
+.xpro-slider-item img {
+    transform: scale(0.8);
+    
+    -webkit-transition: all 0.8s;
+    -moz-transition: all 0.8s;
+    transition: all 0.8s;
+    -o-transition: all 0.8s;       
+}
+
+/* --------------------------------------
+ * Slider content related style.
+ * --------------------------------------
+ */
+
+.xp-newsthumb-block {
+    overflow: hidden;
+    height: 100%;
+    margin-right:0px;
+    padding: 30px 10px;
+    font-weight: 200;
+}
+
+.xp-newsthumb-block h4 {
+    text-align: center;
+}
+
+.xp-newsthumb-block img {
+    border-radius: 0px;
+    border: #a8a8a8 1px solid;
+}
+
+.xp-newsthumb-block p {
+    text-align: center;
+}
+
+.xp-newsthumb-block .xp-newsthumb-footer {
+    font-size: 12px;
+    color: #a8a8a8;    
+}

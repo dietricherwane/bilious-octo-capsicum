@@ -1,0 +1,2 @@
+module ManageFrontEnContentHelper
+end

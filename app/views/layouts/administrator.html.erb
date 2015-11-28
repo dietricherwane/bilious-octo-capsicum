@@ -19,7 +19,18 @@
 
     <!-- Left navigation -->
     <ul id="menu" class="nav">
-        <li class="dash"><%= link_to "<span>Dashboard</span>".html_safe, dashboard_path, class: "#{@class_dashboard}"%></li>
+        <li class="dash"><%= link_to "<span>Dashboard</span>".html_safe, dashboard_path, class: "#{@class_dashboard}" %></li>
+        <li class="tables"><a href="#" title="" class="exp"><span>Contenu du site web</span><strong>7</strong></a>
+          <ul class="sub">
+            <li><a href="<%= manage_home_front_content_path %>" title="">Accueil</a></li>
+            <li><a href="table_static.html" title="">Femmes à la une</a></li>
+            <li><a href="table_static.html" title="">Activités</a></li>
+            <li><a href="table_dynamic.html" title="">Compendium</a></li>
+            <li><a href="table_dynamic.html" title="">Blog</a></li>
+            <li><a href="table_dynamic.html" title="">Galerie</a></li>
+            <li><a href="table_dynamic.html" title="">Contacts</a></li>
+          </ul>
+        </li>
     </ul>
 </div>
 
@@ -33,9 +44,9 @@
             <div class="welcome"><%= image_tag(current_user.avatar.url(:small), width: "18px") rescue "" %><span><%= current_user.full_name rescue "" %></span></div>
             <div class="userNav">
                 <ul>
-                  <li><a href="<%= edit_user_registration_path(current_user.id) %>" title=""><img src="<%= asset_path 'icons/topnav/profile.png' %>" alt="" /><span>Profil</span></a></li>
+                  <li><a href="/<%= I18n.locale %>/users/edit.<%= current_user.id %>" title=""><img src="<%= asset_path 'icons/topnav/profile.png' %>" alt="" /><span>Profil</span></a></li>
                   <li>
-                    <a data-method="delete" href="/users/sign_out" rel="nofollow"><img src="<%= asset_path 'icons/topnav/logout.png' %>" alt="" /><span>Se déconnecter</span></a>
+                    <a data-method="delete" href="/<%= I18n.locale %>/users/sign_out" rel="nofollow"><img src="<%= asset_path 'icons/topnav/logout.png' %>" alt="" /><span>Se déconnecter</span></a>
                   </li>
                 </ul>
             </div>

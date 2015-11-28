@@ -1,0 +1,538 @@
+/* 
+    Document   : slider.css
+    Author     : jackh
+    Description:
+        Showcase Carousel
+*/
+
+/* Import base css, this is a must.*/
+@import url("../base/slider.css");
+
+/**
+ *--------------------------------
+ * Slider CSS Override
+ *--------------------------------
+ */
+
+/**
+ * Slider navigation
+ */
+.xpro-slider-nav {
+    width:22px;
+    height:22px;
+    background-repeat:no-repeat;
+    background-position: center center;
+    position:absolute;
+    z-index:999999;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 3px;
+    
+    top: auto;
+    left: auto;
+    right: 10px;
+    bottom: 10px;
+    
+    -webkit-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    transition: all 0.6s;
+    -o-transition: all 0.6s;
+}
+
+/**
+ * Vertical slider navigation
+ */
+.xpro-vertical-slider .xpro-slider-nav {
+    width:22px;
+    height:22px;
+    
+    top:auto;
+    bottom:auto;
+    left:auto;
+    right:15px;
+}
+
+/**
+ * Slider navigation active, applied when mouse hover over the slider
+ */
+.xpro-slider-nav-selected {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/**
+* Nav item hover, applied when mouse hover over the navigation button
+*/
+.xpro-slider-nav-hover {
+    opacity: 1;
+    background-color: rgba(204, 0, 0, 1);
+}
+
+/**
+ * Previous button
+ */
+.xpro-slider-nav-prev {
+    right:35px;
+}
+
+.xpro-slider-nav-prev .xpro-slider-icon {    
+    background-position: -16px -128px;
+    width: 16px; height: 16px;
+}
+
+/**
+ * Next button
+ */
+.xpro-slider-nav-next {
+    right:10px;
+}
+
+.xpro-slider-nav-next .xpro-slider-icon {
+    background-position: 0px -128px;
+    width: 16px; height: 16px;
+}
+
+/**
+ * Previous button(vertical)
+ */
+.xpro-vertical-slider .xpro-slider-nav-prev {
+    bottom: 35px;
+}
+
+.xpro-vertical-slider .xpro-slider-nav-prev .xpro-slider-icon {
+    background-position: -32px -128px;
+    width: 16px; height: 16px;
+}
+
+/**
+ * Next button (vertical)
+ */
+.xpro-vertical-slider .xpro-slider-nav-next {
+    bottom: 10px;    
+}
+
+.xpro-vertical-slider .xpro-slider-nav-next .xpro-slider-icon {
+    background-position: -48px -128px;
+    width: 16px; height: 16px;
+}
+
+/**
+* Bullet item
+*/
+
+.xpro-thumbnails {
+    margin-top: 20px;
+}
+
+.xpro-thumb-item {
+    width: 16px;height: 16px;
+    background-image: url(../images/bullet-s.png);
+    background-position: -32px 0px;
+}
+
+.xpro-thumb-selected {
+    width: 16px;height: 16px;
+    background-image: url(../images/bullet-s.png);
+    background-position: -64px 0px;
+}
+
+/**
+* Slider item
+*/
+.xpro-slider-item {
+    padding: 3px;
+}
+
+/*----------------------------------------------------*/
+/* Content related template
+/*----------------------------------------------------*/
+
+/*---------------------------*/
+/* Product Showcase Template */
+/*---------------------------*/
+
+.xp-product-item-block {
+    position:relative;
+    overflow: hidden;
+    height: 100%;
+    margin: 0px;
+    font-weight: 300;
+    background-color: #ffffff;
+    border: #d8d8d8 0px solid;
+    box-shadow: #c8c8c8 0px 0px 3px;
+    color: #000000;
+}
+
+.xp-product-item-block h4 {    
+    margin: 10px 10px;
+    margin-top: 15px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    font-weight: 500;
+}
+
+.xp-product-item-block h4 a {
+    color: #000000;
+}
+
+.xp-product-item-block p {
+    margin: 10px;
+    text-align: center;
+}
+
+.xp-product-item-block .xp-product-detail {
+    clear:both;
+    float:left;
+    margin-bottom: 10px;
+}
+
+.xp-product-item-block .xp-product-detail a {
+    font-size: 13px;
+}
+
+.xp-product-item-block .xp-product-detail .xp-left {
+    float:left;
+    width: 20%;
+    padding:10px;
+    font-size:1.5em;
+    text-align:center;
+}
+
+.xp-product-item-block .xp-product-detail .xp-right {
+    float:left;
+    width: 80%;
+    padding:10px;
+    border-left: #d8d8d8 1px dotted;    
+}
+
+.xp-product-item-block .xp-detail-text {
+    text-align: justify;
+    font-size:13px;    
+}
+
+.xp-product-item-block .xp-product-detail .xp-left .xp-base-price {
+    color:#ff0000;
+    font-size: 15px;
+    text-decoration: line-through;
+}
+
+.xp-product-item-block .xp-image-hover {
+    position:relative;
+    text-align: center;
+    
+    -webkit-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    transition: all 0.6s;
+    -o-transition: all 0.6s;  
+}
+
+.xp-product-item-block .xp-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0);
+    
+    -webkit-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    transition: all 0.6s;
+    -o-transition: all 0.6s;      
+}
+
+.xp-product-item-block .xp-image-hover:hover .xp-overlay {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.xp-product-item-block .xp-image-hover:hover .xp-sosmed-buttons,
+.xp-product-item-block .xp-image-hover:hover .xp-view-button {
+    opacity: 0.8;
+    
+    -webkit-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    transition: all 0.6s;
+    -o-transition: all 0.6s;      
+}
+
+.xp-product-item-block .xp-view-button {
+    position: absolute;
+    color: #ffffff !important;
+    width: 32px; height: 32px;
+    border-radius: 5px;
+    top: 0; bottom: 0; left: 0; right: 0;
+    margin: auto;
+    text-align: center;
+    font-size: 20px;
+    padding-top: 2px;
+    
+    background-color: rgba(0,0,0,0.3);
+    opacity: 0;
+    
+    -webkit-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    transition: all 0.6s;
+    -o-transition: all 0.6s;  
+}
+
+.xp-product-item-block .xp-view-button:hover {
+    background-color: rgba(180,0,0,0.5);
+}
+
+.xp-product-item-block .xp-sosmed-buttons {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    bottom: 0;
+    text-align: center;
+    font-size: 18px;
+    
+    -webkit-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    transition: all 0.6s;
+    -o-transition: all 0.6s;  
+}
+
+.xp-product-item-block .xp-sosmed-buttons a {
+    color: #ffffff;
+    margin: 3px 8px;
+}
+
+
+/*----------------------------------------------------------------------------*/
+/* Team Showcase Template*/
+/*----------------------------------------------------------------------------*/
+
+.xp-team-item-block {
+    position:relative;
+    overflow: hidden;
+    height: 100%;
+    margin: 0px;
+    font-weight: 300;
+    background-color: #ffffff;
+    color: #000000;    
+    text-align: center;
+    border: #f0f0f0 1px solid;
+}
+
+.xp-team-item-block img {
+    border-radius: 50%;
+    width: 160px;
+    height: 160px;
+    max-width: 100%;
+    box-shadow: #989898 0px 0px 10px;
+    margin: 8px;
+    margin-top: 12px;
+    
+    -webkit-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    transition: all 0.6s;
+    -o-transition: all 0.6s;        
+}
+
+.xp-team-item-block .xp-slide-panel {
+    position:absolute;
+    width: 100%;
+    bottom:0px;    
+    color: #000000;
+    text-align: center;
+    
+    -webkit-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    transition: all 0.6s;
+    -o-transition: all 0.6s;      
+}
+
+.xp-team-item-block .xp-slide-panel h4 {
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.xp-team-item-block .xp-slide-panel a {
+    color: inherit;
+}
+
+.xp-team-item-block .xp-sosmed-buttons {
+    height: 0px;  
+    font-size: 18px;
+    
+    -webkit-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    transition: all 0.6s;
+    -o-transition: all 0.6s;      
+}
+
+.xp-team-item-block .xp-sosmed-buttons a {
+    margin: 3px 8px;
+    color: #999999;
+}
+
+.xp-team-item-block .xp-sosmed-buttons a:hover {
+    color: #333333;
+}
+
+.xp-team-item-block:hover .xp-slide-panel {
+    /*background-color: rgba(0,0,0,0.1);
+    color: #ffffff;*/
+}
+
+.xp-team-item-block:hover .xp-sosmed-buttons {
+    height: 30px;
+}
+
+.xp-team-item-block:hover img {
+    width: 200px;
+    height: 200px;
+}
+
+/*----------------------------------------------------------------------------*/
+/* Vertical Testimonial Template */
+/*----------------------------------------------------------------------------*/
+
+.xp-testi-vert {
+    position:relative;
+    overflow: hidden;
+    padding: 10px;
+    font-weight: 300;
+    background-color: #ffffff;
+    color: #000000;
+    display:block;
+}
+
+.xp-testi-vert .xp-avatar {
+    float: left;
+    width: 20%;
+    text-align: center;
+    
+}
+
+.xp-testi-vert .xp-testimonial {    
+    float: left;
+    width: 80%;    
+    padding: 5px 10px;
+    font-size: 13px;
+    /*box-shadow: #999999 0 0 5px;
+    background-color: #f8f8f8;
+    border-radius: 6px;*/
+    border-left: #d8d8d8 1px dotted;
+    
+}
+
+.xp-testi-vert .xp-rating {
+    color: #ffad0e;
+    float: right;
+    font-size: 12px;
+}
+
+.xp-testi-vert .xp-avatar img {
+    width: 60px;
+    height: 60px;
+    max-width: 100%;    
+    border-radius: 50%;    
+    margin-top: 18px;
+}
+
+.xp-testi-vert .xp-avatar div {
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.xp-testi-vert .xp-testimonial em {
+    font-size: 11px;
+}
+
+/*----------------------------------------------------------------------------*/
+/* Vertical Testimonial - Classic Template */
+/*----------------------------------------------------------------------------*/
+
+.xp-testi-classic {
+    position:relative;
+    overflow: hidden;
+    padding: 10px;
+    font-weight: 300;
+    background-color: #ffffff;
+    color: #000000;
+    display:block;
+}
+
+.xp-testi-classic .xp-avatar h4 {
+    font-weight: 400;
+}
+
+.xp-testi-classic .xp-rating {
+    float: right;
+    color: #666666;
+    font-size: 12px;
+}
+
+.xp-testi-classic .xp-testimonial {
+    font-size: 13px;
+    text-align: justify;    
+}
+
+.xp-testi-classic .xp-testimonial em {
+    font-size: 11px;
+}
+
+/*----------------------------------------------------------------------------*/
+/* Horizontal Testimonial Template */
+/*----------------------------------------------------------------------------*/
+
+.xp-testi-horz {
+    position: relative;
+    padding: 5px;
+    background-color: #ffffff;
+    height: 100%;
+}
+
+.xp-testi-horz .xp-avatar {
+    margin-bottom: 10px;
+    width: 100%;
+    float: right;
+}
+
+.xp-testi-horz .xp-avatar-head {
+    float: right;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.xp-testi-horz .xp-avatar-head h4 {
+    margin-bottom: 0px;
+    text-align: right;
+}
+
+.xp-testi-horz .xp-avatar-head em {
+    margin-bottom: 0px;
+    font-size: 11px;
+}
+    
+.xp-testi-horz .xp-avatar img {
+    float: right;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.xp-testi-horz .xp-avatar .xp-rating {
+    color: #ffad0e;
+    text-align: right;
+    font-size: 12px;
+}
+
+.xp-testi-horz .xp-testimonial {
+    clear:both;
+    padding: 5px;
+    font-size: 13px;
+}
+
+.xp-testi-horz .xp-testimonial p {
+    text-align: justify;
+}
+
+.xp-testi-horz .xp-testi-footer {
+    width: 100%;
+    text-align: right;
+}

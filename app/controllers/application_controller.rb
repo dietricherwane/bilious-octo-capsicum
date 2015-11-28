@@ -4,10 +4,20 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_locale
 
-  #def after_sign_out_path_for(resource_or_scope)
-	  #new_user_session_path
-  #end
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
+
+  def default_url_options(options={})
+    { locale: I18n.locale }
+  end
+
+  def after_sign_out_path_for(resource_or_scope)
+	  new_user_session_path
+  end
 
   def after_sign_in_path_for(resource_or_scope)
     new_user_registration_path
@@ -34,6 +44,28 @@ class ApplicationController < ActionController::Base
       flash[:alert] = "Votre compte a été désactivé. Veuillez contacter l'administrateur."
 
       redirect_to new_user_session_path
+    end
+  end
+
+  def skip_login_page_for_registered_users
+    if !current_user.blank?
+      redirect_to new_user_registration_path
+    end
+  end
+
+  def select_front_menu_highlight_class(current_menu)
+    @home_menu_highlight_style = @compendium_menu_highlight_style = @blog_menu_highlight_style = @gallery_menu_highlight_style = @contact_menu_highlight_style = "menu-item-has-children"
+
+    instance_variable_set(("@" + current_menu), "current-menu-parent menu-item-has-children")
+  end
+
+  def set_front_page_content
+    if I18n.locale == :fr
+      @front_page_content = FrFrontPageContent.first
+    else
+      if I18n.locale == :en
+        @front_page_content = EnFrontPageContent.first
+      end
     end
   end
 

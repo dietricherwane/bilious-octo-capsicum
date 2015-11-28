@@ -17,8 +17,8 @@ module UsersHelper
       if current_user_profile_shortcut == "ADM" && (user.profile.shortcut == "S-ADM" || user.profile.shortcut == "ADM")
         html = ""
       else
-        if current_user_profile_shortcut == "AUD" &&
-          html = ""
+        if current_user_profile_shortcut == "AUD" && html == ""
+
         end
       end
     end

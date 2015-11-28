@@ -3,6 +3,7 @@ class Users::SessionsController < Devise::SessionsController
   prepend_before_filter :allow_params_authentication!, only: :create
   prepend_before_filter :verify_signed_out_user, only: :destroy
   prepend_before_filter only: [ :create, :destroy ] { request.env["devise.skip_timeout"] = true }
+  before_filter :skip_login_page_for_registered_users, only: :new
 
   layout false
 

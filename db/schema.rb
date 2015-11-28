@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117105917) do
+ActiveRecord::Schema.define(version: 20151128132645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,38 @@ ActiveRecord::Schema.define(version: 20151117105917) do
   create_table "boundary_details", force: true do |t|
     t.string   "code"
     t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "en_front_page_contents", force: true do |t|
+    t.string   "home_toolbar_phone_number"
+    t.string   "home_toolbar_email"
+    t.string   "home_toolbar_language_fr"
+    t.string   "home_toolbar_language_en"
+    t.string   "home_toolbar_registration"
+    t.string   "home_toolbar_my_account"
+    t.string   "home_main_menu_home"
+    t.string   "home_main_menu_compendium"
+    t.string   "home_main_menu_blog"
+    t.string   "home_main_menu_gallery"
+    t.string   "home_main_menu_contact"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "fr_front_page_contents", force: true do |t|
+    t.string   "home_toolbar_phone_number"
+    t.string   "home_toolbar_email"
+    t.string   "home_toolbar_language_fr"
+    t.string   "home_toolbar_language_en"
+    t.string   "home_toolbar_registration"
+    t.string   "home_toolbar_my_account"
+    t.string   "home_main_menu_home"
+    t.string   "home_main_menu_compendium"
+    t.string   "home_main_menu_blog"
+    t.string   "home_main_menu_gallery"
+    t.string   "home_main_menu_contact"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
