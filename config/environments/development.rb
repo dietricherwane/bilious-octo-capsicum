@@ -16,10 +16,6 @@ Rails.application.configure do
 		:user_name => "mensah.dietrich@gmail.com",
 		:password => 'Ras444Al464Gul'
 	}
-<<<<<<< HEAD
-=======
-
->>>>>>> 4a65621e5dcd7f8baabed2dab424a63cf7554776
 
   # Do not eager load code on boot.
   config.eager_load = false
