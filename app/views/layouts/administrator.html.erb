@@ -20,9 +20,9 @@
     <!-- Left navigation -->
     <ul id="menu" class="nav">
         <li class="dash"><%= link_to "<span>Dashboard</span>".html_safe, dashboard_path, class: "#{@class_dashboard}" %></li>
-        <li class="tables"><a href="#" title="" class="exp"><span>Contenu du site web</span><strong>7</strong></a>
+        <li class="tables"><a href="#" title="" class="exp" id = "<%= @website_content_menu_style %>"><span>Contenu du site web</span><strong>7</strong></a>
           <ul class="sub">
-            <li><a href="<%= manage_home_front_content_path %>" title="">Accueil</a></li>
+            <li class = "<%= @home_website_content_menu_style %>"><a href="<%= manage_home_front_content_path %>" title="">Accueil</a></li>
             <li><a href="table_static.html" title="">Femmes à la une</a></li>
             <li><a href="table_static.html" title="">Activités</a></li>
             <li><a href="table_dynamic.html" title="">Compendium</a></li>

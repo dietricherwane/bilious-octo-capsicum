@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151128132645) do
+ActiveRecord::Schema.define(version: 20151129024257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,24 @@ ActiveRecord::Schema.define(version: 20151128132645) do
     t.string   "home_main_menu_contact"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "home_slider_slide1_text1"
+    t.string   "home_slider_slide1_text2"
+    t.string   "home_slider_slide1_text3"
+    t.string   "home_slider_slide2_text1"
+    t.string   "home_slider_slide2_text2"
+    t.string   "home_slider_slide2_text3"
+    t.string   "home_slider_slide2_text4"
+    t.string   "home_slider_slide2_text5"
+    t.string   "home_slider_slide2_text6"
+    t.string   "home_slider_slide3_text1"
+    t.string   "home_slider_slide3_text2"
+    t.string   "home_slider_slide3_text3"
+    t.string   "home_slider_slide3_text4"
+    t.string   "home_slider_slide4_text1"
+    t.string   "home_slider_slide4_text2"
+    t.string   "home_slider_slide4_text3"
+    t.string   "home_slider_slide4_text4"
+    t.string   "home_slider_slide4_text5"
   end
 
   create_table "fr_front_page_contents", force: true do |t|
@@ -62,6 +80,24 @@ ActiveRecord::Schema.define(version: 20151128132645) do
     t.string   "home_main_menu_contact"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "home_slider_slide1_text1"
+    t.string   "home_slider_slide1_text2"
+    t.string   "home_slider_slide1_text3"
+    t.string   "home_slider_slide2_text1"
+    t.string   "home_slider_slide2_text2"
+    t.string   "home_slider_slide2_text3"
+    t.string   "home_slider_slide2_text4"
+    t.string   "home_slider_slide2_text5"
+    t.string   "home_slider_slide2_text6"
+    t.string   "home_slider_slide3_text1"
+    t.string   "home_slider_slide3_text2"
+    t.string   "home_slider_slide3_text3"
+    t.string   "home_slider_slide3_text4"
+    t.string   "home_slider_slide4_text1"
+    t.string   "home_slider_slide4_text2"
+    t.string   "home_slider_slide4_text3"
+    t.string   "home_slider_slide4_text4"
+    t.string   "home_slider_slide4_text5"
   end
 
   create_table "profiles", force: true do |t|
