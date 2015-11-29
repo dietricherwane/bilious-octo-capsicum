@@ -89,74 +89,25 @@
 
                     <div class="col-sm-3">
                     	<div class="sidepanel widget_text">
-                        	<h4 class="title">Contact</h4>
-                            <p><span>Telephone :</span><br/> +225 09 79 73 18 <br/> +225 56 10 95 68</p>
-                            <p><span>Bureau :</span> <br/>
-                                BP 641 cidex 3 Abidjan <br/>
-Abidjan cocody riviera<br/> Route de Bingerville <br/>Bvd Mitterrand <Br/>Imm ARMISI 5ème étage</p>
-                            <p><span>Email :</span> <br/><a href="mailto:#">info@competencesfeminines.gouv.ci</a></p>
-                            <p><span>Reseau Social :</span> <a href="https://www.facebook.com/compendium-des-comp%C3%A9tences-f%C3%A9minines-de-C%C3%B4te-Ivoire-278515642187549/" class="soc_fb" target="_blank"><i class="icon-facebook-square"></i></a></p>
-
-
+                        	<%= @front_page_content.home_footer_block1.html_safe rescue "" %>
                         </div>
                     </div>
 
                     <div class="col-sm-3">
                     	<div class="sidepanel widget_posts">
-                        	<h4 class="title">Liens Utiles</h4>
-                            <ul>
-                                <li><a href="http://chaireunesco-efpod.org/index.php" class="title" style="color:#9ba1ac">Chaire UNESCO - EFPOD</a> </li>
-                                <li><a href="http://www.premierministre.ci/Main.html" href="javascript:void(0);" class="title"  style="color:#9ba1ac" target="_blank">Primature</a></li>
-                                <li><a href="http://www.gouv.ci/Main.php" href="javascript:void(0);" class="title" style="color:#9ba1ac" target="_blank">Le Gouvernement</a></li>
-                                <li><a href="http://www.famille.gouv.ci/" href="javascript:void(0);" class="title" style="color:#9ba1ac" target="_blank">Ministère de la Famille, de la Femme et de l’Enfant</a></li>
-                                <li><a href="http://jeunesse.gouv.ci" href="javascript:void(0);" class="title" style="color:#9ba1ac" target="_blank">Ministère de la Promotion Jeunesse et du Service Civique</a></li>
-                                <li><a href="http://www.ci.undp.org/" href="javascript:void(0);" class="title" style="color:#9ba1ac" target="_blank">PNUD CÔTE D’IVOIRE</a></li>
-                                <li><a href="http://countryoffice.unfpa.org/cotedivoire/" href="javascript:void(0);" class="title" style="color:#9ba1ac" target="_blank">UNFPA CÔTE D’IVOIRE</a></li>
-                                <li><a href= "http://www.onuci.org/en.php3" href="javascript:void(0);" class="title" style="color:#9ba1ac" target="_blank">ONUCI</a></li>
-                                <li><a href="http://www.rigrh.org/" href="javascript:void(0);" class="title" style="color:#9ba1ac" target="_blank">Reseau ivoirien des Gestionnaires de Ressources Humaines
-</a></li>
-                            </ul>
+                        	<%= @front_page_content.home_footer_block2.html_safe rescue "" %>
                         </div>
                     </div>
 
                     <div class="col-sm-3">
                         <div class="sidepanel widget_posts">
-                        	<h4 class="title">Recent Posts</h4>
-                            <ul class="recent_posts">
-                                <li class="with_img">
-                                    <div class="recent_posts_content">
-                                    	<img src="<%= asset_path 'front/imgs/widget_post1.jpg' %>" alt="" />
-                                        <a href="http://127.0.0.1:60848/post_fullwidth.html" href="javascript:void(0);" class="title" target="_blank">Business Cards Design Trends</a>
-                                        <div class="recent_posts_info">Dec 02, 2020  /  <a href="javascript:void(0);">2 comments</a></div>
-                                    </div>
-                                </li>
-                                <li class="with_img">
-                                    <div class="recent_posts_content">
-                                    	<img src="<%= asset_path 'front/imgs/widget_post2.jpg' %>" alt="" />
-                                        <a href="javascript:void(0);" class="title">This Maravelous App</a>
-                                        <div class="recent_posts_info">Nov 18, 2020  /  <a href="javascript:void(0);">9 comments</a></div>
-                                    </div>
-                                </li>
-                                <li class="with_img">
-                                    <div class="recent_posts_content">
-                                    	<img src="<%= asset_path 'front/imgs/widget_post3.jpg' %>" alt="" />
-                                        <a href="javascript:void(0);" class="title">Brand Paper Niceties</a>
-                                        <div class="recent_posts_info">Nov 10, 2020  /  <a href="javascript:void(0);">0 comments</a></div>
-                                    </div>
-                                </li>
-                            </ul>
+                        	<%= @front_page_content.home_footer_block3.html_safe rescue "" %>
                         </div>
                     </div>
 
                     <div class="col-sm-3">
                     	<div class="sidepanel widget_review">
-                        	<h4 class="title">Navigation</h4>
-
-                            	<p><a href="index.html" style="color:#9ba1ac" >Acceuil</a></p>
-                                <p><a href="index.html" style="color:#9ba1ac">Compendium</a></p>
-                                <p><a href="index.html" style="color:#9ba1ac">Blog</a></p>
-                                <p><a href="index.html" style="color:#9ba1ac">Galerie</a></p>
-                                <p><a href="index.html" style="color:#9ba1ac">Contact</a></p>
+                        	<%= @front_page_content.home_footer_block4.html_safe rescue "" %>
 
                         </div>
                         <div class="sidepanel widget_review">
@@ -168,8 +119,7 @@ Abidjan cocody riviera<br/> Route de Bingerville <br/>Bvd Mitterrand <Br/>Imm AR
                  </div>
             </div>
             <div class="footer_bottom">
-            	<div class="copyright">&copy; 2015 COCOFCI. TOUS DROITS RESERVES.
-                    <a href="#"> CONFIDENTIALITE </a> <span> | </span> <a href="#"> CONDITION D'UTILISATIONS.</a></div>
+            	<%= @front_page_content.home_footer_copyright.html_safe rescue "" %>
                 <div class="clear"></div>
             </div>
         </div>

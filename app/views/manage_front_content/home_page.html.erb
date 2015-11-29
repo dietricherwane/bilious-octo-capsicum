@@ -34,6 +34,7 @@
       <li class=""><a href="#slider">Bannière</a></li>
       <li class=""><a href="#top_content">En tête</a></li>
       <li class=""><a href="#main_content">Corps du site</a></li>
+      <li class=""><a href="#footer_content">Pied de page</a></li>
     </ul>
 
     <div class="tab_container">
@@ -930,6 +931,121 @@
         <% end %>
       </div>
       <!-- Main content tab -->
+
+      <!-- Footer tab -->
+      <div id="footer_content" class="tab_content" style="display: block;">
+        <%= form_for(@fr_content, url: update_fr_home_front_content_path, method: :post, html: {class: 'form'}) do |f| %>
+          <fieldset>
+            <div class="widget">
+              <div class="title">
+                <img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" />
+                <h6>FR | Pied de page</h6>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_footer_block1 %></label>
+                <div class="formRight">
+                  <%= f.text_area :home_footer_block1, placeholder: "Veuillez entrer le contenu du bloc 1", class: 'ckeditor' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_footer_block2 %></label>
+                <div class="formRight">
+                  <%= f.text_area :home_footer_block2, placeholder: "Veuillez entrer le contenu du bloc 2", class: 'ckeditor' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_footer_block3 %></label>
+                <div class="formRight">
+                  <%= f.text_area :home_footer_block3, placeholder: "Veuillez entrer le contenu du bloc 3", class: 'ckeditor' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_footer_block4 %></label>
+                <div class="formRight">
+                  <%= f.text_area :home_footer_block4, placeholder: "Veuillez entrer le contenu du bloc 4", class: 'ckeditor' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_footer_copyright %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_footer_copyright, placeholder: "Veuillez entrer le contenu du copyright", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <%= f.submit "Valider", class: 'basic' %>
+              </div>
+            </div>
+          </fieldset>
+        <% end %>
+
+        <%= form_for(@en_content, url: update_en_home_front_content_path, method: :post, html: {class: 'form'}) do |f| %>
+          <fieldset>
+            <div class="widget">
+              <div class="title">
+                <img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" />
+                <h6>EN | Pied de page</h6>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_footer_block1 %></label>
+                <div class="formRight">
+                  <%= f.text_area :home_footer_block1, placeholder: "Veuillez entrer le contenu du bloc 1", class: 'ckeditor' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_footer_block2 %></label>
+                <div class="formRight">
+                  <%= f.text_area :home_footer_block2, placeholder: "Veuillez entrer le contenu du bloc 2", class: 'ckeditor' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_footer_block3 %></label>
+                <div class="formRight">
+                  <%= f.text_area :home_footer_block3, placeholder: "Veuillez entrer le contenu du bloc 3", class: 'ckeditor' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_footer_block4 %></label>
+                <div class="formRight">
+                  <%= f.text_area :home_footer_block4, placeholder: "Veuillez entrer le contenu du bloc 4", class: 'ckeditor' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_footer_copyright %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_footer_copyright, placeholder: "Veuillez entrer le contenu du copyright", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <%= f.submit "Valider", class: 'basic' %>
+              </div>
+            </div>
+          </fieldset>
+        <% end %>
+      </div>
+      <!-- Footer tab -->
+
     </div>
     <div class="clear"></div>
   </div>

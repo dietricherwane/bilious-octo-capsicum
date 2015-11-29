@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151129140523) do
+ActiveRecord::Schema.define(version: 20151129152216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,11 @@ ActiveRecord::Schema.define(version: 20151129140523) do
     t.datetime "home_main_content_block3_image_updated_at"
     t.text     "home_main_content_block3_content"
     t.string   "home_main_content_read_more"
+    t.text     "home_footer_block1"
+    t.text     "home_footer_block2"
+    t.text     "home_footer_block3"
+    t.text     "home_footer_block4"
+    t.text     "home_footer_copyright"
   end
 
   create_table "fr_front_page_contents", force: true do |t|
@@ -144,6 +149,11 @@ ActiveRecord::Schema.define(version: 20151129140523) do
     t.datetime "home_main_content_block3_image_updated_at"
     t.text     "home_main_content_block3_content"
     t.string   "home_main_content_read_more"
+    t.text     "home_footer_block1"
+    t.text     "home_footer_block2"
+    t.text     "home_footer_block3"
+    t.text     "home_footer_block4"
+    t.text     "home_footer_copyright"
   end
 
   create_table "profiles", force: true do |t|
