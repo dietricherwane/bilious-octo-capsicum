@@ -1,0 +1,56 @@
+<div class="breadcrumbs">
+    	<div class="container">
+            <h1 class="title-page"><%= @front_page_content.contact_main_content_title.html_safe rescue "" %></h1>
+        </div>
+    </div>
+    <div class="wrapper">
+    	<div class="container">
+        	<div class="page_title_block">
+                <div class="page_descr">
+                </div>
+            </div>
+        	<div class="content_block row no-sidebar">
+            	<div class="fl-container">
+                	<div class="posts-block">
+                        <div class="contentarea">
+                            <div class="row">
+                            	<div class="col-sm-9 module_cont pb20 animate" data-anim-type="fadeInLeft" data-anim-delay="300">
+                            	  <%= @front_page_content.contact_main_content_intro_text.html_safe rescue "" %>
+
+                                	<div class="module_content contact_form">
+                                        <div id="note"></div>
+                                        <div id="fields">
+                                            <form id="ajax-contact-form" action="#">
+                                            	<div class="row row20">
+                                                	<div class="col-sm-12"><input type="text" name="name" value="" placeholder="<%= @front_page_content.contact_main_content_form_field_name.html_safe rescue "" %>" /></div>
+                                                    <div class="col-sm-12"><input type="text" name="email" value="" placeholder="<%= @front_page_content.contact_main_content_form_field_email.html_safe rescue "" %>" /></div>
+                                                    <div class="col-sm-12"><input type="text" name="subject" value="" placeholder="<%= @front_page_content.contact_main_content_form_field_subject.html_safe rescue "" %>" /></div>
+                                                </div>
+                                                <textarea name="message" id="message" placeholder="<%= @front_page_content.contact_main_content_form_field_message.html_safe rescue "" %>"></textarea>
+                                                <input type="submit" value="<%= @front_page_content.contact_main_content_form_field_validation_button.html_safe rescue '' %>">
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            	<div class="col-sm-3 module_cont contact_info pb40 animate" data-anim-type="fadeInRight" data-anim-delay="300">
+                            	  <%= @front_page_content.contact_main_content_detailed_contacts.html_safe rescue "" %>
+
+                                </div>
+
+                            </div>
+
+                            <div class="fw_block bg_start wall_wrap full_map mb0">
+                                <div class="row">
+                                    <div class="col-sm-12 module_cont pb0 module_google_map">
+                                        <div class="module_content">
+                                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.306048002477!2d-3.9386674999999998!3d5.3702103999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc1ed256f6dea43%3A0x83884b95ba86d4db!2sCarrefour+%22Faya%22!5e0!3m2!1sen!2sus!4v1443068886138" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>                         </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
