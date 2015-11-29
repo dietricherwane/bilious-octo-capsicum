@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151129024257) do
+ActiveRecord::Schema.define(version: 20151129140523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,29 @@ ActiveRecord::Schema.define(version: 20151129024257) do
     t.string   "home_slider_slide4_text3"
     t.string   "home_slider_slide4_text4"
     t.string   "home_slider_slide4_text5"
+    t.string   "home_top_content_title"
+    t.text     "home_top_content_quotation"
+    t.string   "home_main_content_welcome_word_title"
+    t.text     "home_main_content_welcome_word_content"
+    t.string   "home_main_content_block1_title"
+    t.string   "home_main_content_block1_image_file_name"
+    t.string   "home_main_content_block1_image_content_type"
+    t.integer  "home_main_content_block1_image_file_size"
+    t.datetime "home_main_content_block1_image_updated_at"
+    t.text     "home_main_content_block1_content"
+    t.string   "home_main_content_block2_title"
+    t.string   "home_main_content_block2_image_file_name"
+    t.string   "home_main_content_block2_image_content_type"
+    t.integer  "home_main_content_block2_image_file_size"
+    t.datetime "home_main_content_block2_image_updated_at"
+    t.text     "home_main_content_block2_content"
+    t.string   "home_main_content_block3_title"
+    t.string   "home_main_content_block3_image_file_name"
+    t.string   "home_main_content_block3_image_content_type"
+    t.integer  "home_main_content_block3_image_file_size"
+    t.datetime "home_main_content_block3_image_updated_at"
+    t.text     "home_main_content_block3_content"
+    t.string   "home_main_content_read_more"
   end
 
   create_table "fr_front_page_contents", force: true do |t|
@@ -98,6 +121,29 @@ ActiveRecord::Schema.define(version: 20151129024257) do
     t.string   "home_slider_slide4_text3"
     t.string   "home_slider_slide4_text4"
     t.string   "home_slider_slide4_text5"
+    t.string   "home_top_content_title"
+    t.text     "home_top_content_quotation"
+    t.string   "home_main_content_welcome_word_title"
+    t.text     "home_main_content_welcome_word_content"
+    t.string   "home_main_content_block1_title"
+    t.string   "home_main_content_block1_image_file_name"
+    t.string   "home_main_content_block1_image_content_type"
+    t.integer  "home_main_content_block1_image_file_size"
+    t.datetime "home_main_content_block1_image_updated_at"
+    t.text     "home_main_content_block1_content"
+    t.string   "home_main_content_block2_title"
+    t.string   "home_main_content_block2_image_file_name"
+    t.string   "home_main_content_block2_image_content_type"
+    t.integer  "home_main_content_block2_image_file_size"
+    t.datetime "home_main_content_block2_image_updated_at"
+    t.text     "home_main_content_block2_content"
+    t.string   "home_main_content_block3_title"
+    t.string   "home_main_content_block3_image_file_name"
+    t.string   "home_main_content_block3_image_content_type"
+    t.integer  "home_main_content_block3_image_file_size"
+    t.datetime "home_main_content_block3_image_updated_at"
+    t.text     "home_main_content_block3_content"
+    t.string   "home_main_content_read_more"
   end
 
   create_table "profiles", force: true do |t|

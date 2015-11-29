@@ -1,6 +1,6 @@
 $(function() {
-	
-	
+
+
 /* Form related plugins
 ================================================== */
 
@@ -55,8 +55,8 @@ $(function() {
 				equalTo: "#enterPass"
 			},
 			customMessage: "required",
-			
-	
+
+
 			topic: {
 				required: "#newsletter:checked",
 				minlength: 2
@@ -74,7 +74,7 @@ $(function() {
 
 
 	//===== Input limiter =====//
-	
+
 	$('.lim').inputlimiter({
 		limit: 100
 		//boxClass: 'limBox',
@@ -83,34 +83,34 @@ $(function() {
 
 
 	//===== Multiple select with dropdown =====//
-	
-	$(".chzn-select").chosen(); 
-	
-	
+
+	$(".chzn-select").chosen();
+
+
 	//===== Placeholder =====//
-	
+
 	$('input[placeholder], textarea[placeholder]').placeholder();
-	
-	
+
+
 	//===== ShowCode plugin for <pre> tag =====//
-	
+
 	$('.showCode').sourcerer('js html css php'); // Display all languages
 	$('.showCodeJS').sourcerer('js'); // Display JS only
 	$('.showCodeHTML').sourcerer('html'); // Display HTML only
 	$('.showCodePHP').sourcerer('php'); // Display PHP only
 	$('.showCodeCSS').sourcerer('css'); // Display CSS only
-	
-	
+
+
 	//===== Autocomplete =====//
-	
+
 	var availableTags = [ "ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++", "Clojure", "COBOL", "ColdFusion", "Erlang", "Fortran", "Groovy", "Haskell", "Java", "JavaScript", "Lisp", "Perl", "PHP", "Python", "Ruby", "Scala", "Scheme" ];
 	$( "#ac" ).autocomplete({
 	source: availableTags
-	});	
-	
-	
+	});
+
+
 	//===== Masked input =====//
-	
+
 	$.mask.definitions['~'] = "[+-]";
 	$(".maskDate").mask("99/99/9999",{completed:function(){alert("Callback when completed");}});
 	$(".maskPhone").mask("(999) 999-9999");
@@ -122,34 +122,34 @@ $(function() {
 	$(".maskEye").mask("~9.99 ~9.99 999");
 	$(".maskPo").mask("PO: aaa-999-***");
 	$(".maskPct").mask("99%");
-	
-	
+
+
 	//===== Dual select boxes =====//
-	
+
 	$.configureBoxes();
-	
-	
+
+
 	//===== Wizards =====//
-	
+
 	$("#wizard1").formwizard({
-		formPluginEnabled: true, 
+		formPluginEnabled: true,
 		validationEnabled: false,
 		focusFirstInput : false,
 		disableUIStyles : true,
-	
+
 		formOptions :{
 			success: function(data){$("#status1").fadeTo(500,1,function(){ $(this).html("<span>Form was submitted!</span>").fadeTo(5000, 0); })},
 			beforeSubmit: function(data){$("#w1").html("<span>Form was submitted with ajax. Data sent to the server: " + $.param(data) + "</span>");},
 			resetForm: true
 		}
 	});
-	
-	$("#wizard2").formwizard({ 
+
+	$("#wizard2").formwizard({
 		formPluginEnabled: true,
 		validationEnabled: true,
 		focusFirstInput : false,
 		disableUIStyles : true,
-	
+
 		formOptions :{
 			success: function(data){$("#status2").fadeTo(500,1,function(){ $(this).html("<span>Form was submitted!</span>").fadeTo(5000, 0); })},
 			beforeSubmit: function(data){$("#w2").html("<span>Form was submitted with ajax. Data sent to the server: " + $.param(data) + "</span>");},
@@ -167,31 +167,31 @@ $(function() {
 			}
 		}
 	});
-	
+
 	$("#wizard3").formwizard({
-		formPluginEnabled: false, 
+		formPluginEnabled: false,
 		validationEnabled: false,
 		focusFirstInput : false,
 		disableUIStyles : true
 	});
-	
-	
+
+
 	//===== Validation engine =====//
-	
+
 	$("#validate").validationEngine();
-	
-	
+
+
 	//===== WYSIWYG editor =====//
-	
+
 	$("#editor").cleditor({
-		width:"100%", 
+		width:"100%",
 		height:"100%",
 		bodyStyle: "margin: 10px; font: 12px Arial,Verdana; cursor:text"
 	});
-	
-	
+
+
 	//===== File uploader =====//
-	
+
 	$("#uploader").pluploadQueue({
 		runtimes : 'html5,html4',
 		url : 'php/upload.php',
@@ -202,15 +202,15 @@ $(function() {
 			//{title : "Zip files", extensions : "zip"}
 		]
 	});
-	
-	
-	//===== Tags =====//	
-		
+
+
+	//===== Tags =====//
+
 	$('#tags').tagsInput({width:'100%'});
-		
-		
+
+
 	//===== Autogrowing textarea =====//
-	
+
 	$(".autoGrow").autoGrow();
 
 
@@ -220,36 +220,36 @@ $(function() {
 
 
 	//===== Left navigation styling =====//
-	
+
 	$('li.this').prev('li').css('border-bottom-color', '#2c3237');
 	$('li.this').next('li').css('border-top-color', '#2c3237');
-	
+
 	/*$('.smalldd ul li').mouseover(
 	function() { $(this).prev('li').css('border-bottom-color', '#3d434a') }
 	);
-	
+
 	$('.smalldd ul li').mouseout(
 	function() { $(this).prev('li').css('border-bottom-color', '#1c252a') }
 	);*/
 
 	//$('.smalldd ul li').next('li').css('border-top-color', '#2c3237');
 
-	
+
 	/*$('ul.nav li a').mouseover(
 		function(){
-		$(this).parent().prev('li').children("> a").addClass('bottomBorder'); 
+		$(this).parent().prev('li').children("> a").addClass('bottomBorder');
 		}
 		);
-		
+
 		$('ul.nav li a').mouseout(
 		function(){
-		$(this).parent().prev('li').children("a").removeClass('bottomBorder'); 
+		$(this).parent().prev('li').children("a").removeClass('bottomBorder');
 		}
 	);*/
-	
-	
-	//===== User nav dropdown =====//		
-	
+
+
+	//===== User nav dropdown =====//
+
 	$('.dd').click(function () {
 		$('.userDropdown').slideToggle(200);
 	});
@@ -258,11 +258,11 @@ $(function() {
 		if (! $clicked.parents().hasClass("dd"))
 		$(".userDropdown").slideUp(200);
 	});
-	  
-	  
-	  
-	//===== Statistics row dropdowns =====//	
-		
+
+
+
+	//===== Statistics row dropdowns =====//
+
 	$('.ticketsStats > h2 a').click(function () {
 		$('#s1').slideToggle(150);
 	});
@@ -271,8 +271,8 @@ $(function() {
 		if (! $clicked.parents().hasClass("ticketsStats"))
 		$("#s1").slideUp(150);
 	});
-	
-	
+
+
 	$('.visitsStats > h2 a').click(function () {
 		$('#s2').slideToggle(150);
 	});
@@ -281,8 +281,8 @@ $(function() {
 		if (! $clicked.parents().hasClass("visitsStats"))
 		$("#s2").slideUp(150);
 	});
-	
-	
+
+
 	$('.usersStats > h2 a').click(function () {
 		$('#s3').slideToggle(150);
 	});
@@ -291,8 +291,8 @@ $(function() {
 		if (! $clicked.parents().hasClass("usersStats"))
 		$("#s3").slideUp(150);
 	});
-	
-	
+
+
 	$('.ordersStats > h2 a').click(function () {
 		$('#s4').slideToggle(150);
 	});
@@ -301,11 +301,11 @@ $(function() {
 		if (! $clicked.parents().hasClass("ordersStats"))
 		$("#s4").slideUp(150);
 	});
-	
-	
-	
+
+
+
 	//===== Collapsible elements management =====//
-	
+
 	$('.exp').collapsible({
 		defaultOpen: 'current',
 		cookieName: 'navAct',
@@ -313,22 +313,22 @@ $(function() {
 		cssClose: 'inactive',
 		speed: 200
 	});
-	
+
 	$('.opened').collapsible({
 		defaultOpen: 'opened,toggleOpened',
 		cssOpen: 'inactive',
 		cssClose: 'normal',
 		speed: 200
 	});
-	
+
 	$('.closed').collapsible({
 		defaultOpen: '',
 		cssOpen: 'inactive',
 		cssClose: 'normal',
 		speed: 200
 	});
-	
-	
+
+
 	$('.goTo').collapsible({
 		defaultOpen: 'openedDrop',
 		cookieName: 'smallNavAct',
@@ -336,7 +336,7 @@ $(function() {
 		cssClose: 'inactive',
 		speed: 100
 	});
-	
+
 	/*$(document).bind('click', function(e) {
 		var $clicked = $(e.target);
 		if (! $clicked.parents().hasClass("smalldd"))
@@ -345,9 +345,9 @@ $(function() {
 
 
 
-	
+
 	//===== Middle navigation dropdowns =====//
-	
+
 	$('.mUser').click(function () {
 		$('.mSub1').slideToggle(100);
 	});
@@ -356,7 +356,7 @@ $(function() {
 		if (! $clicked.parents().hasClass("mUser"))
 		$(".mSub1").slideUp(100);
 	});
-	
+
 	$('.mMessages').click(function () {
 		$('.mSub2').slideToggle(100);
 	});
@@ -365,7 +365,7 @@ $(function() {
 		if (! $clicked.parents().hasClass("mMessages"))
 		$(".mSub2").slideUp(100);
 	});
-	
+
 	$('.mFiles').click(function () {
 		$('.mSub3').slideToggle(100);
 	});
@@ -374,7 +374,7 @@ $(function() {
 		if (! $clicked.parents().hasClass("mFiles"))
 		$(".mSub3").slideUp(100);
 	});
-	
+
 	$('.mOrders').click(function () {
 		$('.mSub4').slideToggle(100);
 	});
@@ -386,8 +386,8 @@ $(function() {
 
 
 
-	//===== User nav dropdown =====//		
-	
+	//===== User nav dropdown =====//
+
 	$('.sidedd').click(function () {
 		$('.sideDropdown').slideToggle(200);
 	});
@@ -396,8 +396,8 @@ $(function() {
 		if (! $clicked.parents().hasClass("sidedd"))
 		$(".sideDropdown").slideUp(200);
 	});
-	
-	
+
+
 	//$('.smalldd').click(function () {
 	//	$('.smallDropdown').slideDown(200);
 	//});
@@ -411,7 +411,7 @@ $(function() {
 
 
 	//===== Check all checbboxes =====//
-	
+
 	$(".titleIcon input:checkbox").click(function() {
 		var checkedStatus = this.checked;
 		$("#checkAll tbody tr td:first-child input:checkbox").each(function() {
@@ -423,29 +423,29 @@ $(function() {
 					$(this).closest('.checker > span').addClass('checked');
 				}
 		});
-	});	
-	
+	});
+
 	$('#checkAll tbody tr td:first-child').next('td').css('border-left-color', '#CBCBCB');
-	
-	
-	
+
+
+
 	//===== Resizable columns =====//
-	
+
 	$("#res, #res1").colResizable({
 		liveDrag:true,
-		draggingClass:"dragging" 
+		draggingClass:"dragging"
 	});
-	  
-	  
-	  
+
+
+
 	//===== Sortable columns =====//
-	
+
 	$("table").tablesorter();
-	
-	
-	
+
+
+
 	//===== Dynamic data table =====//
-	
+
 	oTable = $('.dTable').dataTable({
 		"bJQueryUI": true,
 		"sPaginationType": "full_numbers",
@@ -461,7 +461,7 @@ $(function() {
 
 
 	//===== Color picker =====//
-	
+
 	$('#cPicker').ColorPicker({
 		color: '#e62e90',
 		onShow: function (colpkr) {
@@ -476,13 +476,13 @@ $(function() {
 			$('#cPicker div').css('backgroundColor', '#' + hex);
 		}
 	});
-	
+
 	$('#flatPicker').ColorPicker({flat: true});
-	
-	
-	
+
+
+
 	//===== Time picker =====//
-	
+
 	$('.timepicker').timeEntry({
 		show24Hours: true, // 24 hours format
 		showSeconds: true, // Show seconds?
@@ -490,27 +490,27 @@ $(function() {
 		spinnerSize: [19, 30, 0], // Image size
 		spinnerIncDecOnly: true // Only up and down arrows
 	});
-	
-	
+
+
 	//===== Datepickers =====//
-	
-	$( ".datepicker" ).datepicker({ 
+
+	$( ".datepicker" ).datepicker({
 		defaultDate: +7,
 		autoSize: true,
 		appendText: '(dd-mm-yyyy)',
 		dateFormat: 'dd-mm-yy',
-	});	
-	
-	$( ".datepickerInline" ).datepicker({ 
+	});
+
+	$( ".datepickerInline" ).datepicker({
 		defaultDate: +7,
 		autoSize: true,
 		appendText: '(dd-mm-yyyy)',
 		dateFormat: 'dd-mm-yy',
 		numberOfMonths: 1
-	});	
+	});
 
 
-	
+
 
 
 
@@ -520,51 +520,51 @@ $(function() {
 
 
 //===== Progress bars =====//
-	
+
 	// default mode
 	$('#progress1').anim_progressbar();
-	
+
 	// from second #5 till 15
 	var iNow = new Date().setTime(new Date().getTime() + 5 * 1000); // now plus 5 secs
 	var iEnd = new Date().setTime(new Date().getTime() + 15 * 1000); // now plus 15 secs
 	$('#progress2').anim_progressbar({start: iNow, finish: iEnd, interval: 1});
-	
+
 	// jQuery UI progress bar
 	$( "#progress" ).progressbar({
 			value: 80
 	});
-	
-	
-	
+
+
+
 	//===== Animated progress bars =====//
-	
+
 	var percent = $('.progressG').attr('title');
 	$('.progressG').animate({width: percent},1000);
-	
+
 	var percent = $('.progressO').attr('title');
 	$('.progressO').animate({width: percent},1000);
-	
+
 	var percent = $('.progressB').attr('title');
 	$('.progressB').animate({width: percent},1000);
-	
+
 	var percent = $('.progressR').attr('title');
 	$('.progressR').animate({width: percent},1000);
-	
-	
-	
-	
+
+
+
+
 	var percent = $('#bar1').attr('title');
 	$('#bar1').animate({width: percent},1000);
-	
+
 	var percent = $('#bar2').attr('title');
 	$('#bar2').animate({width: percent},1000);
-	
+
 	var percent = $('#bar3').attr('title');
 	$('#bar3').animate({width: percent},1000);
-	
+
 	var percent = $('#bar4').attr('title');
 	$('#bar4').animate({width: percent},1000);
-	
+
 	var percent = $('#bar5').attr('title');
 	$('#bar5').animate({width: percent},1000);
 
@@ -588,19 +588,19 @@ $(function() {
 
 
 	//===== File manager =====//
-	
+
 	$('#fm').elfinder({
 		url : 'php/connector.php',
 	});
 
-	
+
 	//===== Calendar =====//
-	
+
 	var date = new Date();
 	var d = date.getDate();
 	var m = date.getMonth();
 	var y = date.getFullYear();
-	
+
 	$('.calendar').fullCalendar({
 		header: {
 			left: 'prev,next',
@@ -659,50 +659,50 @@ $(function() {
 			}
 		]
 	});
-	
-	
-	
-	
+
+
+
+
 /* UI stuff
 ================================================== */
 
 
 	//===== Sparklines =====//
-	
-	$('.negBar').sparkline('html', {type: 'bar', barColor: '#db6464'} );
+
+	/*$('.negBar').sparkline('html', {type: 'bar', barColor: '#db6464'} );
 	$('.posBar').sparkline('html', {type: 'bar', barColor: '#6daa24'} );
-	$('.zeroBar').sparkline('html', {type: 'bar', barColor: '#4e8fc6'} ); 
-	
-	
-	
+	$('.zeroBar').sparkline('html', {type: 'bar', barColor: '#4e8fc6'} ); */
+
+
+
 	//===== Tooltips =====//
-	
+
 	$('.tipN').tipsy({gravity: 'n',fade: true});
 	$('.tipS').tipsy({gravity: 's',fade: true});
 	$('.tipW').tipsy({gravity: 'w',fade: true});
 	$('.tipE').tipsy({gravity: 'e',fade: true});
-	
-		
-	
-	//===== Accordion =====//		
-	
+
+
+
+	//===== Accordion =====//
+
 	$('div.menu_body:eq(0)').show();
 	$('.acc .title:eq(0)').show().css({color:"#2B6893"});
-	
-	$(".acc .title").click(function() {	
+
+	$(".acc .title").click(function() {
 		$(this).css({color:"#2B6893"}).next("div.menu_body").slideToggle(300).siblings("div.menu_body").slideUp("slow");
 		$(this).siblings().css({color:"#404040"});
 	});
-	
-	
+
+
 	//===== Tabs =====//
-		
-	$.fn.contentTabs = function(){ 
-	
+
+	$.fn.contentTabs = function(){
+
 		$(this).find(".tab_content").hide(); //Hide all content
 		$(this).find("ul.tabs li:first").addClass("activeTab").show(); //Activate first tab
 		$(this).find(".tab_content:first").show(); //Show first tab content
-	
+
 		$("ul.tabs li").click(function() {
 			$(this).parent().parent().find("ul.tabs li").removeClass("activeTab"); //Remove any "active" class
 			$(this).addClass("activeTab"); //Add "active" class to selected tab
@@ -711,40 +711,40 @@ $(function() {
 			$(activeTab).show(); //Fade in the active content
 			return false;
 		});
-	
+
 	};
 	$("div[class^='widget']").contentTabs(); //Run function on any div with class name of "Content Tabs"
-	
-	
-	
+
+
+
 	//===== Notification boxes =====//
-	
+
 	$(".hideit").click(function() {
 		$(this).fadeTo(200, 0.00, function(){ //fade
 			$(this).slideUp(300, function() { //slide up
 				$(this).remove(); //then remove from the DOM
 			});
 		});
-	});	
-	
-	
-	
+	});
+
+
+
 	//===== Lightbox =====//
-	
+
 	$("a[rel^='lightbox']").prettyPhoto();
-	
-	
-	
+
+
+
 	//===== Image gallery control buttons =====//
-	
+
 	$(".gallery ul li").hover(
 		function() { $(this).children(".actions").show("fade", 200); },
 		function() { $(this).children(".actions").hide("fade", 200); }
 	);
-	
-	
+
+
 	//===== Spinner options =====//
-	
+
 	var itemList = [
 		{url: "http://ejohn.org", title: "John Resig"},
 		{url: "http://bassistance.de/", title: "J&ouml;rn Zaefferer"},
@@ -760,7 +760,7 @@ $(function() {
 		{url: "http://www.codylindley.com/", title: "Cody Lindley"},
 		{url: "http://malsup.com/jquery/", title: "Mike Alsup"}
 	];
-	
+
 	var opts = {
 		'sDec': {decimals:2},
 		'sStep': {stepping: 0.25},
@@ -776,26 +776,26 @@ $(function() {
 					ui.add('<a href="'+ itemList[i].url +'" target="_blank">'+ itemList[i].title +'</a>');
 				}
 			},
-	
+
 			// method 2: use the format and items options in combination
 			format: '<a href="%(url)" target="_blank">%(title)</a>',
 			items: itemList
 		}
 	};
-	
+
 	for (var n in opts)
 		$("#"+n).spinner(opts[n]);
-	
+
 	$("button").click(function(e){
 		var ns = $(this).attr('id').match(/(s\d)\-(\w+)$/);
 		if (ns != null)
 			$('#'+ns[1]).spinner( (ns[2] == 'create') ? opts[ns[1]] : ns[2]);
 	});
-	
-	
-	
+
+
+
 	//===== UI dialog =====//
-	
+
 	$( "#dialog-message" ).dialog({
 		autoOpen: false,
 		modal: true,
@@ -805,25 +805,25 @@ $(function() {
 			}
 		}
 	});
-	
+
 	$( "#opener" ).click(function() {
 		$( "#dialog-message" ).dialog( "open" );
 		return false;
-	});	
-		
-	
-	
+	});
+
+
+
 	//===== Breadcrumbs =====//
-	
+
 	$('#breadcrumbs').xBreadcrumbs();
-	
-		
-		
-	//===== jQuery UI sliders =====//	
-	
+
+
+
+	//===== jQuery UI sliders =====//
+
 	$( ".uiSlider" ).slider(); /* Usual slider */
-	
-	
+
+
 	$( ".uiSliderInc" ).slider({ /* Increments slider */
 		value:100,
 		min: 0,
@@ -834,8 +834,8 @@ $(function() {
 		}
 	});
 	$( "#amount" ).val( "$" + $( ".uiSliderInc" ).slider( "value" ) );
-		
-		
+
+
 	$( ".uiRangeSlider" ).slider({ /* Range slider */
 		range: true,
 		min: 0,
@@ -846,8 +846,8 @@ $(function() {
 		}
 	});
 	$( "#rangeAmount" ).val( "$" + $( ".uiRangeSlider" ).slider( "values", 0 ) +" - $" + $( ".uiRangeSlider" ).slider( "values", 1 ));
-			
-			
+
+
 	$( ".uiMinRange" ).slider({ /* Slider with minimum */
 		range: "min",
 		value: 37,
@@ -858,8 +858,8 @@ $(function() {
 		}
 	});
 	$( "#minRangeAmount" ).val( "$" + $( ".uiMinRange" ).slider( "value" ) );
-	
-	
+
+
 	$( ".uiMaxRange" ).slider({ /* Slider with maximum */
 		range: "max",
 		min: 1,
@@ -869,13 +869,13 @@ $(function() {
 			$( "#maxRangeAmount" ).val( ui.value );
 		}
 	});
-	$( "#maxRangeAmount" ).val( $( ".uiMaxRange" ).slider( "value" ) );	
+	$( "#maxRangeAmount" ).val( $( ".uiMaxRange" ).slider( "value" ) );
 
 
 
 	//===== Form elements styling =====//
-	
+
 	$("select, input:checkbox, input:radio, input:file").uniform();
 
-	
+
 });
