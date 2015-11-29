@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /en|fr/ do
     root "home#index"
     get '/' => 'home#index'
+    get '/contact' => 'home#contact', as: :contact
 
     devise_for :users, controllers: {
       sessions: 'users/sessions', registrations: 'users/registrations', passwords: 'users/passwords', confirmations: 'users/confirmations'
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
     get "set_locale/:user_locale" => "home#set_user_locale", as: :set_user_locale
 
     get "/administrator/manage_content_home" => "manage_front_content#home_page", as: :manage_home_front_content
+    get "/administrator/manage_content_contact" => "manage_front_content#contact_page", as: :manage_contact_front_content
     post "/administrator/update_fr_content_home" => "manage_front_fr_content#update_home_page_content", as: :update_fr_home_front_content
     post "/administrator/update_en_content_home" => "manage_front_en_content#update_home_page_content", as: :update_en_home_front_content
 

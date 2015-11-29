@@ -55,7 +55,15 @@ class FrFrontPageContent < ActiveRecord::Base
     :home_footer_block2 => "Bloc 2 du pied de page",
     :home_footer_block3 => "Bloc 3 du pied de page",
     :home_footer_block4 => "Bloc 4 du pied de page",
-    :home_footer_copyright => "Copyright"
+    :home_footer_copyright => "Copyright",
+    :contact_main_content_title => "Titre de la page",
+    :contact_main_content_intro_text => "Texte introductif",
+    :contact_main_content_detailed_contacts => "Fiche de contacts",
+    :contact_main_content_form_field_name => "Champ nom du formulaire",
+    :contact_main_content_form_field_email => "Champ email du formulaire",
+    :contact_main_content_form_field_subject => "Champ sujet du formulaire",
+    :contact_main_content_form_field_message => "Champ message du formulaire",
+    :contact_main_content_form_field_validation_button => "Intitulé du bouton de validation"
   }
 
   # Using friendly attribute name if it exists and default name otherwise
