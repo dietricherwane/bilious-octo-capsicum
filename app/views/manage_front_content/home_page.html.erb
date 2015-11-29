@@ -1,3 +1,9 @@
+<script>
+//$('.ckeditor').ckeditor({
+
+//});
+</script>
+
 <!-- Title area -->
 <div class="titleArea">
     <div class="wrapper">
@@ -20,135 +26,913 @@
 <div class="wrapper">
 
   <%= flash_messages! %>
-  <%= form_for(@fr_content, url: update_fr_home_front_content_path, method: :post, html: {class: 'form'}) do |f| %>
 
-    <fieldset>
-      <div class="widget">
-        <div class="title">
-          <img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" />
-          <h6>FR | Barre d'outils</h6>
-        </div>
+  <div class="widget">
+    <ul class="tabs">
+      <li class="activeTab"><a href="#toolbar">Barre d'outils</a></li>
+      <li class=""><a href="#main_menu">Menu principal</a></li>
+      <li class=""><a href="#slider">Bannière</a></li>
+      <li class=""><a href="#top_content">En tête</a></li>
+      <li class=""><a href="#main_content">Corps du site</a></li>
+    </ul>
 
-        <div class="formRow">
-          <label><%= f.label :home_toolbar_phone_number %></label>
-          <div class="formRight">
-            <%= f.text_field :home_toolbar_phone_number, placeholder: "Veuillez entrer le numéro de téléphone", class: 'form-control' %>
-          </div>
-          <div class="clear"></div>
-        </div>
+    <div class="tab_container">
+      <!-- Toolbar tab -->
+      <div id="toolbar" class="tab_content" style="display: block;">
+        <%= form_for(@fr_content, url: update_fr_home_front_content_path, method: :post, html: {class: 'form'}) do |f| %>
+          <fieldset>
+            <div class="widget">
+              <div class="title">
+                <img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" />
+                <h6>FR | Barre d'outils</h6>
+              </div>
 
-        <div class="formRow">
-          <label><%= f.label :home_toolbar_email %></label>
-          <div class="formRight">
-            <%= f.text_field :home_toolbar_email, placeholder: "Veuillez entrer l'email", class: 'form-control' %>
-          </div>
-          <div class="clear"></div>
-        </div>
+              <div class="formRow">
+                <label><%= f.label :home_toolbar_phone_number %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_toolbar_phone_number, placeholder: "Veuillez entrer le numéro de téléphone", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
 
-        <div class="formRow">
-          <label><%= f.label :home_toolbar_language_fr %></label>
-          <div class="formRight">
-            <%= f.text_field :home_toolbar_language_fr, placeholder: "Veuillez entrer l'intitulé de la langue française", class: 'form-control' %>
-          </div>
-          <div class="clear"></div>
-        </div>
+              <div class="formRow">
+                <label><%= f.label :home_toolbar_email %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_toolbar_email, placeholder: "Veuillez entrer l'email", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
 
-        <div class="formRow">
-          <label><%= f.label :home_toolbar_language_en %></label>
-          <div class="formRight">
-            <%= f.text_field :home_toolbar_language_en, placeholder: "Veuillez entrer l'intitulé de la langue anglaise", class: 'form-control' %>
-          </div>
-          <div class="clear"></div>
-        </div>
+              <div class="formRow">
+                <label><%= f.label :home_toolbar_language_fr %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_toolbar_language_fr, placeholder: "Veuillez entrer l'intitulé de la langue française", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
 
-        <div class="formRow">
-          <label><%= f.label :home_toolbar_registration %></label>
-          <div class="formRight">
-            <%= f.text_field :home_toolbar_registration, placeholder: "Veuillez entrer l'intitulé du menu d'inscription", class: 'form-control' %>
-          </div>
-          <div class="clear"></div>
-        </div>
+              <div class="formRow">
+                <label><%= f.label :home_toolbar_language_en %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_toolbar_language_en, placeholder: "Veuillez entrer l'intitulé de la langue anglaise", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
 
-        <div class="formRow">
-          <label><%= f.label :home_toolbar_my_account %></label>
-          <div class="formRight">
-            <%= f.text_field :home_toolbar_my_account, placeholder: "Veuillez entrer l'intitulé du menu mon compte", class: 'form-control' %>
-          </div>
-          <div class="clear"></div>
-        </div>
+              <div class="formRow">
+                <label><%= f.label :home_toolbar_registration %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_toolbar_registration, placeholder: "Veuillez entrer l'intitulé du menu d'inscription", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
 
-        <div class="formRow">
-          <%= f.submit "Valider", class: 'basic' %>
-        </div>
+              <div class="formRow">
+                <label><%= f.label :home_toolbar_my_account %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_toolbar_my_account, placeholder: "Veuillez entrer l'intitulé du menu mon compte", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <%= f.submit "Valider", class: 'basic' %>
+              </div>
+            </div>
+          </fieldset>
+        <% end %>
+
+        <%= form_for(@en_content, url: update_en_home_front_content_path, method: :post, html: {class: 'form'}) do |f| %>
+          <fieldset>
+            <div class="widget">
+
+              <div class="title">
+                <img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" />
+                <h6>EN | Barre d'outils</h6>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_toolbar_phone_number %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_toolbar_phone_number, placeholder: "Veuillez entrer le numéro de téléphone", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_toolbar_email %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_toolbar_email, placeholder: "Veuillez entrer l'email", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_toolbar_language_fr %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_toolbar_language_fr, placeholder: "Veuillez entrer l'intitulé de la langue française", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_toolbar_language_en %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_toolbar_language_en, placeholder: "Veuillez entrer l'intitulé de la langue anglaise", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_toolbar_registration %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_toolbar_registration, placeholder: "Veuillez entrer l'intitulé du menu d'inscription", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_toolbar_my_account %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_toolbar_my_account, placeholder: "Veuillez entrer l'intitulé du menu mon compte", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <%= f.submit "Valider", class: 'basic' %>
+              </div>
+            </div>
+
+          </fieldset>
+        <% end %>
       </div>
-    </fieldset>
-  <% end %>
+      <!-- Toolbar tab -->
 
-  <%= form_for(@en_content, url: update_en_home_front_content_path, method: :post, html: {class: 'form'}) do |f| %>
+      <!-- Main menu tab -->
+      <div id="main_menu" class="tab_content" style="display: none;">
+        <%= form_for(@fr_content, url: update_fr_home_front_content_path, method: :post, html: {class: 'form'}) do |f| %>
+          <fieldset>
+            <div class="widget">
+              <div class="title">
+                <img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" />
+                <h6>FR | Barre de menus</h6>
+              </div>
 
-    <fieldset>
-      <div class="widget">
+              <div class="formRow">
+                <label><%= f.label :home_main_menu_home %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_main_menu_home, placeholder: "Veuillez entrer l'intitulé du menu Accueil", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
 
-        <div class="title">
-          <img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" />
-          <h6>EN | Barre d'outils</h6>
-        </div>
+              <div class="formRow">
+                <label><%= f.label :home_main_menu_compendium %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_main_menu_compendium, placeholder: "Veuillez entrer l'intitulé du menu Compendium", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
 
-        <div class="formRow">
-          <label><%= f.label :home_toolbar_phone_number %></label>
-          <div class="formRight">
-            <%= f.text_field :home_toolbar_phone_number, placeholder: "Veuillez entrer le numéro de téléphone", class: 'form-control' %>
-          </div>
-          <div class="clear"></div>
-        </div>
+              <div class="formRow">
+                <label><%= f.label :home_main_menu_blog %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_main_menu_blog, placeholder: "Veuillez entrer l'intitulé du menu Blog", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
 
-        <div class="formRow">
-          <label><%= f.label :home_toolbar_email %></label>
-          <div class="formRight">
-            <%= f.text_field :home_toolbar_email, placeholder: "Veuillez entrer l'email", class: 'form-control' %>
-          </div>
-          <div class="clear"></div>
-        </div>
+              <div class="formRow">
+                <label><%= f.label :home_main_menu_gallery %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_main_menu_gallery, placeholder: "Veuillez entrer l'intitulé du menu Galerie", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
 
-        <div class="formRow">
-          <label><%= f.label :home_toolbar_language_fr %></label>
-          <div class="formRight">
-            <%= f.text_field :home_toolbar_language_fr, placeholder: "Veuillez entrer l'intitulé de la langue française", class: 'form-control' %>
-          </div>
-          <div class="clear"></div>
-        </div>
+              <div class="formRow">
+                <label><%= f.label :home_main_menu_contact %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_main_menu_contact, placeholder: "Veuillez entrer l'intitulé du menu Contact", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
 
-        <div class="formRow">
-          <label><%= f.label :home_toolbar_language_en %></label>
-          <div class="formRight">
-            <%= f.text_field :home_toolbar_language_en, placeholder: "Veuillez entrer l'intitulé de la langue anglaise", class: 'form-control' %>
-          </div>
-          <div class="clear"></div>
-        </div>
+              <div class="formRow">
+                <%= f.submit "Valider", class: 'basic' %>
+              </div>
+            </div>
+          </fieldset>
+        <% end %>
 
-        <div class="formRow">
-          <label><%= f.label :home_toolbar_registration %></label>
-          <div class="formRight">
-            <%= f.text_field :home_toolbar_registration, placeholder: "Veuillez entrer l'intitulé du menu d'inscription", class: 'form-control' %>
-          </div>
-          <div class="clear"></div>
-        </div>
+        <%= form_for(@en_content, url: update_en_home_front_content_path, method: :post, html: {class: 'form'}) do |f| %>
+          <fieldset>
+            <div class="widget">
+              <div class="title">
+                <img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" />
+                <h6>EN | Barre de menus</h6>
+              </div>
 
-        <div class="formRow">
-          <label><%= f.label :home_toolbar_my_account %></label>
-          <div class="formRight">
-            <%= f.text_field :home_toolbar_my_account, placeholder: "Veuillez entrer l'intitulé du menu mon compte", class: 'form-control' %>
-          </div>
-          <div class="clear"></div>
-        </div>
+              <div class="formRow">
+                <label><%= f.label :home_main_menu_home %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_main_menu_home, placeholder: "Veuillez entrer l'intitulé du menu Accueil", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
 
-        <div class="formRow">
-          <%= f.submit "Valider", class: 'basic' %>
-        </div>
+              <div class="formRow">
+                <label><%= f.label :home_main_menu_compendium %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_main_menu_compendium, placeholder: "Veuillez entrer l'intitulé du menu Compendium", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_main_menu_blog %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_main_menu_blog, placeholder: "Veuillez entrer l'intitulé du menu Blog", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_main_menu_gallery %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_main_menu_gallery, placeholder: "Veuillez entrer l'intitulé du menu Galerie", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_main_menu_contact %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_main_menu_contact, placeholder: "Veuillez entrer l'intitulé du menu Contact", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <%= f.submit "Valider", class: 'basic' %>
+              </div>
+            </div>
+          </fieldset>
+        <% end %>
       </div>
+      <!-- Main menu tab -->
 
-    </fieldset>
-  <% end %>
+      <!-- Banner tab -->
+      <div id="slider" class="tab_content" style="display: block;">
+        <%= form_for(@fr_content, url: update_fr_home_front_content_path, method: :post, html: {class: 'form'}) do |f| %>
+          <fieldset>
+            <div class="widget">
+              <div class="title">
+                <img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" />
+                <h6>FR | Bannière</h6>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide1_text1 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide1_text1, placeholder: "Veuillez entrer le texte 1 de la slide 1", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide1_text2 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide1_text2, placeholder: "Veuillez entrer le texte 2 de la slide 1", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide1_text3 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide1_text3, placeholder: "Veuillez entrer le texte 3 de la slide 1", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide2_text1 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide2_text1, placeholder: "Veuillez entrer le texte 1 de la slide 2", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide2_text2 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide2_text2, placeholder: "Veuillez entrer le texte 2 de la slide 2", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide2_text3 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide2_text3, placeholder: "Veuillez entrer le texte 3 de la slide 2", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide2_text4 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide2_text4, placeholder: "Veuillez entrer le texte 4 de la slide 2", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide2_text5 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide2_text5, placeholder: "Veuillez entrer le texte 5 de la slide 2", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide2_text6 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide2_text6, placeholder: "Veuillez entrer le texte 6 de la slide 2", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide3_text1 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide3_text1, placeholder: "Veuillez entrer le texte 1 de la slide 3", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide3_text2 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide3_text2, placeholder: "Veuillez entrer le texte 2 de la slide 3", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide3_text3 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide3_text3, placeholder: "Veuillez entrer le texte 3 de la slide 3", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide3_text4 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide3_text4, placeholder: "Veuillez entrer le texte 4 de la slide 3", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide4_text1 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide4_text1, placeholder: "Veuillez entrer le texte 1 de la slide 4", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide4_text2 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide4_text2, placeholder: "Veuillez entrer le texte 2 de la slide 4", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide4_text3 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide4_text3, placeholder: "Veuillez entrer le texte 3 de la slide 4", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide4_text4 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide4_text4, placeholder: "Veuillez entrer le texte 4 de la slide 4", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide4_text5 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide4_text5, placeholder: "Veuillez entrer le texte 5 de la slide 4", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <%= f.submit "Valider", class: 'basic' %>
+              </div>
+            </div>
+          </fieldset>
+        <% end %>
+
+        <%= form_for(@en_content, url: update_en_home_front_content_path, method: :post, html: {class: 'form'}) do |f| %>
+          <fieldset>
+            <div class="widget">
+              <div class="title">
+                <img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" />
+                <h6>EN | Bannière</h6>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide1_text1 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide1_text1, placeholder: "Veuillez entrer le texte 1 de la slide 1", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide1_text2 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide1_text2, placeholder: "Veuillez entrer le texte 2 de la slide 1", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide1_text3 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide1_text3, placeholder: "Veuillez entrer le texte 3 de la slide 1", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide2_text1 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide2_text1, placeholder: "Veuillez entrer le texte 1 de la slide 2", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide2_text2 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide2_text2, placeholder: "Veuillez entrer le texte 2 de la slide 2", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide2_text3 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide2_text3, placeholder: "Veuillez entrer le texte 3 de la slide 2", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide2_text4 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide2_text4, placeholder: "Veuillez entrer le texte 4 de la slide 2", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide2_text5 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide2_text5, placeholder: "Veuillez entrer le texte 5 de la slide 2", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide2_text6 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide2_text6, placeholder: "Veuillez entrer le texte 6 de la slide 2", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide3_text1 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide3_text1, placeholder: "Veuillez entrer le texte 1 de la slide 3", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide3_text2 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide3_text2, placeholder: "Veuillez entrer le texte 2 de la slide 3", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide3_text3 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide3_text3, placeholder: "Veuillez entrer le texte 3 de la slide 3", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide3_text4 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide3_text4, placeholder: "Veuillez entrer le texte 4 de la slide 3", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide4_text1 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide4_text1, placeholder: "Veuillez entrer le texte 1 de la slide 4", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide4_text2 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide4_text2, placeholder: "Veuillez entrer le texte 2 de la slide 4", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide4_text3 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide4_text3, placeholder: "Veuillez entrer le texte 3 de la slide 4", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide4_text4 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide4_text4, placeholder: "Veuillez entrer le texte 4 de la slide 4", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+
+              <div class="formRow">
+                <label><%= f.label :home_slider_slide4_text5 %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_slider_slide4_text5, placeholder: "Veuillez entrer le texte 5 de la slide 4", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <%= f.submit "Valider", class: 'basic' %>
+              </div>
+            </div>
+          </fieldset>
+        <% end %>
+      </div>
+      <!-- Banner tab -->
+
+      <!-- Top content tab -->
+      <div id="top_content" class="tab_content" style="display: block;">
+        <%= form_for(@fr_content, url: update_fr_home_front_content_path, method: :post, html: {class: 'form'}) do |f| %>
+          <fieldset>
+            <div class="widget">
+              <div class="title">
+                <img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" />
+                <h6>FR | En tête</h6>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_top_content_title %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_top_content_title, placeholder: "Veuillez entrer le titre de l'en tête", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_top_content_quotation %></label>
+                <div class="formRight">
+                  <%= f.text_area :home_top_content_quotation, placeholder: "Veuillez entrer le contenu de l'en tête", class: 'form-control', rows: 8 %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <%= f.submit "Valider", class: 'basic' %>
+              </div>
+            </div>
+          </fieldset>
+        <% end %>
+
+        <%= form_for(@en_content, url: update_en_home_front_content_path, method: :post, html: {class: 'form'}) do |f| %>
+          <fieldset>
+            <div class="widget">
+
+              <div class="title">
+                <img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" />
+                <h6>EN | En tête</h6>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_top_content_title %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_top_content_title, placeholder: "Veuillez entrer le titre de l'en tête", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_top_content_quotation %></label>
+                <div class="formRight">
+                  <%= f.text_area :home_top_content_quotation, placeholder: "Veuillez entrer le contenu de l'en tête", class: 'form-control', rows: 8 %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <%= f.submit "Valider", class: 'basic' %>
+              </div>
+            </div>
+
+          </fieldset>
+        <% end %>
+      </div>
+      <!-- Top content tab -->
+
+      <!-- Main content tab -->
+      <div id="main_content" class="tab_content" style="display: block;">
+        <%= form_for(@fr_content, url: update_fr_home_front_content_path, method: :post, html: {class: 'form'}) do |f| %>
+          <fieldset>
+            <div class="widget">
+              <div class="title">
+                <img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" />
+                <h6>FR | Corps du site</h6>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_main_content_welcome_word_title %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_main_content_welcome_word_title, placeholder: "Veuillez entrer le titre du mot de bienvenue", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_main_content_welcome_word_content %></label>
+                <div class="formRight">
+                  <%= f.text_area :home_main_content_welcome_word_content, placeholder: "Veuillez entrer le contenu du mot de bienvenue", class: 'ckeditor' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_main_content_block1_title %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_main_content_block1_title, placeholder: "Veuillez entrer le titre du bloc 1", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <%= image_tag @fr_content.home_main_content_block1_image.url(:thumb) rescue "" %>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_main_content_block1_image %></label>
+                <div class="formRight">
+                  <%= f.file_field :home_main_content_block1_image, placeholder: "Veuillez entrer l'image du bloc 1", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_main_content_block1_content %></label>
+                <div class="formRight">
+                  <%= f.text_area :home_main_content_block1_content, placeholder: "Veuillez entrer le contenu du bloc 1", class: 'ckeditor' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_main_content_block2_title %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_main_content_block2_title, placeholder: "Veuillez entrer le titre du bloc 2", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <%= image_tag @fr_content.home_main_content_block2_image.url(:thumb) rescue "" %>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_main_content_block2_image %></label>
+                <div class="formRight">
+                  <%= f.file_field :home_main_content_block2_image, placeholder: "Veuillez entrer l'image du bloc 2", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_main_content_block2_content %></label>
+                <div class="formRight">
+                  <%= f.text_area :home_main_content_block2_content, placeholder: "Veuillez entrer le contenu du bloc 2", class: 'ckeditor' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_main_content_block3_title %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_main_content_block3_title, placeholder: "Veuillez entrer le titre du bloc 3", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <%= image_tag @fr_content.home_main_content_block3_image.url(:thumb) rescue "" %>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_main_content_block3_image %></label>
+                <div class="formRight">
+                  <%= f.file_field :home_main_content_block3_image, placeholder: "Veuillez entrer l'image du bloc 3", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_main_content_block3_content %></label>
+                <div class="formRight">
+                  <%= f.text_area :home_main_content_block3_content, placeholder: "Veuillez entrer le contenu du bloc 3", class: 'ckeditor' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_main_content_read_more %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_main_content_read_more, placeholder: "Veuillez entrer l'intitulé du texte: Savoir plus", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <%= f.submit "Valider", class: 'basic' %>
+              </div>
+            </div>
+          </fieldset>
+        <% end %>
+
+        <%= form_for(@en_content, url: update_en_home_front_content_path, method: :post, html: {class: 'form'}) do |f| %>
+          <fieldset>
+            <div class="widget">
+              <div class="title">
+                <img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" />
+                <h6>EN | Corps du site</h6>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_main_content_welcome_word_title %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_main_content_welcome_word_title, placeholder: "Veuillez entrer le titre du mot de bienvenue", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_main_content_welcome_word_content %></label>
+                <div class="formRight">
+                  <%= f.text_area :home_main_content_welcome_word_content, placeholder: "Veuillez entrer le contenu du mot de bienvenue", class: 'ckeditor' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_main_content_block1_title %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_main_content_block1_title, placeholder: "Veuillez entrer le titre du bloc 1", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <%= image_tag @en_content.home_main_content_block1_image.url(:thumb) rescue "" %>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_main_content_block1_image %></label>
+                <div class="formRight">
+                  <%= f.file_field :home_main_content_block1_image, placeholder: "Veuillez entrer l'image du bloc 1", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_main_content_block1_content %></label>
+                <div class="formRight">
+                  <%= f.text_area :home_main_content_block1_content, placeholder: "Veuillez entrer le contenu du bloc 1", class: 'ckeditor' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_main_content_block2_title %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_main_content_block2_title, placeholder: "Veuillez entrer le titre du bloc 2", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <%= image_tag @en_content.home_main_content_block2_image.url(:thumb) rescue "" %>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_main_content_block2_image %></label>
+                <div class="formRight">
+                  <%= f.file_field :home_main_content_block2_image, placeholder: "Veuillez entrer l'image du bloc 2", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_main_content_block2_content %></label>
+                <div class="formRight">
+                  <%= f.text_area :home_main_content_block2_content, placeholder: "Veuillez entrer le contenu du bloc 2", class: 'ckeditor' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_main_content_block3_title %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_main_content_block3_title, placeholder: "Veuillez entrer le titre du bloc 3", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <%= image_tag @en_content.home_main_content_block3_image.url(:thumb) rescue "" %>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_main_content_block3_image %></label>
+                <div class="formRight">
+                  <%= f.file_field :home_main_content_block3_image, placeholder: "Veuillez entrer l'image du bloc 3", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_main_content_block3_content %></label>
+                <div class="formRight">
+                  <%= f.text_area :home_main_content_block3_content, placeholder: "Veuillez entrer le contenu du bloc 3", class: 'ckeditor' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_main_content_read_more %></label>
+                <div class="formRight">
+                  <%= f.text_field :home_main_content_read_more, placeholder: "Veuillez entrer l'intitulé du texte: Savoir plus", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <%= f.submit "Valider", class: 'basic' %>
+              </div>
+            </div>
+          </fieldset>
+        <% end %>
+      </div>
+      <!-- Main content tab -->
+    </div>
+    <div class="clear"></div>
+  </div>
 
 </div>
 <!-- End Main content wrapper -->
