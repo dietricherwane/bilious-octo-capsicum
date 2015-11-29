@@ -50,7 +50,12 @@ class FrFrontPageContent < ActiveRecord::Base
     :home_main_content_block1_content => "Contenu du bloc 1",
     :home_main_content_block2_content => "Contenu du bloc 2",
     :home_main_content_block3_content => "Contenu du bloc 3",
-    :home_main_content_read_more => "Savoir plus"
+    :home_main_content_read_more => "Savoir plus",
+    :home_footer_block1 => "Bloc 1 du pied de page",
+    :home_footer_block2 => "Bloc 2 du pied de page",
+    :home_footer_block3 => "Bloc 3 du pied de page",
+    :home_footer_block4 => "Bloc 4 du pied de page",
+    :home_footer_copyright => "Copyright"
   }
 
   # Using friendly attribute name if it exists and default name otherwise
