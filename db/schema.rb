@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151129205045) do
+ActiveRecord::Schema.define(version: 20151129152216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,14 +92,6 @@ ActiveRecord::Schema.define(version: 20151129205045) do
     t.text     "home_footer_block3"
     t.text     "home_footer_block4"
     t.text     "home_footer_copyright"
-    t.string   "contact_main_content_title"
-    t.text     "contact_main_content_intro_text"
-    t.text     "contact_main_content_detailed_contacts"
-    t.string   "contact_main_content_form_field_name"
-    t.string   "contact_main_content_form_field_email"
-    t.string   "contact_main_content_form_field_subject"
-    t.text     "contact_main_content_form_field_message"
-    t.string   "contact_main_content_form_field_validation_button"
   end
 
   create_table "fr_front_page_contents", force: true do |t|
@@ -162,14 +154,6 @@ ActiveRecord::Schema.define(version: 20151129205045) do
     t.text     "home_footer_block3"
     t.text     "home_footer_block4"
     t.text     "home_footer_copyright"
-    t.string   "contact_main_content_title"
-    t.text     "contact_main_content_intro_text"
-    t.text     "contact_main_content_detailed_contacts"
-    t.string   "contact_main_content_form_field_name"
-    t.string   "contact_main_content_form_field_email"
-    t.string   "contact_main_content_form_field_subject"
-    t.text     "contact_main_content_form_field_message"
-    t.string   "contact_main_content_form_field_validation_button"
   end
 
   create_table "profiles", force: true do |t|
