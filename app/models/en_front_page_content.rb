@@ -1,10 +1,22 @@
 class EnFrontPageContent < ActiveRecord::Base
-  has_attached_file :home_main_content_block1_image, styles: {front: "340x340", article: "270x270", thumb: "100x100"}, default_url: "/images/:style/missing.png"
-  has_attached_file :home_main_content_block2_image, styles: {front: "340x340", article: "270x270", thumb: "100x100"}, default_url: "/images/:style/missing.png"
-  has_attached_file :home_main_content_block3_image, styles: {front: "340x340", article: "270x270", thumb: "100x100"}, default_url: "/images/:style/missing.png"
+  has_attached_file :home_main_content_block1_image, styles: {front: "340x340", article: "270x270", thumb: "100x100", tiny: "80x80"}, default_url: "/images/:style/missing.png"
+  has_attached_file :home_main_content_block2_image, styles: {front: "340x340", article: "270x270", thumb: "100x100", tiny: "80x80"}, default_url: "/images/:style/missing.png"
+  has_attached_file :home_main_content_block3_image, styles: {front: "340x340", article: "270x270", thumb: "100x100", tiny: "80x80"}, default_url: "/images/:style/missing.png"
+  has_attached_file :compendium_top_content_block1_image, styles: {front: "340x340", article: "270x270", thumb: "100x100", tiny: "80x80"}, default_url: "/images/:style/missing.png"
+  has_attached_file :compendium_top_content_block2_image, styles: {front: "340x340", article: "270x270", thumb: "100x100", tiny: "80x80"}, default_url: "/images/:style/missing.png"
+  has_attached_file :compendium_top_content_block3_image, styles: {front: "340x340", article: "270x270", thumb: "100x100", tiny: "80x80"}, default_url: "/images/:style/missing.png"
+  has_attached_file :compendium_top_content_block4_image, styles: {front: "340x340", article: "270x270", thumb: "100x100", tiny: "80x80"}, default_url: "/images/:style/missing.png"
+  has_attached_file :compendium_main_content_responsible1_image, styles: {front: "340x340", article: "270x270", thumb: "100x100", tiny: "80x80"}, default_url: "/images/:style/missing.png"
+  has_attached_file :compendium_main_content_responsible2_image, styles: {front: "340x340", article: "270x270", thumb: "100x100", tiny: "80x80"}, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :home_main_content_block1_image, content_type: /\Aimage\/.*\Z/
   validates_attachment_content_type :home_main_content_block2_image, content_type: /\Aimage\/.*\Z/
   validates_attachment_content_type :home_main_content_block3_image, content_type: /\Aimage\/.*\Z/
+  validates_attachment_content_type :compendium_top_content_block1_image, content_type: /\Aimage\/.*\Z/
+  validates_attachment_content_type :compendium_top_content_block2_image, content_type: /\Aimage\/.*\Z/
+  validates_attachment_content_type :compendium_top_content_block3_image, content_type: /\Aimage\/.*\Z/
+  validates_attachment_content_type :compendium_top_content_block4_image, content_type: /\Aimage\/.*\Z/
+  validates_attachment_content_type :compendium_main_content_responsible1_image, content_type: /\Aimage\/.*\Z/
+  validates_attachment_content_type :compendium_main_content_responsible2_image, content_type: /\Aimage\/.*\Z/
 
   # Rename attributes into more friendly text
   HUMANIZED_ATTRIBUTES = {
@@ -63,7 +75,26 @@ class EnFrontPageContent < ActiveRecord::Base
     :contact_main_content_form_field_email => "Champ email du formulaire",
     :contact_main_content_form_field_subject => "Champ sujet du formulaire",
     :contact_main_content_form_field_message => "Champ message du formulaire",
-    :contact_main_content_form_field_validation_button => "Intitulé du bouton de validation"
+    :contact_main_content_form_field_validation_button => "Intitulé du bouton de validation",
+    :compendium_top_content_title => "Titre de la page",
+    :compendium_top_content_block1_image => "Image du bloc 1",
+    :compendium_top_content_block1_content => "Contenu du bloc 1",
+    :compendium_top_content_block2_image => "Image du bloc 2",
+    :compendium_top_content_block2_content => "Contenu du bloc 2",
+    :compendium_top_content_block3_image => "Image du bloc 3",
+    :compendium_top_content_block3_content => "Contenu du bloc 3",
+    :compendium_top_content_block4_image => "Image du bloc 4",
+    :compendium_top_content_block4_content => "Contenu du bloc 4",
+    :compendium_main_content_title => "Titre du corps de la page",
+    :compendium_main_content => "Corps de la page",
+    :compendium_main_content_registration => "Notice d'enregistrment",
+    :compendium_main_content_responsibles_title => "Titre de la section responsables",
+    :compendium_main_content_responsible1_image => "Image du responsable 1",
+    :compendium_main_content_responsible1_content => "Biographie du responsable 1",
+    :compendium_main_content_responsible2_image => "Image du responsable 2",
+    :compendium_main_content_responsible2_content => "Biographie du responsable 2",
+    :compendium_main_content_partners_title => "Titre de la section partenaires",
+    :compendium_main_content_partners_images => "Partenaires"
   }
 
   # Using friendly attribute name if it exists and default name otherwise
