@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151204190000) do
+ActiveRecord::Schema.define(version: 20151205150210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 20151204190000) do
     t.datetime "updated_at"
     t.boolean  "published"
     t.date     "publication_date"
+    t.string   "fr_title_activity_section"
+    t.string   "en_title_activity_section"
   end
 
   create_table "boundaries", force: true do |t|
@@ -184,6 +186,9 @@ ActiveRecord::Schema.define(version: 20151204190000) do
     t.text     "focus_on_woman_image_description"
     t.text     "focus_on_woman_quotation"
     t.text     "focus_on_woman_main_content"
+    t.string   "fr_title_activity_section"
+    t.string   "en_title_activity_section"
+    t.string   "title_activity_section"
   end
 
   create_table "fr_front_page_contents", force: true do |t|
@@ -300,6 +305,9 @@ ActiveRecord::Schema.define(version: 20151204190000) do
     t.text     "focus_on_woman_image_description"
     t.text     "focus_on_woman_quotation"
     t.text     "focus_on_woman_main_content"
+    t.string   "fr_title_activity_section"
+    t.string   "en_title_activity_section"
+    t.string   "title_activity_section"
   end
 
   create_table "profiles", force: true do |t|

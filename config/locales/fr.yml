@@ -5,6 +5,8 @@ fr:
     pagination:
       first: "<<"
       last: ">>"
+      previous: "Précédente"
+      next: "Suivante"
   date:
     formats:
       default: "%d/%m/%Y"

@@ -14,6 +14,27 @@ class HomeController < ApplicationController
     set_front_page_content
   end
 
+  def activities
+    select_front_menu_highlight_class("home_menu_highlight_style")
+
+    @activity_categories = ActivityCategory.where("published IS NOT FALSE").order("publication_date DESC")
+
+    set_front_page_content
+  end
+
+  def activities_details
+    select_front_menu_highlight_class("home_menu_highlight_style")
+    activity_category = ActivityCategory.find_by_id(params[:activity_category_id])
+
+    if activity_category.blank?
+      redirect_to :back
+    else
+      @activities = activity_category.activities.where("published IS NOT FALSE").page(params[:page]).per(1)
+    end
+
+    set_front_page_content
+  end
+
   def contact
     select_front_menu_highlight_class("contact_menu_highlight_style")
 
