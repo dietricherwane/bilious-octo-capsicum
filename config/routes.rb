@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     get '/contact' => 'home#contact', as: :contact
     get '/compendium' => 'home#compendium', as: :compendium
     get '/activités' => 'home#activities', as: :activities
+    get '/blog' => 'home#blog', as: :blog
+    get '/job' => 'home#job', as: :job
     get "/activités/:activity_category_id" => "home#activities_details", as: :activities_details
 
     devise_for :users, controllers: {

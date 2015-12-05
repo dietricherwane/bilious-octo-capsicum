@@ -35,6 +35,16 @@ class HomeController < ApplicationController
     set_front_page_content
   end
 
+  def blog
+    select_front_menu_highlight_class("blog_menu_highlight_style")
+
+    set_front_page_content
+  end
+
+  def job
+    set_front_page_content
+  end
+
   def contact
     select_front_menu_highlight_class("contact_menu_highlight_style")
 

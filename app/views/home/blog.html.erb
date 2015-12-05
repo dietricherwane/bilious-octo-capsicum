@@ -1,0 +1,53 @@
+<div class="coming_soon_cont">
+    	<div class="container">
+            <h3 class="title">En Construction</h3>
+            <div class="coming_soon_description">
+                <p>Nous travaillons passionnement pour vous donner une experience qui corresponde a vos besoins.</p>
+            </div>
+        </div>
+    </div>
+
+	<div class="global_count_wrapper">
+
+        <div class="countdown_wrapper">
+            <div id="countdown"></div>
+        </div>
+        <div class="custom_bg img_bg coming_soon"></div>
+    </div>
+    <script>
+		function centerWindow() {
+			"use strict";
+
+			var window_h = $(window).height();
+			var header_h = $('.main_header').height();
+			var globalWrap = $('.global_count_wrapper');
+			var countWrapper_h = $('.countdown_wrapper').innerHeight();
+			var countWrapper = $('.countdown_wrapper');
+
+			globalWrap.css('height', window_h - header_h + 'px');
+			countWrapper.css({'margin-top': - countWrapper_h/2 + 'px'});
+
+		}
+		$(document).ready(function(){
+			"use strict";
+			centerWindow();
+		});
+		$(window).load(function () {
+			"use strict";
+			centerWindow();
+		});
+		$(window).resize(function(){
+			"use strict";
+			centerWindow();
+		});
+
+		$(function () {
+			"use strict";
+			var austDay = new Date();
+			var austDay = new Date(2015, 12-1, 29); //year, month-1, day
+			$('#countdown').countdown({
+				until: austDay,
+				padZeroes: true
+			});
+		});
+	</script>   

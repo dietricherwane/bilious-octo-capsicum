@@ -83,7 +83,7 @@ body {
     color:#ffffff;
 }
 
-/*formatting
+/*formatting*/
 
 h1 {
     font-family:"Raleway", sans-serif;
@@ -115,7 +115,7 @@ h4 {
 	  -moz-osx-font-smoothing:grayscale;
 	  -webkit-font-smoothing:antialiased;
 	  color:#ECEFED;
-}*/
+}
 .xpro-emphasize-text {
     font-size:1.2em;
     font-weight:500;
