@@ -11,10 +11,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151130001148) do
+ActiveRecord::Schema.define(version: 20151204190000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: true do |t|
+    t.text     "fr_title"
+    t.text     "en_title"
+    t.text     "fr_content"
+    t.text     "en_content"
+    t.datetime "published_at"
+    t.string   "description_image_file_name"
+    t.string   "description_image_content_type"
+    t.integer  "description_image_file_size"
+    t.datetime "description_image_updated_at"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "published"
+    t.date     "publication_date"
+    t.integer  "activity_category_id"
+  end
+
+  create_table "activity_attachments", force: true do |t|
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "activity_id"
+  end
+
+  create_table "activity_categories", force: true do |t|
+    t.string   "fr_title"
+    t.string   "en_title"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "published"
+    t.date     "publication_date"
+  end
 
   create_table "boundaries", force: true do |t|
     t.integer  "profile_id"
@@ -137,6 +175,15 @@ ActiveRecord::Schema.define(version: 20151130001148) do
     t.text     "compendium_main_content_responsible2_content"
     t.string   "compendium_main_content_partners_title"
     t.text     "compendium_main_content_partners_images"
+    t.string   "focus_on_woman_image"
+    t.string   "focus_on_woman_title"
+    t.string   "focus_on_woman_image_file_name"
+    t.string   "focus_on_woman_image_content_type"
+    t.integer  "focus_on_woman_image_file_size"
+    t.datetime "focus_on_woman_image_updated_at"
+    t.text     "focus_on_woman_image_description"
+    t.text     "focus_on_woman_quotation"
+    t.text     "focus_on_woman_main_content"
   end
 
   create_table "fr_front_page_contents", force: true do |t|
@@ -244,6 +291,15 @@ ActiveRecord::Schema.define(version: 20151130001148) do
     t.text     "compendium_main_content_responsible2_content"
     t.string   "compendium_main_content_partners_title"
     t.text     "compendium_main_content_partners_images"
+    t.string   "focus_on_woman_image"
+    t.string   "focus_on_woman_title"
+    t.string   "focus_on_woman_image_file_name"
+    t.string   "focus_on_woman_image_content_type"
+    t.integer  "focus_on_woman_image_file_size"
+    t.datetime "focus_on_woman_image_updated_at"
+    t.text     "focus_on_woman_image_description"
+    t.text     "focus_on_woman_quotation"
+    t.text     "focus_on_woman_main_content"
   end
 
   create_table "profiles", force: true do |t|

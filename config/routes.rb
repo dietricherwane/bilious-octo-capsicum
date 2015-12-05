@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /en|fr/ do
     root "home#index"
     get '/' => 'home#index'
+    get '/focus' => 'home#focus_on_woman', as: :focus_on_woman
     get '/contact' => 'home#contact', as: :contact
     get '/compendium' => 'home#compendium', as: :compendium
 
@@ -23,11 +24,28 @@ Rails.application.routes.draw do
     get "set_locale/:user_locale" => "home#set_user_locale", as: :set_user_locale
 
     get "/administrator/manage_content_home" => "manage_front_content#home_page", as: :manage_home_front_content
+    get "/administrator/manage_content_focus_on_woman" => "manage_front_content#focus_on_woman_page", as: :manage_focus_on_woman_page_front_content
     get "/administrator/manage_content_contact" => "manage_front_content#contact_page", as: :manage_contact_front_content
     get "/administrator/manage_content_compendium" => "manage_front_content#compendium_page", as: :manage_compendium_front_content
     post "/administrator/update_fr_content_home" => "manage_front_fr_content#update_home_page_content", as: :update_fr_home_front_content
     post "/administrator/update_en_content_home" => "manage_front_en_content#update_home_page_content", as: :update_en_home_front_content
 
+    get "/administrator/activity_category" => "activity_categories#index", as: :activity_category
+    post "/administrator/activity_category/create" => "activity_categories#create", as: :create_activity_category
+    get "/administrator/activity_category/create" => "activity_categories#index"
+    get "/administrator/activity_categories/list" => "activity_categories#list", as: :list_activity_categories
+    get "/administrator/activity_category/disable/:activity_category_id" => "activity_categories#disable_activity_category", as: :disable_activity_category
+    get "/administrator/activity_category/enable/:activity_category_id" => "activity_categories#enable_activity_category", as: :enable_activity_category
+
+    get "/administrator/activity" => "activities#index", as: :activity
+    post "/administrator/activity/create" => "activities#create", as: :create_activity
+    get "/administrator/activity/edit/:activity_id" => "activities#edit", as: :edit_activity
+    get "/administrator/activity/image/delete/:activity_attachment_id" => "activities#delete_image", as: :delete_activity_attachment_image
+    post "/administrator/activities/update" => "activities#update", as: :update_activity
+    get "/administrator/activities/update" => "activities#list"
+    get "/administrator/activities/list" => "activities#list", as: :list_activities
+    get "/administrator/activity/disable/:activity_id" => "activities#disable_activity", as: :disable_activity
+    get "/administrator/activity/enable/:activity_id" => "activities#enable_activity", as: :enable_activity
 
     # The priority is based upon order of creation: first created -> highest priority.
     # See how all your routes lay out with "rake routes".

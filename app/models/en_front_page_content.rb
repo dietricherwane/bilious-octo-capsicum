@@ -8,6 +8,7 @@ class EnFrontPageContent < ActiveRecord::Base
   has_attached_file :compendium_top_content_block4_image, styles: {front: "340x340", article: "270x270", thumb: "100x100", tiny: "80x80"}, default_url: "/images/:style/missing.png"
   has_attached_file :compendium_main_content_responsible1_image, styles: {front: "340x340", article: "270x270", thumb: "100x100", tiny: "80x80"}, default_url: "/images/:style/missing.png"
   has_attached_file :compendium_main_content_responsible2_image, styles: {front: "340x340", article: "270x270", thumb: "100x100", tiny: "80x80"}, default_url: "/images/:style/missing.png"
+  has_attached_file :focus_on_woman_image, styles: {front: "340x340", article: "270x270", thumb: "100x100", tiny: "80x80"}, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :home_main_content_block1_image, content_type: /\Aimage\/.*\Z/
   validates_attachment_content_type :home_main_content_block2_image, content_type: /\Aimage\/.*\Z/
   validates_attachment_content_type :home_main_content_block3_image, content_type: /\Aimage\/.*\Z/
@@ -17,6 +18,7 @@ class EnFrontPageContent < ActiveRecord::Base
   validates_attachment_content_type :compendium_top_content_block4_image, content_type: /\Aimage\/.*\Z/
   validates_attachment_content_type :compendium_main_content_responsible1_image, content_type: /\Aimage\/.*\Z/
   validates_attachment_content_type :compendium_main_content_responsible2_image, content_type: /\Aimage\/.*\Z/
+  validates_attachment_content_type :focus_on_woman_image, content_type: /\Aimage\/.*\Z/
 
   # Rename attributes into more friendly text
   HUMANIZED_ATTRIBUTES = {
@@ -94,7 +96,12 @@ class EnFrontPageContent < ActiveRecord::Base
     :compendium_main_content_responsible2_image => "Image du responsable 2",
     :compendium_main_content_responsible2_content => "Biographie du responsable 2",
     :compendium_main_content_partners_title => "Titre de la section partenaires",
-    :compendium_main_content_partners_images => "Partenaires"
+    :compendium_main_content_partners_images => "Partenaires",
+    :focus_on_woman_title => "Titre de la page",
+    :focus_on_woman_image => "Image introductive",
+    :focus_on_woman_image_description => "Description de l'image",
+    :focus_on_woman_quotation => "Citation",
+    :focus_on_woman_main_content => "Corps de la page"
   }
 
   # Using friendly attribute name if it exists and default name otherwise

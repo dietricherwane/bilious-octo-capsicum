@@ -1,0 +1,158 @@
+<!-- Title area -->
+<div class="titleArea">
+    <div class="wrapper">
+        <div class="pageTitle">
+            <h5>Mise à jour de la page Femme à la une du site</h5>
+            <span>Remplissez les formulaires associés aux différentes sections de l'interface grand public.</span>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<%#= render "devise/registrations/shared/sub_menu" %>
+
+<div class="line"></div>
+
+<!-- Main content wrapper -->
+<div class="wrapper">
+
+  <%= flash_messages! %>
+
+  <div class="widget">
+    <ul class="tabs">
+      <li class="activeTab"><a href="#top_content">Corps de la page</a></li>
+    </ul>
+
+    <div class="tab_container">
+      <!-- Toolbar tab -->
+      <div id="top_content" class="tab_content" style="display: block;">
+        <%= form_for(@fr_content, url: update_fr_home_front_content_path, method: :post, html: {class: 'form'}) do |f| %>
+          <fieldset>
+            <div class="widget">
+              <div class="title">
+                <img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" />
+                <h6>FR | Corps de la page</h6>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :focus_on_woman_title %></label>
+                <div class="formRight">
+                  <%= f.text_field :focus_on_woman_title, placeholder: "Veuillez entrer le titlre de la page", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <%= image_tag @fr_content.focus_on_woman_image.url(:article) rescue "" %>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :focus_on_woman_image %></label>
+                <div class="formRight">
+                  <%= f.file_field :focus_on_woman_image, placeholder: "Veuillez choisir l'image descriptive", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :focus_on_woman_image_description %></label>
+                <div class="formRight">
+                  <%= f.text_area :focus_on_woman_image_description, placeholder: "Veuillez entrer la description de l'image", class: 'ckeditor' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :focus_on_woman_quotation %></label>
+                <div class="formRight">
+                  <%= f.text_area :focus_on_woman_quotation, placeholder: "Veuillez entrer la citation", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :focus_on_woman_main_content %></label>
+                <div class="formRight">
+                  <%= f.text_area :focus_on_woman_main_content, placeholder: "Veuillez entrer le contenu du corps de la page", class: 'ckeditor' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <%= f.submit "Valider", class: 'basic' %>
+              </div>
+            </div>
+          </fieldset>
+        <% end %>
+
+        <%= form_for(@en_content, url: update_en_home_front_content_path, method: :post, html: {class: 'form'}) do |f| %>
+          <fieldset>
+            <div class="widget">
+              <div class="title">
+                <img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" />
+                <h6>EN | Corps de la page</h6>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :focus_on_woman_title %></label>
+                <div class="formRight">
+                  <%= f.text_field :focus_on_woman_title, placeholder: "Veuillez entrer le titlre de la page", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <%= image_tag @en_content.focus_on_woman_image.url(:article) rescue "" %>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :focus_on_woman_image %></label>
+                <div class="formRight">
+                  <%= f.file_field :focus_on_woman_image, placeholder: "Veuillez choisir l'image descriptive", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :focus_on_woman_image_description %></label>
+                <div class="formRight">
+                  <%= f.text_area :focus_on_woman_image_description, placeholder: "Veuillez entrer la description de l'image", class: 'ckeditor' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :focus_on_woman_quotation %></label>
+                <div class="formRight">
+                  <%= f.text_area :focus_on_woman_quotation, placeholder: "Veuillez entrer la citation", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :focus_on_woman_main_content %></label>
+                <div class="formRight">
+                  <%= f.text_area :focus_on_woman_main_content, placeholder: "Veuillez entrer le contenu du corps de la page", class: 'ckeditor' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <%= f.submit "Valider", class: 'basic' %>
+              </div>
+            </div>
+          </fieldset>
+        <% end %>
+      </div>
+      <!-- Toolbar tab -->
+    </div>
+    <div class="clear"></div>
+  </div>
+
+</div>
+<!-- End Main content wrapper -->

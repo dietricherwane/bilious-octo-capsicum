@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
 
   # Relationships
   belongs_to :profile
+  has_many :activity_categories
+  has_many :activities
 
   # Handle avatar pictures
   has_attached_file :avatar, styles: {small: "18x18", thumb: "37x37", medium: "300x300"}
