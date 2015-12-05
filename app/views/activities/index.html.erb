@@ -1,0 +1,96 @@
+<!-- Title area -->
+<div class="titleArea">
+    <div class="wrapper">
+        <div class="pageTitle">
+            <h5>Création des activités</h5>
+            <span>Créez une activité liée à une catégorie d'activité.</span>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<%= render "activity_categories/shared/sub_menu" %>
+
+<div class="line"></div>
+
+<!-- Main content wrapper -->
+<div class="wrapper">
+
+  <%= flash_messages! %>
+  <%= form_for(@activity, url: create_activity_path, method: :post, html: {class: 'form', multipart: true}) do |f| %>
+
+    <fieldset>
+      <div class="widget">
+        <div class="title">
+          <img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" />
+          <h6>Formulaire de création d'activités</h6>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :activity_category_id %></label>
+          <div class="formRight">
+            <%= f.collection_select :activity_category_id, @activity_categories, :id, :fr_title, options ={prompt: "Veuillez choisir une catégorie"}, html_options = {class: "form-control"} %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :fr_title %></label>
+          <div class="formRight">
+            <%= f.text_field :fr_title, placeholder: "Veuillez entrer le titre français", class: 'form-control' %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :en_title %></label>
+          <div class="formRight">
+            <%= f.text_field :en_title, placeholder: "Veuillez entrer le titre anglais", class: 'form-control' %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :fr_content %></label>
+          <div class="formRight">
+            <%= f.text_area :fr_content, placeholder: "Veuillez entrer le contenu français", class: 'ckeditor' %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :en_content %></label>
+          <div class="formRight">
+            <%= f.text_area :en_content, placeholder: "Veuillez entrer le contenu anglais", class: 'ckeditor' %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :publication_date %></label>
+          <div class="formRight">
+            <%= f.date_select :publication_date, start_year: (Date.today.year - 10), end_year: (Date.today.year + 2), class: "form-control" %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label>Galerie</label>
+          <div class="formRight">
+            <input type="file" name="activity[attachments_array][]" multiple="multiple" />
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <%= f.submit "Valider", class: 'basic' %>
+        </div>
+      </div>
+    </fieldset>
+  <% end %>
+
+</div>
+<!-- End Main content wrapper -->

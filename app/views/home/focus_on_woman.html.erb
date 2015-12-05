@@ -1,0 +1,60 @@
+<div class="breadcrumbs">
+    	<div class="container">
+        <h1 class="title-page"><%= @front_page_content.focus_on_woman_title %></h1>
+      </div>
+    </div>
+
+    <div class="wrapper">
+    	<div class="container">
+        	<div class="content_block row no-sidebar">
+            	<div class="fl-container">
+                	<div class="posts-block">
+                        <div class="contentarea">
+                            <div class="row">
+                                <div class="col-sm-12 module_cont pb75 module_team">
+                                    <div class="team_slider">
+                                        <div class="carouselslider teamslider items2">
+                                            <ul class="item_list">
+                                                <li class="animate" data-anim-delay="250" data-anim-type="fadeInLeft">
+                                                    <div class="item_wrapper">
+                                                        <div class="item">
+                                                        	<div class="row">
+                                                            	<div class="col-sm-6">
+                                                                	<div class="img_block">
+
+                                                                      <%= image_tag @front_page_content.focus_on_woman_image.url(:article) rescue "" %>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                	<div class="carousel_body">
+                                                                        <div class="team_title">
+                                                                          <%= @front_page_content.focus_on_woman_image_description.html_safe rescue "" %>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="animate" data-anim-delay="250" data-anim-type="fadeInRight">
+                                                  <div class="item_wrapper">
+                                                        <div class="item">
+
+                                                            <blockquote style="margin-top:50px; font-size: 18px; font-weight:600; color:#102b5d;line-height: 24px;"> <%= @front_page_content.focus_on_woman_quotation.html_safe rescue "" %>
+                                                              </blockquote>
+                                                         </div>
+                                                 </div>
+                                            </div>
+                                                </li>
+                                            </ul>
+                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+            <%= @front_page_content.focus_on_woman_main_content.html_safe rescue "" %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

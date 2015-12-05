@@ -8,6 +8,12 @@ class HomeController < ApplicationController
     set_front_page_content
   end
 
+  def focus_on_woman
+    select_front_menu_highlight_class("home_menu_highlight_style")
+
+    set_front_page_content
+  end
+
   def contact
     select_front_menu_highlight_class("contact_menu_highlight_style")
 
