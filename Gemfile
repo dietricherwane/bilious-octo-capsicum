@@ -34,6 +34,9 @@ gem 'paperclip'#, "~>4.3"
 
 gem 'ckeditor_rails'
 
+# Paginate database results
+gem 'kaminari'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

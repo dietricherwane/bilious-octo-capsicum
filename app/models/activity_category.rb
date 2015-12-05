@@ -7,6 +7,8 @@ class ActivityCategory < ActiveRecord::Base
   HUMANIZED_ATTRIBUTES = {
     :fr_title => "Titre français",
     :en_title => "Titre anglais",
+    :fr_title_activity_section => "Titre français de la section",
+    :en_title_activity_section => "Titre anglais de la section",
     :user_id => "L'auteur de l'article",
     :publication_date => "Date de publication"
   }

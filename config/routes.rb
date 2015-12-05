@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     get '/focus' => 'home#focus_on_woman', as: :focus_on_woman
     get '/contact' => 'home#contact', as: :contact
     get '/compendium' => 'home#compendium', as: :compendium
+    get '/activités' => 'home#activities', as: :activities
+    get "/activités/:activity_category_id" => "home#activities_details", as: :activities_details
 
     devise_for :users, controllers: {
       sessions: 'users/sessions', registrations: 'users/registrations', passwords: 'users/passwords', confirmations: 'users/confirmations'

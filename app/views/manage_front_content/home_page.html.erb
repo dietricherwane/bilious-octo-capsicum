@@ -755,6 +755,14 @@
               </div>
 
               <div class="formRow">
+                <label><%= f.label :title_activity_section %></label>
+                <div class="formRight">
+                  <%= f.text_field :title_activity_section, placeholder: "Veuillez entrer le titre français de la section activités", class: 'form-control', autofocus: true %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
                 <label><%= f.label :home_main_content_block3_title %></label>
                 <div class="formRight">
                   <%= f.text_field :home_main_content_block3_title, placeholder: "Veuillez entrer le titre du bloc 3", class: 'form-control' %>
@@ -876,6 +884,15 @@
                 <label><%= f.label :home_main_content_block2_content %></label>
                 <div class="formRight">
                   <%= f.text_area :home_main_content_block2_content, placeholder: "Veuillez entrer le contenu du bloc 2", class: 'ckeditor' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+
+              <div class="formRow">
+                <label><%= f.label :title_activity_section %></label>
+                <div class="formRight">
+                  <%= f.text_field :title_activity_section, placeholder: "Veuillez entrer le titre anglais de la section activités", class: 'form-control' %>
                 </div>
                 <div class="clear"></div>
               </div>

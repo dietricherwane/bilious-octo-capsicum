@@ -1,0 +1,60 @@
+ <div class="breadcrumbs">
+    	<div class="container">
+            <h1 class="title-page"><%= @front_page_content.title_activity_section %></h1>
+        </div>
+    </div>
+
+
+  <div class="wrapper">
+    	<div class="container">
+        	<div class="page_title_block">
+               <div class="page_descr">
+                </div>
+            </div>
+        	<div class="content_block row no-sidebar">
+            	<div class="fl-container">
+                	<div class="posts-block">
+                        <div class="contentarea">
+                            <div class="row pb50 animate" data-anim-type="fadeInUp" data-anim-delay="300">
+                                <div class="sorting_block image-grid featured_items photo_gallery column1" id="list">
+
+
+
+<div class="row">
+        <div class="col-sm-12 module_cont pb80 module_feature_portfolio">
+            <div class="featured_items">
+                <div class="items4 featured_portfolio">
+                    <ul class="item_list">
+                        <% unless @activity_categories.blank? %>
+                          <% @activity_categories.each do |activity_category| %>
+                            <li class="animate" data-anim-type="fadeInUp" data-anim-delay="300">
+                                <div class="item">
+                                    <div class="item_wrapper">
+                                        <div class="img_block wrapped_img">
+                                          <a href = "<%= activities_details_path(activity_category.id) %>">
+                                              <div style="color: #fff;text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777, 0px 4px 0px #666, 0px 5px 0px #555, 0px 6px 0px #444, 0px 7px 0px #333, 0px 8px 7px #001135;font: 80px 'ChunkFiveRegular';">
+                                                <%= I18n.locale == :fr ? activity_category.fr_title : activity_category.en_title %>
+                                              </div>
+                                          </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                          <% end %>
+                        <% end %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+     </div>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
