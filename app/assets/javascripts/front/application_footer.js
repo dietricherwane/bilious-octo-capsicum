@@ -21,3 +21,4 @@
 //= require front/theme
 //= require front/jquery.themepunch.plugins.min
 //= require front/jquery.themepunch.revolution.min
+//= require front/jquery.countdown.min
