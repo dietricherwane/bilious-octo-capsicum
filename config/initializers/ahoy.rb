@@ -7,8 +7,8 @@ class Ahoy::Store < Ahoy::Stores::ActiveRecordStore
   def track_visit(options, &block)
     visit =
       visit_model.new do |v|
-        v.id = UUIDTools::UUID.parse_raw(ahoy.visit_id)
-        v.visitor_id = UUIDTools::UUID.parse_raw(ahoy.visitor_id)
+        v.id = ahoy.visit_id
+        v.visitor_id = ahoy.visitor_id
         v.user = user if v.respond_to?(:user=)
         v.started_at = options[:started_at]
       end
@@ -28,8 +28,8 @@ class Ahoy::Store < Ahoy::Stores::ActiveRecordStore
   def track_event(name, properties, options, &block)
     event =
       event_model.new do |e|
-        **e.id = UUIDTools::UUID.parse_raw(options[:id])
-        e.visit_id = UUIDTools::UUID.parse_raw(ahoy.visit_id)**
+        e.id = UUIDTools::UUID.parse_raw(options[:id])
+        e.visit_id = UUIDTools::UUID.parse_raw(ahoy.visit_id)
         e.user = user if e.respond_to?(:user=)
         e.name = name
         e.properties = properties

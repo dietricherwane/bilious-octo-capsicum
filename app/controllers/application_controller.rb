@@ -6,6 +6,14 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
 
+  after_filter :ahoy_track
+
+  protected
+
+  def ahoy_track
+    ahoy.track_visit
+  end
+
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
