@@ -104,6 +104,7 @@
 
                     <div class="col-sm-3">
                         <div class="sidepanel widget_posts">
+                          <%= I18n.locale == :fr ? '<h4 class="title">Compteur de visites</h4>'.html_safe : '<h4 class="title">Visit counter</h4>'.html_safe %>
                         	<%#= @front_page_content.home_footer_block3.html_safe rescue "" %>
                         	<%= geo_chart Visit.group(:country).count, library: {backgroundColor: "#31383d"} %>
                         	<%#= pie_chart Visit.group(:country).count, library: {backgroundColor: "#31383d"} %>
