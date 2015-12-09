@@ -37,6 +37,14 @@ gem 'ckeditor_rails'
 # Paginate database results
 gem 'kaminari'
 
+
+# Visit counter
+gem 'ahoy_matey'
+
+gem 'chartkick'
+
+gem 'groupdate'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
