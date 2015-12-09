@@ -107,6 +107,7 @@
                         	<%#= @front_page_content.home_footer_block3.html_safe rescue "" %>
                         	<%= geo_chart Visit.group(:country).count, library: {backgroundColor: "#31383d"} %>
                         	<%#= pie_chart Visit.group(:country).count, library: {backgroundColor: "#31383d"} %>
+                        	<span style = "color: white;"><%= visitors_online %> <%= I18n.locale == :fr ? 'Utilisateurs en ligne' : 'Users online' %></span>
                         </div>
                     </div>
 
