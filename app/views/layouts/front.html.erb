@@ -13,6 +13,8 @@
 <%= javascript_include_tag 'front/slider_initializer', 'data-turbolinks-track' => true %>
 <% end %>
 
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+
 <%= csrf_meta_tags %>
 </head>
 
@@ -40,6 +42,7 @@
                         <div class="cart_btn">
                         	<a href="https://cocofci-lp2iprci.db.em2.oraclecloudapps.com/apex/f?p=30200222:LOGIN::::::" class="view_cart_btn" target="_blank"><i class="icon-users"></i> <%= @front_page_content.home_toolbar_my_account %> </a>
                         </div>
+
                     </div>
                 </div>
                 <div class="fleft">
@@ -101,7 +104,9 @@
 
                     <div class="col-sm-3">
                         <div class="sidepanel widget_posts">
-                        	<%= @front_page_content.home_footer_block3.html_safe rescue "" %>
+                        	<%#= @front_page_content.home_footer_block3.html_safe rescue "" %>
+                        	<%= geo_chart Visit.group(:country).count, library: {backgroundColor: "#31383d"} %>
+                        	<%#= pie_chart Visit.group(:country).count, library: {backgroundColor: "#31383d"} %>
                         </div>
                     </div>
 
@@ -124,5 +129,9 @@
     <div class="fixed-menu"></div>
 
  <%= javascript_include_tag 'front/application_footer', 'data-turbolinks-track' => true %>
+ <script>
+  ahoy.reset();
+  var Chartkick = {"language": "<%= I18n.locale == :fr ? 'fr' : 'en' %>"};
+</script>
 </body>
 </html>
