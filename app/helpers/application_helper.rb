@@ -32,6 +32,10 @@ module ApplicationHelper
     link_to('<span>Revenir en arrière</span>'.html_safe, 'javascript:history.go(-1);', class: 'button redB')
   end
 
+  def visitors_online
+    return (Visit.where("started_at + interval '4 hour' > '#{DateTime.now}'").count.to_s rescue "")
+  end
+
   def front_language_menu
     if I18n.locale == :fr
       html = <<-HTML
