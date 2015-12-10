@@ -36,6 +36,10 @@ module ApplicationHelper
     return (Visit.where("started_at + interval '4 hour' > '#{DateTime.now}'").count.to_s rescue "")
   end
 
+  def visitors_all_days
+    return (Visit.all.count.to_s rescue "")
+  end
+
   def front_language_menu
     if I18n.locale == :fr
       html = <<-HTML
