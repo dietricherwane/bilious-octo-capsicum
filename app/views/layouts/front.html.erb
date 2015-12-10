@@ -24,6 +24,15 @@
         <!-- Top Header -->
         <div class="tagline">
             <div class="container">
+                <% if !session[:cookies_enabled] %>
+                  <%= I18n.locale == :fr ? "<span style='display:block;text-align:center;'>Ce site web requiert l'utilisation de cookies</span>".html_safe : "<span style='display:block;text-align:center;'>This website requires cookies usage</span>".html_safe %>
+                   <% if !session[:cookies_enabled] && session[:cookies_counter] == 1 %>
+                    <script>
+                      alert("<%= I18n.locale == :fr ? 'Ce site web requiert l\'utilisation de cookies' : 'This web site requires cookies usage'%>");
+                    </script>
+                   <% end %>
+                <% end %>
+
                 <div class="fright">
                 	<div class="tagline_items">
                     	<div class="language_select">
@@ -132,9 +141,9 @@
     <div class="fixed-menu"></div>
 
  <%= javascript_include_tag 'front/application_footer', 'data-turbolinks-track' => true %>
- <script>
-  //ahoy.reset();
-  var Chartkick = {"language": "<%= I18n.locale == :fr ? 'fr' : 'en' %>"};
-</script>
+  <script>
+    //ahoy.reset();
+    var Chartkick = {"language": "<%= I18n.locale == :fr ? 'fr' : 'en' %>"};
+  </script>
 </body>
 </html>
