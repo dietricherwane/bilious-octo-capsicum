@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  before_filter :cookie_detection, :except => [:cookie_detection]
+
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
 
@@ -74,6 +76,20 @@ class ApplicationController < ActionController::Base
       if I18n.locale == :en
         @front_page_content = EnFrontPageContent.first
       end
+    end
+  end
+
+  # checks for presence of "cookie_test" cookie
+  # (should have been set by cookies_required before_filter)
+  # if cookie is present, continue normal operation
+  # otherwise show cookie warning at "shared/cookies_required"
+  def cookie_detection
+    cookies["cookie_test"] = Time.now
+    if cookies["cookie_test"].blank?
+      session[:cookies_enabled] = false
+      session[:cookies_counter] = (session[:cookies_counter] + 1) rescue 1
+    else
+      session[:cookies_enabled] = true
     end
   end
 
