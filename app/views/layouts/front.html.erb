@@ -117,7 +117,7 @@
                         	<%#= @front_page_content.home_footer_block3.html_safe rescue "" %>
                         	<%= geo_chart Visit.group(:country).count, library: {backgroundColor: "#31383d"} %>
                         	<%#= pie_chart Visit.group(:country).count, library: {backgroundColor: "#31383d"} %>
-                        	<span style = "color: white;"><%= visitors_all_days %> <%= I18n.locale == :fr ? 'Visiteur(s) au total' : 'Visitor(s) all days' %></span>
+                        	<span style = "color: white;"><%= visitors_all_days %> <%= I18n.locale == :fr ? 'Visiteur(s) au total' : 'Visitor(s) all days' %></span><br />
                         	<span style = "color: white;"><%= visitors_online %> <%= I18n.locale == :fr ? 'Visiteur(s) en ligne' : 'Visitor(s) online' %></span>
                         </div>
                     </div>
