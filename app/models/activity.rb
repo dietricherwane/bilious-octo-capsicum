@@ -27,8 +27,8 @@ class Activity < ActiveRecord::Base
 
   # Custom functions
   def attachments_array=(array)
-   array.each do |file|
-    activity_attachments.build(:activity_attachment => file)
-   end
+    array.each do |file|
+      activity_attachments.build(:activity_attachment => file)
+    end
   end
 end

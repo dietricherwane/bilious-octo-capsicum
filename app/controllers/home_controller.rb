@@ -22,6 +22,14 @@ class HomeController < ApplicationController
     set_front_page_content
   end
 
+  def gallery
+    select_front_menu_highlight_class("gallery_menu_highlight_style")
+
+    @gallery_categories = GalleryCategory.where("published IS NOT FALSE").order("publication_date DESC")
+
+    set_front_page_content
+  end
+
   def activities_details
     select_front_menu_highlight_class("home_menu_highlight_style")
     activity_category = ActivityCategory.find_by_id(params[:activity_category_id])

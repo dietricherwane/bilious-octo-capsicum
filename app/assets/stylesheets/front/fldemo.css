@@ -87,22 +87,22 @@ body {
 
 h1 {
     font-family:"Raleway", sans-serif;
-    font-weight: 400;
+    /*font-weight: 400;*/
     margin-top: 30px;
     margin-bottom: 30px;
-    font-size:40px;
+    /*font-size:40px;*/
 }
 
 h2 {
     font-family:"Raleway", sans-serif;
-    font-weight: 300;
-    font-size: 32px;
+    /*font-weight: 300;
+    font-size: 32px;*/
 }
 
 h3 {
     font-family:"Raleway", sans-serif;
-    font-weight: 300;
-    font-size: 24px;
+    /*font-weight: 300;
+    font-size: 24px;*/
 }
 
 h4 {
@@ -110,8 +110,8 @@ h4 {
     font-weight: 300;
     line-height:26px;
 	  margin-bottom:20px;
-	  font-size:20px;
-	  font-weight:700;
+	  /*font-size:20px;
+	  font-weight:700;*/
 	  -moz-osx-font-smoothing:grayscale;
 	  -webkit-font-smoothing:antialiased;
 	  color:#ECEFED;

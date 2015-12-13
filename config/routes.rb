@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     get '/contact' => 'home#contact', as: :contact
     get '/compendium' => 'home#compendium', as: :compendium
     get '/activités' => 'home#activities', as: :activities
+    get '/galerie' => 'home#gallery', as: :gallery
     get '/blog' => 'home#blog', as: :blog
     get '/job' => 'home#job', as: :job
     get "/activités/:activity_category_id" => "home#activities_details", as: :activities_details
@@ -37,6 +38,8 @@ Rails.application.routes.draw do
     get "/administrator/activity_category" => "activity_categories#index", as: :activity_category
     post "/administrator/activity_category/create" => "activity_categories#create", as: :create_activity_category
     get "/administrator/activity_category/create" => "activity_categories#index"
+    get "/administrator/activity_category/edit/:activity_category_id" => "activity_categories#edit", as: :edit_activity_category
+    post "/administrator/activity_category/update" => "activity_categories#update", as: :update_activity_category
     get "/administrator/activity_categories/list" => "activity_categories#list", as: :list_activity_categories
     get "/administrator/activity_category/disable/:activity_category_id" => "activity_categories#disable_activity_category", as: :disable_activity_category
     get "/administrator/activity_category/enable/:activity_category_id" => "activity_categories#enable_activity_category", as: :enable_activity_category
@@ -50,6 +53,16 @@ Rails.application.routes.draw do
     get "/administrator/activities/list" => "activities#list", as: :list_activities
     get "/administrator/activity/disable/:activity_id" => "activities#disable_activity", as: :disable_activity
     get "/administrator/activity/enable/:activity_id" => "activities#enable_activity", as: :enable_activity
+
+    get "/administrator/gallery_category" => "gallery_categories#index", as: :gallery_category
+    post "/administrator/gallery_category/create" => "gallery_categories#create", as: :create_gallery_category
+    get "/administrator/gallery_category/create" => "gallery_categories#index"
+    get "/administrator/gallery_category/edit/:gallery_category_id" => "gallery_categories#edit", as: :edit_gallery_category
+    get "/administrator/gallery_category/attachment/delete/:gallery_attachment_id" => "gallery_categories#delete_attachment", as: :delete_gallery_attachment
+    post "/administrator/gallery_category/update" => "gallery_categories#update", as: :update_gallery_category
+    get "/administrator/gallery_categories/list" => "gallery_categories#list", as: :list_gallery_categories
+    get "/administrator/gallery_category/disable/:gallery_category_id" => "gallery_categories#disable_gallery_category", as: :disable_gallery_category
+    get "/administrator/gallery_category/enable/:gallery_category_id" => "gallery_categories#enable_gallery_category", as: :enable_gallery_category
 
     # The priority is based upon order of creation: first created -> highest priority.
     # See how all your routes lay out with "rake routes".

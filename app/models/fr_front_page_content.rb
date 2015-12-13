@@ -102,7 +102,8 @@ class FrFrontPageContent < ActiveRecord::Base
     :focus_on_woman_image => "Image introductive",
     :focus_on_woman_image_description => "Description de l'image",
     :focus_on_woman_quotation => "Citation",
-    :focus_on_woman_main_content => "Corps de la page"
+    :focus_on_woman_main_content => "Corps de la page",
+    :gallery_title => "Titre de la galerie"
   }
 
   # Using friendly attribute name if it exists and default name otherwise

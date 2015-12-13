@@ -1,0 +1,125 @@
+<!-- Title area -->
+<div class="titleArea">
+    <div class="wrapper">
+        <div class="pageTitle">
+            <h5>Edition de catégorie de galeries: <%= @gallery_category.fr_title %></h5>
+            <span>Créez un un type dde galerie auquel vous ajouterez des galeries.</span>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<%= render "gallery_categories/shared/sub_menu" %>
+
+<div class="line"></div>
+
+<!-- Main content wrapper -->
+<div class="wrapper">
+  <%= flash_messages! %>
+  <%= form_for(@gallery_category, url: update_gallery_category_path, method: :post, html: {class: 'form', multipart: true}) do |f| %>
+
+    <fieldset>
+      <div class="widget">
+        <div class="title">
+          <img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" />
+          <h6>Formulaire d'édition de catégorie de galerie</h6>
+        </div>
+
+        <div class="formRow">
+          <%= f.hidden_field :id %>
+
+          <label><%= f.label :fr_title %></label>
+          <div class="formRight">
+            <%= f.text_field :fr_title, placeholder: "Veuillez entrer le titre français", class: 'form-control' %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :en_title %></label>
+          <div class="formRight">
+            <%= f.text_field :en_title, placeholder: "Veuillez entrer le titre anglais", class: 'form-control' %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :publication_date %></label>
+          <div class="formRight">
+            <%= f.date_select :publication_date, start_year: (Date.today.year - 10), end_year: (Date.today.year + 2), class: "form-control" %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label>Photos</label>
+          <div class="formRight">
+            <input type="file" name="gallery_category[photos_attachments_array][]" multiple="multiple" />
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label>PDF</label>
+          <div class="formRight">
+            <input type="file" name="gallery_category[pdf_attachments_array][]" multiple="multiple" />
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <% attachments = @gallery_category.gallery_attachments %>
+        <% unless attachments.blank? %>
+          <!-- Images gallery -->
+          <div class="widget">
+            <div class="title"><img src="<%= asset_path 'icons/dark/images2.png' %>" alt="" class="titleIcon" /><h6>Galerie photos</h6></div>
+            <div class="gallery">
+              <ul>
+                <% attachments.each do |photo_attachment| %>
+                  <% if photo_attachment.pdf_attachment_file_name.blank? %>
+                    <li>
+                      <a href="<%= photo_attachment.photo_attachment.url(:front) %>" title="" rel="lightbox"><%= image_tag photo_attachment.photo_attachment.url(:front) %></a>
+                      <div class="actions">
+                          <a href="<%= delete_gallery_attachment_path(photo_attachment.id) %>" title=""><img src="<%= asset_path 'icons/delete.png' %>" alt="" /></a>
+                      </div>
+                    </li>
+                  <% end %>
+                <% end %>
+              </ul>
+              <div class="fix"></div>
+            </div>
+          </div>
+          <!-- Images gallery -->
+          <!-- PDF gallery -->
+          <div class="widget">
+            <div class="title"><img src="<%= asset_path 'icons/dark/images2.png' %>" alt="" class="titleIcon" /><h6>Galerie PDF</h6></div>
+            <div class="gallery">
+              <ul>
+                <% attachments.each do |pdf_attachment| %>
+                  <% if pdf_attachment.photo_attachment_file_name.blank? %>
+                    <li>
+                      <a href="<%= pdf_attachment.pdf_attachment.url %>" title="" target = "_blank" ><%= pdf_attachment.pdf_attachment_file_name %></a>
+                      <div class="actions">
+                          <a href="<%= delete_gallery_attachment_path(pdf_attachment.id) %>" title=""><img src="<%= asset_path 'icons/delete.png' %>" alt="" /></a>
+                      </div>
+                    </li>
+                  <% end %>
+                <% end %>
+              </ul>
+              <div class="fix"></div>
+            </div>
+          </div>
+          <!-- PDF gallery -->
+        <% end %>
+
+        <div class="formRow">
+          <%= f.submit "Valider", class: 'basic' %>
+        </div>
+      </div>
+    </fieldset>
+  <% end %>
+
+</div>
+<!-- End Main content wrapper -->
