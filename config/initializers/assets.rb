@@ -12,3 +12,5 @@ Rails.application.config.assets.precompile += %w( front/application_header.js )
 Rails.application.config.assets.precompile += %w( front/slider_initializer.js )
 
 Rails.application.config.assets.precompile += %w( front/application_footer.js )
+
+Rails.application.config.assets.precompile += %w( front/gallery.js )

@@ -117,7 +117,7 @@ class ActivitiesController < ApplicationController
   end
 
   def init_activities
-    @activity_categories = ActivityCategory.where("published IS NOT FALSE")
+    @activity_categories = ActivityCategory.where("published IS NOT FALSE").order('publication_date DESC')
 
     @website_content_menu_style = "current"
     @activities_website_content_menu_style = "this"

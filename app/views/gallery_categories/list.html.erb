@@ -1,0 +1,69 @@
+<!-- Title area -->
+<div class="titleArea">
+    <div class="wrapper">
+        <div class="pageTitle">
+            <h5>Liste des catégories dde galeries</h5>
+            <span>Prise en charge des actions liées à la liste des catégories de galeries.</span>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<%= render "gallery_categories/shared/sub_menu" %>
+
+<div class="line"></div>
+
+<!-- Main content wrapper -->
+<div class="wrapper">
+  <%= flash_messages! %>
+<!-- Widgets -->
+  <div class="widget">
+    <div class="title"><img src="<%= asset_path 'icons/dark/full2.png' %>" alt="" class="titleIcon" /><h6>Liste des catégories de galeries</h6></div>
+    <table cellpadding="0" cellspacing="0" border="0" class="display dTable taskWidget">
+      <thead>
+        <tr>
+          <th>Titre</th>
+          <th>Date de publication</th>
+          <th>Date de création</th>
+          <th>Auteur</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% unless @gallery_categories.blank? %>
+          <% current_user_profile_shortcut = current_user.profile.shortcut %>
+          <% current_user_id = current_user.id %>
+          <% @gallery_categories.each do |gallery_category| %>
+            <tr class="gradeA">
+              <% css_class = (gallery_category.published == false ? 'taskD' : 'taskPr') %>
+              <td class = "<%= css_class %>">
+                <%= "#{gallery_category.fr_title}" %>
+              </td>
+              <td>
+                <%= gallery_category.publication_date.strftime("%d-%m-%Y") %>
+              </td>
+              <td>
+                <strong>Créé le </strong> <%= gallery_category.created_at.strftime("%d-%m-%Y") + " à " + gallery_category.created_at.strftime("%Hh %Mmn") %>
+              </td>
+              <td class = "customInfo">
+                <strong>Par </strong> <%= gallery_category.user.full_name %>
+              </td>
+              <td class = "actBtns">
+                <a href="<%= edit_gallery_category_path(gallery_category.id) %>" class="tipS" original-title="Modifier les informations"><%= image_tag('icons/color/pencil.png', alt: '') %></a>
+                <% if gallery_category.published == false %>
+                  <a href="<%= enable_gallery_category_path(gallery_category.id) %>" class="tipS" original-title="Activer la catégorie"><%= image_tag('icons/color/tick.png', alt: '') %></a>
+                <% else %>
+                  <a href="<%= disable_gallery_category_path(gallery_category.id) %>" class="tipS" original-title="Désactiver la catégorie"><%= image_tag('icons/color/cross.png', alt: '') %></a>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- End Main content wrapper -->

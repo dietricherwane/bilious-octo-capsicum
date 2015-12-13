@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151209145339) do
+ActiveRecord::Schema.define(version: 20151213133733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -200,6 +200,7 @@ ActiveRecord::Schema.define(version: 20151209145339) do
     t.string   "fr_title_activity_section"
     t.string   "en_title_activity_section"
     t.string   "title_activity_section"
+    t.string   "gallery_title"
   end
 
   create_table "fr_front_page_contents", force: true do |t|
@@ -318,6 +319,31 @@ ActiveRecord::Schema.define(version: 20151209145339) do
     t.string   "fr_title_activity_section"
     t.string   "en_title_activity_section"
     t.string   "title_activity_section"
+    t.string   "gallery_title"
+  end
+
+  create_table "gallery_attachments", force: true do |t|
+    t.integer  "gallery_category_id"
+    t.string   "photo_attachment_file_name"
+    t.string   "photo_attachment_content_type"
+    t.integer  "photo_attachment_file_size"
+    t.datetime "photo_attachment_updated_at"
+    t.string   "pdf_attachment_file_name"
+    t.string   "pdf_attachment_content_type"
+    t.integer  "pdf_attachment_file_size"
+    t.datetime "pdf_attachment_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "gallery_categories", force: true do |t|
+    t.string   "fr_title"
+    t.string   "en_title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.date     "publication_date"
+    t.boolean  "published"
   end
 
   create_table "profiles", force: true do |t|

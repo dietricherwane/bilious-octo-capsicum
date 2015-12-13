@@ -9,7 +9,7 @@ class ActivityCategory < ActiveRecord::Base
     :en_title => "Titre anglais",
     :fr_title_activity_section => "Titre français de la section",
     :en_title_activity_section => "Titre anglais de la section",
-    :user_id => "L'auteur de l'article",
+    :user_id => "L'auteur de la catégorie",
     :publication_date => "Date de publication"
   }
 

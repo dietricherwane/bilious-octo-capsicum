@@ -52,12 +52,12 @@
                 <strong>Par </strong> <%= activity_category.user.full_name %>
               </td>
               <td class = "actBtns">
+                <a href="<%= edit_activity_category_path(activity_category.id) %>" class="tipS" original-title="Modifier les informations"><%= image_tag('icons/color/pencil.png', alt: '') %></a>
                 <% if activity_category.published == false %>
                   <a href="<%= enable_activity_category_path(activity_category.id) %>" class="tipS" original-title="Activer la catégorie"><%= image_tag('icons/color/tick.png', alt: '') %></a>
                 <% else %>
                   <a href="<%= disable_activity_category_path(activity_category.id) %>" class="tipS" original-title="Désactiver la catégorie"><%= image_tag('icons/color/cross.png', alt: '') %></a>
                 <% end %>
-                <a href="<%#= edit_activity_category_path(activity_category.id) %>" class="tipS" original-title="Modifier les informations"><%= image_tag('icons/color/pencil.png', alt: '') %></a>
               </td>
             </tr>
           <% end %>
