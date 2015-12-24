@@ -68,7 +68,7 @@ class EnFrontPageContent < ActiveRecord::Base
     :home_footer_block1 => "Bloc 1 du pied de page",
     :home_footer_block2 => "Bloc 2 du pied de page",
     :home_footer_block3 => "Bloc 3 du pied de page",
-    :home_footer_block4 => "Bloc 4 du pied de page",
+    :home_footer_block4 => "Bloc 3 du pied de page",
     :home_footer_copyright => "Copyright",
     :title_activity_section => "Titre de la section activités",
     :contact_main_content_title => "Titre de la page",
