@@ -18,9 +18,11 @@
                                 <li>
                                   <ul data-option-key="filter" class="optionset">
                                     <li class="selected"><a data-option-value="*" data-catname="all" href="#filter"><%= I18n.locale == :fr ? "Tous" : "All" %></a></li>
+                                    <% @custom_class = "" %>
                                     <% unless @gallery_categories.blank? %>
                                       <% @gallery_categories.each do |gallery_category| %>
-                                        <li><a data-option-value=".<%= I18n.locale == :fr ? Digest::SHA1.hexdigest([gallery_category.fr_title, rand].join).hex.to_s[0..17] : Digest::SHA1.hexdigest([gallery_category.en_title, rand].join).hex.to_s[0..17] %>" data-catname="<%= I18n.locale == :fr ? Digest::SHA1.hexdigest([gallery_category.fr_title, rand].join).hex.to_s[0..17] : Digest::SHA1.hexdigest([gallery_category.en_title, rand].join).hex.to_s[0..17] %>" href="#filter"><%= I18n.locale == :fr ? gallery_category.fr_title : gallery_category.en_title %></a></li>
+                                        <% @custom_class = Digest::SHA1.hexdigest([gallery_category.en_title, rand].join).hex.to_s[0..17] %>
+                                        <li><a data-option-value=".<%= @custom_class %>" data-catname="<%= @custom_class %>" href="#filter"><%= I18n.locale == :fr ? gallery_category.fr_title : gallery_category.en_title %></a></li>
                                       <% end %>
                                     <% end %>
                                   </ul>
@@ -37,7 +39,7 @@
                                       <% gallery_attachments = gallery_category.gallery_attachments %>
                                       <% unless gallery_attachments.blank? %>
                                         <% gallery_attachments.each do |gallery_attachment| %>
-                                      	  <div class="col-sm-4 <%= I18n.locale == :fr ? Digest::SHA1.hexdigest([gallery_category.fr_title, rand].join).hex.to_s[0..17] : Digest::SHA1.hexdigest([gallery_category.en_title, rand].join).hex.to_s[0..17] %> element">
+                                      	  <div class="col-sm-4 <%= @custom_class %> element">
                                             <div class="item">
                                                 <div class="item_wrapper">
                                                   <% if gallery_attachment.photo_attachment_content_type.blank? %>
