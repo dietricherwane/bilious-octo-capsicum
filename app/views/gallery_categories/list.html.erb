@@ -52,12 +52,13 @@
                 <strong>Par </strong> <%= gallery_category.user.full_name %>
               </td>
               <td class = "actBtns">
-                <a href="<%= edit_gallery_category_path(gallery_category.id) %>" class="tipS" original-title="Modifier les informations"><%= image_tag('icons/color/pencil.png', alt: '') %></a>
+
                 <% if gallery_category.published == false %>
                   <a href="<%= enable_gallery_category_path(gallery_category.id) %>" class="tipS" original-title="Activer la catégorie"><%= image_tag('icons/color/tick.png', alt: '') %></a>
                 <% else %>
                   <a href="<%= disable_gallery_category_path(gallery_category.id) %>" class="tipS" original-title="Désactiver la catégorie"><%= image_tag('icons/color/cross.png', alt: '') %></a>
                 <% end %>
+                <a href="<%= edit_gallery_category_path(gallery_category.id) %>" class="tipS" original-title="Modifier les informations"><%= image_tag('icons/color/pencil.png', alt: '') %></a>
               </td>
             </tr>
           <% end %>
