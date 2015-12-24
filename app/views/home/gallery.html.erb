@@ -20,7 +20,7 @@
                                     <li class="selected"><a data-option-value="*" data-catname="all" href="#filter"><%= I18n.locale == :fr ? "Tous" : "All" %></a></li>
                                     <% unless @gallery_categories.blank? %>
                                       <% @gallery_categories.each do |gallery_category| %>
-                                        <li><a data-option-value=".<%= I18n.locale == :fr ? Digest::SHA1.hexdigest(gallery_category.fr_title).hex.to_s[0..17] : Digest::SHA1.hexdigest(gallery_category.en_title).hex.to_s[0..17] %>" data-catname="<%= @custom_class %>" href="#filter"><%= I18n.locale == :fr ? gallery_category.fr_title : gallery_category.en_title %></a></li>
+                                        <li><a data-option-value=".<%= I18n.locale == :fr ? Digest::SHA1.hexdigest(gallery_category.fr_title).hex.to_s[0..17] : Digest::SHA1.hexdigest(gallery_category.en_title).hex.to_s[0..17] %>" data-catname="<%= I18n.locale == :fr ? Digest::SHA1.hexdigest(gallery_category.fr_title).hex.to_s[0..17] : Digest::SHA1.hexdigest(gallery_category.en_title).hex.to_s[0..17] %>" href="#filter"><%= I18n.locale == :fr ? gallery_category.fr_title : gallery_category.en_title %></a></li>
                                       <% end %>
                                     <% end %>
                                   </ul>
