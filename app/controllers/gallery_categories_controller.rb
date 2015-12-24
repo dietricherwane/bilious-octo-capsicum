@@ -15,6 +15,8 @@ class GalleryCategoriesController < ApplicationController
     gallery_category = params[:gallery_category]
     @gallery_category = GalleryCategory.new(params.require(:gallery_category).permit(:fr_title, :en_title, :user_id, :publication_date, :photos_attachments_array, :pdf_attachments_array).merge(user_id: (current_user.id rescue nil), publication_date: Date.new(gallery_category["publication_date(1i)"].to_i, gallery_category["publication_date(2i)"].to_i, gallery_category["publication_date(3i)"].to_i)))
 
+    @fr_content = FrFrontPageContent.first || FrFrontPageContent.create()
+    @en_content = EnFrontPageContent.first || EnFrontPageContent.create()
     @website_content_menu_style = "current"
     @gallery_website_content_menu_style = "this"
 
