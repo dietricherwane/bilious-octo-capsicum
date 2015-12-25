@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     get '/focus' => 'home#focus_on_woman', as: :focus_on_woman
     get '/contact' => 'home#contact', as: :contact
     get '/compendium' => 'home#compendium', as: :compendium
+    get 'compendium/responsable/1'  => 'home#responsible1', as: :responsible1
+    get 'compendium/responsable/2'  => 'home#responsible2', as: :responsible2
     get '/activités' => 'home#activities', as: :activities
     get '/galerie' => 'home#gallery', as: :gallery
     get '/blog' => 'home#blog', as: :blog

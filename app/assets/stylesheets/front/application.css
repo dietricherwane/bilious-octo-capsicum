@@ -18,8 +18,9 @@
   = require front/bootstrap.min
   = require front/theme
   = require front/revslider
-  = require front/custom
   = require front/skins/layer/slider
   = require front/fldemo
+  = require front/custom
   = require front/font-awesome.min
+
  */

@@ -24,8 +24,8 @@
   <div class="widget">
     <ul class="tabs">
       <li class="activeTab"><a href="#top_content">En tête</a></li>
+      <li><a href="#bottom_content">Section Responsables</a></li>
       <li><a href="#main_content">Corps</a></li>
-      <li><a href="#bottom_content">Bas de page</a></li>
       <li><a href="#partners">Partenaires</a></li>
     </ul>
 
@@ -44,6 +44,14 @@
                 <label><%= f.label :compendium_top_content_title %></label>
                 <div class="formRight">
                   <%= f.text_field :compendium_top_content_title, placeholder: "Veuillez entrer le titre de la page Compendium", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :compendium_top_content_moral %></label>
+                <div class="formRight">
+                  <%= f.text_field :compendium_top_content_moral, placeholder: "Veuillez entrer le titre de la section valeurs", class: 'form-control' %>
                 </div>
                 <div class="clear"></div>
               </div>
@@ -151,6 +159,14 @@
                 <label><%= f.label :compendium_top_content_title %></label>
                 <div class="formRight">
                   <%= f.text_field :compendium_top_content_title, placeholder: "Veuillez entrer le titre de la page Compendium", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :compendium_top_content_moral %></label>
+                <div class="formRight">
+                  <%= f.text_field :compendium_top_content_moral, placeholder: "Veuillez entrer le titre de la section valeurs", class: 'form-control' %>
                 </div>
                 <div class="clear"></div>
               </div>
@@ -337,13 +353,13 @@
             <div class="widget">
               <div class="title">
                 <img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" />
-                <h6>FR | Bas de page</h6>
+                <h6>FR | Section responsables</h6>
               </div>
 
               <div class="formRow">
                 <label><%= f.label :compendium_main_content_responsibles_title %></label>
                 <div class="formRight">
-                  <%= f.text_field :compendium_main_content_responsibles_title, placeholder: "Veuillez entrer le titre du bas de page", class: 'form-control' %>
+                  <%= f.text_field :compendium_main_content_responsibles_title, placeholder: "Veuillez entrer le titre de la section responsables", class: 'form-control' %>
                 </div>
                 <div class="clear"></div>
               </div>
@@ -370,6 +386,30 @@
               </div>
 
               <div class="formRow">
+                <label><%= f.label :compendium_responsible1_title %></label>
+                <div class="formRight">
+                  <%= f.text_field :compendium_responsible1_title, placeholder: "Veuillez entrer le titre de la biographie du responsable 1", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :compendium_responsible1_bio %></label>
+                <div class="formRight">
+                  <%= f.text_area :compendium_responsible1_bio, placeholder: "Veuillez entrer le résumé biographique du responsable 1", class: 'ckeditor' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :compendium_responsible1_content %></label>
+                <div class="formRight">
+                  <%= f.text_area :compendium_responsible1_content, placeholder: "Veuillez entrer le détail biographique du responsable 1", class: 'ckeditor' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
                 <%= image_tag @fr_content.compendium_main_content_responsible2_image.url(:article) rescue "" %>
                 <div class="clear"></div>
               </div>
@@ -391,6 +431,30 @@
               </div>
 
               <div class="formRow">
+                <label><%= f.label :compendium_responsible2_title %></label>
+                <div class="formRight">
+                  <%= f.text_field :compendium_responsible2_title, placeholder: "Veuillez entrer le titre de la biographie du responsable 2", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :compendium_responsible2_bio %></label>
+                <div class="formRight">
+                  <%= f.text_area :compendium_responsible2_bio, placeholder: "Veuillez entrer le résumé biographique du responsable 2", class: 'ckeditor' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :compendium_responsible2_content %></label>
+                <div class="formRight">
+                  <%= f.text_area :compendium_responsible2_content, placeholder: "Veuillez entrer le détail biographique du responsable 2", class: 'ckeditor' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
                 <%= f.submit "Valider", class: 'basic' %>
               </div>
             </div>
@@ -402,19 +466,19 @@
             <div class="widget">
               <div class="title">
                 <img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" />
-                <h6>EN | Bas de page</h6>
+                <h6>EN | Section responsables</h6>
               </div>
 
               <div class="formRow">
                 <label><%= f.label :compendium_main_content_responsibles_title %></label>
                 <div class="formRight">
-                  <%= f.text_field :compendium_main_content_responsibles_title, placeholder: "Veuillez entrer le titre du bas de page", class: 'form-control' %>
+                  <%= f.text_field :compendium_main_content_responsibles_title, placeholder: "Veuillez entrer le titre de la section responsables", class: 'form-control' %>
                 </div>
                 <div class="clear"></div>
               </div>
 
               <div class="formRow">
-                <%= image_tag @en_content.compendium_main_content_responsible1_image.url(:article) rescue "" %>
+                <%= image_tag @fr_content.compendium_main_content_responsible1_image.url(:article) rescue "" %>
                 <div class="clear"></div>
               </div>
 
@@ -435,7 +499,31 @@
               </div>
 
               <div class="formRow">
-                <%= image_tag @en_content.compendium_main_content_responsible2_image.url(:article) rescue "" %>
+                <label><%= f.label :compendium_responsible1_title %></label>
+                <div class="formRight">
+                  <%= f.text_field :compendium_responsible1_title, placeholder: "Veuillez entrer le titre de la biographie du responsable 1", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :compendium_responsible1_bio %></label>
+                <div class="formRight">
+                  <%= f.text_area :compendium_responsible1_bio, placeholder: "Veuillez entrer le résumé biographique du responsable 1", class: 'ckeditor' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :compendium_responsible1_content %></label>
+                <div class="formRight">
+                  <%= f.text_area :compendium_responsible1_content, placeholder: "Veuillez entrer le détail biographique du responsable 1", class: 'ckeditor' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <%= image_tag @fr_content.compendium_main_content_responsible2_image.url(:article) rescue "" %>
                 <div class="clear"></div>
               </div>
 
@@ -451,6 +539,30 @@
                 <label><%= f.label :compendium_main_content_responsible2_content %></label>
                 <div class="formRight">
                   <%= f.text_area :compendium_main_content_responsible2_content, placeholder: "Veuillez entrer le contenu du bloc 2", class: 'ckeditor' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :compendium_responsible2_title %></label>
+                <div class="formRight">
+                  <%= f.text_field :compendium_responsible2_title, placeholder: "Veuillez entrer le titre de la biographie du responsable 2", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :compendium_responsible2_bio %></label>
+                <div class="formRight">
+                  <%= f.text_area :compendium_responsible2_bio, placeholder: "Veuillez entrer le résumé biographique du responsable 2", class: 'ckeditor' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :compendium_responsible2_content %></label>
+                <div class="formRight">
+                  <%= f.text_area :compendium_responsible2_content, placeholder: "Veuillez entrer le détail biographique du responsable 2", class: 'ckeditor' %>
                 </div>
                 <div class="clear"></div>
               </div>
