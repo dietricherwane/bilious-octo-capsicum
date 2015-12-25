@@ -91,7 +91,7 @@ class FrFrontPageContent < ActiveRecord::Base
     :compendium_top_content_block4_content => "Contenu du bloc 4",
     :compendium_main_content_title => "Titre du corps de la page",
     :compendium_main_content => "Corps de la page",
-    :compendium_main_content_registration => "Notice d'enregistrment",
+    :compendium_main_content_registration => "Notice d'enregistrement",
     :compendium_main_content_responsibles_title => "Titre de la section responsables",
     :compendium_main_content_responsible1_image => "Image du responsable 1",
     :compendium_main_content_responsible1_content => "Biographie du responsable 1",

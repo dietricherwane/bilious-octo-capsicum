@@ -16,7 +16,6 @@
 	                <h1><%= I18n.locale == :fr ? activity.fr_title : activity.en_title %></h1>
                   <div class="listing_meta">
                     <span><%= activity.publication_date.strftime("%d-%m-%Y") %></span>
-                    <span><%= activity.publication_date.strftime("%d-%m-%Y") %></span>
                   </div>
                   <div class="blog_post_image">
                     <%= image_tag activity.description_image.url(:article) rescue "" %>
