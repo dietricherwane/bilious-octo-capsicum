@@ -1,4 +1,4 @@
-<div class="breadcrumbs">
+<div class="compendium_breadcrumbs">
     	<div class="container">
         	<h1 class="title-page"><%= @front_page_content.compendium_top_content_title.html_safe rescue "" %></h1>
         </div>
@@ -12,11 +12,19 @@
                         <div class="contentarea">
                         	<div class="row">
 
+                        	<div class="row">
+                             	<div class="col-sm-12 module_cont pb0">
+                                	<div class="bg_title">
+                                    	<h2><%= @front_page_content.compendium_top_content_moral.html_safe rescue "" %></h2>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="row">
                              	<div class="col-sm-3 module_cont module_iconboxes pb75 pt50 animate" data-anim-delay="250" data-anim-type="fadeInDown">
                                     <div class="module_content shortcode_iconbox type2">
                                         <a href="javascript:void(0);">
-                                            <div class="iconbox_wrapper">
+                                            <div class="compendium_iconbox_wrapper">
                                             	<div class="icon_title_wrap">
                                                     <div class="ico"><%= image_tag @front_page_content.compendium_top_content_block1_image.url(:tiny) rescue "" %></div>
                                                   <!--  <h5 class="iconbox_title">Valeur 1</h5> -->
@@ -31,7 +39,7 @@
                                 <div class="col-sm-3 module_cont module_iconboxes pb75 pt50 animate" data-anim-delay="150" data-anim-type="fadeInLeft">
                                     <div class="module_content shortcode_iconbox type2">
                                         <a href="javascript:void(0);">
-                                            <div class="iconbox_wrapper">
+                                            <div class="compendium_iconbox_wrapper">
                                             	<div class="icon_title_wrap">
                                                     <div class="ico"><%= image_tag @front_page_content.compendium_top_content_block2_image.url(:tiny) rescue "" %></div>
                                                  <!--   <h5 class="iconbox_title">Valeur 2 </h5> -->
@@ -46,7 +54,7 @@
                                 <div class="col-sm-3 module_cont module_iconboxes pb75 pt50 animate" data-anim-delay="200" data-anim-type="fadeInUp">
                                     <div class="module_content shortcode_iconbox type2">
                                         <a href="javascript:void(0);">
-                                            <div class="iconbox_wrapper">
+                                            <div class="compendium_iconbox_wrapper">
                                             	<div class="icon_title_wrap">
                                                     <div class="ico"><%= image_tag @front_page_content.compendium_top_content_block3_image.url(:tiny) rescue "" %></div>
                                                    <!-- <h5 class="iconbox_title">Valeur 3</h5> -->
@@ -61,7 +69,7 @@
                                 <div class="col-sm-3 module_cont module_iconboxes pb75 pt50 animate" data-anim-delay="150" data-anim-type="fadeInRight">
                                     <div class="module_content shortcode_iconbox type2">
                                         <a href="javascript:void(0);">
-                                            <div class="iconbox_wrapper">
+                                            <div class="compendium_iconbox_wrapper">
                                             	<div class="icon_title_wrap">
                                                     <div class="ico"><%= image_tag @front_page_content.compendium_top_content_block4_image.url(:tiny) rescue "" %></div>
                                                   <!--  <h5 class="iconbox_title">Valeur 4</h5> -->
@@ -75,30 +83,6 @@
                                 </div>
                              </div>
 
-                            <div>
-                                  <div class="row">
-                             	<div class="col-sm-12 module_cont pb0">
-                                	<div class="bg_title">
-                                    	<h2><%= @front_page_content.compendium_main_content_title.html_safe rescue "" %></h2>
-                                    </div>
-                                </div>
-                             </div>
-                             <%= @front_page_content.compendium_main_content.html_safe rescue "" %>
-
-                             </div>
-                    </div>
-                        	<div class="row">
-                                <div class="col-sm-12 module_cont pb75 animate" data-anim-type="fadeInUp" data-anim-delay="300">
-                                    <div class="shortcode_promoblock">
-                                        <div class="promoblock_wrapper" style="border-left:10px solid #102B5D;">
-                                           <%= @front_page_content.compendium_main_content_registration.html_safe rescue "" %>
-
-                                            <div class="clear"></div>
-                                        </div>
-                                    </div>
-                                    <div class="clear"></div>
-                                </div>
-                            </div>
 
                             <div class="row">
                              	<div class="col-sm-12 module_cont pb0">
@@ -158,6 +142,34 @@
                                     </div>
                                 </div>
                             </div>
+
+
+                            <div>
+                                  <div class="row">
+                             	<div class="col-sm-12 module_cont pb0">
+                                	<div class="bg_title">
+                                    	<h2><%= @front_page_content.compendium_main_content_title.html_safe rescue "" %></h2>
+                                    </div>
+                                </div>
+                             </div>
+                             <%= @front_page_content.compendium_main_content.html_safe rescue "" %>
+
+                             </div>
+                    </div>
+                        	<div class="row">
+                                <div class="col-sm-12 module_cont pb75 animate" data-anim-type="fadeInUp" data-anim-delay="300">
+                                    <div class="shortcode_promoblock">
+                                        <div class="promoblock_wrapper" style="border-left:10px solid #102B5D;">
+                                           <%= @front_page_content.compendium_main_content_registration.html_safe rescue "" %>
+
+                                            <div class="clear"></div>
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+
+
 
 
                             <div class="fw_block bg_start grey_bg pt46 mb0">

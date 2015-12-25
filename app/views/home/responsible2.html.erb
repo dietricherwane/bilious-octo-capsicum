@@ -1,0 +1,62 @@
+<div class="compendium_breadcrumbs">
+    	<div class="container">
+            <h1 class="title-page"><%= @front_page_content.compendium_responsible2_title.html_safe rescue "" %></h1>
+        </div>
+    </div>
+
+    <div class="wrapper">
+    	<div class="container">
+        	<div class="content_block row no-sidebar">
+            	<div class="fl-container">
+                	<div class="posts-block">
+                        <div class="contentarea">
+                            <div class="row">
+                                <div class="col-sm-12 module_cont pb75 module_team">
+                                    <div class="team_slider">
+                                        <div class="carouselslider teamslider items2">
+                                            <ul class="item_list">
+                                                <li class="animate" data-anim-delay="250" data-anim-type="fadeInLeft">
+                                                    <div class="item_wrapper">
+                                                        <div class="item">
+                                                        	<div class="row">
+                                                            	<div class="col-sm-6">
+                                                                	<div class="img_block">
+                                                                    	<%= image_tag @front_page_content.compendium_main_content_responsible2_image.url(:tiny) rescue "" %>
+                                                                    </div>
+                                                                </div>
+                                                                <%= @front_page_content.compendium_responsible2_bio.html_safe rescue "" %>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="animate" data-anim-delay="250" data-anim-type="fadeInRight">
+                                                  <div class="item_wrapper">
+                                                        <div class="item">
+                                                         </div>
+                                                 </div>
+                                            </div>
+                                                </li>
+                                            </ul>
+                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+              <!-- Tell your story -->
+
+                            <div class="row">
+                             	<div class="col-sm-12 module_cont pb0">
+
+                                </div>
+                            </div>
+
+                      <%= @front_page_content.compendium_responsible2_content.html_safe rescue "" %>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

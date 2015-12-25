@@ -4,11 +4,11 @@
 	--//-- 1. Color Options --//--
 
 	- Theme color - 22a1c4  (rgba - 34, 161, 196);
-	
+
 	--//-- 2. Theme Font --//--
-   
-	- Main font Roboto;	
-	
+
+	- Main font Roboto;
+
 */
 
 body,
@@ -168,7 +168,7 @@ blockquote.type1:before {
 }
 
 .counter_icon {
-	background:#22a1c4;	
+	background:#22a1c4;
 }
 
 .skill_div {
@@ -180,6 +180,14 @@ blockquote.type1:before {
 }
 
 .iconbox_wrapper .ico:after {
+	border-color:#22a1c4;
+}
+
+.compendium_iconbox_wrapper .ico {
+	background: #EC7623;
+}
+
+.compendium_iconbox_wrapper .ico:after {
 	border-color:#22a1c4;
 }
 
@@ -379,7 +387,7 @@ input[type="submit"],
 }
 
 .contact_info a:hover {
-	color:#22a1c4;	
+	color:#22a1c4;
 }
 
 .sidepanel li.current-menu-item a {
@@ -409,8 +417,8 @@ h2.portf_title a:hover {
 
 .slide_btn.type3 a,
 .slide_btn.type4 a:hover {
-	background-color:#102B5D;	
-	border-color:#102B5D;	
+	background-color:#102B5D;
+	border-color:#102B5D;
 }
 
 .login_popup .forgot_password a:hover {
