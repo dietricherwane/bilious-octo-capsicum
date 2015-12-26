@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151225015330) do
+ActiveRecord::Schema.define(version: 20151225205941) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -208,6 +208,7 @@ ActiveRecord::Schema.define(version: 20151225015330) do
     t.text     "compendium_responsible2_content"
     t.text     "compendium_responsible1_title"
     t.text     "compendium_responsible2_title"
+    t.text     "home_main_bottom"
   end
 
   create_table "fr_front_page_contents", force: true do |t|
@@ -334,6 +335,7 @@ ActiveRecord::Schema.define(version: 20151225015330) do
     t.text     "compendium_responsible2_content"
     t.text     "compendium_responsible1_title"
     t.text     "compendium_responsible2_title"
+    t.text     "home_main_bottom"
   end
 
   create_table "gallery_attachments", force: true do |t|

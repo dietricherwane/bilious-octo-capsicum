@@ -800,6 +800,14 @@
               </div>
 
               <div class="formRow">
+                <label><%= f.label :home_main_bottom %></label>
+                <div class="formRight">
+                  <%= f.text_area :home_main_bottom, class: 'ckeditor' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
                 <%= f.submit "Valider", class: 'basic' %>
               </div>
             </div>
@@ -930,6 +938,14 @@
                 <label><%= f.label :home_main_content_read_more %></label>
                 <div class="formRight">
                   <%= f.text_field :home_main_content_read_more, placeholder: "Veuillez entrer l'intitulé du texte: Savoir plus", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_main_bottom %></label>
+                <div class="formRight">
+                  <%= f.text_area :home_main_bottom, class: 'ckeditor' %>
                 </div>
                 <div class="clear"></div>
               </div>
