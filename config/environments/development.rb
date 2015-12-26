@@ -17,7 +17,6 @@ Rails.application.configure do
 		:password => 'Ras444Al464Gul'
 	}
 
-
   # Do not eager load code on boot.
   config.eager_load = false
 
