@@ -1,0 +1,78 @@
+<!-- Title area -->
+<div class="titleArea">
+    <div class="wrapper">
+        <div class="pageTitle">
+            <h5>Liste des offres d'emploi validées</h5>
+            <span>Prise en charge des actions liées au post des offres par les entreprises.</span>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<%#= render "devise/registrations/shared/sub_menu" %>
+
+<div class="line"></div>
+
+<!-- Main content wrapper -->
+<div class="wrapper">
+  <%= flash_messages! %>
+<!-- Widgets -->
+  <div class="widget">
+    <div class="title"><img src="<%= asset_path 'icons/dark/full2.png' %>" alt="" class="titleIcon" /><h6>Liste des offres d'emploi</h6></div>
+    <table cellpadding="0" cellspacing="0" border="0" class="display dTable taskWidget">
+      <thead>
+        <tr>
+          <th>Entreprise</th>
+          <th>Poste</th>
+          <th>Type de contrat</th>
+          <th>Date de création</th>
+          <th>Date d'expiration</th>
+          <th>Validation</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% unless @offers.blank? %>
+          <% @offers.each do |offer| %>
+            <tr class="gradeA">
+              <% css_class = (offer.validated == false ? 'taskD' : 'taskPr') %>
+              <td class = "<%= css_class %>">
+                <%= offer.company.name rescue "" %>
+              </td>
+              <td>
+                <%= offer.title rescue "" %>
+              </td>
+              <td>
+                <%= offer.contract_type.name rescue "" %>
+              </td>
+              <td>
+                <%= offer.created_at.strftime("%d-%m-%Y") rescue "" + " à " + offer.created_at.strftime("%Hh %Mmn") rescue "" %>
+              </td>
+              <td>
+                <%= offer.expiration_date.strftime("%d-%m-%Y") rescue "" %>
+              </td>
+              <td class = "customInfo">
+                <span>
+                  <strong>Validé le </strong> <%= offer.validated_at.strftime("%d-%m-%Y") + " à " + offer.validated_at.strftime("%Hh %Mmn") %>
+                </span>
+                <span>
+                  <strong>Par </strong> <%= User.find(offer.validated_by).full_name %>
+                </span>
+              </td>
+              <td class = "actBtns">
+                <%#= activation_desactivation_links(current_user_profile_shortcut, current_user_id, user) %>
+                <a href="<%= admin_job_details_path(offer.id) %>" class="tipS" original-title="Afficher les détails"><%= image_tag('icons/color/user-black.png', alt: '') %></a>
+                <a href="<%= admin_validate_offer_path(offer.id) %>" class="tipS" original-title="Valider l'offre"><%= image_tag('icons/color/tick.png', alt: '') %></a>
+                <a href="<%= admin_reject_offer_path(offer.id) %>" class="tipS" original-title="Rejeter l'offre"><%= image_tag('icons/color/cross.png', alt: '') %></a>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- End Main content wrapper -->

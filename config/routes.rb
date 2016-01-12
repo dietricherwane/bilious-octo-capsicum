@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  #devise_for :companies
   scope "(:locale)", locale: /en|fr/ do
     root "home#index"
     get '/' => 'home#index'
@@ -10,12 +12,32 @@ Rails.application.routes.draw do
     get '/activités' => 'home#activities', as: :activities
     get '/galerie' => 'home#gallery', as: :gallery
     get '/blog' => 'home#blog', as: :blog
-    get '/job' => 'home#job', as: :job
+    #get '/job' => 'home#job', as: :job
     get "/activités/:activity_category_id" => "home#activities_details", as: :activities_details
+
+    get "/job" => 'jobs#index', as: :job
+    get "/job/:offer_id" => 'jobs#details', as: :job_details
+    get "/jobs" => 'companies#list_offers', as: :jobs
+    get "/company/offer/new" => 'companies#new_offer', as: :new_company_offer
+    post "/company/offer/create" => 'companies#create_offer', as: :create_company_offer
+    get "/company/offer/create" => 'companies#new_offer'
 
     devise_for :users, controllers: {
       sessions: 'users/sessions', registrations: 'users/registrations', passwords: 'users/passwords', confirmations: 'users/confirmations'
     }
+
+
+    devise_for :companies, controllers: {
+      sessions: 'companies/sessions', registrations: 'companies/registrations', passwords: 'companies/passwords', confirmations: 'companies/confirmations'
+    }
+
+    devise_scope :company do
+      get "/entreprise/inscription" => "companies/registrations#new", as: :register_company
+      get "/entreprises/inscription" => "companies/registrations#new"
+      get "/entreprise/connexion" => 'companies/sessions#new'
+      delete "/company/sign_out" => 'companies/sessions#destroy'
+      get '/company/sign_out' => 'company/sessions#destroy', as: :sign_out_company
+    end
 
     devise_scope :user do
       get "/users" => "users/registrations#new"
@@ -65,6 +87,12 @@ Rails.application.routes.draw do
     get "/administrator/gallery_categories/list" => "gallery_categories#list", as: :list_gallery_categories
     get "/administrator/gallery_category/disable/:gallery_category_id" => "gallery_categories#disable_gallery_category", as: :disable_gallery_category
     get "/administrator/gallery_category/enable/:gallery_category_id" => "gallery_categories#enable_gallery_category", as: :enable_gallery_category
+
+    get "administrator/jobs" => "admin_jobs#admin_list_jobs", as: :admin_list_jobs
+    get "administrator/job/:offer_id" => "admin_jobs#admin_job_details", as: :admin_job_details
+    get "administrator/offer/validate/:offer_id" => "admin_jobs#admin_validate_offer", as: :admin_validate_offer
+    get "administrator/offer/reject/:offer_id" => "admin_jobs#admin_reject_offer", as: :admin_reject_offer
+    get "administrator/jobs/validated" => "admin_jobs#admin_list_validated_jobs", as: :admin_list_validated_jobs
 
     # The priority is based upon order of creation: first created -> highest priority.
     # See how all your routes lay out with "rake routes".

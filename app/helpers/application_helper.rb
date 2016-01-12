@@ -1,5 +1,14 @@
 module ApplicationHelper
 
+  def flash_class_job(level)
+    case level
+    when :notice then "alert-blue"
+    when :success then "alert-green"
+    when :error then "alert-red"
+    when :alert then "alert-green"
+    end
+  end
+
   def flash_class(level)
     case level
     when :notice then "nNote nInformation hideit"
@@ -23,6 +32,26 @@ module ApplicationHelper
       <div class="#{flash_class(@key)}">
         <p><strong>#{@message}</strong></p>
       </div>
+    HTML
+
+    html.html_safe
+  end
+
+  def job_flash_messages!
+    [:notice, :error, :success, :alert].each do |key|
+      if flash[key]
+        @key = key
+        @message = flash[key]
+      end
+    end
+
+    return "" if @message.blank?
+
+    html = <<-HTML
+      <div class="alert alert-warning alert-dismissable job-alert #{flash_class_job(@key)}">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-times-circle"></i></button>
+				#{@message}
+			</div>
     HTML
 
     html.html_safe

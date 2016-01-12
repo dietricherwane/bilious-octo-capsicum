@@ -1,0 +1,146 @@
+<div class="main-page-title"><!-- start main page title -->
+	<div class="container">
+		<h4 class="register-title">Enregistrez votre entreprise</h4>
+		<div class="row">
+			<div class="col-md-5">
+				<div class="form-regist-container">
+				  <%= company_error_messages! %>
+				  <%= job_flash_messages! %>
+
+					<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {multipart: true}) do |f| %>
+
+					  <div class="form-group">
+					    <label><%= f.label :logo %></label>
+					    <div class="upload">
+                <%= f.file_field :logo, placeholder: "Logo" %>
+              </div>
+            </div>
+
+            </br>
+
+            <div class="form-group">
+							<%= f.text_field :name, autofocus: true, class: "form-control input-form", placeholder: "Veuillez saisir la raison sociale" %>
+							<div class="register-aksen"></div>
+						</div>
+
+						<div class="form-group">
+							<%= f.text_field :shortcut, class: "form-control input-form", placeholder: "Veuillez saisir le Sigle" %>
+							<div class="register-aksen"></div>
+						</div>
+
+						<div class="form-group">
+							<%= f.collection_select :activity_field_id, @activity_fields, :id, :name, options ={prompt: "Veuillez choisir un domaine d'activités"}, html_options = {class: "form-control"} %>
+						</div>
+
+						</br>
+
+						<div class="form-group">
+							<%= f.collection_select :juridical_status_id, @juridical_statuses, :id, :name, options ={prompt: "Veuillez choisir la forme juridique"}, html_options = {class: "form-control"} %>
+						</div>
+
+						</br>
+
+						<div class="form-group">
+							<%= f.text_field :commercial_id, class: "form-control input-form", placeholder: "Veuillez saisir le n° de régistre de commerce" %>
+							<div class="register-aksen"></div>
+						</div>
+
+						<div class="form-group">
+							<%= f.collection_select :number_of_employee_id, @number_of_employees, :id, :name, options ={prompt: "Veuillez choisir le nombre d'employés"}, html_options = {class: "form-control"} %>
+						</div>
+
+						</br>
+
+						<div class="form-group">
+							<%= f.text_field :revenue, class: "form-control input-form", placeholder: "Veuillez saisir le capital" %>
+							<div class="register-aksen"></div>
+						</div>
+
+						<div class="form-group">
+							<%= f.text_field :telephone, class: "form-control input-form", placeholder: "Veuillez saisir le numéro de téléphone" %>
+							<div class="register-aksen"></div>
+						</div>
+
+						<div class="form-group">
+							<%= f.text_field :fax, class: "form-control input-form", placeholder: "Veuillez saisir le numéro de fax" %>
+							<div class="register-aksen"></div>
+						</div>
+
+						<div class="form-group">
+							<%= f.text_field :website, class: "form-control input-form", placeholder: "Veuillez saisir le site web" %>
+							<div class="register-aksen"></div>
+						</div>
+
+						<div class="form-group">
+							<%= f.text_field :email, class: "form-control input-form", placeholder: "Email" %>
+							<div class="register-aksen"></div>
+						</div>
+
+						<div class="form-group">
+							<%= f.password_field :password, class: "form-control input-form", placeholder: "Mot de passe" %>
+							<div class="register-aksen"></div>
+						</div>
+
+						<div class="form-group">
+							<%= f.password_field :password_confirmation, class: "form-control input-form", placeholder: "Confirmation du mot de passe" %>
+							<div class="register-aksen"></div>
+						</div>
+
+						<div class="form-group">
+							<%= f.text_field :address, class: "form-control input-form", placeholder: "Veuillez saisir l'adresse" %>
+							<div class="register-aksen"></div>
+						</div>
+
+						<div class="form-group">
+							<%= f.collection_select :country_id, @countries, :id, :name, options ={prompt: "Veuillez choisir le pays"}, html_options = {class: "form-control"} %>
+						</div>
+
+						</br>
+
+						<div class="form-group">
+							<%= f.text_field :city, class: "form-control input-form", placeholder: "Veuillez saisir la ville" %>
+							<div class="register-aksen"></div>
+						</div>
+
+						<div class="form-group">
+							<%= f.text_area :description, class: "form-control textarea", placeholder: "Veuillez décrire les activités de l'entreprise" %>
+						</div>
+
+						<div class="form-group">
+							<%= f.submit "Valider", class: "btn btn-default btn-green" %>
+						</div>
+					<% end %>
+				</div>
+			</div>
+
+			<div class="col-md-7 register">
+				<h5>Vous êtes déjà membre? Connectez vous.</h5>
+				<a href = "<%= new_company_session_path %>"><button class="btn btn-default btn-green">Connexion</button></a>
+				<div class="row">
+					<div class="col-md-6">
+						<ul class="style-list-2">
+							<li>On the other hand, we denounce with </li>
+							<li>Dislike men who are so beguiled and</li>
+							<li>Charms of pleasure of the moment</li>
+							<li>Duty through weakness of will, which is</li>
+						</ul>
+					</div>
+					<div class="col-md-6">
+						<ul class="style-list-2">
+							<li>On the other hand, we denounce with </li>
+							<li>Dislike men who are so beguiled and</li>
+							<li>Charms of pleasure of the moment</li>
+							<li>Duty through weakness of will, which is</li>
+						</ul>
+					</div>
+				</div>
+
+				<h5>Vous avez oublié votre mot de passe? Récupérez le.</h5>
+				<a href = "<%= new_company_password_path %>"><button class="btn btn-default btn-green">Mot de passe oublié</button></a>
+
+				<h5>Vous n'avez pas reçu les instructions de confirmation de compte? Renvoyez les.</h5>
+				<a href = "<%= new_company_confirmation_path %>"><button class="btn btn-default btn-green">Renvoyer les instructions de confirmation</button></a>
+			</div>
+		</div>
+	</div>
+</div><!-- end main page title -->

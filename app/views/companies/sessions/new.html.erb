@@ -1,0 +1,33 @@
+<div class="main-page-title"><!-- start main page title -->
+	<div class="container">
+		<h4 class="register-title">Entreprise - Connectez vous</h4>
+		<div class="row">
+
+			<div class="col-md-5">
+				<div class="form-singin-container">
+				  <%= company_error_messages! %>
+		      <%= job_flash_messages! %>
+					<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+						<div class="form-group">
+					    <%= f.text_field :email, class: "form-control input-form", placeholder: "Email" %>
+					    <div class="singin-aksen"></div>
+				    </div>
+				    <div class="form-group">
+					    <%= f.password_field :password, class: "form-control input-form", placeholder: "Mot de passe", autocomplete: "off" %>
+					    <div class="singin-aksen"></div>
+					    <%= f.submit "Valider", class: "btn btn-default btn-green" %>
+				    </div>
+					<% end %>
+				</div>
+			</div>
+
+			<div class="col-md-7 register">
+				<h5>Vous avez oublié votre mot de passe? Récupérez le.</h5>
+				<button href = "<%= new_company_password_path %>" class="btn btn-default btn-green">Mot de passe oublié</button>
+
+				<h5>Vous n'avez pas reçu les instructions de confirmation de compte? Renvoyez les.</h5>
+				<a href = "<%= new_company_confirmation_path %>"><button class="btn btn-default btn-green">Renvoyer les instructions de confirmation</button></a>
+			</div>
+		</div>
+	</div>
+</div><!-- end main page title -->

@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
+  #protect_from_forgery with: :exception
+  protect_from_forgery with: :null_session
 
   before_filter :cookie_detection, :except => [:cookie_detection]
 
@@ -26,11 +27,21 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_out_path_for(resource_or_scope)
-	  new_user_session_path
+	  if current_user
+      new_user_registration_path
+    end
+    if current_company
+      new_company_session_path
+    end
   end
 
   def after_sign_in_path_for(resource_or_scope)
-    new_user_registration_path
+    if current_user
+      new_user_registration_path
+    end
+    if current_company
+      new_company_offer_path
+    end
   end
 
   def select_layout

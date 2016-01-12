@@ -5,4 +5,5 @@ class Profile < ActiveRecord::Base
   # Relationships
   has_one :boundary
   has_many :users
+  has_many :companies
 end
