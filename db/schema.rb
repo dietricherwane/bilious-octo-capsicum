@@ -61,7 +61,6 @@ ActiveRecord::Schema.define(version: 20160111222111) do
     t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   create_table "ahoy_events", id: :uuid, force: true do |t|
