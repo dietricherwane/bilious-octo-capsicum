@@ -6,7 +6,7 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
-  config.action_mailer.default_url_options = { host: '41.189.40.193', port: 7778 }
+  config.action_mailer.default_url_options = { host: 'http://start-ci.com', port: 7777 }
   ActionMailer::Base.smtp_settings = {
   	:openssl_verify_mode => 'none',
 		:address => "smtp.gmail.com",
