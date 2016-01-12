@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151225205941) do
+ActiveRecord::Schema.define(version: 20160111222111) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,14 @@ ActiveRecord::Schema.define(version: 20151225205941) do
     t.string   "en_title_activity_section"
   end
 
+  create_table "activity_fields", force: true do |t|
+    t.string   "name"
+    t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
   create_table "ahoy_events", id: :uuid, force: true do |t|
     t.uuid     "visit_id"
     t.integer  "user_id"
@@ -80,6 +88,62 @@ ActiveRecord::Schema.define(version: 20151225205941) do
   create_table "boundary_details", force: true do |t|
     t.string   "code"
     t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "companies", force: true do |t|
+    t.string   "email"
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.string   "name"
+    t.string   "shortcut"
+    t.integer  "activity_category_id"
+    t.integer  "juridical_status_id"
+    t.string   "commercial_id"
+    t.integer  "number_of_employee_id"
+    t.float    "revenue"
+    t.string   "telephone"
+    t.string   "fax"
+    t.string   "website"
+    t.string   "address"
+    t.integer  "country"
+    t.string   "city"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "activity_field_id"
+    t.integer  "country_id"
+    t.integer  "profile_id"
+  end
+
+  add_index "companies", ["email"], name: "index_companies_on_email", unique: true, using: :btree
+  add_index "companies", ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true, using: :btree
+
+  create_table "contract_types", force: true do |t|
+    t.string   "name"
+    t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "countries", force: true do |t|
+    t.string   "name"
+    t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -362,12 +426,81 @@ ActiveRecord::Schema.define(version: 20151225205941) do
     t.boolean  "published"
   end
 
+  create_table "juridical_statuses", force: true do |t|
+    t.string   "name"
+    t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "number_of_employees", force: true do |t|
+    t.string   "name"
+    t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "offers", force: true do |t|
+    t.integer  "company_id"
+    t.integer  "user_id"
+    t.integer  "activity_field_id"
+    t.text     "description"
+    t.integer  "studies_level_id"
+    t.integer  "min_years_of_experience"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "max_years_of_experience"
+    t.text     "profile"
+    t.integer  "contract_type_id"
+    t.integer  "country_id"
+    t.string   "city"
+    t.integer  "position_available"
+    t.string   "title"
+    t.date     "expiration_date"
+    t.boolean  "validated"
+    t.integer  "validated_by"
+    t.datetime "validated_at"
+  end
+
   create_table "profiles", force: true do |t|
     t.string   "name"
     t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "shortcut",   limit: 20
+  end
+
+  create_table "social_statuses", force: true do |t|
+    t.string   "name"
+    t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "studies_levels", force: true do |t|
+    t.string   "name"
+    t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "subscription_formulas", force: true do |t|
+    t.integer  "duration"
+    t.integer  "amount"
+    t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "subscriptions", force: true do |t|
+    t.integer  "subscription_formula_id"
+    t.integer  "user_id"
+    t.datetime "begin_date"
+    t.datetime "end_date"
+    t.string   "transaction_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "company_id"
   end
 
   create_table "users", force: true do |t|

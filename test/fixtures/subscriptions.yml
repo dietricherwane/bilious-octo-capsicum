@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  subscription_formula_id: 1
+  user_id: 1
+  begin_date: 2016-01-09 21:44:38
+  end_date: 2016-01-09 21:44:38
+  transaction_id: MyString
+
+two:
+  subscription_formula_id: 1
+  user_id: 1
+  begin_date: 2016-01-09 21:44:38
+  end_date: 2016-01-09 21:44:38
+  transaction_id: MyString

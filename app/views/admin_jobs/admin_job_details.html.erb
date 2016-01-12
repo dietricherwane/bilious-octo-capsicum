@@ -1,0 +1,144 @@
+<!-- Title area -->
+<div class="titleArea">
+    <div class="wrapper">
+        <div class="pageTitle">
+            <h5>Affichage des détails d'une offre</h5>
+            <span>Afficher les détails d'une offre postée par une entreprise.</span>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<%#= render "devise/registrations/shared/sub_menu" %>
+
+<div class="line"></div>
+
+<!-- Main content wrapper -->
+<div class="wrapper">
+  <%= flash_messages! %>
+  <form class = 'form'>
+
+    <fieldset>
+      <div class="widget">
+        <div class="title">
+          <img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" />
+          <h6>Détails de l'offre</h6>
+        </div>
+
+        <div class="formRow">
+          <label>Statut de l'offre</label>
+          <div class="formRight">
+            <b><%= (@offer.validated == nil) ? "En attente" : (@offer.validated == true ? "Validée" : "Rejetée") %></b>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label>Date de publication</label>
+          <div class="formRight">
+            <%= @offer.created_at.strftime("%d-%m-%Y") + " à " + @offer.created_at.strftime("%Hh %Mmn") %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label>Date d'expiration</label>
+          <div class="formRight">
+            <%= @offer.expiration_date.strftime("%d-%m-%Y") %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label>Domaine d'activités</label>
+          <div class="formRight">
+            <%= @offer.activity_field.name %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label>Intitulé du poste</label>
+          <div class="formRight">
+            <%= @offer.title %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label>Description du poste</label>
+          <div class="formRight">
+            <%= simple_format(@offer.description) %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label>Niveau d'étude requis</label>
+          <div class="formRight">
+            <%= @offer.studies_level_id %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label>Nombre d'années d'expérience</label>
+          <div class="formRight">
+            <%= @offer.min_years_of_experience %> - <%= @offer.max_years_of_experience %> an(s)
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label>Type de contrat</label>
+          <div class="formRight">
+            <%= @offer.contract_type.name %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label>Profil du candidat</label>
+          <div class="formRight">
+            <%= simple_format(@offer.profile) %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label>Pays</label>
+          <div class="formRight">
+            <%= @offer.country.name %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label>Ville</label>
+          <div class="formRight">
+            <%= @offer.city %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label>Nombre de places disponibles</label>
+          <div class="formRight">
+            <%= @offer.position_available %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <a href="<%= admin_validate_offer_path(@offer.id) %>" title="" class="wButton greenwB ml15 m10"><span>Valider l'offre</span></a>    <a href="<%= admin_reject_offer_path(@offer.id) %>" title="" class="wButton redwB ml15 m10"><span>Rejeter l'offre</span></a>
+        </div>
+
+      </div>
+    </fieldset>
+  </form>
+
+</div>
+<!-- End Main content wrapper -->

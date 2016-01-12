@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company_id: 1
+  user_id: 1
+  activity_field_id: 1
+  description: MyText
+  studies_level_id: 1
+  min_years_of_experience: 1
+
+two:
+  company_id: 1
+  user_id: 1
+  activity_field_id: 1
+  description: MyText
+  studies_level_id: 1
+  min_years_of_experience: 1

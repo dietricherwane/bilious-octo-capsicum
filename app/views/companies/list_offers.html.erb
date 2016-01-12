@@ -1,0 +1,110 @@
+<script language="JavaScript" type="text/javascript" src="/assets/job/jquery.data.min.js"></script>
+
+<div class="main-slider"><!-- start main-headline section -->
+	<div class="slider-nav">
+		<a class="slider-prev"><i class="fa fa-chevron-circle-left"></i></a>
+		<a class="slider-next"><i class="fa fa-chevron-circle-right"></i></a>
+	</div>
+	<div id="home-slider" class="owl-carousel owl-theme">
+		<div class="item-slide">
+			<img src="<%= asset_path 'job/upload/dummy-slide-1.png' %>" class="img-responsive" alt="dummy-slide" />
+		</div>
+		<div class="item-slide">
+			<img src="<%= asset_path 'job/upload/dummy-slide-2.png' %>" class="img-responsive" alt="dummy-slide" />
+		</div>
+	</div>
+</div><!-- end main-headline section -->
+
+<div class="headline container"><!-- start headline section -->
+		<div class="row" >
+			<div class="col-md-6 align-right">
+				<h4>Recherchez et trouvez l'emploi de vos rêves</h4>
+				<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.</p>
+			</div>
+			<div class="col-md-6 align-left">
+				<h4>Embauchez des personnes aux compétences avérées</h4>
+				<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.</p>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+</div><!-- end headline section -->
+
+<div class="job-finder"><!-- start job finder -->
+	<div class="container">
+		<h3>Rechercher un poste</h3>
+		<form>
+			<div class="col-md-7 form-group group-1">
+				<label for="searchjob" class="label">Rechercher</label>
+				<input type="text" id="searchjob" class="input-job" placeholder="Keywords (IT Engineer, Shop Manager, Hr Manager...)">
+			</div>
+			<div class="col-md-5 form-group group-2">
+				<label for="searchplace" class="label">Emplacement</label>
+				<input type="text" id="searchplace" class="input-location" placeholder="New York, Hong Kong, New Delhi, Berlin etc.">
+			</div>
+			<button type="button" class="btn btn-default btn-green">Rechercher</button>
+		</form>
+	</div>
+</div><!-- end job finder -->
+
+<div class="recent-job"><!-- Start Recent Job -->
+	<div class="container">
+		<h1>Offres d'emploi récentes</h1>
+    <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Date de publication</th>
+                <th>Poste</th>
+                <th>Domaine d'activités</th>
+                <th>Date d'expiration</th>
+                <th>Reférence</th>
+                <th>Nombre de positions</th>
+            </tr>
+        </thead>
+        <tbody>
+          <% unless @offers.blank?  %>
+            <% @offers.each do |offer| %>
+              <tr>
+                  <td><%= offer.created_at.strftime("%d-%m-%Y") + " à " + offer.created_at.strftime("%Hh %Mmn") %></td>
+                  <td><a href = "<%= job_details_path(offer.id) %>" style = "font-weight: bold;text-decoration: underline;"><%= offer.title %></a></td>
+                  <td><%= offer.activity_field.name %></td>
+                  <td><%= offer.expiration_date.strftime("%d-%m-%Y") %></td>
+                  <td>#<%= offer.id %></td>
+                  <td><%= offer.position_available %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+    </table>
+	</div>
+</div><!-- end Recent Job -->
+
+<div class="job-status">
+	<div class="container">
+			<h1>Quelques statistiques</h1>
+			<p>
+				At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi.
+			</p>
+
+			<div class="counter clearfix">
+
+				<div class="counter-container">
+					<div class="counter-value"><%= @total_validated_offers %></div>
+					<div class="line"></div>
+					<p>Offres postées</p>
+				</div>
+
+				<div class="counter-container">
+					<div class="counter-value"><%= @total_number_of_companies %></div>
+					<div class="line"></div>
+					<p>Entreprises</p>
+				</div>
+			</div>
+
+	</div>
+</div>
+
+<script>
+  $(document).ready(function() {
+      $('#example').DataTable();
+  } );
+</script>

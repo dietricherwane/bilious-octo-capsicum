@@ -1,0 +1,104 @@
+<div class="main-page-title"><!-- start main page title -->
+	<div class="container">
+		<div class="post-job-title"><%= current_company.name rescue "" %> - Poster une offre</div>
+	</div>
+</div><!-- end main page title -->
+<div class="container">
+<div class="spacer-1">&nbsp;</div>
+	<div class="row">
+		<div class="col-md-8">
+			<%= form_for(@offer, url: create_company_offer_path, method: :post, html: {class: "post-job-form"}) do |f| %>
+			  <%= job_flash_messages! %>
+				<div class="form-group">
+				  <%= f.label :activity_field_id %>
+					<%= f.collection_select :activity_field_id, @activity_fields, :id, :name, options ={prompt: "Veuillez choisir le domaine d'activités"}, html_options = {class: "form-control"} %>
+				</div>
+
+				<div class="form-group">
+				  <%= f.label :title %>
+					<%= f.text_field :title, class: "form-control input", placeholder: "Veuillez saisir l'intitulé du poste" %>
+				</div>
+
+				<div class="form-group">
+				  <%= f.label :description %>
+					<%= f.text_area :description, class: "form-control textarea", placeholder: "Veuillez décrire le poste" %>
+				</div>
+
+				<div class="form-group">
+				  <%= f.label :studies_level_id %>
+					<%= f.collection_select :studies_level_id, @studies_levels, :id, :name, options ={prompt: "Veuillez choisir le niveau d'études"}, html_options = {class: "form-control"} %>
+				</div>
+
+				<div class="row">
+					<div class="form-group col-md-6">
+						<%= f.label :min_years_of_experience %>
+					  <%= f.text_field :min_years_of_experience, class: "form-control input", placeholder: "Nombre minimum d'années d'expérience" %>
+					</div>
+
+					<div class="form-group col-md-6">
+						<%= f.label :max_years_of_experience %>
+					  <%= f.text_field :max_years_of_experience, class: "form-control input", placeholder: "Nombre maximum d'années d'expérience" %>
+					</div>
+				</div>
+
+				<div class="form-group">
+				  <%= f.label :profile %>
+					<%= f.text_area :profile, class: "form-control textarea", placeholder: "Veuillez décrire le profil du candidat" %>
+				</div>
+
+				<div class="form-group">
+				  <%= f.label :contract_type_id %>
+					<%= f.collection_select :contract_type_id, @contract_types, :id, :name, options ={prompt: "Veuillez choisir le type de contrat"}, html_options = {class: "form-control"} %>
+				</div>
+
+				<div class="form-group">
+				  <%= f.label :country_id %>
+					<%= f.collection_select :country_id, @countries, :id, :name, options ={prompt: "Veuillez choisir le pays"}, html_options = {class: "form-control"} %>
+				</div>
+
+				<div class="form-group">
+				  <%= f.label :city %>
+					<%= f.text_field :city, class: "form-control input", placeholder: "Veuillez saisir la ville" %>
+				</div>
+
+				<div class="form-group">
+				  <%= f.label :position_available %>
+					<%= f.text_field :position_available, class: "form-control input", placeholder: "Veuillez saisir le nombre de positions disponibles" %>
+				</div>
+
+				<div class="form-group">
+				  <%= f.label :expiration_date %>
+				  <%= f.date_select :expiration_date, start_year: Date.today.year, end_year: (Date.today.year + 10), class: "form-control input" %>
+				</div>
+
+				<div class="form-group">
+					<%= f.submit "Valider", class: "btn btn-default btn-green" %>
+				</div>
+			<% end %>
+			<div class="spacer-2">&nbsp;</div>
+		</div>
+
+		<div class="col-md-4">
+			<div class="job-side-wrap">
+				<h4>Bloc 1</h4>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacinia lacus vel libero blandit aliquet. Curabitur semper, quam in imperdiet rhoncus, est sapien hendrerit ipsum, vitae tempor tellus nisl nec tellus.
+				</p>
+			</div>
+
+			<div class="job-side-wrap">
+				<h4>Bloc 2</h4>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacinia lacus vel libero blandit aliquet. Curabitur semper, quam in imperdiet rhoncus, est sapien hendrerit ipsum, vitae tempor tellus nisl nec tellus.
+				</p>
+			</div>
+
+			<div class="job-side-wrap">
+				<h4>Bloc 3</h4>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacinia lacus vel libero blandit aliquet. Curabitur semper, quam in imperdiet rhoncus, est sapien hendrerit ipsum, vitae tempor tellus nisl nec tellus.
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
