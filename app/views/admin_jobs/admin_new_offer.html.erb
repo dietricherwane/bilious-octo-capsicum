@@ -1,0 +1,134 @@
+<!-- Title area -->
+<div class="titleArea">
+    <div class="wrapper">
+        <div class="pageTitle">
+            <h5>Poster une offre d'emploi</h5>
+            <span>Postez une offre afin qu'elle apparaisse sur le site.</span>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<%#= render "devise/registrations/shared/sub_menu" %>
+
+<div class="line"></div>
+
+<!-- Main content wrapper -->
+<div class="wrapper">
+  <%= flash_messages! %>
+  <%= form_for(@offer, url: admin_create_offer_path, html: {class: 'form'}) do |f| %>
+    <fieldset>
+      <div class="widget">
+        <div class="title">
+          <img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" />
+          <h6>Formulaire de création d'offres d'emploi</h6>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :activity_field_id %></label>
+          <div class="formRight">
+            <%= f.collection_select :activity_field_id, @activity_fields, :id, :name, options ={prompt: "Domaine d'activités"}, html_options = {class: "form-control"} %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :title %></label>
+          <div class="formRight">
+            <%= f.text_field :title, class: "form-control", placeholder: "Veuillez saisir l'intitulé du poste" %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :description %></label>
+          <div class="formRight">
+            <%= f.text_area :description, class: "form-control textarea", placeholder: "Veuillez décrire le poste" %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :studies_level_id %></label>
+          <div class="formRight">
+            <%= f.collection_select :studies_level_id, @studies_levels, :id, :name, options ={prompt: "Veuillez choisir le niveau d'études"}, html_options = {class: "form-control"} %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :min_years_of_experience %></label>
+          <div class="formRight">
+            <%= f.text_field :min_years_of_experience, class: "form-control input", placeholder: "Nombre minimum d'années d'expérience" %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :max_years_of_experience %></label>
+          <div class="formRight">
+            <%= f.text_field :max_years_of_experience, class: "form-control input", placeholder: "Nombre minimum d'années d'expérience" %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :profile %></label>
+          <div class="formRight">
+            <%= f.text_area :profile, class: "form-control textarea", placeholder: "Veuillez décrire le profil du candidat" %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :contract_type_id %></label>
+          <div class="formRight">
+            <%= f.collection_select :contract_type_id, @contract_types, :id, :name, options ={prompt: "Veuillez choisir le type de contrat"}, html_options = {class: "form-control"} %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :country_id %></label>
+          <div class="formRight">
+            <%= f.collection_select :country_id, @countries, :id, :name, options ={prompt: "Veuillez choisir le pays"}, html_options = {class: "form-control"} %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :city %></label>
+          <div class="formRight">
+            <%= f.text_field :city, class: "form-control input", placeholder: "Veuillez saisir la ville" %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :position_available %></label>
+          <div class="formRight">
+            <%= f.text_field :position_available, class: "form-control input", placeholder: "Veuillez saisir le nombre de positions disponibles" %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :expiration_date %></label>
+          <div class="formRight">
+            <%= f.date_select :expiration_date, start_year: Date.today.year, end_year: (Date.today.year + 10), class: "form-control input" %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <%= f.submit "Valider", class: 'basic' %>
+        </div>
+      </div>
+    </fieldset>
+  <% end %>
+
+</div>
+<!-- End Main content wrapper -->

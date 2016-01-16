@@ -16,6 +16,10 @@ class CompaniesController < ApplicationController
 
     @offer = Offer.new(params.require(:offer).permit(:activity_field_id, :title, :description, :studies_level_id, :min_years_of_experience, :max_years_of_experience, :profile, :contract_type_id, :country_id, :city, :position_available).merge({company_id: (current_company.id rescue nil), expiration_date: expiration_date}))
 
+    if (expiration_date < Date.today rescue true)
+      @offer.errors.add(:expiration_date, "n'est pas valide")
+    end
+
     if @offer.save
       flash.now[:success] = "Votre offre a été correctement créée. Elle sera soumise à l'administrateur pour validation."
       @offer = Offer.new
@@ -27,7 +31,7 @@ class CompaniesController < ApplicationController
   end
 
   def list_offers
-    @offers = Offer.where("validated IS TRUE AND expiration_date <= '#{Date.today.strftime("%d-%m-%Y")}'").order("created_at DESC")
+    @offers = Offer.where("validated IS TRUE AND expiration_date <= '#{Date.today.strftime("%m-%d-%Y")}'").order("created_at DESC")
     @total_validated_offers = Offer.where("validated IS TRUE").count
     @total_number_of_companies = Company.all.count
   end
