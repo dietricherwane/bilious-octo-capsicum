@@ -33,7 +33,7 @@ class Offer < ActiveRecord::Base
   validates :activity_field_id, :title, :studies_level_id, :min_years_of_experience, :max_years_of_experience, :profile, :contract_type_id, :country_id, :city, :position_available, :description, :expiration_date, presence: true
   validates :min_years_of_experience, :max_years_of_experience, :position_available, numericality: true
   validate :filter_min_max_experience_years
-  validate :filter_expiration_date
+  #validate :filter_expiration_date
 
   def filter_min_max_experience_years
     if ((min_years_of_experience < 0) rescue true) || ((min_years_of_experience > max_years_of_experience) rescue true)
@@ -52,7 +52,7 @@ class Offer < ActiveRecord::Base
   end
 
   def filter_expiration_date
-    if (expiration_date < Date.today rescue true)
+    if (expiration_date < Date.today rescue true && validated.blank?)
       errors.add(:expiration_date, "n'est pas valide")
     end
   end

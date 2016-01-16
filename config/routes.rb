@@ -17,7 +17,8 @@ Rails.application.routes.draw do
 
     get "/job" => 'jobs#index', as: :job
     get "/job/:offer_id" => 'jobs#details', as: :job_details
-    get "/jobs" => 'companies#list_offers', as: :jobs
+    get "/jobs" => 'jobs#list_offers', as: :jobs
+    post "/jobs/search" => 'jobs#search', as: :search_jobs
     get "/company/offer/new" => 'companies#new_offer', as: :new_company_offer
     post "/company/offer/create" => 'companies#create_offer', as: :create_company_offer
     get "/company/offer/create" => 'companies#new_offer'
@@ -89,6 +90,9 @@ Rails.application.routes.draw do
     get "/administrator/gallery_category/enable/:gallery_category_id" => "gallery_categories#enable_gallery_category", as: :enable_gallery_category
 
     get "administrator/jobs" => "admin_jobs#admin_list_jobs", as: :admin_list_jobs
+    get "/administrator/offer/new" => "admin_jobs#admin_new_offer", as: :admin_new_offer
+    post "/administrator/offer/create" => "admin_jobs#admin_create_offer", as: :admin_create_offer
+    get "/administrator/offer/create" => "admin_jobs#admin_new_offer"
     get "administrator/job/:offer_id" => "admin_jobs#admin_job_details", as: :admin_job_details
     get "administrator/offer/validate/:offer_id" => "admin_jobs#admin_validate_offer", as: :admin_validate_offer
     get "administrator/offer/reject/:offer_id" => "admin_jobs#admin_reject_offer", as: :admin_reject_offer

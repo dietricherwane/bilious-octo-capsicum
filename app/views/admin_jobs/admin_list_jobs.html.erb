@@ -25,7 +25,7 @@
     <table cellpadding="0" cellspacing="0" border="0" class="display dTable taskWidget">
       <thead>
         <tr>
-          <th>Entreprise</th>
+          <th>Auteur de l'offre</th>
           <th>Poste</th>
           <th>Type de contrat</th>
           <th>Date de création</th>
@@ -37,8 +37,8 @@
         <% unless @offers.blank? %>
           <% @offers.each do |offer| %>
             <tr class="gradeA">
-              <td>
-                <%= offer.company.name rescue "" %>
+              <td class = "taskP">
+                <%= offer.user_id.blank? ? ("#{offer.company.name rescue ""} [Entreprise]" ) : "#{offer.user.full_name rescue ""}" %>
               </td>
               <td>
                 <%= offer.title rescue "" %>

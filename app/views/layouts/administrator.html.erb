@@ -21,8 +21,9 @@
     <ul id="menu" class="nav">
         <li class="dash"><%= link_to "<span>Dashboard</span>".html_safe, dashboard_path, class: "#{@class_dashboard}" %></li>
 
-        <li class="tables"><a href="#" title="" class="exp" id = "<%= @website_job_menu_style %>"><span>Emploi</span><strong>2</strong></a>
+        <li class="tables"><a href="#" title="" class="exp" id = "<%= @website_job_menu_style %>"><span>Emploi</span><strong>3</strong></a>
           <ul class="sub">
+            <li class = "<%= @offer_new_menu_style %>"><a href="<%= admin_new_offer_path %>" title="">Poster une offre d'emploi</a></li>
             <li class = "<%= @offer_website_job_menu_style %>"><a href="<%= admin_list_jobs_path %>" title="">Liste des offres en attente</a></li>
             <li class = "<%= @offer_website_validated_job_menu_style %>"><a href="<%= admin_list_validated_jobs_path %>" title="">Liste des offres validées</a></li>
           </ul>
