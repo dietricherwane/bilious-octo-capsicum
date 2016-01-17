@@ -17,9 +17,9 @@ class Companies::PasswordsController < Devise::PasswordsController
 
     if successfully_sent?(resource)
       if signed_in?(resource_name)
-        redirect_to new_user_registration_path
+        redirect_to new_company_registration_path
       else
-        redirect_to new_user_session_path
+        redirect_to new_company_session_path
       end
       #respond_with({}, location: after_sending_reset_password_instructions_path_for(resource_name))
     else

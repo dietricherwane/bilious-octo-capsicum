@@ -57,6 +57,9 @@
 							  <li><a href="<%= root_path %>">COCOFCI</a></li>
 								<li><a href="<%= jobs_path %>">Liste des offres</a></li>
 								<li><a  href="<%= new_company_offer_path %>">Poster une offre</a></li>
+								<% if !current_company.blank? %>
+								  <li><a  href="/<%= I18n.locale %>/companies/edit.<%= current_company.id %>">Afficher le profil</a></li>
+								<% end %>
 							</ul>
 						</nav>
 					</div><!-- Main Navigation -->

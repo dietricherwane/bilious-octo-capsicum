@@ -47,6 +47,8 @@ class Companies::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/edit
   def edit
+    init_company_data
+
     render :edit
   end
 
@@ -54,6 +56,7 @@ class Companies::RegistrationsController < Devise::RegistrationsController
   # We need to use a copy of the resource because we don't want to change
   # the current user in place.
   def update
+    init_company_data
     self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
     prev_unconfirmed_email = resource.unconfirmed_email if resource.respond_to?(:unconfirmed_email)
 
