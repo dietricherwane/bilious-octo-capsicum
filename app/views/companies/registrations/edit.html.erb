@@ -1,39 +1,127 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="main-page-title"><!-- start main page title -->
+	<div class="container">
+		<h4 class="register-title">Modifiez votre profil</h4>
+		<div class="row">
+			<div class="col-md-5">
+				<div class="form-regist-container">
+				  <%= company_error_messages! %>
+				  <%= job_flash_messages! %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+					<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f| %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+					  <div class="form-group">
+					    <%= image_tag current_company.logo.url(:medium) rescue "" %>
+            </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+            </br>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+					  <div class="form-group">
+					    <label><%= f.label :logo %></label>
+					    <div class="upload">
+                <%= f.file_field :logo, placeholder: "Logo" %>
+              </div>
+            </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+            </br>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
+            <div class="form-group">
+							<%= f.text_field :name, autofocus: true, class: "form-control input-form", placeholder: "Veuillez saisir la raison sociale" %>
+							<div class="register-aksen"></div>
+						</div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
+						<div class="form-group">
+							<%= f.text_field :shortcut, class: "form-control input-form", placeholder: "Veuillez saisir le Sigle" %>
+							<div class="register-aksen"></div>
+						</div>
 
-<h3>Cancel my account</h3>
+						<div class="form-group">
+							<%= f.collection_select :activity_field_id, @activity_fields, :id, :name, options ={prompt: "Veuillez choisir un domaine d'activités"}, html_options = {class: "form-control"} %>
+						</div>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+						</br>
 
-<%= link_to "Back", :back %>
+						<div class="form-group">
+							<%= f.collection_select :juridical_status_id, @juridical_statuses, :id, :name, options ={prompt: "Veuillez choisir la forme juridique"}, html_options = {class: "form-control"} %>
+						</div>
+
+						</br>
+
+						<div class="form-group">
+							<%= f.text_field :commercial_id, class: "form-control input-form", placeholder: "Veuillez saisir le n° de régistre de commerce" %>
+							<div class="register-aksen"></div>
+						</div>
+
+						<div class="form-group">
+							<%= f.collection_select :number_of_employee_id, @number_of_employees, :id, :name, options ={prompt: "Veuillez choisir le nombre d'employés"}, html_options = {class: "form-control"} %>
+						</div>
+
+						</br>
+
+						<div class="form-group">
+							<%= f.text_field :revenue, class: "form-control input-form", placeholder: "Veuillez saisir le capital" %>
+							<div class="register-aksen"></div>
+						</div>
+
+						<div class="form-group">
+							<%= f.text_field :telephone, class: "form-control input-form", placeholder: "Veuillez saisir le numéro de téléphone" %>
+							<div class="register-aksen"></div>
+						</div>
+
+						<div class="form-group">
+							<%= f.text_field :fax, class: "form-control input-form", placeholder: "Veuillez saisir le numéro de fax" %>
+							<div class="register-aksen"></div>
+						</div>
+
+						<div class="form-group">
+							<%= f.text_field :website, class: "form-control input-form", placeholder: "Veuillez saisir le site web" %>
+							<div class="register-aksen"></div>
+						</div>
+
+						<div class="form-group">
+							<%= f.password_field :password, class: "form-control input-form", placeholder: "Mot de passe" %>
+							<div class="register-aksen"></div>
+						</div>
+
+						<div class="form-group">
+							<%= f.password_field :password_confirmation, class: "form-control input-form", placeholder: "Confirmation du mot de passe" %>
+							<div class="register-aksen"></div>
+						</div>
+
+						<div class="form-group">
+							<%= f.password_field :current_password, class: "form-control input-form", placeholder: "Entrez votre mot de passe actuel" %>
+							<div class="register-aksen"></div>
+						</div>
+
+						<div class="form-group">
+							<%= f.text_field :address, class: "form-control input-form", placeholder: "Veuillez saisir l'adresse" %>
+							<div class="register-aksen"></div>
+						</div>
+
+						<div class="form-group">
+							<%= f.collection_select :country_id, @countries, :id, :name, options ={prompt: "Veuillez choisir le pays"}, html_options = {class: "form-control"} %>
+						</div>
+
+						</br>
+
+						<div class="form-group">
+							<%= f.text_field :city, class: "form-control input-form", placeholder: "Veuillez saisir la ville" %>
+							<div class="register-aksen"></div>
+						</div>
+
+						<div class="form-group">
+							<%= f.text_area :description, class: "form-control textarea", placeholder: "Veuillez décrire les activités de l'entreprise" %>
+						</div>
+
+						<div class="form-group">
+							<%= f.submit "Valider", class: "btn btn-default btn-green" %>
+						</div>
+					<% end %>
+				</div>
+			</div>
+
+			<div class="col-md-7 register">
+
+			</div>
+		</div>
+	</div>
+</div><!-- end main page title -->

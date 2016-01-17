@@ -34,6 +34,10 @@ class Company < ActiveRecord::Base
     :country_id => "Country",
     :city => "Ville",
     :description => "Description des activités",
+    :password => "Mot de passe",
+    :current_password => "Mot de passe actuel",
+    :password_confirmation => "Confirmation du mot de passe",
+    :description => "Description des activités",
     :profile_id => "Profil"
   }
 
