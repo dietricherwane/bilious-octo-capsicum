@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160111222111) do
+ActiveRecord::Schema.define(version: 20160122081434) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -274,6 +274,11 @@ ActiveRecord::Schema.define(version: 20160111222111) do
     t.text     "compendium_responsible1_title"
     t.text     "compendium_responsible2_title"
     t.text     "home_main_bottom"
+    t.string   "home_popup_title"
+    t.string   "home_popup_image_file_name"
+    t.string   "home_popup_image_content_type"
+    t.integer  "home_popup_image_file_size"
+    t.datetime "home_popup_image_updated_at"
   end
 
   create_table "fr_front_page_contents", force: true do |t|
@@ -402,6 +407,11 @@ ActiveRecord::Schema.define(version: 20160111222111) do
     t.text     "compendium_responsible1_title"
     t.text     "compendium_responsible2_title"
     t.text     "home_main_bottom"
+    t.string   "home_popup_title"
+    t.string   "home_popup_image_file_name"
+    t.string   "home_popup_image_content_type"
+    t.integer  "home_popup_image_file_size"
+    t.datetime "home_popup_image_updated_at"
   end
 
   create_table "gallery_attachments", force: true do |t|

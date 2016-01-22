@@ -97,26 +97,6 @@
                                     <div class="team_slider">
                                         <div class="carouselslider teamslider items2">
                                             <ul class="item_list">
-                                                <li class="animate" data-anim-type="fadeInLeft" data-anim-delay="300">
-                                                    <div class="item_wrapper">
-                                                        <div class="item">
-                                                        	<div class="row">
-                                                            	<div class="col-sm-6">
-                                                                	<div class="img_block">
-                                                                    	<%= image_tag @front_page_content.compendium_main_content_responsible1_image.url(:article) rescue "" %>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-sm-6">
-                                                                	<div class="carousel_body">
-                                                                	  <%= @front_page_content.compendium_main_content_responsible1_content.html_safe rescue "" %>
-
-
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
                                                 <li class="animate" data-anim-type="fadeInRight" data-anim-delay="300">
                                                     <div class="item_wrapper">
                                                         <div class="item">
@@ -137,6 +117,27 @@
                                                         </div>
                                                     </div>
                                                 </li>
+                                                <li class="animate" data-anim-type="fadeInLeft" data-anim-delay="300">
+                                                    <div class="item_wrapper">
+                                                        <div class="item">
+                                                        	<div class="row">
+                                                            	<div class="col-sm-6">
+                                                                	<div class="img_block">
+                                                                    	<%= image_tag @front_page_content.compendium_main_content_responsible1_image.url(:article) rescue "" %>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                	<div class="carousel_body">
+                                                                	  <%= @front_page_content.compendium_main_content_responsible1_content.html_safe rescue "" %>
+
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+
                                             </ul>
                                          </div>
                                     </div>
@@ -181,6 +182,11 @@
 
                                         </div>
                                     </div>
+
+
+
+
+
                                  </div>
                              </div>
                         </div>
@@ -189,3 +195,13 @@
             </div>
         </div>
     </div>
+
+<script type = "text/javascript">
+  $('.partners').bxSlider({
+    slideWidth: 200,
+    minSlides: 2,
+    maxSlides: 4,
+    slideMargin: 10,
+    controls: false
+  });
+</script>
