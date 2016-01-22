@@ -22,5 +22,6 @@
   = require front/fldemo
   = require front/custom
   = require front/font-awesome.min
+  = require front/jquery.bxslider/jquery.bxslider
 
  */

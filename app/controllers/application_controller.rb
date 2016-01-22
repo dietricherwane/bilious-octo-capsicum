@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   before_filter :cookie_detection, :except => [:cookie_detection]
 
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :set_locale
+  before_action :set_locale, :home_page_popup_displayable
 
   after_filter :ahoy_track
 
@@ -17,6 +17,9 @@ class ApplicationController < ActionController::Base
     ahoy.track_visit
   end
 
+  def home_page_popup_displayable
+    (session[:home_popup_navigation_count].blank? || session[:home_popup_navigation_count] >= 5) ? session[:home_popup_navigation_count] = 1 : session[:home_popup_navigation_count] += 1
+  end
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale

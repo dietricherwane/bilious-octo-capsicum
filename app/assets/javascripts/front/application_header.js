@@ -20,3 +20,4 @@
 //= require front/jquery-1.9.1.min
 //= require front/bootstrap.min
 //= require front/slider
+//= require front/jquery.bxslider/jquery.bxslider

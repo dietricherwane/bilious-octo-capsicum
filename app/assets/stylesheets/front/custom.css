@@ -27,13 +27,22 @@ textarea {
 	/* height:35px;*/
 }
 
-::selection {
+/*::selection {
 	background:#22a1c4;
 	color:#ffffff;
 }
 ::-moz-selection {
 	background:#22a1c4;
 	color:#ffffff;
+}*/
+
+
+.sidepanel a:hover {
+	color:#ffffff;
+}
+
+.sidepanel a {
+	color:#9ba1ac;
 }
 
 a {
@@ -60,6 +69,10 @@ header nav ul.sub-menu > li:hover > a,
 header nav ul.sub-menu > li.current-menu-item > a,
 header nav ul.sub-menu > li.current-menu-parent > a {
 	color:#102B5D;
+}
+
+.footer_link a {
+color: #9ba1ac;
 }
 
 .main_header.type4 header nav ul.menu > li:hover > a,
@@ -125,10 +138,6 @@ blockquote.type1:before {
 
 .module_content ul.type2 li:before {
     color:#22a1c4;
-}
-
-.sidepanel a:hover {
-	color:#22a1c4;
 }
 
 .recent_posts li a.title:hover,
