@@ -37,9 +37,25 @@
         </div>
 
         <div class="formRow">
+          <label><%= f.label :fr_description %></label>
+          <div class="formRight">
+            <%= f.text_field :fr_description, placeholder: "Veuillez entrer la description française", class: 'form-control' %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
           <label><%= f.label :en_title %></label>
           <div class="formRight">
             <%= f.text_field :en_title, placeholder: "Veuillez entrer le titre anglais", class: 'form-control' %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :en_description %></label>
+          <div class="formRight">
+            <%= f.text_field :en_description, placeholder: "Veuillez entrer la description anglaise", class: 'form-control' %>
           </div>
           <div class="clear"></div>
         </div>

@@ -6,7 +6,9 @@ class GalleryCategory < ActiveRecord::Base
   # Rename attributes into more friendly text
   HUMANIZED_ATTRIBUTES = {
     :fr_title => "Titre français",
+    :fr_description => "Description française",
     :en_title => "Titre anglais",
+    :en_description => "Description Anglaise",
     :user_id => "L'auteur de l'article",
     :publication_date => "Date de publication"
   }

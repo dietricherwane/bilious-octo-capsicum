@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     get 'compendium/responsable/1'  => 'home#responsible1', as: :responsible1
     get 'compendium/responsable/2'  => 'home#responsible2', as: :responsible2
     get '/activités' => 'home#activities', as: :activities
+    get '/activités/liste/:activity_category_id' => 'home#activities_details_list', as: :activities_details_list
+    get '/activité/:activity_id' => 'home#activity_details', as: :activity_details
     get '/galerie' => 'home#gallery', as: :gallery
     get '/blog' => 'home#blog', as: :blog
     #get '/job' => 'home#job', as: :job
@@ -88,6 +90,8 @@ Rails.application.routes.draw do
     get "/administrator/gallery_categories/list" => "gallery_categories#list", as: :list_gallery_categories
     get "/administrator/gallery_category/disable/:gallery_category_id" => "gallery_categories#disable_gallery_category", as: :disable_gallery_category
     get "/administrator/gallery_category/enable/:gallery_category_id" => "gallery_categories#enable_gallery_category", as: :enable_gallery_category
+
+    post "/administrator/gallery_attachment/update" => "gallery_attachments#update", as: :update_gallery_attachment
 
     get "administrator/jobs" => "admin_jobs#admin_list_jobs", as: :admin_list_jobs
     get "/administrator/offer/new" => "admin_jobs#admin_new_offer", as: :admin_new_offer
