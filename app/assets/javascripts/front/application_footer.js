@@ -16,6 +16,10 @@
 // require turbolinks
 
 // require front/jquery.min
+
+//= require job/jquery.dataTables.min
+//= require job/dataTables.bootstrap.min
+
 // require front/bootstrap.min
 //= require front/modules
 //= require front/theme

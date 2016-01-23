@@ -13,7 +13,7 @@ class GalleryCategoriesController < ApplicationController
 
   def create
     gallery_category = params[:gallery_category]
-    @gallery_category = GalleryCategory.new(params.require(:gallery_category).permit(:fr_title, :en_title, :user_id, :publication_date, :photos_attachments_array, :pdf_attachments_array).merge(user_id: (current_user.id rescue nil), publication_date: Date.new(gallery_category["publication_date(1i)"].to_i, gallery_category["publication_date(2i)"].to_i, gallery_category["publication_date(3i)"].to_i)))
+    @gallery_category = GalleryCategory.new(params.require(:gallery_category).permit(:fr_title, :en_title, :fr_description, :en_description, :user_id, :publication_date, :photos_attachments_array, :pdf_attachments_array).merge(user_id: (current_user.id rescue nil), publication_date: Date.new(gallery_category["publication_date(1i)"].to_i, gallery_category["publication_date(2i)"].to_i, gallery_category["publication_date(3i)"].to_i)))
 
     @fr_content = FrFrontPageContent.first || FrFrontPageContent.create()
     @en_content = EnFrontPageContent.first || EnFrontPageContent.create()
@@ -61,7 +61,7 @@ class GalleryCategoriesController < ApplicationController
       flash.now[:error] = "Cette catégorie de galeries n'existe pas."
       redirect_to list_gallery_categories_path
     else
-      gallery_category_params = params.require(:gallery_category).permit(:fr_title, :en_title, :publication_date, :photos_attachments_array, :pdf_attachments_array).merge(publication_date: Date.new(params[:gallery_category]["publication_date(1i)"].to_i, params[:gallery_category]["publication_date(2i)"].to_i, params[:gallery_category]["publication_date(3i)"].to_i))
+      gallery_category_params = params.require(:gallery_category).permit(:fr_title, :en_title, :fr_description, :en_description, :publication_date, :photos_attachments_array, :pdf_attachments_array).merge(publication_date: Date.new(params[:gallery_category]["publication_date(1i)"].to_i, params[:gallery_category]["publication_date(2i)"].to_i, params[:gallery_category]["publication_date(3i)"].to_i))
 
       @gallery_category.assign_attributes(gallery_category_params)
       if @gallery_category.valid?

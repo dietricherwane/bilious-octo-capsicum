@@ -30,14 +30,25 @@ class HomeController < ApplicationController
     set_front_page_content
   end
 
-  def activities_details
+  def activities_details_list
     select_front_menu_highlight_class("home_menu_highlight_style")
-    activity_category = ActivityCategory.find_by_id(params[:activity_category_id])
+    @activity_category = ActivityCategory.find_by_id(params[:activity_category_id])
 
-    if activity_category.blank?
+    if @activity_category.blank?
       redirect_to :back
     else
-      @activities = activity_category.activities.where("published IS NOT FALSE").page(params[:page]).per(1)
+      @activities_details_list = @activity_category.activities.where("published IS NOT FALSE").order("publication_date DESC")
+    end
+
+    set_front_page_content
+  end
+
+  def activity_details
+    select_front_menu_highlight_class("home_menu_highlight_style")
+    @activity = Activity.find_by_id(params[:activity_id])
+
+    if @activity.blank?
+      redirect_to :back
     end
 
     set_front_page_content

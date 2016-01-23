@@ -1,0 +1,43 @@
+<div class="breadcrumbs">
+  <div class="container">
+    <h1 class="title-page"><a href="<%= activities_path %>"><%= @front_page_content.title_activity_section %></a> - <a href="javascript:history.go(-1)"><<</a></h1>
+    <h1 class="title-page"><%= I18n.locale == :fr ? @activity_category.fr_title : @activity_category.en_title %></h1>
+  </div>
+</div>
+
+<div class="wrapper">
+  <div class="container">
+    <div class="content_block row no-sidebar single_post">
+      <div class="fl-container">
+        <div class="posts-block">
+          <div class="contentarea">
+              <table id="activities_details" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>Titre</th>
+                        <th>Date de publication</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <% unless @activities_details_list.blank?  %>
+                    <% @activities_details_list.each do |activity| %>
+                      <tr>
+                          <td><a href="<%= activity_details_path(activity.id) %>"><%= I18n.locale == :fr ? activity.fr_title : activity.en_title %></a></td>
+                          <td><%= activity.publication_date.strftime("%d-%m-%Y") %></td>
+                      </tr>
+                    <% end %>
+                  <% end %>
+                </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+      $('#activities_details').DataTable();
+  } );
+</script>
