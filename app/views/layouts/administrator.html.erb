@@ -21,6 +21,13 @@
     <ul id="menu" class="nav">
         <li class="dash"><%= link_to "<span>Dashboard</span>".html_safe, dashboard_path, class: "#{@class_dashboard}" %></li>
 
+        <li class="tables"><a href="#" title="" class="exp" id = "<%= @website_blog_menu_style %>"><span>Blog</span><strong>1</strong></a>
+          <ul class="sub">
+            <li class = "<%= @blog_categories_menu_style %>"><a href="<%= admin_blog_category_path %>" title="">Catégories de blogs</a></li>
+            <li class = "<%= @blog_themes_menu_style %>"><a href="<%= admin_blog_theme_path %>" title="">Thèmes de blogs</a></li>
+          </ul>
+        </li>
+
         <li class="tables"><a href="#" title="" class="exp" id = "<%= @website_job_menu_style %>"><span>Emploi</span><strong>3</strong></a>
           <ul class="sub">
             <li class = "<%= @offer_new_menu_style %>"><a href="<%= admin_new_offer_path %>" title="">Poster une offre d'emploi</a></li>

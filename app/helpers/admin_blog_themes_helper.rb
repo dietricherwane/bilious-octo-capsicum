@@ -1,0 +1,2 @@
+module AdminBlogThemesHelper
+end

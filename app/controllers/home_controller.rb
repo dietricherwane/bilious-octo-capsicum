@@ -55,9 +55,48 @@ class HomeController < ApplicationController
   end
 
   def blog
-    select_front_menu_highlight_class("blog_menu_highlight_style")
+    init_blog
+  end
 
+  def blog_category
+    @blog_category = BlogCategory.find_by_id(params[:blog_category_id])
+
+    if @blog_category.blank?
+      redirect_to blog_path
+    end
+
+    init_blog
+  end
+
+  def blog_theme
+    @blog_theme = BlogTheme.find_by_id(params[:blog_theme_id])
+    @blog_post = BlogPost.new
+    @blog_posts = @blog_theme.blog_posts.order("created_at DESC")
+
+    if @blog_theme.blank?
+      redirect_to blog_path
+    end
+
+    @blog_posts = @blog_theme.blog_posts.where("published IS NOT FALSE")
+    select_front_menu_highlight_class("blog_menu_highlight_style")
     set_front_page_content
+  end
+
+  def create_blog_post
+    @blog_post = BlogPost.new(params.require(:blog_post).permit(:firstname, :lastname, :email, :content, :blog_theme_id))
+    @blog_theme = @blog_post.blog_theme
+    @blog_posts = @blog_theme.blog_posts.order("created_at DESC")
+    select_front_menu_highlight_class("blog_menu_highlight_style")
+    set_front_page_content
+
+    if @blog_post.save
+      flash.now[:success] = "Votre message a été enregistré."
+      @blog_post = BlogPost.new
+    else
+      flash.now[:error] = @blog_post.errors.full_messages.map { |msg| "#{msg}<br />" }.join
+    end
+
+    render :blog_theme
   end
 
   def job
@@ -101,6 +140,12 @@ class HomeController < ApplicationController
     set_front_page_content
 
     redirect_to back_url
+  end
+
+  def init_blog
+    select_front_menu_highlight_class("blog_menu_highlight_style")
+    set_front_page_content
+    @blog_categories = BlogCategory.where("published IS NOT FALSE").order("created_at DESC")
   end
 
 end

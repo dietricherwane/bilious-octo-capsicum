@@ -1,0 +1,69 @@
+<!-- Title area -->
+<div class="titleArea">
+    <div class="wrapper">
+        <div class="pageTitle">
+            <h5>Liste des thèmes de blogs</h5>
+            <span>Prise en charge des actions liées aux thèmes de blogs.</span>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<%= render "admin_blog_themes/shared/sub_menu" %>
+
+<div class="line"></div>
+
+<!-- Main content wrapper -->
+<div class="wrapper">
+  <%= flash_messages! %>
+<!-- Widgets -->
+  <div class="widget">
+    <div class="title"><img src="<%= asset_path 'icons/dark/full2.png' %>" alt="" class="titleIcon" /><h6>Liste des thèmes de blogs</h6></div>
+    <table cellpadding="0" cellspacing="0" border="0" class="display dTable taskWidget">
+      <thead>
+        <tr>
+          <th>Titre</th>
+          <th>Catégorie</th>
+          <th>Auteur</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% unless @blog_themes.blank? %>
+          <% @blog_themes.each do |blog_theme| %>
+            <tr class="gradeA">
+              <% css_class = (blog_theme.published == false ? 'taskD' : 'taskPr') %>
+              <td class = "<%= css_class %>">
+                <%= blog_theme.title %>
+              </td>
+              <td>
+                <%= blog_theme.blog_category.title %>
+              </td>
+              <td class = "customInfo">
+                <% user = User.find_by_id(blog_theme.created_by) %>
+                <span>
+                  <strong>Créé le </strong> <%= blog_theme.created_at.strftime("%d-%m-%Y") + " à " + blog_theme.created_at.strftime("%Hh %Mmn") %>
+                </span>
+                <span>
+                  <strong>Par </strong> <%= user.full_name %>
+                </span>
+              </td>
+              <td class = "actBtns">
+                <a href="<%= edit_blog_theme_path(blog_theme.id) %>" class="tipS" original-title="Modifier"><%= image_tag('icons/color/pencil.png', alt: '') %></a>
+                <% if blog_theme.published == false %>
+                  <a href="<%= enable_blog_theme_path(blog_theme.id) %>" class="tipS" original-title="Activer le thème"><%= image_tag('icons/color/tick.png', alt: '') %></a>
+                <% else %>
+                  <a href="<%= disable_blog_theme_path(blog_theme.id) %>" class="tipS" original-title="Désactiver le thème"><%= image_tag('icons/color/cross.png', alt: '') %></a>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- End Main content wrapper -->

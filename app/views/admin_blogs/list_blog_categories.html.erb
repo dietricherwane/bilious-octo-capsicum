@@ -1,0 +1,66 @@
+<!-- Title area -->
+<div class="titleArea">
+    <div class="wrapper">
+        <div class="pageTitle">
+            <h5>Liste des types de blogs</h5>
+            <span>Prise en charge des actions liées aux types de blogs.</span>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<%= render "admin_blogs/shared/sub_menu" %>
+
+<div class="line"></div>
+
+<!-- Main content wrapper -->
+<div class="wrapper">
+  <%= flash_messages! %>
+<!-- Widgets -->
+  <div class="widget">
+    <div class="title"><img src="<%= asset_path 'icons/dark/full2.png' %>" alt="" class="titleIcon" /><h6>Liste des types de blogs</h6></div>
+    <table cellpadding="0" cellspacing="0" border="0" class="display dTable taskWidget">
+      <thead>
+        <tr>
+          <th>Titre</th>
+          <th>Auteur</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% unless @blog_categories.blank? %>
+          <% @blog_categories.each do |blog_category| %>
+            <tr class="gradeA">
+              <td class = "<%= css_class %>">
+                <%= blog_category.title %>
+              </td>
+              <% css_class = (blog_category.published == false ? 'taskD' : 'taskPr') %>
+              <td class = "customInfo">
+                <%= user = User.find_by_id(blog_category.created_by) %>
+                <span>
+                  <strong>Créé le </strong> <%= blog_category.created_at.strftime("%d-%m-%Y") + " à " + blog_category.created_at.strftime("%Hh %Mmn") %>
+                </span>
+                <span>
+                  <strong>Par </strong> <%= user.full_name %>
+                </span>
+              </td>
+              <td class = "actBtns">
+                <%#= activation_desactivation_links(current_user_profile_shortcut, current_user_id, user) %>
+                <a href="<%#= admin_job_details_path(offer.id) %>" class="tipS" original-title="Modifier"><%= image_tag('icons/color/pencil.png', alt: '') %></a>
+                <% if blog_category.published == false %>
+                  <a href="<%= enable_blog_category_path(blog_category.id) %>" class="tipS" original-title="Activer la catégorie"><%= image_tag('icons/color/tick.png', alt: '') %></a>
+                <% else %>
+                  <a href="<%= disable_blog_category_path(blog_category.id) %>" class="tipS" original-title="Désactiver la catégorie"><%= image_tag('icons/color/cross.png', alt: '') %></a>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- End Main content wrapper -->
