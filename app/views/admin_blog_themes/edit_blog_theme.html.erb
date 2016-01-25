@@ -1,0 +1,76 @@
+<!-- Title area -->
+<div class="titleArea">
+    <div class="wrapper">
+        <div class="pageTitle">
+            <h5>Editer un thème de blog: <%= @blog_theme.title %> - <%= @blog_theme.blog_category.title %></h5>
+            <span>Modifier les informations liées à un thème de blog.</span>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<%= render "admin_blog_themes/shared/sub_menu" %>
+
+<div class="line"></div>
+
+<!-- Main content wrapper -->
+<div class="wrapper">
+  <%= flash_messages! %>
+  <%= form_for(@blog_theme, url: update_blog_theme_path, method: :post, html: {class: 'form'}) do |f| %>
+    <fieldset>
+      <div class="widget">
+        <div class="title">
+          <img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" />
+          <h6>Formulaire de modification de type de blog</h6>
+        </div>
+        <%= f.hidden_field :id %>
+
+        <div class="formRow">
+          <%= image_tag @blog_theme.descriptive_image.url(:thumb) rescue "" %>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :descriptive_image %></label>
+          <div class="formRight">
+            <%= f.file_field :descriptive_image, placeholder: "Veuillez entrer l'image descriptive", class: 'form-control' %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :blog_category_id %></label>
+          <div class="formRight">
+            <%= f.collection_select :blog_category_id, @blog_categories, :id, :title, options ={prompt: "Catégorie de blog"}, html_options = {class: "form-control"} %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :title %></label>
+          <div class="formRight">
+            <%= f.text_field :title, class: "form-control", placeholder: "Veuillez saisir le titre de la catégorie" %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :content %></label>
+          <div class="formRight">
+            <%= f.text_area :content, placeholder: "Veuillez renseigner le contenu", class: 'ckeditor' %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <%= f.submit "Valider", class: 'basic' %>
+        </div>
+      </div>
+    </fieldset>
+  <% end %>
+
+</div>
+<!-- End Main content wrapper -->

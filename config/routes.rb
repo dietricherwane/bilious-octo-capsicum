@@ -14,6 +14,10 @@ Rails.application.routes.draw do
     get '/activité/:activity_id' => 'home#activity_details', as: :activity_details
     get '/galerie' => 'home#gallery', as: :gallery
     get '/blog' => 'home#blog', as: :blog
+    get '/blog_category/:blog_category_id' => 'home#blog_category', as: :blog_category
+    get '/blog_theme/:blog_theme_id' => 'home#blog_theme', as: :blog_theme
+    post '/blog_post/create' => 'home#create_blog_post', as: :create_blog_post
+    get '/blog_post/create' => 'home#blog'
     #get '/job' => 'home#job', as: :job
     get "/activités/:activity_category_id" => "home#activities_details", as: :activities_details
 
@@ -93,6 +97,7 @@ Rails.application.routes.draw do
 
     post "/administrator/gallery_attachment/update" => "gallery_attachments#update", as: :update_gallery_attachment
 
+    # Jobs
     get "administrator/jobs" => "admin_jobs#admin_list_jobs", as: :admin_list_jobs
     get "/administrator/offer/new" => "admin_jobs#admin_new_offer", as: :admin_new_offer
     post "/administrator/offer/create" => "admin_jobs#admin_create_offer", as: :admin_create_offer
@@ -101,6 +106,28 @@ Rails.application.routes.draw do
     get "administrator/offer/validate/:offer_id" => "admin_jobs#admin_validate_offer", as: :admin_validate_offer
     get "administrator/offer/reject/:offer_id" => "admin_jobs#admin_reject_offer", as: :admin_reject_offer
     get "administrator/jobs/validated" => "admin_jobs#admin_list_validated_jobs", as: :admin_list_validated_jobs
+
+    # Blog categories
+    get "administrator/blog/category" => "admin_blog_categories#blog_category", as: :admin_blog_category
+    post "administrator/blog/category/create" => "admin_blog_categories#create_blog_category", as: :admin_create_blog_category
+    get "administrator/blog/category/create" => "admin_blog_categories#blog_category"
+    get "administrator/blog/category/edit/:blog_category_id" => "admin_blog_categories#edit_blog_category", as: :edit_blog_category
+    post "administrator/blog/category/update" => "admin_blog_categories#update_blog_category", as: :update_blog_category
+    get "administrator/blog/category/update" => "admin_blog_categories#list_blog_categories"
+    get "administrator/blog/categories/list" => "admin_blog_categories#list_blog_categories", as: :admin_list_blog_categories
+    get "administrator/blog/category/disable/:blog_category_id" => "admin_blog_categories#disable_blog_category", as: :disable_blog_category
+    get "administrator/blog/category/enable/:blog_category_id" => "admin_blog_categories#enable_blog_category", as: :enable_blog_category
+
+    # Blog themes
+    get "administrator/blog_theme" => "admin_blog_themes#blog_theme", as: :admin_blog_theme
+    post "administrator/blog_theme/create" => "admin_blog_themes#create_blog_theme", as: :admin_create_blog_theme
+    get "administrator/blog_theme/create" => "admin_blog_themes#blog_theme"
+    get "administrator/blog_theme/edit/:blog_theme_id" => "admin_blog_themes#edit_blog_theme", as: :edit_blog_theme
+    post "administrator/blog_theme/update" => "admin_blog_themes#update_blog_theme", as: :update_blog_theme
+    get "administrator/blog_theme/update" => "admin_blog_themes#list_blog_themes"
+    get "administrator/blog_themes/list" => "admin_blog_themes#list_blog_themes", as: :admin_list_blog_themes
+    get "administrator/blog_theme/disable/:blog_theme_id" => "admin_blog_themes#disable_blog_theme", as: :disable_blog_theme
+    get "administrator/blog_theme/enable/:blog_theme_id" => "admin_blog_themes#enable_blog_theme", as: :enable_blog_theme
 
     # The priority is based upon order of creation: first created -> highest priority.
     # See how all your routes lay out with "rake routes".

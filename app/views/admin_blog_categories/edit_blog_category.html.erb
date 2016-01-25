@@ -1,0 +1,47 @@
+<!-- Title area -->
+<div class="titleArea">
+    <div class="wrapper">
+        <div class="pageTitle">
+            <h5>Editer une catégorie de blog: <%= @blog_category.title %></h5>
+            <span>Modifier les informations liées à une catégorie de blog.</span>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<%= render "admin_blog_categories/shared/sub_menu" %>
+
+<div class="line"></div>
+
+<!-- Main content wrapper -->
+<div class="wrapper">
+  <%= flash_messages! %>
+  <%= form_for(@blog_category, url: update_blog_category_path, method: :post, html: {class: 'form'}) do |f| %>
+    <fieldset>
+      <div class="widget">
+        <div class="title">
+          <img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" />
+          <h6>Formulaire de modification de type de blog</h6>
+        </div>
+        <%= f.hidden_field :id %>
+
+        <div class="formRow">
+          <label><%= f.label :title %></label>
+          <div class="formRight">
+            <%= f.text_field :title, class: "form-control", placeholder: "Veuillez saisir le titre de la catégorie" %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <%= f.submit "Valider", class: 'basic' %>
+        </div>
+      </div>
+    </fieldset>
+  <% end %>
+
+</div>
+<!-- End Main content wrapper -->
