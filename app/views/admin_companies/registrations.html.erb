@@ -1,0 +1,70 @@
+<!-- Title area -->
+<div class="titleArea">
+    <div class="wrapper">
+        <div class="pageTitle">
+            <h5>Liste des souscriptions de l'entreprise: <%= @company.name %></h5>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<%#= render "admin_blogs/shared/sub_menu" %>
+
+<div class="line"></div>
+
+<!-- Main content wrapper -->
+<div class="wrapper">
+  <%= flash_messages! %>
+<!-- Widgets -->
+  <div class="widget">
+    <div class="title"><img src="<%= asset_path 'icons/dark/full2.png' %>" alt="" class="titleIcon" /><h6>Liste des entreprises</h6></div>
+    <table cellpadding="0" cellspacing="0" border="0" class="display dTable taskWidget">
+      <thead>
+        <tr>
+          <th>#ID</th>
+          <th>Date de début</th>
+          <th>Date de fin</th>
+          <th>Montant</th>
+          <th>Auteur</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% unless @subscriptions.blank? %>
+          <% @subscriptions.each do |subscription| %>
+            <tr class="gradeA">
+              <% css_class = ((Date.today >= subscription.begin_date &&  Date.today <= subscription.end_date) ? 'taskPr' : 'taskD') %>
+              <td class = "<%= css_class %>">
+                <%= subscription.transaction_id %>
+              </td>
+
+              <td>
+                <%= subscription.begin_date.strftime("%d-%m-%Y") %>
+              </td>
+
+              <td>
+                <%= subscription.end_date.strftime("%d-%m-%Y") %>
+              </td>
+
+              <td>
+                <%= subscription.subscription_formula.amount %> F CFA
+              </td>
+
+              <td class = "customInfo">
+                <span>
+                  <strong>Créée le </strong> <%= subscription.created_at.strftime("%d-%m-%Y") + " à " + subscription.created_at.strftime("%Hh %Mmn") %>
+                </span>
+                <span>
+                  <strong>Par </strong> <%= User.find_by_id(subscription.renewed_by).full_name %>
+                </span>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- End Main content wrapper -->

@@ -9,6 +9,9 @@ class Subscription < ActiveRecord::Base
     :user_id => "Auteur",
     :company_id => "Entreprise",
     :transaction_id => "Id de transaction",
+    :renewed_by => "Auteur du renouvellement",
+    :renewed_at => "Date du renouvellement",
+    :transaction_id => "Id de transaction",
     :begin_date => "Date de début",
     :end_date => "Date de fin"
   }
@@ -19,5 +22,5 @@ class Subscription < ActiveRecord::Base
   end
 
   # Validations
-  validates :subscription_formula_id, :company_id, :transaction_id, :begin_date, :end_date, presence: true
+  validates :subscription_formula_id, :company_id, :transaction_id, :begin_date, :end_date, :renewed_by, :renewed_at, presence: true
 end

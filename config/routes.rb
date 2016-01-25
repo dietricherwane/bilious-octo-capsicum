@@ -107,6 +107,11 @@ Rails.application.routes.draw do
     get "administrator/offer/reject/:offer_id" => "admin_jobs#admin_reject_offer", as: :admin_reject_offer
     get "administrator/jobs/validated" => "admin_jobs#admin_list_validated_jobs", as: :admin_list_validated_jobs
 
+    # Companies
+    get "administrator/companies" => "admin_companies#companies", as: :admin_registered_companies
+    get "administrator/company/registration/renew/:company_id" => "admin_companies#renew_registration", as: :admin_renew_company_registration
+    get "administrator/company/registrations/:company_id" => "admin_companies#registrations", as: :admin_company_registrations
+
     # Blog categories
     get "administrator/blog/category" => "admin_blog_categories#blog_category", as: :admin_blog_category
     post "administrator/blog/category/create" => "admin_blog_categories#create_blog_category", as: :admin_create_blog_category
