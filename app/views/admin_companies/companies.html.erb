@@ -1,0 +1,58 @@
+<!-- Title area -->
+<div class="titleArea">
+    <div class="wrapper">
+        <div class="pageTitle">
+            <h5>Liste des entreprises inscrites</h5>
+            <span>Prise en charge des actions liées aux entreprises.</span>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<%#= render "admin_blogs/shared/sub_menu" %>
+
+<div class="line"></div>
+
+<!-- Main content wrapper -->
+<div class="wrapper">
+  <%= flash_messages! %>
+<!-- Widgets -->
+  <div class="widget">
+    <div class="title"><img src="<%= asset_path 'icons/dark/full2.png' %>" alt="" class="titleIcon" /><h6>Liste des entreprises</h6></div>
+    <table cellpadding="0" cellspacing="0" border="0" class="display dTable taskWidget">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Auteur</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% unless @companies.blank? %>
+          <% @companies.each do |company| %>
+            <tr class="gradeA">
+              <%# css_class = (company.published == false ? 'taskD' : 'taskPr') %>
+              <td class = "<%#= css_class %>">
+                <%= company.name %>
+              </td>
+
+              <td class = "customInfo">
+                <span>
+                  <strong>Créée le </strong> <%= company.created_at.strftime("%d-%m-%Y") + " à " + company.created_at.strftime("%Hh %Mmn") %>
+                </span>
+              </td>
+              <td class = "actBtns">
+                <a href="<%= admin_company_registrations_path(company.id) %>" class="tipS" original-title="Liste des abonnements"><%= image_tag('icons/color/pencil.png', alt: '') %></a>
+                <a href="<%= admin_renew_company_registration_path(company.id) %>" class="tipS" original-title="Renouveler l'abonnement"><%= image_tag('icons/color/plus.png', alt: '') %></a>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- End Main content wrapper -->
