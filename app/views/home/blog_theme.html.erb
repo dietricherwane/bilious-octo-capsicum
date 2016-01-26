@@ -14,7 +14,7 @@
                             	<h1><%= @blog_theme.title %></h1>
                               <div class="listing_meta">
                                 <span><%= @blog_theme.created_at.strftime("%d-%m-%Y") %></span>
-                                <span><a href="javascript:void(0);">3 comments</a></span>
+                                <span><%= blog_theme.blog_posts.count %> commentaire(s)</span>
                                 <span>Catégorie: <b><%= link_to @blog_theme.blog_category.title, blog_category_path(@blog_theme.blog_category.id) %></b></span>
                               </div>
                               <% unless @blog_theme.descriptive_image_file_name.blank? %>
