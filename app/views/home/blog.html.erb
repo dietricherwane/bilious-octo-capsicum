@@ -18,8 +18,6 @@
                             <div class="row">
                                 <div class="col-sm-12 module_cont pb60 module_blog">
 
-                                  <% unless @blog_categories.blank? %>
-                                    <% @blog_themes = @blog_categories.first.blog_themes.page(params[:page]).per(1) %>
                                     <% unless @blog_themes.blank? %>
                                       <% @blog_themes.each do |blog_theme| %>
                                         <div class="blog_post_preview animate" data-anim-type="fadeInLeft" data-anim-delay="300">
@@ -32,7 +30,7 @@
                                           	<h2 class="blogpost_title"><%= link_to blog_theme.title, blog_theme_path(blog_theme.id) %></h2>
                                               <div class="listing_meta">
                                                 <span><%= blog_theme.created_at.strftime("%d-%m-%Y") %></span>
-                                                <span><a href="javascript:void(0);">3 comments</a></span>
+                                                <span><%= blog_theme.blog_posts.count %> commentaire(s)</span>
                                                 <span>Catégorie: <b><%= link_to blog_theme.blog_category.title, blog_category_path(blog_theme.blog_category.id) %></b></span>
                                               </div>
                                               <p><%= simple_format(blog_theme.content) %></p>
@@ -42,7 +40,6 @@
                                       <% end %>
                                       <%= paginate @blog_themes, :params => {:controller => :home, :action => :blog} %>
                                     <% end %>
-                                  <% end %>
 
                                 </div>
                             </div>

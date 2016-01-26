@@ -146,6 +146,7 @@ class HomeController < ApplicationController
     select_front_menu_highlight_class("blog_menu_highlight_style")
     set_front_page_content
     @blog_categories = BlogCategory.where("published IS NOT FALSE").order("created_at DESC")
+    @blog_themes = BlogTheme.where("published IS NOT FALSE").order("created_at DESC").page(params[:page]).per(3)
   end
 
 end
