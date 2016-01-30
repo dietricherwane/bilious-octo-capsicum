@@ -24,7 +24,7 @@
 <body>
 	<div class="main_header type1">
 
-        <!-- Top Header -->
+        <!-- Top Header --><div class="header_parent_wrap">
         <div class="tagline">
             <div class="container">
                 <% if !session[:cookies_enabled] %>
@@ -51,23 +51,26 @@
 
                         </div>
                         <div class="log_in_out"><a href="https://cocofci-lp2iprci.db.em2.oraclecloudapps.com/apex/f?p=30200141:IDENTIFICATION:2391100172140:::::" target="_blank"><i class="icon-sign-in"></i> <%= @front_page_content.home_toolbar_registration %></a></div>
-                        <div class="cart_btn">
+                        <div class="log_in_out">
                         	<a href="https://cocofci-lp2iprci.db.em2.oraclecloudapps.com/apex/f?p=30200222:LOGIN::::::" class="view_cart_btn" target="_blank"><i class="icon-users"></i> <%= @front_page_content.home_toolbar_my_account %> </a>
+                        </div>
+                        <div class="log_in_out">
+                        	<a href="<%= jobs_path %>" class="view_cart_btn" target="_blank"><i class="icon-briefcase"></i> <%= @front_page_content.home_toolbar_phone_number %> </a>
                         </div>
 
                     </div>
                 </div>
-                <div class="fleft">
+                <!--<div class="fleft">
                     <div class="phone"><i class="icon-phone"></i><%= @front_page_content.home_toolbar_phone_number %></div>
                     <div class="email"><a href="mailto:<%= @front_page_content.home_toolbar_email %>"><i class="icon-envelope"></i><%= @front_page_content.home_toolbar_email %></a></div>
-                </div>
+                </div>-->
                 <div class="clear"></div>
             </div>
         </div>
 
         <!-- Nvigation Menu -->
 
-        <div class="header_parent_wrap">
+
             <header>
                 <div class="container">
                 	<a class="top_menu_toggler" href="javascript:void(0)"></a>
@@ -104,8 +107,8 @@
             	<div class="row">
 
                     <div class="col-sm-3">
-                    	<div class="sidepanel widget_text">
-                        	<%= @front_page_content.home_footer_block1.html_safe rescue "" %>
+                    	<div class="sidepanel widget_review">
+                        	<%= @front_page_content.home_footer_block4.html_safe rescue "" %>
                         </div>
                     </div>
 
@@ -116,8 +119,8 @@
                     </div>
 
                     <div class="col-sm-3">
-                    	<div class="sidepanel widget_review">
-                        	<%= @front_page_content.home_footer_block4.html_safe rescue "" %>
+                    	<div class="sidepanel widget_text">
+                        	<%= @front_page_content.home_footer_block1.html_safe rescue "" %>
                         </div>
 
                     </div>

@@ -112,6 +112,18 @@ Rails.application.routes.draw do
     get "administrator/company/registration/renew/:company_id" => "admin_companies#renew_registration", as: :admin_renew_company_registration
     get "administrator/company/registrations/:company_id" => "admin_companies#registrations", as: :admin_company_registrations
 
+    # Bloggeurs
+    get "administrator/blogger" => "admin_bloggers#blogger", as: :admin_blogger
+    post "administrator/blogger/create" => "admin_bloggers#create_blogger", as: :admin_create_blogger
+    get "administrator/blogger/create" => "admin_bloggers#blogger"
+    get "administrator/bloggers" => "admin_bloggers#bloggers", as: :admin_bloggers
+    get "administrator/blogger/enable/:blogger_id" => "admin_bloggers#enable_blogger", as: :enable_blogger
+    get "administrator/blogger/disable/:blogger_id" => "admin_bloggers#disable_blogger", as: :disable_blogger
+    get "administrator/blogger/edit/:blogger_id" => "admin_bloggers#edit_blogger", as: :edit_blogger
+    post "administrator/blogger/update" => "admin_bloggers#update_blogger", as: :admin_update_blogger
+    get "administrator/blogger/update" => "admin_bloggers#bloggers"
+
+
     # Blog categories
     get "administrator/blog/category" => "admin_blog_categories#blog_category", as: :admin_blog_category
     post "administrator/blog/category/create" => "admin_blog_categories#create_blog_category", as: :admin_create_blog_category

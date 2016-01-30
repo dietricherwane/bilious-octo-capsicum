@@ -1,0 +1,70 @@
+<!-- Title area -->
+<div class="titleArea">
+    <div class="wrapper">
+        <div class="pageTitle">
+            <h5>Créer un bloggeur</h5>
+            <span>Créez un bloggeur afin d'afficher son profil sur le site.</span>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<%= render "admin_bloggers/shared/sub_menu" %>
+
+<div class="line"></div>
+
+<!-- Main content wrapper -->
+<div class="wrapper">
+  <%= flash_messages! %>
+  <%= form_for(@blogger, url: admin_create_blogger_path, html: {class: 'form'}) do |f| %>
+    <fieldset>
+      <div class="widget">
+        <div class="title">
+          <img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" />
+          <h6>Formulaire de création des bloggeurs</h6>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :title %></label>
+          <div class="formRight">
+            <%= f.text_field :title, class: "form-control", placeholder: "Veuillez saisir le titre" %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :name %></label>
+          <div class="formRight">
+            <%= f.text_field :name, class: "form-control", placeholder: "Veuillez saisir le nom du bloggeur" %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :description_image %></label>
+          <div class="formRight">
+            <%= f.file_field :description_image, placeholder: "Veuillez entrer l'image descriptive", class: 'form-control' %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :content %></label>
+          <div class="formRight">
+            <%= f.text_area :content, placeholder: "Veuillez renseigner le contenu", class: 'ckeditor' %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <%= f.submit "Valider", class: 'basic' %>
+        </div>
+      </div>
+    </fieldset>
+  <% end %>
+
+</div>
+<!-- End Main content wrapper -->

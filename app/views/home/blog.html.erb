@@ -32,6 +32,7 @@
                                                 <span><%= blog_theme.created_at.strftime("%d-%m-%Y") %></span>
                                                 <span><%= blog_theme.blog_posts.count %> commentaire(s)</span>
                                                 <span>Catégorie: <b><%= link_to blog_theme.blog_category.title, blog_category_path(blog_theme.blog_category.id) %></b></span>
+                                                <span>Auteur: <b><%= link_to blog_theme.blogger.name, "#" %></b></span>
                                               </div>
                                               <p><%= simple_format(blog_theme.content) %></p>
                                           </div>
@@ -54,7 +55,7 @@
                         <ul>
                           <% unless @blog_categories.blank? %>
                             <% @blog_categories.each do |blog_category| %>
-                              <li class="<%= blog_category.id == (@blog_categories.first.id rescue 0) ? 'cat-item current-menu-item' : 'cat-item'  %>"><%= link_to blog_category.title, blog_category_path(blog_category.id) %></li>
+                              <li class="cat-item"><%= link_to blog_category.title, blog_category_path(blog_category.id) %></li>
                             <% end %>
                           <% end %>
                         </ul>

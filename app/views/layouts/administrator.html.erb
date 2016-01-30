@@ -13,7 +13,7 @@
 
 <!-- Left side content -->
 <div id="leftSide">
-    <div class="logo"><a href="index.html"><img src="<%= asset_path 'logo.png' %>" alt="" /></a></div>
+    <div class="logo"><a href="index.html"><img src="<%= asset_path 'front/logo_cocofci-02.png' %>" alt="" width = "134px" /></a></div>
 
     <div class="sidebarSep"></div>
 
@@ -21,8 +21,9 @@
     <ul id="menu" class="nav">
         <li class="dash"><%= link_to "<span>Dashboard</span>".html_safe, dashboard_path, class: "#{@class_dashboard}" %></li>
 
-        <li class="tables"><a href="#" title="" class="exp" id = "<%= @website_blog_menu_style %>"><span>Blog</span><strong>2</strong></a>
+        <li class="tables"><a href="#" title="" class="exp" id = "<%= @website_blog_menu_style %>"><span>Blog</span><strong>3</strong></a>
           <ul class="sub">
+            <li class = "<%= @blogger_menu_style %>"><a href="<%= admin_blogger_path %>" title="">Bloggeurs</a></li>
             <li class = "<%= @blog_categories_menu_style %>"><a href="<%= admin_blog_category_path %>" title="">Catégories de blogs</a></li>
             <li class = "<%= @blog_themes_menu_style %>"><a href="<%= admin_blog_theme_path %>" title="">Thèmes de blogs</a></li>
           </ul>

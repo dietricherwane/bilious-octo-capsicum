@@ -18,7 +18,7 @@
                             <div class="row">
                                 <div class="col-sm-12 module_cont pb60 module_blog">
 
-                                    <% @blog_themes = @blog_category.blog_themes.page(params[:page]).per(1) %>
+                                    <% @blog_themes = @blog_category.blog_themes.page(params[:page]).per(3) %>
                                     <% unless @blog_themes.blank? %>
                                       <% @blog_themes.each do |blog_theme| %>
                                         <div class="blog_post_preview animate" data-anim-type="fadeInLeft" data-anim-delay="300">
@@ -33,6 +33,7 @@
                                                 <span><%= blog_theme.created_at.strftime("%d-%m-%Y") %></span>
                                                 <span><%= blog_theme.blog_posts.count %> commentaire(s)</span>
                                                 <span>Catégorie: <b><%= link_to blog_theme.blog_category.title, blog_category_path(blog_theme.blog_category.id) %></b></span>
+                                                <span>Auteur: <b><%= link_to blog_theme.blogger.name, "#" %></b></span>
                                               </div>
                                               <p><%= simple_format(blog_theme.content) %></p>
                                           </div>

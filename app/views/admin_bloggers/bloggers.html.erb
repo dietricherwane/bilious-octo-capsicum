@@ -1,0 +1,68 @@
+<!-- Title area -->
+<div class="titleArea">
+    <div class="wrapper">
+        <div class="pageTitle">
+            <h5>Liste des bloggeurs</h5>
+            <span>Prise en charge des actions liées aux bloggeurs.</span>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<%= render "admin_bloggers/shared/sub_menu" %>
+
+<div class="line"></div>
+
+<!-- Main content wrapper -->
+<div class="wrapper">
+  <%= flash_messages! %>
+<!-- Widgets -->
+  <div class="widget">
+    <div class="title"><img src="<%= asset_path 'icons/dark/full2.png' %>" alt="" class="titleIcon" /><h6>Liste des bloggeurs</h6></div>
+    <table cellpadding="0" cellspacing="0" border="0" class="display dTable taskWidget">
+      <thead>
+        <tr>
+          <th>Titre</th>
+          <th>Nom</th>
+          <th>Auteur</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% unless @bloggers.blank? %>
+          <% @bloggers.each do |blogger| %>
+            <tr class="gradeA">
+              <% css_class = (blogger.published == false ? 'taskD' : 'taskPr') %>
+              <td class = "<%= css_class %>">
+                <%= blogger.title %>
+              </td>
+              <td>
+                <%= blogger.name %>
+              </td>
+              <td class = "customInfo">
+                <span>
+                  <strong>Créé à </strong><%= blogger.created_at.strftime("%Hh %Mmn") %>
+                </span>
+                <span>
+                  <strong>Par </strong> <%= blogger.user.full_name %>
+                </span>
+              </td>
+              <td class = "actBtns">
+                <a href="<%= edit_blogger_path(blogger.id) %>" class="tipS" original-title="Modifier"><%= image_tag('icons/color/pencil.png', alt: '') %></a>
+                <% if blogger.published == false %>
+                  <a href="<%= enable_blogger_path(blogger.id) %>" class="tipS" original-title="Activer le bloggeur"><%= image_tag('icons/color/tick.png', alt: '') %></a>
+                <% else %>
+                  <a href="<%= disable_blogger_path(blogger.id) %>" class="tipS" original-title="Désactiver le bloggeur"><%= image_tag('icons/color/cross.png', alt: '') %></a>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- End Main content wrapper -->

@@ -4,26 +4,23 @@ class AdminBlogThemesController < ApplicationController
 
   def blog_theme
     @blog_theme = BlogTheme.new
-    @blog_categories = BlogCategory.where("published IS NOT FALSE")
   end
 
   def create_blog_theme
-    @blog_theme = BlogTheme.new(params.require(:blog_theme).permit(:title, :blog_category_id, :content, :descriptive_image).merge(created_by: (current_user.id rescue nil)))
-    @blog_categories = BlogCategory.where("published IS NOT FALSE")
+    @blog_theme = BlogTheme.new(params.require(:blog_theme).permit(:title, :blogger_id, :blog_category_id, :content, :descriptive_image).merge(created_by: (current_user.id rescue nil)))
 
     if @blog_theme.save
       flash.now[:success] = "Le thème de blog a été correctement créé."
       @blog_theme = BlogTheme.new
     else
-      flash.now[:error] = @blog_theme.errors.full_messages.map { |msg| "#{msg}<br />" }.join
+      flash[:error] = @blog_theme.errors.full_messages.map { |msg| "#{msg}<br />" }.join
     end
 
-    render :blog_theme
+    redirect_to admin_blog_theme_path
   end
 
   def edit_blog_theme
     @blog_theme = BlogTheme.find_by_id(params[:blog_theme_id])
-    @blog_categories = BlogCategory.where("published IS NOT FALSE")
 
     if @blog_theme.blank?
       flash[:error] = "Ce thème de blog n'existe pas"
@@ -33,13 +30,12 @@ class AdminBlogThemesController < ApplicationController
 
   def update_blog_theme
     @blog_theme = BlogTheme.find_by_id(params[:blog_theme][:id])
-    @blog_categories = BlogCategory.where("published IS NOT FALSE")
 
     unless @blog_theme
       flash.now[:error] = "Ce thème de blog n'existe pas."
       redirect_to :back
     else
-      @blog_theme.assign_attributes(params.require(:blog_theme).permit(:title))
+      @blog_theme.assign_attributes(params.require(:blog_theme).permit(:title, :blogger_id, :blog_category_id, :content, :descriptive_image))
       if @blog_theme.valid?
         @blog_theme.save
         flash.now[:success] = "Le thème de blog a été mis à jour."
@@ -67,6 +63,8 @@ class AdminBlogThemesController < ApplicationController
     def set_menu_css
       @website_blog_menu_style = "current"
       @blog_themes_menu_style = "this"
+      @blog_categories = BlogCategory.where("published IS NOT FALSE")
+      @bloggers = Blogger.where("published IS NOT FALSE")
     end
 
     def enable_disable_blog_theme(blog_theme_id, status, status_text)

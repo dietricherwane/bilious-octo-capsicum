@@ -28,6 +28,14 @@
         </div>
 
         <div class="formRow">
+          <label><%= f.label :blogger_id %></label>
+          <div class="formRight">
+            <%= f.collection_select :blogger_id, @bloggers, :id, :title, options ={prompt: "Veuillez choisir un bloggeur"}, html_options = {class: "form-control"} %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
           <label><%= f.label :descriptive_image %></label>
           <div class="formRight">
             <%= f.file_field :descriptive_image, placeholder: "Veuillez entrer l'image descriptive", class: 'form-control' %>
