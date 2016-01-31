@@ -68,6 +68,26 @@ class HomeController < ApplicationController
     init_blog
   end
 
+  def blogger_posts
+    @blogger = Blogger.find_by_id(params[:blogger_id])
+
+    if @blogger.blank?
+      redirect_to blog_path
+    end
+
+    init_blog
+  end
+
+  def blogger_biography
+    @blogger = Blogger.find_by_id(params[:blogger_id])
+
+    if @blogger.blank?
+      redirect_to blog_path
+    end
+
+    init_blog
+  end
+
   def blog_theme
     @blog_theme = BlogTheme.find_by_id(params[:blog_theme_id])
     @blog_post = BlogPost.new
@@ -162,6 +182,8 @@ class HomeController < ApplicationController
     set_front_page_content
     @blog_categories = BlogCategory.where("published IS NOT FALSE").order("created_at DESC")
     @blog_themes = BlogTheme.where("published IS NOT FALSE").order("created_at DESC").page(params[:page]).per(3)
+    @bloggers = Blogger.where("published IS NOT FALSE")
+    @recent_blogs = BlogTheme.where("published IS NOT FALSE").order("created_at DESC").limit(5)
   end
 
 end

@@ -32,10 +32,12 @@
                                                 <span><%= blog_theme.created_at.strftime("%d-%m-%Y") %></span>
                                                 <span><%= blog_theme.blog_posts.count %> commentaire(s)</span>
                                                 <span>Catégorie: <b><%= link_to blog_theme.blog_category.title, blog_category_path(blog_theme.blog_category.id) %></b></span>
-                                                <span>Auteur: <b><%= link_to blog_theme.blogger.name, "#" %></b></span>
+                                                <span>Auteur: <b><%= link_to blog_theme.blogger.name, blogger_biography_path(blog_theme.blogger.id) %></b></span>
                                               </div>
                                               <p><%= simple_format(blog_theme.content) %></p>
+                                              <div class="price_item_btn"><a class="shortcode_button btn_large btn_type1" href="<%= blog_theme_path(blog_theme.id) %>"><%= I18n.locale == :fr ? "Lire plus" : "Read more" %></a></div>
                                           </div>
+                                          <hr />
                                         </div>
 
                                       <% end %>
@@ -55,11 +57,35 @@
                         <ul>
                           <% unless @blog_categories.blank? %>
                             <% @blog_categories.each do |blog_category| %>
-                              <li class="cat-item"><%= link_to blog_category.title, blog_category_path(blog_category.id) %></li>
+                              <li class="<%= blog_category.id == (@blog_category.id rescue nil) ? 'cat-item current-menu-item' : 'cat-item'  %>"><%= link_to blog_category.title, blog_category_path(blog_category.id) %></li>
                             <% end %>
                           <% end %>
                         </ul>
                     </div>
+
+                    <div class="sidepanel widget_categories animate" data-anim-type="fadeInUp" data-anim-delay="300">
+                        <h4 class="title">Bloggeurs</h4>
+                        <ul>
+                          <% unless @bloggers.blank? %>
+                            <% @bloggers.each do |blogger| %>
+                              <li class="<%= blogger.id == (@blogger.id rescue nil) ? 'cat-item current-menu-item' : 'cat-item'  %>"><%= link_to blogger.name, blogger_posts_path(blogger.id) %></li>
+                            <% end %>
+                          <% end %>
+                        </ul>
+                    </div>
+
+                    <div class="sidepanel widget_categories animate" data-anim-type="fadeInUp" data-anim-delay="300">
+                        <h4 class="title">Blogs récents</h4>
+                        <ul>
+                          <% unless @recent_blogs.blank? %>
+                            <% @recent_blogs.each do |recent_blog| %>
+                              <li class="<%= recent_blog.id == (@blog_theme.id rescue nil) ? 'cat-item current-menu-item' : 'cat-item'  %>"><%= link_to recent_blog.title, blog_theme_path(recent_blog.id) %></li>
+                            <% end %>
+                          <% end %>
+                        </ul>
+                    </div>
+
+
                   </div>
 
 

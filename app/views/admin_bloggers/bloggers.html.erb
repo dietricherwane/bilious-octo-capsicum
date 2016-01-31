@@ -26,7 +26,6 @@
       <thead>
         <tr>
           <th>Titre</th>
-          <th>Nom</th>
           <th>Auteur</th>
           <th>Actions</th>
         </tr>
@@ -38,9 +37,6 @@
               <% css_class = (blogger.published == false ? 'taskD' : 'taskPr') %>
               <td class = "<%= css_class %>">
                 <%= blogger.title %>
-              </td>
-              <td>
-                <%= blogger.name %>
               </td>
               <td class = "customInfo">
                 <span>

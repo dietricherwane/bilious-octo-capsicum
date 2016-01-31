@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     get '/galerie' => 'home#gallery', as: :gallery
     get '/blog' => 'home#blog', as: :blog
     get '/blog_category/:blog_category_id' => 'home#blog_category', as: :blog_category
+    get '/blogger/blog_themes/:blogger_id' => 'home#blogger_posts', as: :blogger_posts
+    get '/blogger/biography/:blogger_id' => 'home#blogger_biography', as: :blogger_biography
     get '/blog_theme/:blog_theme_id' => 'home#blog_theme', as: :blog_theme
     post '/blog_post/create' => 'home#create_blog_post', as: :create_blog_post
     get '/blog_post/create' => 'home#blog'

@@ -38,7 +38,15 @@
         <div class="formRow">
           <label><%= f.label :name %></label>
           <div class="formRight">
-            <%= f.text_field :name, class: "form-control", placeholder: "Veuillez saisir le nom du bloggeur" %>
+            <%= f.text_area :name, placeholder: "Veuillez entrer le texte descriptif", class: 'ckeditor' %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label><%= f.label :description_text %></label>
+          <div class="formRight">
+            <%= f.text_area :description_text, placeholder: "Veuillez entrer le texte descriptif", class: 'ckeditor' %>
           </div>
           <div class="clear"></div>
         </div>
