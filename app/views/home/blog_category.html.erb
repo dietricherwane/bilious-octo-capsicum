@@ -4,7 +4,27 @@
             <h3><a style= "color:white;" href="javascript:history.go(-1)"><%= I18n.locale == :fr ? "Retour" : "Back" %></a></h3>
         </div>
      </div>
-    <div class="wrapper">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="wrapper">
     	<div class="container">
         	<div class="page_title_block">
                 <div class="page_descr">
@@ -13,44 +33,46 @@
             </div>
         	<div class="content_block row right-sidebar">
             	<div class="fl-container hasRS">
-                	  <div class="posts-block"><!-- Post block -->
-                      <div class="contentarea">
-                        <div class="row">
-                          <div class="col-sm-12 module_cont pb60 module_blog">
-                            <% @blog_themes = @blog_category.blog_themes.page(params[:page]).per(3) %>
-                            <% unless @blog_themes.blank? %>
-                              <% @blog_themes.each do |blog_theme| %>
-                                <div class="blog_post_preview animate" data-anim-type="fadeInLeft" data-anim-delay="300">
-                                  <% unless blog_theme.descriptive_image_file_name.blank? %>
-                                	  <div class="blog_post_image">
-                                    	<%= image_tag blog_theme.descriptive_image.url(:front) rescue "" %>
-                                    </div>
-                                  <% end %>
-                                  <div class="blog_content">
-                                  	<h2 class="blogpost_title"><%= link_to blog_theme.title, blog_theme_path(blog_theme.id) %></h2></h2>
-                                      <div class="listing_meta">
-                                        <span><%= blog_theme.created_at.strftime("%d-%m-%Y") %></span>
-                                        <span><%= blog_theme.blog_posts.count %> commentaire(s)</span>
-                                        <span>Catégorie: <b><%= link_to blog_theme.blog_category.title, blog_category_path(blog_theme.blog_category.id) %></b></span>
-                                        <span>Auteur: <b><%= link_to blog_theme.blogger.title, blogger_biography_path(blog_theme.blogger.id) %></b></span>
-                                      </div>
-                                      <p><%= simple_format(blog_theme.content) %></p>
-                                      <div class="price_item_btn"><a class="shortcode_button btn_large btn_type1" href="<%= blog_theme_path(blog_theme.id) %>"><%= I18n.locale == :fr ? "Lire plus" : "Read more" %></a></div>
-                                  </div>
-                                  </div>
+                	<div class="posts-block">
+                        <div class="contentarea">
+
+                            <div class="row">
+                                <div class="col-sm-12 module_cont pb60 module_blog">
+                                    <% @blog_themes = @blog_category.blog_themes.page(params[:page]).per(3) %>
+                                    <% unless @blog_themes.blank? %>
+                                      <% @blog_themes.each do |blog_theme| %>
+                                        <div class="blog_post_preview animate" data-anim-type="fadeInLeft" data-anim-delay="300">
+                                          <% unless blog_theme.descriptive_image_file_name.blank? %>
+                                        	  <div class="blog_post_image">
+                                            	<%= image_tag blog_theme.descriptive_image.url(:front) rescue "" %>
+                                            </div>
+                                          <% end %>
+                                          <div class="blog_content">
+                                          	<h2 class="blogpost_title"><%= link_to blog_theme.title, blog_theme_path(blog_theme.id) %></h2>
+                                              <div class="listing_meta">
+                                                <span><%= blog_theme.created_at.strftime("%d-%m-%Y") %></span>
+                                                <span><%= blog_theme.blog_posts.count %> commentaire(s)</span>
+                                                <span>Catégorie: <b><%= link_to blog_theme.blog_category.title, blog_category_path(blog_theme.blog_category.id) %></b></span>
+                                                <span>Auteur: <b><%= link_to blog_theme.blogger.title, blogger_biography_path(blog_theme.blogger.id) %></b></span>
+                                              </div>
+                                              <p><%= simple_format(blog_theme.content) %></p>
+                                              <div class="price_item_btn"><a class="shortcode_button btn_large btn_type1" href="<%= blog_theme_path(blog_theme.id) %>"><%= I18n.locale == :fr ? "Lire plus" : "Read more" %></a></div>
+                                          </div>
+                                          <hr />
+                                        </div>
+
+                                      <% end %>
+                                      <%= paginate @blog_themes, :params => {:controller => :home, :action => :blog_category} %>
+                                    <% end %>
+
                                 </div>
+                            </div>
 
-                              <% end %>
-                              <%= paginate @blog_themes, :params => {:controller => :home, :action => :blog_category} %>
-                            <% end %>
-                          </div>
                         </div>
+                    </div>
+                </div>
+                <div class="right-sidebar-block">
 
-
-                      </div>
-                    </div><!-- Post block -->
-
-<div class="right-sidebar-block">
                     <div class="sidepanel widget_categories animate" data-anim-type="fadeInUp" data-anim-delay="300">
                         <h4 class="title">Categories</h4>
                         <ul>
@@ -83,35 +105,9 @@
                           <% end %>
                         </ul>
                     </div>
+
+
                   </div>
-
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                 <div class="clear"></div>
