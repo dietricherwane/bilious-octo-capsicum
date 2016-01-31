@@ -66,7 +66,7 @@
                         <ul>
                           <% unless @bloggers.blank? %>
                             <% @bloggers.each do |blogger| %>
-                              <li class="<%= blogger.id == (@blogger.id rescue nil) ? 'cat-item current-menu-item' : 'cat-item'  %>"><%= link_to blogger.name, blogger_posts_path(blogger.id) %></li>
+                              <li class="<%= blogger.id == (@blogger.id rescue nil) ? 'cat-item current-menu-item' : 'cat-item'  %>"><%= link_to blogger.title, blogger_posts_path(blogger.id) %></li>
                             <% end %>
                           <% end %>
                         </ul>
