@@ -45,7 +45,7 @@
                   <strong>Créé le </strong> <%= blog_category.created_at.strftime("%d-%m-%Y") + " à " + blog_category.created_at.strftime("%Hh %Mmn") %>
                 </span>
                 <span>
-                  <strong>Par </strong> <%= user.full_name %>
+                  <strong>Par </strong> <%= user.full_name rescue nil %>
                 </span>
               </td>
               <td class = "actBtns">

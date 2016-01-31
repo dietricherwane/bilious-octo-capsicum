@@ -64,7 +64,7 @@
           <% unless @offers.blank?  %>
             <% @offers.each do |offer| %>
               <tr>
-                  <td><%= offer.created_at.strftime("%d-%m-%Y") + " à " + offer.created_at.strftime("%Hh %Mmn") %></td>
+                  <td><%= offer.created_at.strftime("%d-%m-%Y") %></td>
                   <td><a href = "<%= job_details_path(offer.id) %>" style = "font-weight: bold;text-decoration: underline;"><%= offer.title %></a></td>
                   <td><%= offer.activity_field.name %></td>
                   <td><%= offer.expiration_date.strftime("%d-%m-%Y") %></td>

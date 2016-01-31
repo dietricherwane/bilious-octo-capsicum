@@ -72,6 +72,7 @@ class HomeController < ApplicationController
     @blog_theme = BlogTheme.find_by_id(params[:blog_theme_id])
     @blog_post = BlogPost.new
     @blog_posts = @blog_theme.blog_posts.order("created_at DESC")
+    @blog_categories = BlogCategory.where("published IS NOT FALSE").order("created_at DESC")
 
     if @blog_theme.blank?
       redirect_to blog_path
@@ -86,6 +87,7 @@ class HomeController < ApplicationController
     @blog_post = BlogPost.new(params.require(:blog_post).permit(:firstname, :lastname, :email, :content, :blog_theme_id))
     @blog_theme = @blog_post.blog_theme
     @blog_posts = @blog_theme.blog_posts.order("created_at DESC")
+    @blog_categories = BlogCategory.where("published IS NOT FALSE").order("created_at DESC")
     select_front_menu_highlight_class("blog_menu_highlight_style")
     set_front_page_content
 
@@ -97,6 +99,19 @@ class HomeController < ApplicationController
     end
 
     render :blog_theme
+  end
+
+  def list_blogger_blog_themes
+    @blogger = Blogger.find_by_id(params[:blogger_id])
+    @blog_categories = BlogCategory.where("published IS NOT FALSE").order("created_at DESC")
+    select_front_menu_highlight_class("blog_menu_highlight_style")
+    set_front_page_content
+
+    if @blogger.blank?
+      redirect_to :back
+    else
+      @blog_themes = @blogger.blog_themes.where("published IS NOT FALSE").order("created_at DESC").page(params[:page]).per(3)
+    end
   end
 
   def job

@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :activity_categories
   has_many :activities
   has_many :offers
+  has_many :bloggers
 
   # Handle avatar pictures
   has_attached_file :avatar, styles: {small: "18x18", thumb: "37x37", medium: "300x300"}
