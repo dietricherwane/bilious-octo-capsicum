@@ -38,6 +38,10 @@ textarea {
 
 
 .sidepanel a:hover {
+	color:#000000;
+}
+
+.sidepanel .footer_link a:hover {
 	color:#ffffff;
 }
 
