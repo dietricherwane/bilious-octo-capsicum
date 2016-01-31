@@ -1,6 +1,6 @@
 <div class="breadcrumbs">
   <div class="container">
-    <h1 class="title-page"><a href="<%= activities_path %>"><%= @front_page_content.title_activity_section %></a> - <a href="javascript:history.go(-1)"><<</a></h1>
+    <h1 class="title-page"><a href="<%= activities_path %>"><%= @front_page_content.title_activity_section %></a> - <a href="javascript:history.go(-1)"><%= I18n.locale == :fr ? "Liste des activités" : "Activities list" %></a></h1>
     <h1 class="title-page"><%= I18n.locale == :fr ? @activity_category.fr_title : @activity_category.en_title %></h1>
   </div>
 </div>

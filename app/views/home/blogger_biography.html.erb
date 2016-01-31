@@ -1,0 +1,64 @@
+<div class="compendium_breadcrumbs">
+    	<div class="container">
+            <h1 class="title-page"><%= @blogger.title.html_safe rescue "" %></h1>
+        </div>
+    </div>
+
+    <div class="wrapper">
+    	<div class="container">
+        	<div class="content_block row no-sidebar">
+            	<div class="fl-container">
+                	<div class="posts-block">
+                        <div class="contentarea">
+                            <div class="row">
+                                <div class="col-sm-12 module_cont pb75 module_team">
+                                    <div class="team_slider">
+                                        <div class="carouselslider teamslider items2">
+                                            <ul class="item_list">
+                                                <li class="animate" data-anim-delay="250" data-anim-type="fadeInLeft">
+                                                    <div class="item_wrapper">
+                                                        <div class="item">
+                                                        	<div class="row">
+                                                            	<div class="col-sm-6">
+                                                                	<div class="img_block">
+                                                                    	<%= image_tag @blogger.description_image.url(:front) rescue "" %>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                	<div class="carousel_body">
+                                                                        <div class="team_title">
+                                                                            <%= @blogger.name.html_safe rescue "" %>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="animate" data-anim-delay="250" data-anim-type="fadeInRight">
+                                                  <div class="item_wrapper">
+                                                        <div class="item">
+
+                                                            <%= @blogger.description_text.html_safe rescue "" %>
+                                                         </div>
+                                                 </div>
+                                            </div>
+                                                </li>
+                                            </ul>
+                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                                   <%= @blogger.content.html_safe rescue "" %>
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

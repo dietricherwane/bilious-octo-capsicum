@@ -10,7 +10,7 @@ class AdminBloggersController < ApplicationController
   def create_blogger
     init_bloggers
 
-    @blogger = Blogger.new(params.require(:blogger).permit(:title, :name, :content, :description_image).merge(user_id: (current_user.id rescue nil)))
+    @blogger = Blogger.new(params.require(:blogger).permit(:title, :name, :content, :description_image, :description_text).merge(user_id: (current_user.id rescue nil)))
 
     if @blogger.save
     flash[:success] = "Le bloggeur a été correctement créé."
@@ -44,7 +44,7 @@ class AdminBloggersController < ApplicationController
       flash[:error] = "Ce bloggeur n'existe pas."
       redirect_to :back
     else
-      @blogger.assign_attributes(params.require(:blogger).permit(:title, :name, :content, :description_image))
+      @blogger.assign_attributes(params.require(:blogger).permit(:title, :name, :content, :description_image, :description_text))
       if @blogger.valid?
         @blogger.save
         flash.now[:success] = "Le bloggeur a été mis à jour."
