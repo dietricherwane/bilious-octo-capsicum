@@ -1,6 +1,7 @@
 <div class="compendium_breadcrumbs">
     	<div class="container">
             <h1 class="title-page"><%= @blogger.title.html_safe rescue "" %></h1>
+            <h3><a style= "color:white;" href="javascript:history.go(-1)"><%= I18n.locale == :fr ? "Retour" : "Back" %></a></h3>
         </div>
     </div>
 
