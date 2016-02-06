@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>COCOFCI::Job</title>
     <%= stylesheet_link_tag 'job/application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 	<!-- Form Slider -->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -89,47 +90,75 @@
 			<div class="container"><!-- Container -->
 				<div class="row">
 					<div class="col-md-3 footer-widget"><!-- Text Widget -->
-						<h6 class="widget-title">Conseils</h6>
-						<div class="textwidget">
-							<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
+						<h6 class="widget-title">Navigation</h6>
+						<div class="footer-widget-nav">
+							<ul>
+								<li><a href="https://cocofci-lp2iprci.db.em2.oraclecloudapps.com/apex/f?p=30200141:IDENTIFICATION:2391100172140:::::" target="_blank">Inscription</a></li>
+								<li><a href="/fr">Accueil</a></li>
+	              <li><a class="title" href="http://www.gouv.ci/Main.php" target="_blank">Le Gouvernement</a></li>
+	              <li><a href="/fr/compendium">Compendium</a></li>
+	              <li><a href="/fr/blog">Blog</a></li>
+	              <li><a href="/fr/galerie">Galerie</a></li>
+	              <li><a href="/fr/contact">Contact</a></li>
+							</ul>
 						</div>
 					</div><!-- Text Widget -->
 
-					<div class="col-md-2 footer-widget"><!-- Footer Menu Widget -->
+					<div class="col-md-3 footer-widget"><!-- Footer Menu Widget -->
 						<h6 class="widget-title">Liens utiles</h6>
 						<div class="footer-widget-nav">
 							<ul>
-
-							</ul>
+								<li><a class="title" href="http://chaireunesco-efpod.org/index.php">Chaire UNESCO - EFPOD</a></li>
+	              <li><a class="title" href="http://www.premierministre.ci/Main.html" target="_blank">Primature</a></li>
+	              <li><a class="title" href="http://www.gouv.ci/Main.php" target="_blank">Le Gouvernement</a></li>
+	              <li><a class="title" href="http://www.famille.gouv.ci/" target="_blank">Minist&egrave;re de la Famille, de la Femme et de l&rsquo;Enfant</a></li>
+	              <li><a class="title" href="http://jeunesse.gouv.ci" target="_blank">Minist&egrave;re de la Promotion Jeunesse et du Service Civique</a></li>
+	              <li><a class="title" href="http://www.ci.undp.org/" target="_blank">PNUD C&Ocirc;TE D&rsquo;IVOIRE</a></li>
+	              <li><a class="title" href="http://countryoffice.unfpa.org/cotedivoire/" target="_blank">UNFPA C&Ocirc;TE D&rsquo;IVOIRE</a></li>
+	              <li><a class="title" href="http://www.onuci.org/en.php3" target="_blank">ONUCI</a></li>
+	              <li><a class="title" href="http://www.rigrh.org/" target="_blank">Reseau ivoirien des Gestionnaires de Ressources Humaines </a></li>
 						</div>
 					</div><!-- Footer Menu Widget -->
 
-					<div class="col-md-4 footer-widget"><!-- Recent Tweet Widget -->
-						<h6 class="widget-title">Commentaires récents</h6>
+					<div class="col-md-3 footer-widget"><!-- Recent Tweet Widget -->
+						<h6 class="widget-title">Contacts</h6>
+            <div class="textwidget">
+              <p><span>Telephone :</span></p>
+              <p>+225 22 47 58 63<br />
+              +225 09 79 73 18<br />
+              +225 56 10 95 68</p>
 
+              <p><span>Bureau :</span><br />
+              BP 641 cidex 3 Abidjan<br />
+              Abidjan cocody riviera<br />
+              Route de Bingerville<br />
+              Bvd Mitterrand<br />
+              Imm ARMISI 5&egrave;me &eacute;tage</p>
+
+              <p><span>Email :</span><br />
+              <a href="mailto:info@competencesfeminines.gouv.ci">info@competencesfeminines.gouv.ci</a></p>
+
+              <p><span>Reseau Social :</span> <a href="https://www.facebook.com/compendium-des-comp%C3%A9tences-f%C3%A9minines-de-C%C3%B4te-Ivoire-278515642187549/" target="blank"><i class="media-footer footer-fb"></i></a></p>
+
+            </div>
 					</div><!-- Recent Tweet Widget -->
 
 					<div class="col-md-3 footer-widget"><!-- News Leter Widget -->
-						<h6 class="widget-title">S'inscrire à la newsletter</h6>
 						<div class="textwidget">
-							<p>Recevez en temps réel les dernières offres</p>
+							<span style = "color: white;font-weight:bold;"><%= visitors_all_days %> <%= I18n.locale == :fr ? 'Visiteur(s) au total' : 'Visitor(s) all days' %></span><br />
+            	<span style = "color: white;font-weight:bold;"><%= visitors_online %> <%= I18n.locale == :fr ? 'Visiteur(s) en ligne' : 'Visitor(s) online' %></span>
+              <%#= I18n.locale == :fr ? '<h4 class="title">Compteur de visites</h4>'.html_safe : '<h4 class="title">Visit counter</h4>'.html_safe %>
+            	<%#= @front_page_content.home_footer_block3.html_safe rescue "" %>
+            	<%= geo_chart Visit.group(:country).count, library: {backgroundColor: "#343434"} %>
+            	<%#= pie_chart Visit.group(:country).count, library: {backgroundColor: "#31383d"} %>
 						</div>
-
-						<form role="form">
-							<div class="form-group">
-								<input type="email" class="input-newstler">
-							</div>
-							<button type="button" class="btn-newstler">Valider</button>
-						</form>
-						<a href="" target="blank"><i class="media-footer footer-twitt"></i></a>
-						<a href="" target="blank"><i class="media-footer footer-fb"></i></a>
-						<a href="" target="blank"><i class="media-footer footer-linkedin"></i></a>
-						<a href="" target="blank"><i class="media-footer footer-yahoo"></i></a>
-						<a href="" target="blank"><i class="media-footer footer-blog"></i></a>
-						<a href="" target="blank"><i class="media-footer footer-rss"></i></a>
 					</div><!-- News Leter Widget -->
 					<div class="clearfix"></div>
 				</div>
+
+				<div class="footer-credits"><!-- Footer credits -->
+					&copy; 2015 COCOFCI. TOUS DROITS RESERVES.
+				</div><!-- Footer credits -->
 
 			</div><!-- Container -->
 		</div><!-- Footer -->
@@ -138,6 +167,15 @@
     <!-- Map -->
 	  <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 	  <!-- Map -->
+
+	  <script>
+      //ahoy.reset();
+      var Chartkick = {"language": "<%= I18n.locale == :fr ? 'fr' : 'en' %>"};
+      jQuery('#list').portfolio_addon({
+		    type : 2, // 2-4 columns portfolio
+		    load_count : 1000
+	    })
+    </script>
 
   </body>
 </html>

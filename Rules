@@ -10,3 +10,12 @@ CKEDITOR.editorConfig = function( config ) {
 
 
 nano .rvm/gems/ruby-2.0.0-p195@rails4.0.7/gems/ckeditor_rails-4.4.3/vendor/assets/javascripts/ckeditor/config.js
+
+
+
+
+For the Job Part,
+Add "Annee d'experience" next to "Niveau d'etude"
+Put "Bac + 1, BAC + 2, BAC +3, BAC+4 and BAC +5" instead of the degree listed under "Niveau d'etude"
+
+Admin Interface : Add "Nom de l'entreprise" after "or before "Domaine d'activite" in "Poster une offre d'emploi" or link "Liste des entreprises inscrites" to "Poster une offre d'emploi" like you did for the blog part where a blog is linked to an existing category
