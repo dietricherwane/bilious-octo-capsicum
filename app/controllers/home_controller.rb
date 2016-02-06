@@ -18,6 +18,7 @@ class HomeController < ApplicationController
     select_front_menu_highlight_class("home_menu_highlight_style")
 
     @activity_categories = ActivityCategory.where("published IS NOT FALSE").order("publication_date DESC")
+    @last_activity = Activity.where("published IS NOT FALSE").order("publication_date DESC").first rescue nil
 
     set_front_page_content
   end

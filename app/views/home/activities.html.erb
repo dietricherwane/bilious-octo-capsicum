@@ -4,6 +4,94 @@
     </div>
 </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+<% unless @last_activity.blank? %>
+<div class="wrapper">
+  <div class="container">
+    <div class="content_block row no-sidebar single_post">
+      <div class="fl-container">
+        <div class="posts-block">
+          <div class="contentarea">
+                <div class="blog_post_preview animate" data-anim-type="fadeInUp" data-anim-delay="300">
+	                <h1><%= I18n.locale == :fr ? @last_activity.fr_title : @last_activity.en_title %></h1>
+                  <div class="listing_meta">
+                    <span><%= @last_activity.publication_date.strftime("%d-%m-%Y") %></span>
+                  </div>
+                  <div class="blog_post_image">
+                    <%= image_tag @last_activity.description_image.url(:article) rescue "" %>
+                  </div>
+                  <div class="blog_content">
+                    <p>
+                      <%= I18n.locale == :fr ? (@last_activity.fr_content.html_safe rescue "") : (@last_activity.en_content.html_safe rescue "") %>
+                    </p>
+                  </div>
+                </div>
+
+                <div class="row">
+                                <div class="col-sm-12 module_cont pb80 module_feature_portfolio">
+                                    <div class="featured_items">
+                                        <div class="items4 featured_portfolio">
+                                            <ul class="item_list">
+                                              <% attachments = @last_activity.activity_attachments %>
+                                              <% unless attachments.blank? %>
+                                                <% attachments.each do |attachment| %>
+                                                  <li class="animate" data-anim-type="fadeInUp" data-anim-delay="300">
+                                                      <div class="item">
+                                                          <div class="item_wrapper">
+                                                              <div class="img_block wrapped_img">
+                                                                  <%= image_tag attachment.attachment.url(:front) %>
+                                                                  <span class="block_fade"></span>
+                                                                  <div class="post_hover_info">
+
+                                                                      <a href="<%= attachment.attachment.url(:front) %>" class="photozoom featured_ico_link view_link"><i class="icon-expand"></i></a>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </li>
+                                                <% end %>
+                                              <% end %>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="wrapper">
     	<div class="container">
 
