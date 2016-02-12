@@ -24,6 +24,7 @@ class Activity < ActiveRecord::Base
     HUMANIZED_ATTRIBUTES[attr.to_sym] || super
   end
 
+  validates :activity_category_id, presence: true
 
   # Custom functions
   def attachments_array=(array)
