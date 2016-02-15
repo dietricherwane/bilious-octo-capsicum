@@ -1,10 +1,12 @@
-<div class="breadcrumbs">
+<div class="compendium_breadcrumbs">
   <div class="container">
-    <h1 class="title-page"><a href="<%= activities_path %>"><%= @front_page_content.title_activity_section %></a> - <a href="javascript:history.go(-1)"><%= I18n.locale == :fr ? "Retour" : "Back" %></a></h1>
+    <h1 class="title-page"><a style = "color: white" href="<%= activities_path %>"><%= @front_page_content.title_activity_section %></a></h1>
     <h1 class="title-page"><%= I18n.locale == :fr ? @activity.activity_category.fr_title : @activity.activity_category.en_title %></h1>
   </div>
 </div>
 
+<% unless @activity.blank? %>
+<% @attachments = @activity.activity_attachments %>
 <div class="wrapper">
   <div class="container">
     <div class="content_block row no-sidebar single_post">
@@ -14,10 +16,12 @@
                 <div class="blog_post_preview animate" data-anim-type="fadeInUp" data-anim-delay="300">
 	                <h1><%= I18n.locale == :fr ? @activity.fr_title : @activity.en_title %></h1>
                   <div class="listing_meta">
-                    <span><%= @activity.publication_date.strftime("%d-%m-%Y") %></span>
+                    <span><%= @activity.publication_date.strftime("%d-%m-%Y") %> / <a href = "<%= activities_details_list_path((@activity.id rescue 0)) %>"><%= I18n.locale == :fr ? (@activity.fr_title rescue "") : (@activity.en_title rescue "") %></a></span>
                   </div>
-                  <div class="blog_post_image">
-                    <%= image_tag @activity.description_image.url(:article) rescue "" %>
+                  <div class="blog_post_image" >
+                    <% unless @attachments.blank? %>
+                      <%= image_tag @attachments.order("RANDOM()").first.attachment.url(:front),style: "display: block;margin-left: auto;margin-right: auto;"  %>
+                    <% end %>
                   </div>
                   <div class="blog_content">
                     <p>
@@ -26,38 +30,121 @@
                   </div>
                 </div>
 
-                <div class="row">
-                                <div class="col-sm-12 module_cont pb80 module_feature_portfolio">
-                                    <div class="featured_items">
-                                        <div class="items4 featured_portfolio">
-                                            <ul class="item_list">
-                                              <% attachments = @activity.activity_attachments %>
-                                              <% unless attachments.blank? %>
-                                                <% attachments.each do |attachment| %>
-                                                  <li class="animate" data-anim-type="fadeInUp" data-anim-delay="300">
-                                                      <div class="item">
-                                                          <div class="item_wrapper">
-                                                              <div class="img_block wrapped_img">
-                                                                  <%= image_tag attachment.attachment.url(:front) %>
-                                                                  <span class="block_fade"></span>
-                                                                  <div class="post_hover_info">
+                          <div class="row">
+                          <% unless @attachments.blank? %>
+                            <div class="col-sm-12 module_cont module_feature_portfolio" style = "border-bottom: 1px #ededed dashed;">
+                              <div class="featured_items">
+                                <div class="items4 featured_portfolio">
+                                    <h2 class="mb27">Photos</h2>
+                                    <div class="photos">
 
-                                                                      <a href="<%= attachment.attachment.url(:front) %>" class="photozoom featured_ico_link view_link"><i class="icon-expand"></i></a>
-                                                                  </div>
-                                                              </div>
-                                                          </div>
-                                                      </div>
-                                                  </li>
-                                                <% end %>
-                                              <% end %>
-                                            </ul>
-                                        </div>
+                                        <% @attachments.each do |attachment| %>
+                                          <div class="slide">
+                                            <div class="item">
+                                              <div class="item_wrapper">
+                                                <div class="img_block wrapped_img">
+                                                  <%= image_tag attachment.attachment.url(:front) %>
+                                                  <span class="block_fade"></span>
+                                                  <div class="post_hover_info">
+                                                    <a href="<%= attachment.attachment.url(:front) %>" class="photozoom featured_ico_link view_link"><i class="icon-expand"></i></a>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        <% end %>
+
                                     </div>
                                 </div>
-                             </div>
+                              </div>
+                            </div>
+                            <% end %>
+
+                          </div>
+
+
+
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+<% end %>
+
+
+<div class="wrapper">
+
+    	<div class="container">
+        <a class="shortcode_button btn_large btn_type5 " href="<%= activities_path %>" style="color:#ffffff;float:right"><%= I18n.locale == :fr ? "Retour à la page activités" : "Back to activities" %></a>
+        <h1 class="mb27" style = "color:#EC7623;"><%= I18n.locale == :fr ? "Liste des activités de: " + @activity_category.fr_title : "Activities of: " + @activity_category.en_title %></h1>
+
+        	<div class="content_block row no-sidebar">
+            	<div class="fl-container">
+                	<div class="posts-block">
+                        <div class="contentarea">
+                            <div class="row pb50 animate" data-anim-type="fadeInUp" data-anim-delay="300">
+                                <div class="sorting_block image-grid featured_items photo_gallery column1" id="list">
+                                	<div class="col-sm-12 branding element">
+                                        <div class="portfolio_item item">
+
+                                          <div class="activities">
+                                            <% unless @activities_details_list.blank? %>
+                                              <% @activities_details_list.each do |activities_detail| %>
+                                                <div class="slide">
+                                                  <div class="img_block wrapped_img">
+                                                    <a style = "color:white;" href = "<%= activity_details_path(activities_detail.id) %>">
+                                                      <div id="activity_container" style = "width: 270px;height:190px;">
+                                                        <p style = "word-wrap: break-word;width: 260px;position: absolute;text-align: center;top: 20%;">
+
+                                                            <%= I18n.locale == :fr ? activities_detail.fr_title : activities_detail.en_title %></p>
+
+                                                      </div>
+                                                    </a>
+                                                  </div>
+                                                </div>
+                                              <% end %>
+                                            <% end %>
+                                          </div>
+
+
+
+
+                                                </div>
+
+
+
+                                </div>
+
+
+
+
+
+
+                             </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type = "text/javascript">
+      $('.activities').bxSlider({
+        slideWidth: 282,
+        minSlides: 4,
+        maxSlides: 4,
+        slideMargin: 10,
+        controls: true
+      });
+
+      $('.photos').bxSlider({
+        slideWidth: 282,
+        minSlides: 4,
+        maxSlides: 4,
+        slideMargin: 10,
+        controls: true
+      });
+    </script>

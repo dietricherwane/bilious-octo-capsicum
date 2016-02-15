@@ -1,0 +1,143 @@
+<div class="breadcrumbs">
+	<div class="container">
+        <h1 class="title-page"><%= @front_page_content.gallery_title %></h1>
+    </div>
+</div>
+
+<div class="wrapper">
+    	<div class="container">
+        	<div class="content_block row no-sidebar">
+            	<div class="fl-container">
+                	<div class="posts-block">
+                        <div class="contentarea">
+
+                          <!-- Filter_block -->
+                          <div class="filter_block container animate" data-anim-type="bounceIn" data-anim-delay="300">
+                            <div class="filter_navigation">
+                              <ul id="options" class="splitter">
+                                <li>
+                                  <ul data-option-key="filter" class="optionset">
+                                    <li class="selected"><a id = "all" data-option-value="*" data-catname="all" href="#filter"><%= I18n.locale == :fr ? "Tous" : "All" %></a></li>
+                                    <% unless @gallery_categories.blank? %>
+                                      <% @gallery_categories.each do |gallery_category| %>
+                                        <li><a id = "<%= I18n.locale == :fr ? Digest::SHA1.hexdigest(gallery_category.fr_title).hex.to_s[0..17] : Digest::SHA1.hexdigest(gallery_category.en_title).hex.to_s[0..17] %>" data-option-value=".<%= I18n.locale == :fr ? Digest::SHA1.hexdigest(gallery_category.fr_title).hex.to_s[0..17] : Digest::SHA1.hexdigest(gallery_category.en_title).hex.to_s[0..17] %>" data-catname="<%= I18n.locale == :fr ? Digest::SHA1.hexdigest(gallery_category.fr_title).hex.to_s[0..17] : Digest::SHA1.hexdigest(gallery_category.en_title).hex.to_s[0..17] %>" href="#filter"><%= I18n.locale == :fr ? gallery_category.fr_title : gallery_category.en_title %></a></li>
+                                      <% end %>
+                                    <% end %>
+                                  </ul>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <!-- //Filter_block -->
+
+                            <% unless @gallery_categories.blank? %>
+                                    <% @gallery_categories.each do |gallery_category| %>
+                            <div class="row pb15 animate" data-anim-type="fadeInUp" data-anim-delay="300" style = "text-align: center;">
+                              <div id="0<%= I18n.locale == :fr ? Digest::SHA1.hexdigest(gallery_category.fr_title).hex.to_s[0..17] : Digest::SHA1.hexdigest(gallery_category.en_title).hex.to_s[0..17] %>">
+
+                                <%= I18n.locale == :fr ? gallery_category.fr_description : gallery_category.en_description %>
+                              </div>
+                            </div>
+                            <% end %>
+                                    <% end %>
+
+                            <div class="row pb50 animate" data-anim-type="fadeInUp" data-anim-delay="300">
+                                <div class="sorting_block image-grid featured_items photo_gallery" id="list">
+                                  <% unless @gallery_categories.blank? %>
+                                    <% @gallery_categories.each do |gallery_category| %>
+
+
+                                      <% gallery_attachments = gallery_category.gallery_attachments %>
+                                      <% unless gallery_attachments.blank? %>
+                                        <% gallery_attachments.each do |gallery_attachment| %>
+                                      	  <div class="col-sm-4 <%= I18n.locale == :fr ? Digest::SHA1.hexdigest(gallery_category.fr_title).hex.to_s[0..17] : Digest::SHA1.hexdigest(gallery_category.en_title).hex.to_s[0..17] %> element">
+                                            <div class="item">
+                                                <div class="item_wrapper">
+                                                  <% if gallery_attachment.photo_attachment_content_type.blank? %>
+                                                    <div class="img_block wrapped_img">
+                                                        <img src="/images/pdf.png" alt="">
+                                                        <span class="block_fade"></span>
+                                                        <div class="post_hover_info">
+                                                            <div class="featured_items_title">
+                                                              <span style = "word-wrap: break-word;width: 50px;">
+                                                                <%= gallery_attachment.pdf_attachment_file_name %>
+                                                              </span>
+                                                            </div>
+                                                            <div class="featured_meta">
+                                                              <p style = "text-align: center;">
+                                                                <%= I18n.locale == :fr ? gallery_attachment.fr_description : gallery_attachment.en_description %>
+                                                              </p>
+                                                            </div>
+                                                            <a href="<%= gallery_attachment.pdf_attachment.url %>" target = "_blank" class="featured_ico_link view_link"><i class="icon-expand" target = "_blank"></i></a>
+                                                        </div>
+                                                    </div>
+                                                  <% else %>
+                                                    <div class="img_block wrapped_img">
+                                                        <%= image_tag gallery_attachment.photo_attachment.url(:front) %>
+                                                        <span class="block_fade"></span>
+                                                        <div class="post_hover_info">
+                                                            <div class="featured_items_title">
+                                                                <h5></h5>
+                                                            </div>
+                                                            <div class="featured_meta">
+                                                              <p style = "text-align: center;">
+                                                                <%= I18n.locale == :fr ? gallery_attachment.fr_description : gallery_attachment.en_description %>
+                                                              </p>
+                                                            </div>
+                                                            <a href="<%= gallery_attachment.photo_attachment.url(:article) %>" class="photozoom featured_ico_link view_link"><i class="icon-expand"></i></a>
+                                                        </div>
+                                                    </div>
+                                                  <% end %>
+                                                </div>
+                                            </div>
+                                          </div>
+                                        <% end %>
+                                      <% end %>
+                                    <% end %>
+                                  <% end %>
+
+                                </div>
+
+
+                                <div class="clear"></div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+  <% unless @gallery_categories.blank? %>
+    <% @gallery_categories.each do |gallery_category| %>
+      $( "#<%= I18n.locale == :fr ? Digest::SHA1.hexdigest(gallery_category.fr_title).hex.to_s[0..17] : Digest::SHA1.hexdigest(gallery_category.en_title).hex.to_s[0..17] %>" ).on( "click", function() {
+        var section_id = "#0<%= I18n.locale == :fr ? Digest::SHA1.hexdigest(gallery_category.fr_title).hex.to_s[0..17] : Digest::SHA1.hexdigest(gallery_category.en_title).hex.to_s[0..17] %>";
+
+        <% @gallery_categories.each do |gallery_category| %>
+          if (section_id != "#0<%= I18n.locale == :fr ? Digest::SHA1.hexdigest(gallery_category.fr_title).hex.to_s[0..17] : Digest::SHA1.hexdigest(gallery_category.en_title).hex.to_s[0..17] %>"){
+            $("#0<%= I18n.locale == :fr ? Digest::SHA1.hexdigest(gallery_category.fr_title).hex.to_s[0..17] : Digest::SHA1.hexdigest(gallery_category.en_title).hex.to_s[0..17] %>").hide();
+          }
+          else{
+            $(section_id).show();
+          }
+        <% end %>
+      });
+    <% end %>
+  <% end %>
+
+  $( "#all" ).on( "click", function() {
+    hide_descriptions();
+  });
+
+  hide_descriptions();
+
+  function hide_descriptions(){
+    <% @gallery_categories.each do |gallery_category| %>
+      $("#0<%= I18n.locale == :fr ? Digest::SHA1.hexdigest(gallery_category.fr_title).hex.to_s[0..17] : Digest::SHA1.hexdigest(gallery_category.en_title).hex.to_s[0..17] %>").hide();
+    <% end %>
+  }
+</script>

@@ -13,6 +13,12 @@ Rails.application.routes.draw do
     get '/activités/liste/:activity_category_id' => 'home#activities_details_list', as: :activities_details_list
     get '/activité/:activity_id' => 'home#activity_details', as: :activity_details
     get '/galerie' => 'home#gallery', as: :gallery
+    get '/galerie/photos/liste' => 'home#photo_gallery', as: :photo_gallery
+    get '/galerie/photos/details/:gallery_category_id' => 'home#photo_gallery_details', as: :photo_gallery_details
+    get '/galerie/documents/liste' => 'home#documents_gallery', as: :documents_gallery
+    get '/galerie/documents/details/:gallery_category_id' => 'home#documents_gallery_details', as: :documents_gallery_details
+    get '/galerie/videos/liste' => 'home#video_gallery', as: :video_gallery
+    get '/galerie/videos/details/:gallery_category_id' => 'home#video_gallery_details', as: :video_gallery_details
     get '/blog' => 'home#blog', as: :blog
     get '/blog_category/:blog_category_id' => 'home#blog_category', as: :blog_category
     get '/blogger/blog_themes/:blogger_id' => 'home#blogger_posts', as: :blogger_posts

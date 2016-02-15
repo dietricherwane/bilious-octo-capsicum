@@ -1,0 +1,71 @@
+<div class="breadcrumbs">
+	<div class="container">
+        <h1 class="title-page"><%= @front_page_content.gallery_title %></h1>
+        <h3><a href="javascript:history.go(-1)"><%= I18n.locale == :fr ? "Retour" : "Back" %></a></h3>
+    </div>
+</div>
+
+<div class="wrapper">
+    	<div class="container">
+        	<div class="content_block row no-sidebar">
+            	<div class="fl-container">
+                	<div class="posts-block">
+                        <div class="contentarea">
+
+                          <h1 class="title-page">Photos</h1>
+
+                            <div class="row pb50 animate" data-anim-type="fadeInUp" data-anim-delay="300">
+                                <div class="sorting_block image-grid featured_items photo_gallery" id="list">
+                                  <% unless @photo_galleries.blank? %>
+                                    <% @photo_galleries.each do |photo_gallery| %>
+
+                                      <% gallery_attachment = photo_gallery.gallery_attachments.first rescue nil %>
+                                      <% unless gallery_attachment.blank? %>
+
+                                      	  <div class="col-sm-4 <%= I18n.locale == :fr ? Digest::SHA1.hexdigest(photo_gallery.fr_title).hex.to_s[0..17] : Digest::SHA1.hexdigest(photo_gallery.en_title).hex.to_s[0..17] %> element">
+                                            <div class="item">
+                                                <div class="item_wrapper">
+                                                  <% if !gallery_attachment.pdf_attachment_content_type.blank? %>
+                                                    <div class="img_block wrapped_img" style = "text-align: center;font-weight: bold;">
+                                                      <a href = "<%= photo_gallery_details_path(photo_gallery.id) %>">
+                                                        <div style = "margin-bottom: 15px;">
+                                                          <img src="/images/pdf.png" alt="">
+                                                        </div>
+                                                        <%= I18n.locale == :fr ? photo_gallery.fr_title : photo_gallery.en_title %>
+                                                      </a>
+                                                    </div>
+                                                  <% else %>
+                                                    <div class="img_block wrapped_img" style = "text-align: center;font-weight: bold;">
+                                                      <a href = "<%= photo_gallery_details_path(photo_gallery.id) %>">
+                                                        <div style = "margin-bottom: 15px;">
+                                                          <%= image_tag gallery_attachment.photo_attachment.url(:front) %>
+                                                        </div>
+                                                        <%= I18n.locale == :fr ? photo_gallery.fr_title : photo_gallery.en_title %>
+                                                      </a>
+                                                    </div>
+                                                  <% end %>
+                                                </div>
+                                            </div>
+                                          </div>
+                                        <% end %>
+
+                                    <% end %>
+
+                                  <% end %>
+
+                                </div>
+                                <div style = "text-align: center;font-weight:bold;">
+                                  <%= paginate @photo_galleries, :params => {:controller => :home, :action => :photo_gallery} %>
+                                </div>
+
+                                <div class="clear"></div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

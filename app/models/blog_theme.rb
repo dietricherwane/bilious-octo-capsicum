@@ -4,7 +4,7 @@ class BlogTheme < ActiveRecord::Base
   has_many :blog_posts
   belongs_to :blogger
 
-  has_attached_file :descriptive_image, styles: {front: "850x400", article: "800x600", thumb: "425x200"}, default_url: "/images/:style/missing.png"
+  has_attached_file :descriptive_image, styles: {front: "850x400#", article: "800x600#", thumb: "425x200#"}, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :descriptive_image, content_type: /\Aimage\/.*\Z/
 
   # Rename attributes into more friendly text

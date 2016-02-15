@@ -12,7 +12,7 @@ class GalleryAttachmentsController < ApplicationController
       flash.now[:error] = "Cette pièce jointe n'existe pas."
       redirect_to list_gallery_categories_path
     else
-      @gallery_attachment.update_attributes(params.require(:gallery_attachment).permit(:fr_description, :en_description))
+      @gallery_attachment.update_attributes(params.require(:gallery_attachment).permit(:fr_description, :en_description, :id))
       flash[:success] = "La catégorie de galeries a été mise à jour."
 
       redirect_to edit_gallery_category_path(@gallery_attachment.gallery_category.id)

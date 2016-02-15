@@ -1,15 +1,15 @@
 class EnFrontPageContent < ActiveRecord::Base
-  has_attached_file :home_popup_image, styles: {front: "800x600", article: "270x270", thumb: "100x100", tiny: "80x80"}, default_url: "/images/:style/missing.png"
-  has_attached_file :home_main_content_block1_image, styles: {front: "340x340", article: "270x270", thumb: "100x100", tiny: "80x80"}, default_url: "/images/:style/missing.png"
-  has_attached_file :home_main_content_block2_image, styles: {front: "340x340", article: "270x270", thumb: "100x100", tiny: "80x80"}, default_url: "/images/:style/missing.png"
-  has_attached_file :home_main_content_block3_image, styles: {front: "340x340", article: "270x270", thumb: "100x100", tiny: "80x80"}, default_url: "/images/:style/missing.png"
-  has_attached_file :compendium_top_content_block1_image, styles: {front: "340x340", article: "270x270", thumb: "100x100", tiny: "80x80"}, default_url: "/images/:style/missing.png"
-  has_attached_file :compendium_top_content_block2_image, styles: {front: "340x340", article: "270x270", thumb: "100x100", tiny: "80x80"}, default_url: "/images/:style/missing.png"
-  has_attached_file :compendium_top_content_block3_image, styles: {front: "340x340", article: "270x270", thumb: "100x100", tiny: "80x80"}, default_url: "/images/:style/missing.png"
-  has_attached_file :compendium_top_content_block4_image, styles: {front: "340x340", article: "270x270", thumb: "100x100", tiny: "80x80"}, default_url: "/images/:style/missing.png"
-  has_attached_file :compendium_main_content_responsible1_image, styles: {front: "340x340", article: "270x270", thumb: "100x100", tiny: "80x80"}, default_url: "/images/:style/missing.png"
-  has_attached_file :compendium_main_content_responsible2_image, styles: {front: "340x340", article: "270x270", thumb: "100x100", tiny: "80x80"}, default_url: "/images/:style/missing.png"
-  has_attached_file :focus_on_woman_image, styles: {front: "340x340", article: "270x270", thumb: "100x100", tiny: "80x80"}, default_url: "/images/:style/missing.png"
+  has_attached_file :home_popup_image, styles: {front: "800x600#", article: "270x270#", thumb: "100x100#", tiny: "80x80#"}, default_url: "/images/:style/missing.png"
+  has_attached_file :home_main_content_block1_image, styles: {front: "340x190#", article: "270x270#", thumb: "100x100#", tiny: "80x80#"}, default_url: "/images/:style/missing.png"
+  has_attached_file :home_main_content_block2_image, styles: {front: "340x190#", article: "270x270#", thumb: "100x100#", tiny: "80x80#"}, default_url: "/images/:style/missing.png"
+  has_attached_file :home_main_content_block3_image, styles: {front: "340x190#", article: "270x270#", thumb: "100x100#", tiny: "80x80#"}, default_url: "/images/:style/missing.png"
+  has_attached_file :compendium_top_content_block1_image, styles: {front: "340x340#", article: "270x270#", thumb: "100x100#", tiny: "80x80#"}, default_url: "/images/:style/missing.png"
+  has_attached_file :compendium_top_content_block2_image, styles: {front: "340x340#", article: "270x270#", thumb: "100x100#", tiny: "80x80#"}, default_url: "/images/:style/missing.png"
+  has_attached_file :compendium_top_content_block3_image, styles: {front: "340x340#", article: "270x270#", thumb: "100x100#", tiny: "80x80#"}, default_url: "/images/:style/missing.png"
+  has_attached_file :compendium_top_content_block4_image, styles: {front: "340x340#", article: "270x270#", thumb: "100x100#", tiny: "80x80#"}, default_url: "/images/:style/missing.png"
+  has_attached_file :compendium_main_content_responsible1_image, styles: {front: "340x340#", article: "270x270#", thumb: "100x100#", tiny: "80x80#"}, default_url: "/images/:style/missing.png"
+  has_attached_file :compendium_main_content_responsible2_image, styles: {front: "340x340#", article: "270x270#", thumb: "100x100#", tiny: "80x80#"}, default_url: "/images/:style/missing.png"
+  has_attached_file :focus_on_woman_image, styles: {front: "340x340#", article: "270x270#", thumb: "100x100#", tiny: "80x80#"}, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :home_popup_image, content_type: /\Aimage\/.*\Z/
   validates_attachment_content_type :home_main_content_block1_image, content_type: /\Aimage\/.*\Z/
   validates_attachment_content_type :home_main_content_block2_image, content_type: /\Aimage\/.*\Z/

@@ -1,6 +1,7 @@
 class GalleryCategory < ActiveRecord::Base
   # Relationships
   belongs_to :user
+  belongs_to :gallery_type
   has_many :gallery_attachments
 
   # Rename attributes into more friendly text
@@ -10,7 +11,9 @@ class GalleryCategory < ActiveRecord::Base
     :en_title => "Titre anglais",
     :en_description => "Description Anglaise",
     :user_id => "L'auteur de l'article",
-    :publication_date => "Date de publication"
+    :publication_date => "Date de publication",
+    :video_links => "Vidéos",
+    :gallery_type_id => "Type de galerie"
   }
 
   # Using friendly attribute name if it exists and default name otherwise
@@ -19,7 +22,7 @@ class GalleryCategory < ActiveRecord::Base
   end
 
   # Validations
-  validates :fr_title, :user_id, presence: true
+  validates :fr_title, :user_id, :gallery_type_id, presence: true
   validates :fr_title, :en_title, uniqueness: true
 
   # Custom functions

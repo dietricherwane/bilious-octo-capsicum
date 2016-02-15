@@ -19,6 +19,8 @@ class HomeController < ApplicationController
 
     @activity_categories = ActivityCategory.where("published IS NOT FALSE").order("publication_date DESC")
     @last_activity = Activity.where("published IS NOT FALSE").order("publication_date DESC").first rescue nil
+    @last_activity_category = @last_activity.activity_category rescue nil
+    @attachments = @last_activity.activity_attachments
 
     set_front_page_content
   end
@@ -26,9 +28,64 @@ class HomeController < ApplicationController
   def gallery
     select_front_menu_highlight_class("gallery_menu_highlight_style")
 
+    @photo_galleries = GalleryType.find_by_name("Photos").gallery_categories
+    @video_galleries = GalleryType.find_by_name("Videos").gallery_categories
+    @documents_galleries = GalleryType.find_by_name("Documents").gallery_categories
+
     @gallery_categories = GalleryCategory.where("published IS NOT FALSE").order("publication_date DESC")
 
     set_front_page_content
+  end
+
+  def photo_gallery
+    select_front_menu_highlight_class("gallery_menu_highlight_style")
+    set_front_page_content
+
+    @photo_galleries = GalleryType.find_by_name("Photos").gallery_categories.page(params[:page]).per(12)
+  end
+
+  def photo_gallery_details
+    @gallery_category = GalleryCategory.find_by_id(params[:gallery_category_id])
+    select_front_menu_highlight_class("gallery_menu_highlight_style")
+    set_front_page_content
+
+    if @gallery_category.blank?
+      redirect_to :back
+    end
+  end
+
+  def documents_gallery
+    select_front_menu_highlight_class("gallery_menu_highlight_style")
+    set_front_page_content
+
+    @documents_galleries = GalleryType.find_by_name("Documents").gallery_categories.page(params[:page]).per(6)
+  end
+
+  def documents_gallery_details
+    @gallery_category = GalleryCategory.find_by_id(params[:gallery_category_id])
+    select_front_menu_highlight_class("gallery_menu_highlight_style")
+    set_front_page_content
+
+    if @gallery_category.blank?
+      redirect_to :back
+    end
+  end
+
+  def video_gallery
+    select_front_menu_highlight_class("gallery_menu_highlight_style")
+    set_front_page_content
+
+    @video_galleries = GalleryType.find_by_name("Videos").gallery_categories.page(params[:page]).per(6)
+  end
+
+  def video_gallery_details
+    @gallery_category = GalleryCategory.find_by_id(params[:gallery_category_id])
+    select_front_menu_highlight_class("gallery_menu_highlight_style")
+    set_front_page_content
+
+    if @gallery_category.blank?
+      redirect_to :back
+    end
   end
 
   def activities_details_list
@@ -51,6 +108,9 @@ class HomeController < ApplicationController
     if @activity.blank?
       redirect_to :back
     end
+
+    @activity_category = @activity.activity_category
+    @activities_details_list = @activity_category.activities.where("published IS NOT FALSE").order("publication_date DESC")
 
     set_front_page_content
   end

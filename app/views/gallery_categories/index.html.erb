@@ -29,6 +29,14 @@
         </div>
 
         <div class="formRow">
+          <label><%= f.label :gallery_type_id %></label>
+          <div class="formRight">
+            <%= f.collection_select :gallery_type_id, @gallery_types, :id, :name, options ={prompt: "Type de galerie"}, html_options = {class: "form-control"} %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
           <label><%= f.label :fr_title %></label>
           <div class="formRight">
             <%= f.text_field :fr_title, placeholder: "Veuillez entrer le titre français", class: 'form-control' %>
@@ -80,6 +88,15 @@
           <label>PDF</label>
           <div class="formRight">
             <input type="file" name="gallery_category[pdf_attachments_array][]" multiple="multiple" />
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label>Videos</label>
+          <div class="formRight">
+            <%= f.text_area :video_links, placeholder: "Veuillez entrer les codes des vidéos séparés par le caractère |", class: 'form-control' %>
+            <span class="formNote">Veuillez entrer les codes des vidéos séparés par le caractère |</span>
           </div>
           <div class="clear"></div>
         </div>
