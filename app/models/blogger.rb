@@ -3,7 +3,7 @@ class Blogger < ActiveRecord::Base
   belongs_to :user
   has_many :blog_themes
 
-  has_attached_file :description_image, styles: {front: "270x210", thumb: "425x200"}, default_url: "/images/:style/missing.png"
+  has_attached_file :description_image, styles: {front: "270x210#", thumb: "425x200#"}, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :description_image, content_type: /\Aimage\/.*\Z/
 
   # Rename attributes into more friendly text

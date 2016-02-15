@@ -1,0 +1,62 @@
+<div class="breadcrumbs">
+	<div class="container">
+        <h1 class="title-page"><%= @front_page_content.gallery_title %></h1>
+        <h3><a href="javascript:history.go(-1)"><%= I18n.locale == :fr ? "Retour" : "Back" %></a></h3>
+    </div>
+</div>
+
+<div class="wrapper">
+    	<div class="container">
+        	<div class="content_block row no-sidebar">
+            	<div class="fl-container">
+                	<div class="posts-block">
+                        <div class="contentarea">
+
+                          <h1 class="title-page">Videos</h1>
+
+                            <div class="row pb50 animate" data-anim-type="fadeInUp" data-anim-delay="300">
+                                <div class="sorting_block image-grid featured_items photo_gallery" id="list">
+                                  <% unless @video_galleries.blank? %>
+                                    <% @video_galleries.each do |video_gallery| %>
+
+                                      <% gallery_attachment = video_gallery.video_links.to_s.strip.split("|").first rescue [] %>
+                                      <% unless gallery_attachment.blank? %>
+
+                                      	  <div class="col-sm-4  element">
+                                            <div class="item">
+                                              <div class="item_wrapper">
+                                                <div class="img_block wrapped_img">
+                                                  <div style = "margin-bottom: 15px;">
+                                                    <iframe width="420" height="315" src="https://www.youtube.com/embed/<%= gallery_attachment %>" frameborder="0" allowfullscreen></iframe>
+                                                  </div>
+                                                </div>
+                                                <div style = "text-align: center;font-weight: bold;">
+                                                  <a href = "<%= video_gallery_details_path(video_gallery.id) %>">
+                                                    <%= I18n.locale == :fr ? video_gallery.fr_title : video_gallery.en_title %>
+                                                  </a>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        <% end %>
+
+                                    <% end %>
+
+                                  <% end %>
+
+                                </div>
+                                <div style = "text-align: center;font-weight:bold;">
+                                  <%= paginate @video_galleries, :params => {:controller => :home, :action => :video_gallery} %>
+                                </div>
+
+                                <div class="clear"></div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

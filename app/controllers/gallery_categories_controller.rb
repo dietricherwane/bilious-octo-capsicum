@@ -4,6 +4,7 @@ class GalleryCategoriesController < ApplicationController
 
   def index
     @gallery_category = GalleryCategory.new
+    @gallery_types = GalleryType.all
     @fr_content = FrFrontPageContent.first || FrFrontPageContent.create()
     @en_content = EnFrontPageContent.first || EnFrontPageContent.create()
 
@@ -13,7 +14,8 @@ class GalleryCategoriesController < ApplicationController
 
   def create
     gallery_category = params[:gallery_category]
-    @gallery_category = GalleryCategory.new(params.require(:gallery_category).permit(:fr_title, :en_title, :fr_description, :en_description, :user_id, :publication_date, :photos_attachments_array, :pdf_attachments_array).merge(user_id: (current_user.id rescue nil), publication_date: Date.new(gallery_category["publication_date(1i)"].to_i, gallery_category["publication_date(2i)"].to_i, gallery_category["publication_date(3i)"].to_i)))
+    @gallery_types = GalleryType.all
+    @gallery_category = GalleryCategory.new(params.require(:gallery_category).permit(:fr_title, :en_title, :fr_description, :en_description, :user_id, :publication_date, :photos_attachments_array, :pdf_attachments_array, :gallery_type_id, :id, :video_links).merge(user_id: (current_user.id rescue nil), publication_date: Date.new(gallery_category["publication_date(1i)"].to_i, gallery_category["publication_date(2i)"].to_i, gallery_category["publication_date(3i)"].to_i)))
 
     @fr_content = FrFrontPageContent.first || FrFrontPageContent.create()
     @en_content = EnFrontPageContent.first || EnFrontPageContent.create()
@@ -42,6 +44,8 @@ class GalleryCategoriesController < ApplicationController
 
   def edit
     @gallery_category = GalleryCategory.find_by_id(params[:gallery_category_id])
+    @gallery_types = GalleryType.all
+
     @website_content_menu_style = "current"
     @gallery_website_content_menu_style = "this"
 
@@ -50,18 +54,23 @@ class GalleryCategoriesController < ApplicationController
 
       redirect_to list_gallery_categories_path
     end
+
+    @video_links = @gallery_category.video_links.to_s.strip.split("|") rescue []
   end
 
   def update
     @gallery_category = GalleryCategory.find_by_id(params[:gallery_category][:id])
+    params[:gallery_attachment_id] = params[:gallery_category][:id]
+    @gallery_types = GalleryType.all
     @website_content_menu_style = "current"
     @gallery_website_content_menu_style = "this"
+    @video_links = @gallery_category.video_links.to_s.strip.split("|") rescue []
 
     unless @gallery_category
       flash.now[:error] = "Cette catégorie de galeries n'existe pas."
       redirect_to list_gallery_categories_path
     else
-      gallery_category_params = params.require(:gallery_category).permit(:fr_title, :en_title, :fr_description, :en_description, :publication_date, :photos_attachments_array, :pdf_attachments_array).merge(publication_date: Date.new(params[:gallery_category]["publication_date(1i)"].to_i, params[:gallery_category]["publication_date(2i)"].to_i, params[:gallery_category]["publication_date(3i)"].to_i))
+      gallery_category_params = params.require(:gallery_category).permit(:fr_title, :en_title, :fr_description, :en_description, :publication_date, :photos_attachments_array, :pdf_attachments_array, :gallery_type_id, :id, :video_links).merge(publication_date: Date.new(params[:gallery_category]["publication_date(1i)"].to_i, params[:gallery_category]["publication_date(2i)"].to_i, params[:gallery_category]["publication_date(3i)"].to_i))
 
       @gallery_category.assign_attributes(gallery_category_params)
       if @gallery_category.valid?
