@@ -1,4 +1,6 @@
 class FrFrontPageContent < ActiveRecord::Base
+  has_attached_file :home_logo1, styles: {logo: "209x90#"}, default_url: "/images/:style/missing.png"
+  has_attached_file :home_logo2, styles: {logo: "235x105#"}, default_url: "/images/:style/missing.png"
   has_attached_file :home_popup_image, styles: {front: "800x600#", article: "270x270#", thumb: "100x100#", tiny: "80x80#"}, default_url: "/images/:style/missing.png"
   has_attached_file :home_main_content_block1_image, styles: {front: "340x190#", article: "270x270#", thumb: "100x100#", tiny: "80x80#"}, default_url: "/images/:style/missing.png"
   has_attached_file :home_main_content_block2_image, styles: {front: "340x190#", article: "270x270#", thumb: "100x100#", tiny: "80x80#"}, default_url: "/images/:style/missing.png"
@@ -10,6 +12,8 @@ class FrFrontPageContent < ActiveRecord::Base
   has_attached_file :compendium_main_content_responsible1_image, styles: {front: "340x340#", article: "270x270#", thumb: "100x100#", tiny: "80x80#"}, default_url: "/images/:style/missing.png"
   has_attached_file :compendium_main_content_responsible2_image, styles: {front: "340x340#", article: "270x270#", thumb: "100x100#", tiny: "80x80#"}, default_url: "/images/:style/missing.png"
   has_attached_file :focus_on_woman_image, styles: {front: "340x340#", article: "270x270#", thumb: "100x100#", tiny: "80x80#"}, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :home_logo1, content_type: /\Aimage\/.*\Z/
+  validates_attachment_content_type :home_logo2, content_type: /\Aimage\/.*\Z/
   validates_attachment_content_type :home_popup_image, content_type: /\Aimage\/.*\Z/
   validates_attachment_content_type :home_main_content_block1_image, content_type: /\Aimage\/.*\Z/
   validates_attachment_content_type :home_main_content_block2_image, content_type: /\Aimage\/.*\Z/
@@ -24,6 +28,8 @@ class FrFrontPageContent < ActiveRecord::Base
 
   # Rename attributes into more friendly text
   HUMANIZED_ATTRIBUTES = {
+    :home_logo1 => "Logo 1",
+    :home_logo2 => "Logo 2",
     :home_popup_title => "Titre du popup d'accueil",
     :home_popup_image => "Image du popup d'accueil",
     :home_toolbar_phone_number => "Job",

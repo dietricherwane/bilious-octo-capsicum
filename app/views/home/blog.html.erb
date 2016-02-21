@@ -21,10 +21,16 @@
                                     <% unless @blog_themes.blank? %>
                                       <% @blog_themes.each do |blog_theme| %>
                                         <div class="blog_post_preview animate" data-anim-type="fadeInLeft" data-anim-delay="300">
-                                          <% unless blog_theme.descriptive_image_file_name.blank? %>
-                                        	  <div class="blog_post_image">
-                                            	<%= image_tag blog_theme.descriptive_image.url(:front) rescue "" %>
+                                          <% if !blog_theme.descriptive_video.blank? %>
+                                            <div class="pf_output_container blog_post_image">
+                                              <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= blog_theme.descriptive_video %>" frameborder="0" allowfullscreen></iframe>
                                             </div>
+                                          <% else %>
+                                            <% unless blog_theme.descriptive_image_file_name.blank? %>
+                                          	  <div class="blog_post_image">
+                                              	<%= image_tag blog_theme.descriptive_image.url(:front) rescue "" %>
+                                              </div>
+                                            <% end %>
                                           <% end %>
                                           <div class="blog_content">
                                           	<h2 class="blogpost_title"><%= link_to blog_theme.title, blog_theme_path(blog_theme.id) %></h2>

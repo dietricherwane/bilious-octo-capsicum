@@ -14,7 +14,8 @@ class BlogTheme < ActiveRecord::Base
     :title => "Titre",
     :content => "Contenu",
     :created_by => "Auteur",
-    :descriptive_image => "Image descriptive"
+    :descriptive_image => "Image descriptive",
+    :descriptive_video => "Vidéo descriptive"
   }
 
   # Using friendly attribute name if it exists and default name otherwise

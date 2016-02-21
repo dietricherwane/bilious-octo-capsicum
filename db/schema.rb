@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160213212416) do
+ActiveRecord::Schema.define(version: 20160221133252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(version: 20160213212416) do
     t.integer  "descriptive_image_file_size"
     t.datetime "descriptive_image_updated_at"
     t.integer  "blogger_id"
+    t.string   "descriptive_video"
   end
 
   create_table "bloggers", force: true do |t|
@@ -326,6 +327,14 @@ ActiveRecord::Schema.define(version: 20160213212416) do
     t.string   "home_popup_image_content_type"
     t.integer  "home_popup_image_file_size"
     t.datetime "home_popup_image_updated_at"
+    t.string   "home_logo1_file_name"
+    t.string   "home_logo1_content_type"
+    t.integer  "home_logo1_file_size"
+    t.datetime "home_logo1_updated_at"
+    t.string   "home_logo2_file_name"
+    t.string   "home_logo2_content_type"
+    t.integer  "home_logo2_file_size"
+    t.datetime "home_logo2_updated_at"
   end
 
   create_table "fr_front_page_contents", force: true do |t|
@@ -458,6 +467,14 @@ ActiveRecord::Schema.define(version: 20160213212416) do
     t.string   "home_popup_image_content_type"
     t.integer  "home_popup_image_file_size"
     t.datetime "home_popup_image_updated_at"
+    t.string   "home_logo1_file_name"
+    t.string   "home_logo1_content_type"
+    t.integer  "home_logo1_file_size"
+    t.datetime "home_logo1_updated_at"
+    t.string   "home_logo2_file_name"
+    t.string   "home_logo2_content_type"
+    t.integer  "home_logo2_file_size"
+    t.datetime "home_logo2_updated_at"
   end
 
   create_table "gallery_attachments", force: true do |t|

@@ -44,6 +44,14 @@
         </div>
 
         <div class="formRow">
+          <label><%= f.label :descriptive_video %></label>
+          <div class="formRight">
+            <%= f.text_field :descriptive_video, class: "form-control", placeholder: "Veuillez saisir le code youtube de la vidéo" %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
           <label><%= f.label :blog_category_id %></label>
           <div class="formRight">
             <%= f.collection_select :blog_category_id, @blog_categories, :id, :title, options ={prompt: "Catégorie de blog"}, html_options = {class: "form-control"} %>
