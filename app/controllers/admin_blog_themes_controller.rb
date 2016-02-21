@@ -7,7 +7,7 @@ class AdminBlogThemesController < ApplicationController
   end
 
   def create_blog_theme
-    @blog_theme = BlogTheme.new(params.require(:blog_theme).permit(:title, :blogger_id, :blog_category_id, :content, :descriptive_image).merge(created_by: (current_user.id rescue nil)))
+    @blog_theme = BlogTheme.new(params.require(:blog_theme).permit(:title, :blogger_id, :blog_category_id, :content, :descriptive_image, :descriptive_video).merge(created_by: (current_user.id rescue nil)))
 
     if @blog_theme.save
       flash.now[:success] = "Le thème de blog a été correctement créé."
@@ -35,7 +35,7 @@ class AdminBlogThemesController < ApplicationController
       flash.now[:error] = "Ce thème de blog n'existe pas."
       redirect_to :back
     else
-      @blog_theme.assign_attributes(params.require(:blog_theme).permit(:title, :blogger_id, :blog_category_id, :content, :descriptive_image))
+      @blog_theme.assign_attributes(params.require(:blog_theme).permit(:title, :blogger_id, :blog_category_id, :content, :descriptive_image, :descriptive_video))
       if @blog_theme.valid?
         @blog_theme.save
         flash.now[:success] = "Le thème de blog a été mis à jour."

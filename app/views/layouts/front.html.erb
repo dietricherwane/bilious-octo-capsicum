@@ -75,11 +75,11 @@
                 <div class="container">
                 	<a class="top_menu_toggler" href="javascript:void(0)"></a>
                 	<div class="logo_sect">
-                        <a href="<%= root_path %>" class="logo"><img src="<%= asset_path 'front/logo_cocofci-02.png' %>" class="logo_def" alt="" /><img src="<%= asset_path 'front/logo_cocofci-02.png' %>" class="logo_retina" alt="" /></a>
+                        <a href="<%= root_path %>" class="logo"><%= image_tag @front_page_content.home_logo1.url(:logo), class: "logo_def" %><%= image_tag @front_page_content.home_logo1.url(:logo), class: "logo_retina" %></a>
                     </div>
 
                     <div class="logo_sect1">
-                        <a href="http://www.chaire-unesco.org/" target = "_blank"><img src="<%= asset_path 'front/logo_efpod-04.png' %>" alt="" style="margin-left: 15px;" /></a>
+                        <a href="http://www.chaire-unesco.org/" target = "_blank"><%= image_tag @front_page_content.home_logo2.url(:logo), style: "margin-left: 15px;" %></a>
                     </div>
 
                     <nav>

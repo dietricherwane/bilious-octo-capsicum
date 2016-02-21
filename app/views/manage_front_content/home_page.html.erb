@@ -43,6 +43,32 @@
               </div>
 
               <div class="formRow">
+                <%= image_tag @fr_content.home_logo1.url(:logo) rescue "" %>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_logo1 %></label>
+                <div class="formRight">
+                  <%= f.file_field :home_logo1, placeholder: "Veuillez choisir l'image du logo 1", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <%= image_tag @fr_content.home_logo2.url(:logo) rescue "" %>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_logo2 %></label>
+                <div class="formRight">
+                  <%= f.file_field :home_logo2, placeholder: "Veuillez choisir l'image du logo 2", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
                 <label><%= f.label :home_popup_title %></label>
                 <div class="formRight">
                   <%= f.text_field :home_popup_title, placeholder: "Veuillez entrer le titre du popup d'accueil", class: 'form-control' %>
@@ -117,6 +143,32 @@
               <div class="title">
                 <img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" />
                 <h6>EN | Barre d'outils</h6>
+              </div>
+
+              <div class="formRow">
+                <%= image_tag @en_content.home_logo1.url(:logo) rescue "" %>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_logo1 %></label>
+                <div class="formRight">
+                  <%= f.file_field :home_logo1, placeholder: "Veuillez choisir l'image du logo 1", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <%= image_tag @en_content.home_logo2.url(:logo) rescue "" %>
+                <div class="clear"></div>
+              </div>
+
+              <div class="formRow">
+                <label><%= f.label :home_logo2 %></label>
+                <div class="formRight">
+                  <%= f.file_field :home_logo2, placeholder: "Veuillez choisir l'image du logo 2", class: 'form-control' %>
+                </div>
+                <div class="clear"></div>
               </div>
 
               <div class="formRow">
