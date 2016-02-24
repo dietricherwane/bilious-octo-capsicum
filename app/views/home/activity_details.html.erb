@@ -31,36 +31,62 @@
                 </div>
 
                           <div class="row">
-                          <% unless @attachments.blank? %>
-                            <div class="col-sm-12 module_cont module_feature_portfolio" style = "border-bottom: 1px #ededed dashed;">
-                              <div class="featured_items">
-                                <div class="items4 featured_portfolio">
+                            <% unless @attachments.blank? %>
+                              <div class="col-sm-12 module_cont module_feature_portfolio" style = "border-bottom: 1px #ededed dashed;">
+                                <div class="featured_items">
+                                  <div class="items4 featured_portfolio">
                                     <h2 class="mb27">Photos</h2>
                                     <div class="photos">
 
-                                        <% @attachments.each do |attachment| %>
-                                          <div class="slide">
-                                            <div class="item">
-                                              <div class="item_wrapper">
-                                                <div class="img_block wrapped_img">
-                                                  <%= image_tag attachment.attachment.url(:front) %>
-                                                  <span class="block_fade"></span>
-                                                  <div class="post_hover_info">
-                                                    <a href="<%= attachment.attachment.url(:front) %>" class="photozoom featured_ico_link view_link"><i class="icon-expand"></i></a>
-                                                  </div>
+                                      <% @attachments.each do |attachment| %>
+                                        <div class="slide">
+                                          <div class="item">
+                                            <div class="item_wrapper">
+                                              <div class="img_block wrapped_img">
+                                                <%= image_tag attachment.attachment.url(:front) %>
+                                                <span class="block_fade"></span>
+                                                <div class="post_hover_info">
+                                                  <a href="<%= attachment.attachment.url(:front) %>" class="photozoom featured_ico_link view_link"><i class="icon-expand"></i></a>
                                                 </div>
                                               </div>
                                             </div>
                                           </div>
-                                        <% end %>
+                                        </div>
+                                      <% end %>
 
                                     </div>
+                                  </div>
                                 </div>
                               </div>
-                            </div>
                             <% end %>
 
+                            <% unless @video_links.blank? %>
+                              <div class="col-sm-12 module_cont module_feature_portfolio" style = "border-bottom: 1px #ededed dashed;">
+                                <div class="featured_items">
+                                  <div class="items4 featured_portfolio">
+                                    <h2 class="mb27">Videos</h2>
+                                    <div class="videos">
+
+                                      <% @video_links.each do |video_link| %>
+                                        <div class="slide">
+                                          <div class="item">
+                                            <div class="item_wrapper">
+                                              <iframe id="video" width="282" height="177" src="https://www.youtube.com/embed/<%= video_link %>?rel=0" frameborder="0" allowfullscreen></iframe>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      <% end %>
+
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            <% end %>
                           </div>
+
+
+
+
 
 
 
@@ -141,6 +167,14 @@
       });
 
       $('.photos').bxSlider({
+        slideWidth: 282,
+        minSlides: 4,
+        maxSlides: 4,
+        slideMargin: 10,
+        controls: true
+      });
+
+      $('.videos').bxSlider({
         slideWidth: 282,
         minSlides: 4,
         maxSlides: 4,

@@ -1,6 +1,6 @@
 class AdminBlogThemesController < ApplicationController
   layout "administrator"
-  before_filter :set_menu_css, only: [:blog_theme, :create_blog_theme, :list_blog_themes, :disable_blog_theme, :enable_blog_theme, :edit_blog_theme, :update_blog_theme]
+  before_filter :set_menu_css, only: [:blog_theme, :create_blog_theme, :list_blog_themes, :disable_blog_theme, :enable_blog_theme, :edit_blog_theme, :update_blog_theme, :blog_theme_comments]
 
   def blog_theme
     @blog_theme = BlogTheme.new
@@ -59,6 +59,24 @@ class AdminBlogThemesController < ApplicationController
     enable_disable_blog_theme(params[:blog_theme_id], true, "activé")
   end
 
+  def disable_blog_post
+    enable_disable_blog_post(params[:blog_post_id], false, "désactivé")
+  end
+
+  def enable_blog_post
+    enable_disable_blog_post(params[:blog_post_id], true, "activé")
+  end
+
+  def blog_theme_comments
+    @blog_theme = BlogTheme.find_by_id(params[:blog_theme_id])
+
+    if @blog_theme.blank?
+      redirect_to :back
+    else
+      @blog_posts = @blog_theme.blog_posts.order("created_at DESC")
+    end
+  end
+
   private
     def set_menu_css
       @website_blog_menu_style = "current"
@@ -78,5 +96,18 @@ class AdminBlogThemesController < ApplicationController
       end
 
       redirect_to admin_list_blog_themes_path
+    end
+
+    def enable_disable_blog_post(blog_post_id, status, status_text)
+      blog_post = BlogPost.find_by_id(blog_post_id)
+
+      if blog_post.blank?
+        flash[:error] = "Ce commentaire n'existe pas."
+      else
+        blog_post.update_attributes(published: status)
+        flash[:success] = "Le commentaire a été #{status_text}."
+      end
+
+      redirect_to admin_blog_theme_comments_path(blog_post.blog_theme.id)
     end
 end

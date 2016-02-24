@@ -16,7 +16,8 @@ class Activity < ActiveRecord::Base
     :description_image => "Image illustrative",
     :user_id => "L'auteur de l'article",
     :activity_category_id => "Catégorie d'activité",
-    :publication_date => "Date de publication"
+    :publication_date => "Date de publication",
+    :videos => "Vidéos"
   }
 
   # Using friendly attribute name if it exists and default name otherwise

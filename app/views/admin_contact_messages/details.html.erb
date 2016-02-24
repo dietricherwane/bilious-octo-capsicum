@@ -1,0 +1,62 @@
+<!-- Title area -->
+<div class="titleArea">
+    <div class="wrapper">
+        <div class="pageTitle">
+            <h5>Détails du message</h5>
+            <span>Emis le <%= @contact_form.created_at.strftime("%d-%m-%Y") + " à " + @contact_form.created_at.strftime("%Hh %Mmn") %></span>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<div class="line"></div>
+
+<!-- Main content wrapper -->
+<div class="wrapper">
+  <form>
+    <fieldset>
+      <div class="widget">
+        <div class="title">
+          <img src="<%= asset_path 'icons/dark/users.png' %>" alt="" class="titleIcon" />
+        </div>
+
+        <div class="formRow">
+          <label>Nom</label>
+          <div class="formRight">
+            <%= @contact_form.name %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label>Email</label>
+          <div class="formRight">
+            <%= @contact_form.email %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label>Sujet</label>
+          <div class="formRight">
+            <%= @contact_form.subject %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <label>Contenu</label>
+          <div class="formRight">
+            <%= simple_format(@contact_form.content) %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+      </div>
+    </form>
+
+</div>
+<!-- End Main content wrapper -->
