@@ -6,7 +6,9 @@ Rails.application.routes.draw do
     get '/' => 'home#index'
     get '/focus' => 'home#focus_on_woman', as: :focus_on_woman
     get '/contact' => 'home#contact', as: :contact
+    post '/contact/submit' => 'home#submit_contact', as: :submit_contact
     get '/compendium' => 'home#compendium', as: :compendium
+    get '/directory' => 'home#directory', as: :directory
     get 'compendium/responsable/1'  => 'home#responsible1', as: :responsible1
     get 'compendium/responsable/2'  => 'home#responsible2', as: :responsible2
     get '/activités' => 'home#activities', as: :activities
@@ -153,6 +155,14 @@ Rails.application.routes.draw do
     get "administrator/blog_themes/list" => "admin_blog_themes#list_blog_themes", as: :admin_list_blog_themes
     get "administrator/blog_theme/disable/:blog_theme_id" => "admin_blog_themes#disable_blog_theme", as: :disable_blog_theme
     get "administrator/blog_theme/enable/:blog_theme_id" => "admin_blog_themes#enable_blog_theme", as: :enable_blog_theme
+    get "administrator/blog_theme/comments/:blog_theme_id" => "admin_blog_themes#blog_theme_comments", as: :admin_blog_theme_comments
+    get "administrator/blog_post/disable/:blog_post_id" => "admin_blog_themes#disable_blog_post", as: :disable_blog_post
+    get "administrator/blog_post/enable/:blog_post_id" => "admin_blog_themes#enable_blog_post", as: :enable_blog_post
+
+
+    # Contacts
+    get "administrator/contact_messages" => "admin_contact_messages#index", as: :admin_contact_messages
+    get "administrator/contact_message/details/:contact_message_id" => "admin_contact_messages#details", as: :admin_contact_message_details
 
     # The priority is based upon order of creation: first created -> highest priority.
     # See how all your routes lay out with "rake routes".

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160221133252) do
+ActiveRecord::Schema.define(version: 20160224004648) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20160221133252) do
     t.boolean  "published"
     t.date     "publication_date"
     t.integer  "activity_category_id"
+    t.text     "videos"
   end
 
   create_table "activity_attachments", force: true do |t|
@@ -183,6 +184,15 @@ ActiveRecord::Schema.define(version: 20160221133252) do
 
   add_index "companies", ["email"], name: "index_companies_on_email", unique: true, using: :btree
   add_index "companies", ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true, using: :btree
+
+  create_table "contact_forms", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "subject"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "contract_types", force: true do |t|
     t.string   "name"
@@ -337,6 +347,7 @@ ActiveRecord::Schema.define(version: 20160221133252) do
     t.string   "home_logo2_content_type"
     t.integer  "home_logo2_file_size"
     t.datetime "home_logo2_updated_at"
+    t.string   "home_popup_video"
   end
 
   create_table "fr_front_page_contents", force: true do |t|
@@ -478,6 +489,7 @@ ActiveRecord::Schema.define(version: 20160221133252) do
     t.string   "home_logo2_content_type"
     t.integer  "home_logo2_file_size"
     t.datetime "home_logo2_updated_at"
+    t.string   "home_popup_video"
   end
 
   create_table "gallery_attachments", force: true do |t|

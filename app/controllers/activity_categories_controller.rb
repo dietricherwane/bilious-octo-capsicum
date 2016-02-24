@@ -28,6 +28,7 @@ class ActivityCategoriesController < ApplicationController
 
   def edit
     @activity_category = ActivityCategory.find_by_id(params[:activity_category_id])
+
     @website_content_menu_style = "current"
     @activities_website_content_menu_style = "this"
 

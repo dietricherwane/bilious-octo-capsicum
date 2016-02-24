@@ -62,6 +62,7 @@
                 <% else %>
                   <a href="<%= disable_blog_theme_path(blog_theme.id) %>" class="tipS" original-title="Désactiver le thème"><%= image_tag('icons/color/cross.png', alt: '') %></a>
                 <% end %>
+                <a href="<%= admin_blog_theme_comments_path(blog_theme.id) %>" class="tipS" original-title="Commentaires"><%= image_tag('icons/color/edit-column.png', alt: '') %></a>
               </td>
             </tr>
           <% end %>

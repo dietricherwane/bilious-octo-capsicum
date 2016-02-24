@@ -26,7 +26,7 @@
                                                 <div class="item_wrapper">
                                                   <% if !gallery_attachment.pdf_attachment_content_type.blank? %>
                                                     <div class="img_block wrapped_img" style = "text-align: center;font-weight: bold;">
-                                                      <a href = "<%= photo_gallery_path %>">
+                                                      <a href = "<%= photo_gallery_details_path(photo_gallery.id) %>">
                                                         <div style = "margin-bottom: 15px;">
                                                           <img src="/images/pdf.png" style = "width:280px;" alt="">
                                                         </div>
@@ -35,7 +35,7 @@
                                                     </div>
                                                   <% else %>
                                                     <div class="img_block wrapped_img" style = "text-align: center;font-weight: bold;">
-                                                      <a href = "<%= photo_gallery_path %>">
+                                                      <a href = "<%= photo_gallery_details_path(photo_gallery.id) %>">
                                                         <div style = "margin-bottom: 15px;">
                                                           <%= image_tag gallery_attachment.photo_attachment.url(:front) %>
                                                         </div>
@@ -76,7 +76,7 @@
                                                 <div class="item_wrapper">
                                                   <% if !gallery_attachment.pdf_attachment_content_type.blank? %>
                                                     <div class="img_block wrapped_img" style = "text-align: center;font-weight: bold;">
-                                                      <a href = "<%= documents_gallery_path %>">
+                                                      <a href = "<%= documents_gallery_details_path(documents_gallery.id) %>">
                                                         <div style = "margin-bottom: 15px;">
                                                           <img src="/images/pdf.png" style = "width:280px;" alt="">
                                                         </div>
@@ -85,7 +85,7 @@
                                                     </div>
                                                   <% else %>
                                                     <div class="img_block wrapped_img" style = "text-align: center;font-weight: bold;">
-                                                      <a href = "<%= documents_gallery_path %>">
+                                                      <a href = "<%= documents_gallery_details_path(documents_gallery.id) %>">
                                                         <div style = "margin-bottom: 15px;">
                                                           <%= image_tag gallery_attachment.photo_attachment.url(:front) %>
                                                         </div>
@@ -132,7 +132,7 @@
                                                 </div>
                                               </div>
                                               <div style = "text-align: center;font-weight: bold;">
-                                                <a href = "<%= video_gallery_path %>">
+                                                <a href = "<%= video_gallery_details_path(video_gallery.id) %>">
                                                   <%= I18n.locale == :fr ? video_gallery.fr_title : video_gallery.en_title %>
                                                 </a>
                                               </div>

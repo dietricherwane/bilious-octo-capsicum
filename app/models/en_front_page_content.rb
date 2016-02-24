@@ -32,6 +32,7 @@ class EnFrontPageContent < ActiveRecord::Base
     :home_logo2 => "Logo 2",
     :home_popup_title => "Titre du popup d'accueil",
     :home_popup_image => "Image du popup d'accueil",
+    :home_popup_video => "Vidéo du popup d'accueil",
     :home_toolbar_phone_number => "Job",
     :home_toolbar_email => "Email",
     :home_toolbar_language_fr => "Langue française",

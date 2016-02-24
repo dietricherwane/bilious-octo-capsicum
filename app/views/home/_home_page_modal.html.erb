@@ -8,7 +8,13 @@
           <h4 class="modal-title" id="myModalLabel"><%= @front_page_content.home_popup_title %></h4>
         </div>
         <div class="modal-body">
-          <%= image_tag @front_page_content.home_popup_image.url(:front) rescue "" %>
+          <% if !@front_page_content.home_popup_video.blank? %>
+            <div class="pf_output_container blog_post_image">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @front_page_content.home_popup_video %>" frameborder="0" allowfullscreen></iframe>
+            </div>
+          <% else %>
+            <%= image_tag @front_page_content.home_popup_image.url(:front) rescue "" %>
+          <% end %>
         </div>
         <div class="modal-footer">
 

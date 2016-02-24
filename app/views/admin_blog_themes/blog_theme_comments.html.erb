@@ -1,0 +1,70 @@
+<!-- Title area -->
+<div class="titleArea">
+    <div class="wrapper">
+        <div class="pageTitle">
+            <h5>Liste des commentaires du blog: <%= @blog_theme.title %></h5>
+            <span>Prise en charge des actions liées aux commentaires.</span>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<%= render "admin_blog_themes/shared/sub_menu" %>
+
+<div class="line"></div>
+
+<!-- Main content wrapper -->
+<div class="wrapper">
+  <%= flash_messages! %>
+<!-- Widgets -->
+  <div class="widget">
+    <div class="title"><img src="<%= asset_path 'icons/dark/full2.png' %>" alt="" class="titleIcon" /><h6>Liste des commentaires</h6></div>
+    <table cellpadding="0" cellspacing="0" border="0" class="display dTable taskWidget">
+      <thead>
+        <tr>
+          <th width = "20%">Name</th>
+          <th width = "20%">Informations</th>
+          <th width = "45%">Content</th>
+          <th width = "15%">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% unless @blog_posts.blank? %>
+          <% @blog_posts.each do |blog_post| %>
+            <tr class="gradeA">
+              <% css_class = (blog_post.published == false ? 'taskD' : 'taskPr') %>
+              <td class = "<%= css_class %>">
+                <%= blog_post.email %>
+              </td>
+              <td class = "customInfo">
+                <span>
+                  <strong><%= blog_post.firstname %> <%= blog_post.lastname %></strong>
+                </span>
+                <span>
+                  <strong><%= blog_post.email %></strong>
+                </span>
+                <span>
+                  <strong>Créé le </strong> <%= blog_post.created_at.strftime("%d-%m-%Y") + " à " + blog_post.created_at.strftime("%Hh %Mmn") %>
+                </span>
+              </td>
+              <td>
+                <%= simple_format(blog_post.content) %>
+              </td>
+              <td class = "actBtns">
+                <% if blog_post.published == false %>
+                  <a href="<%= enable_blog_post_path(blog_post.id) %>" class="tipS" original-title="Activer le commentaire"><%= image_tag('icons/color/tick.png', alt: '') %></a>
+                <% else %>
+                  <a href="<%= disable_blog_post_path(blog_post.id) %>" class="tipS" original-title="Désactiver le commentaire"><%= image_tag('icons/color/cross.png', alt: '') %></a>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- End Main content wrapper -->

@@ -1,0 +1,17 @@
+<p>Bonjour,</p>
+
+<br />
+
+<p>Vous avez reçu un email de contact de: <b><%= @email %></b> à <%= DateTime.now.strftime("%d-%m-%Y") + " à " + DateTime.now.strftime("%Hh %Mmn") %></p>
+
+<p><b>Sujet:</b></p>
+
+<p><%= @subject %></p>
+
+<p><b>Contenu:</b></p>
+
+<p><%= @content %></p>
+
+<br />
+
+<p><b>Administration COCOFCI</b>.</p>

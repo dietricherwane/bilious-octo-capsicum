@@ -48,6 +48,7 @@
             <li class = "<%= @contact_website_content_menu_style %>"><a href="<%= manage_contact_front_content_path %>" title="">Contacts</a></li>
           </ul>
         </li>
+        <li class="dash"><%= link_to "<span>Contacts</span>".html_safe, admin_contact_messages_path, class: "#{@class_contact_messages}" %></li>
     </ul>
 </div>
 

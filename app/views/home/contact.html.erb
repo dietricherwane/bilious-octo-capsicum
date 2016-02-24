@@ -15,20 +15,29 @@
                         <div class="contentarea">
                             <div class="row">
                             	<div class="col-sm-9 module_cont pb20 animate" data-anim-type="fadeInLeft" data-anim-delay="300">
+
                             	  <%= @front_page_content.contact_main_content_intro_text.html_safe rescue "" %>
 
                                 	<div class="module_content contact_form">
+                                	  <%= front_messages! %>
                                         <div id="note"></div>
                                         <div id="fields">
-                                            <form id="ajax-contact-form" action="#">
+                                            <%= form_for(@contact_form, url: submit_contact_path, html: {class: 'form'}) do |f| %>
                                             	<div class="row row20">
-                                                	<div class="col-sm-12"><input type="text" name="name" value="" placeholder="<%= @front_page_content.contact_main_content_form_field_name.html_safe rescue "" %>" /></div>
-                                                    <div class="col-sm-12"><input type="text" name="email" value="" placeholder="<%= @front_page_content.contact_main_content_form_field_email.html_safe rescue "" %>" /></div>
-                                                    <div class="col-sm-12"><input type="text" name="subject" value="" placeholder="<%= @front_page_content.contact_main_content_form_field_subject.html_safe rescue "" %>" /></div>
+                                                	<div class="col-sm-12">
+                                                	  <%= f.text_field :name, placeholder: (@front_page_content.contact_main_content_form_field_name.html_safe rescue "") %>
+                                                	  </div>
+                                                    <div class="col-sm-12">
+                                                      <%= f.text_field :email, placeholder: (@front_page_content.contact_main_content_form_field_email.html_safe rescue "") %>
+                                                    </div>
+                                                    <div class="col-sm-12">
+                                                      <%= f.text_field :subject, placeholder: (@front_page_content.contact_main_content_form_field_subject.html_safe rescue "") %>
+                                                    </div>
                                                 </div>
-                                                <textarea name="message" id="message" placeholder="<%= @front_page_content.contact_main_content_form_field_message.html_safe rescue "" %>"></textarea>
-                                                <input type="submit" value="<%= @front_page_content.contact_main_content_form_field_validation_button.html_safe rescue '' %>">
-                                            </form>
+                                                <%= f.text_area :content, placeholder: (@front_page_content.contact_main_content_form_field_message.html_safe rescue "") %>
+
+                                                <input type="submit" value="<%= @front_page_content.contact_main_content_form_field_message.html_safe rescue "" %>">
+                                            <% end %>
                                         </div>
                                     </div>
                                 </div>

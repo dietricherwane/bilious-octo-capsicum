@@ -1,3 +1,5 @@
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56cc8df7f12cd57e"></script>
+
 <div class="compendium_breadcrumbs">
     	<div class="container">
         	<h1 class="title-page">Bienvenue sur Le Blog du COCOFCI - <%= @blog_theme.blog_category.title %></h1>
@@ -19,6 +21,7 @@
                                 <span>Catégorie: <b><%= link_to @blog_theme.blog_category.title, blog_category_path(@blog_theme.blog_category.id) %></b></span>
                                 <span>Auteur: <b><%= link_to @blog_theme.blogger.title, blogger_biography_path(@blog_theme.blogger.id) %></b></span>
                               </div>
+                              <div class="addthis_native_toolbox"></div>
                               <% unless @blog_theme.descriptive_image_file_name.blank? %>
                             	  <div class="blog_post_image">
                                 	<%= image_tag @blog_theme.descriptive_image.url(:front) rescue "" %>

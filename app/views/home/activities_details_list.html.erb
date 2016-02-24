@@ -1,3 +1,5 @@
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56cc8df7f12cd57e"></script>
+
 <div class="compendium_breadcrumbs">
   <div class="container">
     <h1 class="title-page"><a style = "color: white" href="<%= activities_path %>"><%= @front_page_content.title_activity_section %></a></h1>
@@ -20,6 +22,7 @@
                   <div class="listing_meta">
                     <span><%= @activities_details_list.first.publication_date.strftime("%d-%m-%Y") %> / <a href = "<%= activities_details_list_path((@activities_details_list.first.id rescue 0)) %>"><%= I18n.locale == :fr ? (@activities_details_list.first.fr_title rescue "") : (@activities_details_list.first.en_title rescue "") %></a></span>
                   </div>
+                  <div class="addthis_native_toolbox"></div>
                   <div class="blog_post_image" >
                     <% unless @attachments.blank? %>
                       <%= image_tag @attachments.order("RANDOM()").first.attachment.url(:front),style: "display: block;margin-left: auto;margin-right: auto;"  %>

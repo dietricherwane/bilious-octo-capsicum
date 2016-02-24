@@ -104,6 +104,7 @@ class HomeController < ApplicationController
   def activity_details
     select_front_menu_highlight_class("home_menu_highlight_style")
     @activity = Activity.find_by_id(params[:activity_id])
+    @video_links = @activity.videos.to_s.strip.split("|") rescue []
 
     if @activity.blank?
       redirect_to :back
@@ -112,6 +113,11 @@ class HomeController < ApplicationController
     @activity_category = @activity.activity_category
     @activities_details_list = @activity_category.activities.where("published IS NOT FALSE").order("publication_date DESC")
 
+    set_front_page_content
+  end
+
+  def directory
+    select_front_menu_highlight_class("directory_menu_highlight_style")
     set_front_page_content
   end
 
@@ -152,7 +158,7 @@ class HomeController < ApplicationController
   def blog_theme
     @blog_theme = BlogTheme.find_by_id(params[:blog_theme_id])
     @blog_post = BlogPost.new
-    @blog_posts = @blog_theme.blog_posts.order("created_at DESC")
+    #@blog_posts = @blog_theme.blog_posts.order("created_at DESC")
     @blog_categories = BlogCategory.where("published IS NOT FALSE").order("created_at DESC")
 
     if @blog_theme.blank?
@@ -201,8 +207,31 @@ class HomeController < ApplicationController
 
   def contact
     select_front_menu_highlight_class("contact_menu_highlight_style")
+    @contact_form = ContactForm.new
 
     set_front_page_content
+  end
+
+  def submit_contact
+    @name = params[:name]
+    @email = params[:email]
+    @subject = params[:subject]
+    @content = params[:content]
+    select_front_menu_highlight_class("contact_menu_highlight_style")
+
+    set_front_page_content
+
+    @contact = ContactForm.new(params.require(:contact_form).permit(:name, :email, :subject, :content))
+
+    if @contact.save
+      flash.now[:success] = "Votre message au COCOFCI a été envoyé."
+      @contact_form = ContactForm.new
+      Notifier.contact_email(@name, @email, @subject, @content).deliver
+    else
+      flash[:error] = @contact.errors.full_messages.map { |msg| "#{msg}<br />" }.join
+    end
+
+    render :contact
   end
 
   def compendium

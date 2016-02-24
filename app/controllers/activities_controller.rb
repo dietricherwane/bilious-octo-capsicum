@@ -12,7 +12,7 @@ class ActivitiesController < ApplicationController
     init_activities
 
     activity = params[:activity]
-    @activity = Activity.new(params.require(:activity).permit(:activity_category_id, :fr_title, :en_title, :fr_content, :en_content, :publication_date, :user_id, :attachments_array).merge(user_id: (current_user.id rescue nil), publication_date: Date.new(activity["publication_date(1i)"].to_i, activity["publication_date(2i)"].to_i, activity["publication_date(3i)"].to_i)))
+    @activity = Activity.new(params.require(:activity).permit(:activity_category_id, :fr_title, :en_title, :fr_content, :en_content, :publication_date, :user_id, :attachments_array, :videos).merge(user_id: (current_user.id rescue nil), publication_date: Date.new(activity["publication_date(1i)"].to_i, activity["publication_date(2i)"].to_i, activity["publication_date(3i)"].to_i)))
 
     if @activity.save
       unless params[:activity][:attachments_array].blank?
@@ -33,6 +33,7 @@ class ActivitiesController < ApplicationController
     init_activities
 
     @activity = Activity.find_by_id(params[:activity_id])
+    @video_links = @activity.videos.to_s.strip.split("|") rescue []
 
     if @activity.blank?
       flash[:error] = "Cette activité n'existe pas."
@@ -44,12 +45,13 @@ class ActivitiesController < ApplicationController
     init_activities
 
     @activity = Activity.find_by_id(params[:activity][:id])
+    @video_links = @activity.videos.to_s.strip.split("|") rescue []
 
     if @activity.blank?
       flash.now[:error] = "Cette activité n'existe pas."
       redirect_to list_activities_path
     else
-      activity_params = params.require(:activity).permit(:activity_category_id, :fr_title, :en_title, :fr_content, :en_content, :publication_date, :user_id, :attachments_array).merge(publication_date: Date.new(params[:activity]["publication_date(1i)"].to_i, params[:activity]["publication_date(2i)"].to_i, params[:activity]["publication_date(3i)"].to_i))
+      activity_params = params.require(:activity).permit(:activity_category_id, :fr_title, :en_title, :fr_content, :en_content, :publication_date, :user_id, :attachments_array, :videos).merge(publication_date: Date.new(params[:activity]["publication_date(1i)"].to_i, params[:activity]["publication_date(2i)"].to_i, params[:activity]["publication_date(3i)"].to_i))
 
       @activity.assign_attributes(activity_params)
       if @activity.valid?
