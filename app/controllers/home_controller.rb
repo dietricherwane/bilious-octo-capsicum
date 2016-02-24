@@ -221,14 +221,14 @@ class HomeController < ApplicationController
 
     set_front_page_content
 
-    @contact = ContactForm.new(params.require(:contact_form).permit(:name, :email, :subject, :content))
+    @contact_form = ContactForm.new(params.require(:contact_form).permit(:name, :email, :subject, :content))
 
-    if @contact.save
+    if @contact_form.save
       flash.now[:success] = "Votre message au COCOFCI a été envoyé."
       @contact_form = ContactForm.new
       Notifier.contact_email(@name, @email, @subject, @content).deliver
     else
-      flash[:error] = @contact.errors.full_messages.map { |msg| "#{msg}<br />" }.join
+      flash[:error] = @contact_form.errors.full_messages.map { |msg| "#{msg}<br />" }.join
     end
 
     render :contact
