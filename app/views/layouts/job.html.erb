@@ -21,15 +21,14 @@
 			<div class="top-line">&nbsp;</div>
 			<div class="top"><!-- top -->
 				<div class="container">
-					<div class="media-top-right">
-						<ul class="media-top clearfix">
-							<li class="item"><a href="" target="blank"><i class="fa fa-twitter"></i></a></li>
-							<li class="item"><a href="" target="blank"><i class="fa fa-facebook"></i></a></li>
-							<li class="item"><a href="" target="blank"><i class="fa fa-linkedin"></i></a></li>
-							<li class="item"><a href="" target="blank"><i class="fa fa-rss"></i></a></li>
-							<li class="item"><a href="" target="blank"><i class="fa fa-google-plus"></i></a></li>
+				  <div class="media-top-left">
+				    <ul class="media-top clearfix">
+							<li><a href="<%= root_path %>" class="btn btn-default btn-blue btn-sm">Retour au site du COCOCI</a></li>
 						</ul>
-						<ul class="media-top-2 clearfix">
+				  </div>
+					<div class="media-top-right">
+
+						<ul class="media-top clearfix">
 							<li><a href="<%= register_company_path %>" class="btn btn-default btn-blue btn-sm">Inscription</a></li>
 							<li>
 							  <% if !current_company.blank? %>
@@ -46,16 +45,17 @@
 			</div><!-- top -->
 			<div class="container"><!-- container -->
 				<div class="row">
-					<div class="col-md-4"><!-- logo -->
-						<a href="<%= jobs_path %>" title="Job COCOFCI" rel="home">
-							<img width = "250px" class="main-logo" src="<%= asset_path 'job/logo_cocofci-02.png' %>" alt="job board" />
-						</a>
+					<div class="col-md-4" style = "width: 250px;"><!-- logo -->
+
+							<img width = "250px" class="main-logo" src="<%= asset_path 'job/logo_cocofci-02.png' %>" style = "opacity: 0;
+    filter: alpha(opacity=0);" alt="job board" />
+
 					</div><!-- logo -->
 					<div class="col-md-8 main-nav"><!-- Main Navigation -->
 						<a id="touch-menu" class="mobile-menu" href="#"><i class="fa fa-bars fa-2x"></i></a>
 						<nav>
 							<ul class="menu">
-							  <li><a href="<%= root_path %>">COCOFCI</a></li>
+							  <li><a href="<%= root_path %>">Rechercher une offre</a></li>
 								<li><a href="<%= jobs_path %>">Liste des offres</a></li>
 								<li><a  href="<%= new_company_offer_path %>">Poster une offre</a></li>
 								<% if !current_company.blank? %>

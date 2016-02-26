@@ -1,15 +1,18 @@
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56cc8df7f12cd57e"></script>
+
 <div class="compendium_breadcrumbs">
-    	<div class="container">
-            <h1 class="title-page">Bienvenue sur votre espace blogs! </h1>
-        </div>
-     </div>
+  <div class="container">
+    <h1 class="title-page">Bienvenue sur votre espace blogs! </h1>
+  </div>
+</div>
     <div class="wrapper">
     	<div class="container">
         	<div class="page_title_block">
-                <div class="page_descr">
-                    <p style = "text-align: center;">Plusieurs thématiques enrichissantes sont abordées, alors n’hésitez pas à réagir sur nos publications.</p>
-                </div>
+            <div class="page_descr">
+              <p style = "text-align: center;">Plusieurs thématiques enrichissantes sont abordées, alors n’hésitez pas à réagir sur nos publications.</p>
             </div>
+          </div>
+
         	<div class="content_block row right-sidebar">
             	<div class="fl-container hasRS">
                 	<div class="posts-block">
@@ -41,6 +44,8 @@
                                                 <span>Auteur: <b><%= link_to blog_theme.blogger.title, blogger_biography_path(blog_theme.blogger.id) %></b></span>
                                               </div>
                                               <p><%= simple_format(strip_tags(blog_theme.content).split[0..200].join(" ")) %></p>
+                                              <div class="addthis_native_toolbox"></div>
+
                                               <div class="price_item_btn"><a class="shortcode_button btn_large btn_type1" href="<%= blog_theme_path(blog_theme.id) %>"><%= I18n.locale == :fr ? "Lire plus" : "Read more" %></a></div>
                                           </div>
                                           <hr />
@@ -74,7 +79,7 @@
                         <ul>
                           <% unless @bloggers.blank? %>
                             <% @bloggers.each do |blogger| %>
-                              <li class="<%= blogger.id == (@blogger.id rescue nil) ? 'cat-item current-menu-item' : 'cat-item'  %>"><%= link_to blogger.title, blogger_posts_path(blogger.id) %></li>
+                              <li class="<%= blogger.id == (@blogger.id rescue nil) ? 'cat-item current-menu-item' : 'cat-item'  %>"><%= link_to blogger.title, blogger_biography_path(blogger.id) %></li>
                             <% end %>
                           <% end %>
                         </ul>
