@@ -9,8 +9,8 @@
 
     <div class="wrapper">
     	<div class="container">
-        	<div class="content_block row no-sidebar single_post">
-            	<div class="fl-container">
+        	<div class="content_block row right-sidebar single_post">
+            	<div class="fl-container hasRS">
                 	<div class="posts-block">
                         <div class="contentarea">
                         	<div class="blog_post_preview animate" data-anim-type="fadeInUp" data-anim-delay="300">
@@ -84,6 +84,57 @@
                         </div>
                     </div>
                 </div>
+
+
+
+
+
+                <div class="right-sidebar-block">
+
+                    <div class="sidepanel widget_categories animate" data-anim-type="fadeInUp" data-anim-delay="300">
+                        <h4 class="title">Categories</h4>
+                        <ul>
+                          <% unless @blog_categories.blank? %>
+                            <% @blog_categories.each do |blog_category| %>
+                              <li class="<%= blog_category.id == (@blog_category.id rescue nil) ? 'cat-item current-menu-item' : 'cat-item'  %>"><%= link_to blog_category.title, blog_category_path(blog_category.id) %></li>
+                            <% end %>
+                          <% end %>
+                        </ul>
+                    </div>
+
+                    <div class="sidepanel widget_categories animate" data-anim-type="fadeInUp" data-anim-delay="300">
+                        <h4 class="title">Bloggeurs</h4>
+                        <ul>
+                          <% unless @bloggers.blank? %>
+                            <% @bloggers.each do |blogger| %>
+                              <li class="<%= blogger.id == (@blogger.id rescue nil) ? 'cat-item current-menu-item' : 'cat-item'  %>"><%= link_to blogger.title, blogger_biography_path(blogger.id) %></li>
+                            <% end %>
+                          <% end %>
+                        </ul>
+                    </div>
+
+                    <div class="sidepanel widget_categories animate" data-anim-type="fadeInUp" data-anim-delay="300">
+                        <h4 class="title">Blogs récents</h4>
+                        <ul>
+                          <% unless @recent_blogs.blank? %>
+                            <% @recent_blogs.each do |recent_blog| %>
+                              <li class="<%= recent_blog.id == (@blog_theme.id rescue nil) ? 'cat-item current-menu-item' : 'cat-item'  %>"><%= link_to recent_blog.title, blog_theme_path(recent_blog.id) %></li>
+                            <% end %>
+                          <% end %>
+                        </ul>
+                    </div>
+
+
+                  </div>
+
+
+                <div class="clear"></div>
+
+
+
+
+
+
             </div>
         </div>
     </div>

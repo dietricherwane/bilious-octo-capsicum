@@ -1,3 +1,5 @@
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56cc8df7f12cd57e"></script>
+
 <div class="compendium_breadcrumbs">
     	<div class="container">
             <h1 class="title-page">Bienvenue sur votre espace blogs! - <%= @blog_category.title %></h1>
@@ -35,7 +37,8 @@
                                                 <span>Catégorie: <b><%= link_to blog_theme.blog_category.title, blog_category_path(blog_theme.blog_category.id) %></b></span>
                                                 <span>Auteur: <b><%= link_to blog_theme.blogger.title, blogger_biography_path(blog_theme.blogger.id) %></b></span>
                                               </div>
-                                              <p><%= simple_format(blog_theme.content) %></p>
+                                              <p><%= simple_format(strip_tags(blog_theme.content).split[0..200].join(" ")) %></p>
+                                              <div class="addthis_native_toolbox"></div>
                                               <div class="price_item_btn"><a class="shortcode_button btn_large btn_type1" href="<%= blog_theme_path(blog_theme.id) %>"><%= I18n.locale == :fr ? "Lire plus" : "Read more" %></a></div>
                                           </div>
                                           <hr />
@@ -69,7 +72,7 @@
                         <ul>
                           <% unless @bloggers.blank? %>
                             <% @bloggers.each do |blogger| %>
-                              <li class="<%= blogger.id == (@blogger.id rescue nil) ? 'cat-item current-menu-item' : 'cat-item'  %>"><%= link_to blogger.title, blogger_posts_path(blogger.id) %></li>
+                              <li class="<%= blogger.id == (@blogger.id rescue nil) ? 'cat-item current-menu-item' : 'cat-item'  %>"><%= link_to blogger.title, blogger_biography_path(blogger.id) %></li>
                             <% end %>
                           <% end %>
                         </ul>

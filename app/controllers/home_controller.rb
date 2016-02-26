@@ -159,7 +159,9 @@ class HomeController < ApplicationController
     @blog_theme = BlogTheme.find_by_id(params[:blog_theme_id])
     @blog_post = BlogPost.new
     #@blog_posts = @blog_theme.blog_posts.order("created_at DESC")
-    @blog_categories = BlogCategory.where("published IS NOT FALSE").order("created_at DESC")
+    #@blog_categories = BlogCategory.where("published IS NOT FALSE").order("created_at DESC")
+
+    init_blog
 
     if @blog_theme.blank?
       redirect_to blog_path

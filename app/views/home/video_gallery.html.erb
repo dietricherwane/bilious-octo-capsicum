@@ -32,7 +32,7 @@
                                                 </div>
                                                 <div style = "text-align: center;font-weight: bold;">
                                                   <a href = "<%= video_gallery_details_path(video_gallery.id) %>">
-                                                    <%= I18n.locale == :fr ? video_gallery.fr_title : video_gallery.en_title %>
+                                                    <%= I18n.locale == :fr ? video_gallery.fr_title[0..50] + (video_gallery.fr_title.length > 50 ? '...' : '') : video_gallery.en_title[0..50] + (video_gallery.fr_title.length > 50 ? '...' : '') %>
                                                   </a>
                                                 </div>
                                               </div>

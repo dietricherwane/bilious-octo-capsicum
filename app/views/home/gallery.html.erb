@@ -30,7 +30,7 @@
                                                         <div style = "margin-bottom: 15px;">
                                                           <img src="/images/pdf.png" style = "width:280px;" alt="">
                                                         </div>
-                                                        <%= I18n.locale == :fr ? photo_gallery.fr_title : photo_gallery.en_title %>
+                                                        <%= I18n.locale == :fr ? photo_gallery.fr_title[0..50] + (photo_gallery.fr_title.length > 50 ? '...' : '') : photo_gallery.en_title[0..50] + (photo_gallery.fr_title.length > 50 ? '...' : '') %>
                                                       </a>
                                                     </div>
                                                   <% else %>
@@ -39,7 +39,7 @@
                                                         <div style = "margin-bottom: 15px;">
                                                           <%= image_tag gallery_attachment.photo_attachment.url(:front) %>
                                                         </div>
-                                                        <%= I18n.locale == :fr ? photo_gallery.fr_title : photo_gallery.en_title %>
+                                                        <%= I18n.locale == :fr ? photo_gallery.fr_title[0..50] + (photo_gallery.fr_title.length > 50 ? '...' : '') : photo_gallery.en_title[0..50] + (photo_gallery.fr_title.length > 50 ? '...' : '') %>
                                                       </a>
                                                     </div>
                                                   <% end %>
@@ -80,7 +80,7 @@
                                                         <div style = "margin-bottom: 15px;">
                                                           <img src="/images/pdf.png" style = "width:280px;" alt="">
                                                         </div>
-                                                        <%= I18n.locale == :fr ? documents_gallery.fr_title : documents_gallery.en_title %>
+                                                        <%= I18n.locale == :fr ? documents_gallery.fr_title[0..50] + (documents_gallery.fr_title.length > 50 ? '...' : '') : documents_gallery.en_title[0..50] + (documents_gallery.fr_title.length > 50 ? '...' : '') %>
                                                       </a>
                                                     </div>
                                                   <% else %>
@@ -89,7 +89,7 @@
                                                         <div style = "margin-bottom: 15px;">
                                                           <%= image_tag gallery_attachment.photo_attachment.url(:front) %>
                                                         </div>
-                                                        <%= I18n.locale == :fr ? documents_gallery.fr_title : documents_gallery.en_title %>
+                                                        <%= I18n.locale == :fr ? documents_gallery.fr_title[0..50] + (documents_gallery.fr_title.length > 50 ? '...' : '') : documents_gallery.en_title[0..50] + (documents_gallery.fr_title.length > 50 ? '...' : '') %>
                                                       </a>
                                                     </div>
                                                   <% end %>
@@ -133,7 +133,7 @@
                                               </div>
                                               <div style = "text-align: center;font-weight: bold;">
                                                 <a href = "<%= video_gallery_details_path(video_gallery.id) %>">
-                                                  <%= I18n.locale == :fr ? video_gallery.fr_title : video_gallery.en_title %>
+                                                  <%= I18n.locale == :fr ? video_gallery.fr_title[0..50] + (video_gallery.fr_title.length > 50 ? '...' : '') : video_gallery.en_title[0..50] + (video_gallery.fr_title.length > 50 ? '...' : '') %>
                                                 </a>
                                               </div>
                                             </div>
