@@ -12,7 +12,7 @@
                 	<div class="posts-block">
                         <div class="contentarea">
                             <div class="row">
-                                <div class="col-sm-12 module_cont pb75 module_team">
+                                <div class="col-sm-12 module_cont pb75 module_team" style = "text-align: center;">
                                     <div class="team_slider">
                                         <div class="carouselslider teamslider items2">
                                             <ul class="item_list">
@@ -27,7 +27,7 @@
                                                           </div>
                                                           <div class="col-sm-6">
                                                           	<div class="carousel_body">
-                                                              <div class="team_title">
+                                                              <div class="team_title" style = "text-align:left;">
                                                                 <%= @blogger.name.html_safe rescue "" %>
                                                               </div>
                                                             </div>
@@ -38,11 +38,10 @@
                                                   </li>
                                                 <li class="animate" data-anim-delay="250" data-anim-type="fadeInRight">
                                                   <div class="item_wrapper">
-                                                        <div class="item">
-
-                                                            <%= @blogger.description_text.html_safe rescue "" %>
-                                                         </div>
-                                                 </div>
+                                                    <div class="item">
+                                                      <%= @blogger.description_text.html_safe rescue "" %>
+                                                    </div>
+                                                  </div>
                                             </div>
                                                 </li>
                                             </ul>
