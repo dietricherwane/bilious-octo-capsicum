@@ -7,14 +7,14 @@
 	</div>
 	<div id="home-slider" class="owl-carousel owl-theme">
 		<div class="item-slide">
-			<img src="<%= asset_path 'job/upload/dummy-slide-1.jpg' %>" class="img-responsive" alt="dummy-slide" />
+			<img src="<%= asset_path 'job/upload/slide-1.jpg' %>" class="img-responsive" alt="dummy-slide" />
+		</div>
+		<!--<div class="item-slide">
+			<img src="<%#= asset_path 'job/upload/dummy-slide-2.jpg' %>" class="img-responsive" alt="dummy-slide" />
 		</div>
 		<div class="item-slide">
-			<img src="<%= asset_path 'job/upload/dummy-slide-2.jpg' %>" class="img-responsive" alt="dummy-slide" />
-		</div>
-		<div class="item-slide">
-			<img src="<%= asset_path 'job/upload/dummy-slide-3.jpg' %>" class="img-responsive" alt="dummy-slide" />
-		</div>
+			<img src="<%#= asset_path 'job/upload/dummy-slide-3.jpg' %>" class="img-responsive" alt="dummy-slide" />
+		</div>-->
 	</div>
 </div><!-- end main-headline section -->
 
@@ -22,11 +22,9 @@
 		<div class="row" >
 			<div class="col-md-6 align-right">
 				<h4>Recherchez et trouvez l'emploi de vos rêves</h4>
-				<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.</p>
 			</div>
 			<div class="col-md-6 align-left">
 				<h4>Embauchez des personnes aux compétences avérées</h4>
-				<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.</p>
 			</div>
 			<div class="clearfix"></div>
 		</div>
@@ -48,8 +46,9 @@
 				<label for="searchjob" class="label">Niveau d'études</label>
 				<%= select_tag "studies_level_id", options_from_collection_for_select(@studies_levels, "id", "name", selected: @studies_level_id), prompt: "Veuillez choisir un niveau d'études", class: "form-control" %>
 			</div>
-			<div class="col-md-5 form-group group-1">
-
+			<div class="col-md-5 form-group group-2">
+        <label for="searchplace" class="label">Années d'expérience</label>
+				<%= text_field_tag "years_of_experience", @years_of_experience, placeholder: "Veuillez saisir le nombre d'années d'expérience", class: "form-control" %>
 			</div>
       <div class="col-md-7 form-group group-1">
 			  <%= submit_tag "Rechercher", class: "btn btn-default btn-green" %>

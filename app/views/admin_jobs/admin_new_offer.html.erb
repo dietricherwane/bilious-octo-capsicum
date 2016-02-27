@@ -28,6 +28,14 @@
         </div>
 
         <div class="formRow">
+          <label><%= f.label :company_name %></label>
+          <div class="formRight">
+            <%= f.text_field :company_name, class: "form-control", placeholder: "Veuillez saisir le nom de l'entreprise" %>
+          </div>
+          <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
           <label><%= f.label :activity_field_id %></label>
           <div class="formRight">
             <%= f.collection_select :activity_field_id, @activity_fields, :id, :name, options ={prompt: "Domaine d'activités"}, html_options = {class: "form-control"} %>
