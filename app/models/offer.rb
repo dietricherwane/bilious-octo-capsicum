@@ -9,6 +9,7 @@ class Offer < ActiveRecord::Base
 
   # Rename attributes into more friendly text
   HUMANIZED_ATTRIBUTES = {
+    :company_name => "Nom de l'entreprise",
     :company_id => "Entreprise",
     :user_id => "Utilisateur",
     :activity_field_id => "Domaine d'activités",

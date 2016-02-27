@@ -26,7 +26,7 @@
 							<li><a href="<%= root_path %>" class="btn btn-default btn-blue btn-sm">Retour au site du COCOCI</a></li>
 						</ul>
 				  </div>
-				  <div class="media-top">
+				  <!--<div class="media-top">
 				    <ul class="media-top">
 						  <li style = "padding-left: 10%;float:left;"><a href="<%= root_path %>" class="btn btn-default btn-blue btn-sm">Rechercher une offre</a></li>
 							<li style = "padding-left: 10%;float:left;"><a href="<%= jobs_path %>" class="btn btn-default btn-blue btn-sm">Liste des offres</a></li>
@@ -35,7 +35,7 @@
 							  <li><a href="/<%= I18n.locale %>/companies/edit.<%= current_company.id %>" class="btn btn-default btn-blue btn-sm">Afficher le profil</a></li>
 							<% end %>
 						</ul>
-				  </div>
+				  </div>-->
 					<div class="media-top-right">
 
 						<ul class="media-top clearfix">
@@ -65,7 +65,7 @@
 						<a id="touch-menu" class="mobile-menu" href="#"><i class="fa fa-bars fa-2x"></i></a>
 						<nav>
 							<ul class="menu">
-							  <li><a href="<%= root_path %>">Rechercher une offre</a></li>
+							  <!--<li><a href="<%= root_path %>">Rechercher une offre</a></li>-->
 								<li><a href="<%= jobs_path %>">Liste des offres</a></li>
 								<li><a  href="<%= new_company_offer_path %>">Poster une offre</a></li>
 								<% if !current_company.blank? %>
@@ -171,7 +171,7 @@
 		</div><!-- Footer -->
 	</div><!-- end main wrapper -->
     <%= javascript_include_tag 'job/application', 'data-turbolinks-track' => true %>
-    <!-- Map -->
+    <!-- Map
 	  <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 	  <!-- Map -->
 

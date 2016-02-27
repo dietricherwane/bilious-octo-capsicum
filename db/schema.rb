@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160224004648) do
+ActiveRecord::Schema.define(version: 20160227201823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -563,6 +563,7 @@ ActiveRecord::Schema.define(version: 20160224004648) do
     t.boolean  "validated"
     t.integer  "validated_by"
     t.datetime "validated_at"
+    t.string   "company_name"
   end
 
   create_table "profiles", force: true do |t|

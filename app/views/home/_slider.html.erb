@@ -14,18 +14,23 @@
 
                         <div class="xpro-item-layer"
                              data-effect="slide({X:'150px', delay:'1.5s', duration:'1s', dir:'right'})"
-                             style="left:50px;top:90px;text-align: center;opacity:0">
-                            <h1 class="xpro-item-layer-responsive" style="font-size:30px;margin:20px;color:#ffffff;"><i class="fa fa-check"></i>&nbsp;&nbsp;<%= @front_page_content.home_slider_slide1_text1.html_safe rescue "" %></h1>
+                             style="left:0px;top:40px;text-align: center;opacity:0">
+                            <h1 class="xpro-item-layer-responsive" style="font-size:30px;margin:20px;color:#ffffff;font-weight: bold;">
+                              <i class="fa fa-check"></i>&nbsp;&nbsp;<%= @front_page_content.home_slider_slide1_text1.html_safe rescue "" %>
+                              <i class="fa fa-check"></i>&nbsp;&nbsp;<%= @front_page_content.home_slider_slide1_text2.html_safe rescue "" %>
+                              <i class="fa fa-check"></i>&nbsp;&nbsp;<%= @front_page_content.home_slider_slide1_text3.html_safe rescue "" %>
+                            </h1>
+
                         </div>
                         <div class="xpro-item-layer"
                              data-effect="slide({X:'150px', delay:'2s', duration:'1s', dir:'right'})"
-                             style="left:50px;top:140px;text-align: center;opacity:0">
-                            <h1 class="xpro-item-layer-responsive" style="font-size:30px;margin:20px;color:#ffffff;"><i class="fa fa-check"></i>&nbsp;&nbsp;<%= @front_page_content.home_slider_slide1_text2.html_safe rescue "" %></h1>
+                             style="left:28px;top:100px;text-align: center;opacity:0">
+                            <h1 class="xpro-item-layer-responsive" style="font-size:30px;margin:20px;color:#102B5D;font-weight: bold;">&nbsp;&nbsp;Femme de Côte d'Ivoire<br />et de la Diaspora,<br />Faisons nous connaître</h1>
                         </div>
                         <div class="xpro-item-layer"
                              data-effect="slide({X:'150px', delay:'2.5s', duration:'1s', dir:'right'})"
-                             style="left:50px;top:190px;text-align: center;opacity:0">
-                            <h1 class="xpro-item-layer-responsive" style="font-size:30px;margin:20px;color:#ffffff;"><i class="fa fa-check"></i>&nbsp;&nbsp;<%= @front_page_content.home_slider_slide1_text3.html_safe rescue "" %></h1>
+                             style="left:60px;top:240px;text-align: center;opacity:0">
+                            <a class="shortcode_button btn_large btn_type5" href="https://cocofci-lp2iprci.db.em2.oraclecloudapps.com/apex/f?p=30200141:IDENTIFICATION:13640725185620:::::" style="color:white;" target="_blank"><%= I18n.locale == :fr ? 'Inscription' : 'Registration' %></a>
                         </div>
 
                         <div class="xpro-item-layer round-item"
