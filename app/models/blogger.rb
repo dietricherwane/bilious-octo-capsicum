@@ -11,7 +11,7 @@ class Blogger < ActiveRecord::Base
     :user_id => "Auteur",
     :title => "Titre",
     :name => "Nom du bloggeur",
-    :description_text => "Texte descriptif",
+    :description_text => "Citation",
     :content => "Contenu",
     :description_image => "Image descriptive"
   }
