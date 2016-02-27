@@ -26,6 +26,16 @@
 							<li><a href="<%= root_path %>" class="btn btn-default btn-blue btn-sm">Retour au site du COCOCI</a></li>
 						</ul>
 				  </div>
+				  <div class="media-top">
+				    <ul class="media-top">
+						  <li style = "padding-left: 10%;float:left;"><a href="<%= root_path %>" class="btn btn-default btn-blue btn-sm">Rechercher une offre</a></li>
+							<li style = "padding-left: 10%;float:left;"><a href="<%= jobs_path %>" class="btn btn-default btn-blue btn-sm">Liste des offres</a></li>
+							<li style = "padding-left: 10%;float:left;"><a  href="<%= new_company_offer_path %>" class="btn btn-default btn-blue btn-sm">Poster une offre</a></li>
+							<% if !current_company.blank? %>
+							  <li><a href="/<%= I18n.locale %>/companies/edit.<%= current_company.id %>" class="btn btn-default btn-blue btn-sm">Afficher le profil</a></li>
+							<% end %>
+						</ul>
+				  </div>
 					<div class="media-top-right">
 
 						<ul class="media-top clearfix">
@@ -47,8 +57,8 @@
 				<div class="row">
 					<div class="col-md-4" style = "width: 250px;"><!-- logo -->
 
-							<img width = "250px" class="main-logo" src="<%= asset_path 'job/logo_cocofci-02.png' %>" style = "opacity: 0;
-    filter: alpha(opacity=0);" alt="job board" />
+							<!--<img width = "250px" class="main-logo" src="<%= asset_path 'job/logo_cocofci-02.png' %>" style = "opacity: 0;
+    filter: alpha(opacity=0);" alt="job board" />-->
 
 					</div><!-- logo -->
 					<div class="col-md-8 main-nav"><!-- Main Navigation -->
@@ -77,10 +87,7 @@
 					<div class="container">
 					<div class="spacer-1">&nbsp;</div>
 						<h1>Besoin de renseignements?</h1>
-						<p>
-							At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt.
-						</p>
-						<h1 class="phone-cs">Appeler: 1 800 000 500</h1>
+						<h1 class="phone-cs">Appeler: +225 22 47 58 63 | +225 09 79 73 18 | +225 56 10 95 68</p></h1>
 					</div>
 				</div><!-- CS -->
 			</div><!-- end content -->

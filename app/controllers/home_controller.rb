@@ -15,7 +15,7 @@ class HomeController < ApplicationController
   end
 
   def activities
-    select_front_menu_highlight_class("home_menu_highlight_style")
+    select_front_menu_highlight_class("activities_menu_highlight_style")
 
     @activity_categories = ActivityCategory.where("published IS NOT FALSE").order("publication_date DESC")
     @last_activity = Activity.where("published IS NOT FALSE").order("publication_date DESC").first rescue nil
@@ -89,7 +89,7 @@ class HomeController < ApplicationController
   end
 
   def activities_details_list
-    select_front_menu_highlight_class("home_menu_highlight_style")
+    select_front_menu_highlight_class("activities_menu_highlight_style")
     @activity_category = ActivityCategory.find_by_id(params[:activity_category_id])
 
     if @activity_category.blank?
@@ -102,7 +102,7 @@ class HomeController < ApplicationController
   end
 
   def activity_details
-    select_front_menu_highlight_class("home_menu_highlight_style")
+    select_front_menu_highlight_class("activities_menu_highlight_style")
     @activity = Activity.find_by_id(params[:activity_id])
     @video_links = @activity.videos.to_s.strip.split("|") rescue []
 

@@ -147,7 +147,7 @@ hr{
 	list-style:none;
 	margin:0;
 	padding:0;
-	float:left;
+	/*float:left;*/
 }
 .media-top-2{
 	list-style:none;
@@ -2188,11 +2188,18 @@ div.map-popup > h6 {
 	color:#4a4f4f;
 }
 
+.menu{
+		display:none;
+	}
+
 /*--------------------------------------------------------------------------------*/
 /*	Responsive set */
 /*--------------------------------------------------------------------------------*/
 
 @media (max-width: 1200px ) {
+  .menu{
+		display:none;
+	}
 	.menu li a {
 		font-size:12px;
 		padding:15px 0px;
@@ -2240,6 +2247,9 @@ div.map-popup > h6 {
 
 }
 @media (max-width: 1040px ) {
+  .menu{
+		display:none;
+	}
 	.author-post{
 		padding-left:15px;
 	}
@@ -2255,6 +2265,9 @@ div.map-popup > h6 {
 	}
 }
 @media (max-width: 990px ) {
+  .menu{
+		display:none;
+	}
 	.main-logo{
 		margin-bottom:0px !important;
 	}
@@ -2331,8 +2344,14 @@ div.map-popup > h6 {
 	}
 }
 @media (max-width: 800px ) {
+  .menu{
+		display:none;
+	}
 	.container{
 		padding:0 15px;
+	}
+	.media-top{
+		display:none;
 	}
 	div.location {
 		height: 319px;
@@ -2352,6 +2371,9 @@ div.map-popup > h6 {
 
 }
 @media (max-width: 780px ) {
+  .menu{
+		display:none;
+	}
 	.footer-widget{
 		padding:0 15px;
 		border:none;
@@ -2367,10 +2389,16 @@ div.map-popup > h6 {
 		font-size:30px;
 		margin:40px 0 15px 0;
 	}
+	.media-top{
+		display:none;
+	}
 }
 @media (max-width: 640px ) {
 	.main-logo{
 		margin-bottom:10px !important;
+	}
+	.media-top{
+		display:none;
 	}
 	.menu{
 		display:none;
@@ -2470,6 +2498,9 @@ div.map-popup > h6 {
 		border:1px solid #e3e3e3;
 		margin:2px 0;
 	}
+	.media-top{
+		display:none;
+	}
 	.tab.active {
 		background: #f6f6f6;
 		top: 0px;
@@ -2517,6 +2548,9 @@ div.map-popup > h6 {
 	.counter-container p{
 		font-size:12px;
 	}
+	.media-top{
+		display:none;
+	}
 	.counter-value{
 		max-width:80px;
 		height:auto;
@@ -2557,6 +2591,9 @@ div.map-popup > h6 {
 		margin:0 auto;
 	}
 	.media-top{
+		display:none;
+	}
+	.media-top{
 		float:none;
 		margin:0 auto;
 	}
@@ -2568,6 +2605,9 @@ div.map-popup > h6 {
 	.counter-container {
 		width:100%;
 		height:auto;
+	}
+	.media-top{
+		display:none;
 	}
 	.counter-value{
 		max-width:130px;
@@ -2599,6 +2639,9 @@ div.map-popup > h6 {
 	#cs h1{
 		font-size:24px;
 	}
+	.media-top{
+		display:none;
+	}
 	.phone-cs{
 		font-size:20px;
 		color:#343434 !important;
@@ -2613,6 +2656,9 @@ div.map-popup > h6 {
 	.about-post-resume .btn-black,.about-post-job .btn-green{
 		margin:25px 0 10px 0;
 		padding:10px 15px;
+	}
+	.media-top{
+		display:none;
 	}
 	.about-post-resume .btn-black i{
 		display:none;
