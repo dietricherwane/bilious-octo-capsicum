@@ -16,13 +16,13 @@
                                     <div class="team_slider">
                                         <div class="carouselslider teamslider items2">
                                             <ul class="item_list">
-                                                  <li class="animate" data-anim-delay="250" data-anim-type="fadeInLeft">
+                                                  <li class="animate" data-anim-delay="250" data-anim-type="fadeInLeft" style ="width:100%">
                                                     <div class="item_wrapper">
                                                       <div class="item">
-                                                      	<div class="row">
+                                                      	<div class="row" >
                                                         	<div class="col-sm-6">
-                                                          	<div class="img_block">
-                                                              <%= image_tag @blogger.description_image.url(:front) rescue "" %>
+                                                          	<div class="img_block" style = "float:right;">
+                                                              <%= image_tag @blogger.description_image.url(:front), width: 'auto' %>
                                                             </div>
                                                           </div>
                                                           <div class="col-sm-6">
