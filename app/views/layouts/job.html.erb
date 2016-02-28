@@ -39,12 +39,12 @@
 					<div class="media-top-right">
 
 						<ul class="media-top clearfix">
-							<li><a href="<%= register_company_path %>" class="btn btn-default btn-blue btn-sm">Inscription</a></li>
+							<li><a href="<%= register_company_path %>" class="btn btn-default btn-blue btn-sm">Enregistrez votre entreprise</a></li>
 							<li>
 							  <% if !current_company.blank? %>
 							    <a data-method="delete" href="<%= destroy_company_session_path %>" rel="nofollow" class="btn btn-default btn-red btn-sm">Déconnexion</a>
 							  <% else %>
-							    <a href="<%= new_company_session_path %>" class="btn btn-default btn-green btn-sm" >Connexion</a>
+							    <a href="<%= new_company_session_path %>" class="btn btn-default btn-green btn-sm" >Entreprises Connectez vous</a>
 							  <% end %>
 							</li>
 
