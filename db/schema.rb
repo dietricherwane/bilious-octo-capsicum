@@ -62,7 +62,6 @@ ActiveRecord::Schema.define(version: 20160227201823) do
     t.boolean  "published"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   create_table "ahoy_events", id: :uuid, force: true do |t|
@@ -313,7 +312,6 @@ ActiveRecord::Schema.define(version: 20160227201823) do
     t.text     "compendium_main_content_responsible2_content"
     t.string   "compendium_main_content_partners_title"
     t.text     "compendium_main_content_partners_images"
-    t.string   "focus_on_woman_image"
     t.string   "focus_on_woman_title"
     t.string   "focus_on_woman_image_file_name"
     t.string   "focus_on_woman_image_content_type"
@@ -455,7 +453,6 @@ ActiveRecord::Schema.define(version: 20160227201823) do
     t.text     "compendium_main_content_responsible2_content"
     t.string   "compendium_main_content_partners_title"
     t.text     "compendium_main_content_partners_images"
-    t.string   "focus_on_woman_image"
     t.string   "focus_on_woman_title"
     t.string   "focus_on_woman_image_file_name"
     t.string   "focus_on_woman_image_content_type"
