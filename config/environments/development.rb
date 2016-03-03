@@ -6,16 +6,17 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
-  config.action_mailer.default_url_options = { host: 'http://start-ci.com', port: 7777 }
+	config.action_mailer.default_url_options = { host: 'http://demo.competencesfeminines.gouv.ci' }
   ActionMailer::Base.smtp_settings = {
-  	:openssl_verify_mode => 'none',
-		:address => "smtp2.sndi.ci",
-		:enable_starttls_auto => true,
-		:port => 587,
-		:authentication => :plain,
-		:user_name => "mailer@competencesfeminines.gouv.ci",
-		:password => 'evreh16_@16'
-	}
+    :openssl_verify_mode => 'none',
+            :address => "smtp2.sndi.ci",
+            :enable_starttls_auto => true,
+            :port => 25,
+            :authentication => :plain,
+            :user_name => "mailler@competencesfeminines.gouv.ci",
+            :password => 'evreh16_@16'
+    }
+
 
   # Do not eager load code on boot.
   config.eager_load = false
