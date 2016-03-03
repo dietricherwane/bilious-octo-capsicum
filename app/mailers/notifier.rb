@@ -1,5 +1,5 @@
 class Notifier < ActionMailer::Base
-  default from: "Internaute - COCOFCI"
+  default from: "mailler@competencesfeminines.gouv.ci"
 
   def contact_email(name, email, subject, content)
     @name = name
