@@ -43,7 +43,8 @@ class Users::PasswordsController < Devise::PasswordsController
       flash_message = resource.active_for_authentication? ? :updated : :updated_not_active
       set_flash_message(:notice, flash_message) if is_flashing_format?
       sign_in(resource_name, resource)
-      respond_with resource, location: after_resetting_password_path_for(resource)
+      #respond_with resource, location: after_resetting_password_path_for(resource)
+      redirect_to new_user_registration_path
     else
       respond_with resource
     end
