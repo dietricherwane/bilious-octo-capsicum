@@ -7,6 +7,6 @@ class Notifier < ActionMailer::Base
     @subject = subject
     @content = content
 
-    mail(to: "dietricherwane@live.com", subject: "Prise de contact")
+    mail(to: ["info@competencesfeminines.gouv.ci", "info@chaireunesco-efpod.org"], subject: "Prise de contact")
   end
 end
