@@ -52,7 +52,7 @@ class AdminJobsController < ApplicationController
   end
 
   def admin_validate_offer
-    offer = Offer.where("id = #{params[:offer_id]}").first rescue nil
+    offer = Offer.where("id = ?", params[:offer_id]).first rescue nil
 
     if !offer.blank?
       offer.update_attributes(validated: true, validated_by: current_user.id, validated_at: DateTime.now)
@@ -65,7 +65,7 @@ class AdminJobsController < ApplicationController
   end
 
   def admin_reject_offer
-    offer = Offer.where("id = #{params[:offer_id]}").first rescue nil
+    offer = Offer.where("id = ?", params[:offer_id]).first rescue nil
 
     if !offer.blank?
       offer.assign_attributes(validated: false, validated_by: current_user.id, validated_at: DateTime.now)

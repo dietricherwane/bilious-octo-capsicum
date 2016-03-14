@@ -31,7 +31,7 @@ class CompaniesController < ApplicationController
   end
 
   def list_offers
-    @offers = Offer.where("validated IS TRUE AND expiration_date <= '#{Date.today.strftime("%m-%d-%Y")}'").order("created_at DESC")
+    @offers = Offer.where("validated IS TRUE AND expiration_date <= ?", Date.today.strftime("%m-%d-%Y")).order("created_at DESC")
     @total_validated_offers = Offer.where("validated IS TRUE").count
     @total_number_of_companies = Company.all.count
   end
