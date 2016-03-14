@@ -5,7 +5,7 @@ jQuery(document).ready(
       "mode"              : "fade",
       "iniWidth"          : 1200,
       "iniHeight"         : 300,
-      "autoRun"           : true,
+      "autoRun"           : false,
       "interval"          : 15000,
       "autoHeightMode"    : "maintainratio",
       "thumbnails"        : {"navigation": false,
