@@ -10,7 +10,7 @@ class JobsController < ApplicationController
   end
 
   def list_offers
-    @offers = Offer.where("validated IS TRUE AND expiration_date >= ?", Date.today}).order("created_at DESC")
+    @offers = Offer.where("validated IS TRUE AND expiration_date >= ?", Date.today).order("created_at DESC")
     init_offers
   end
 
