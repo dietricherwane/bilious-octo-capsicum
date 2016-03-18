@@ -33,12 +33,21 @@
                                                     <div class="col-sm-12">
                                                       <%= f.text_field :subject, placeholder: (@front_page_content.contact_main_content_form_field_subject.html_safe rescue "") %>
                                                     </div>
+                                                    <div class="col-sm-12">
+                                                      <%= f.text_area :content, placeholder: (@front_page_content.contact_main_content_form_field_message.html_safe rescue "") %>
+                                                    </div>
+                                                    <div class="col-sm-12">
+                                                      <%= recaptcha_tags %>
+                                                    </div>
+                                                    <div class="col-sm-12">
+                                                      <input type="submit" value="<%= @front_page_content.contact_main_content_form_field_message.html_safe rescue "" %>">
+                                                    </div>
                                                 </div>
-                                                <%= f.text_area :content, placeholder: (@front_page_content.contact_main_content_form_field_message.html_safe rescue "") %>
 
-                                                <%= recaptcha_tags %>
 
-                                                <input type="submit" value="<%= @front_page_content.contact_main_content_form_field_message.html_safe rescue "" %>">
+
+
+
                                             <% end %>
                                         </div>
                                     </div>
