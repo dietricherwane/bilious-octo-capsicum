@@ -36,6 +36,8 @@
                                                 </div>
                                                 <%= f.text_area :content, placeholder: (@front_page_content.contact_main_content_form_field_message.html_safe rescue "") %>
 
+                                                <%= recaptcha_tags %>
+
                                                 <input type="submit" value="<%= @front_page_content.contact_main_content_form_field_message.html_safe rescue "" %>">
                                             <% end %>
                                         </div>
