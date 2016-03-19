@@ -1,6 +1,7 @@
 class AdminCompaniesController < ApplicationController
 
   layout "administrator"
+  before_filter :authenticate_user!
 
   def companies
     @companies = Company.all.order("created_at DESC")

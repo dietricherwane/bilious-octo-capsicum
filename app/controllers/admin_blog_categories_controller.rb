@@ -1,5 +1,6 @@
 class AdminBlogCategoriesController < ApplicationController
   layout "administrator"
+  before_filter :authenticate_user!
   before_filter :set_menu_css, only: [:blog_category, :create_blog_category, :list_blog_categories, :disable_blog_category, :enable_blog_category, :edit_blog_category, :update_blog_category]
 
   def blog_category

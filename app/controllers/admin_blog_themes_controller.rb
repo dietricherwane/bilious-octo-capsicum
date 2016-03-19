@@ -1,5 +1,6 @@
 class AdminBlogThemesController < ApplicationController
   layout "administrator"
+  before_filter :authenticate_user!
   before_filter :set_menu_css, only: [:blog_theme, :create_blog_theme, :list_blog_themes, :disable_blog_theme, :enable_blog_theme, :edit_blog_theme, :update_blog_theme, :blog_theme_comments]
 
   def blog_theme

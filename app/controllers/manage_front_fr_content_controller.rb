@@ -1,4 +1,5 @@
 class ManageFrontFrContentController < ApplicationController
+  before_filter :authenticate_user!
 
   def update_home_page_content
     @fr_content = FrFrontPageContent.first

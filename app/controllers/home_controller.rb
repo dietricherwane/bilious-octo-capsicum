@@ -225,7 +225,7 @@ class HomeController < ApplicationController
 
     @contact_form = ContactForm.new(params.require(:contact_form).permit(:name, :email, :subject, :content))
 
-    if @contact_form.save
+    if @contact_form.save && verify_recaptcha
       flash.now[:success] = "Votre message au COCOFCI a été envoyé."
       @contact_form = ContactForm.new
       Notifier.contact_email(@name, @email, @subject, @content).deliver

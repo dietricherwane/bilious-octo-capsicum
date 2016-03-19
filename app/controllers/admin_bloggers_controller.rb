@@ -1,5 +1,6 @@
 class AdminBloggersController < ApplicationController
   layout "administrator"
+  before_filter :authenticate_user!
 
   def blogger
     init_bloggers

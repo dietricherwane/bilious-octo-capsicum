@@ -1,4 +1,5 @@
 class ManageFrontEnContentController < ApplicationController
+  before_filter :authenticate_user!
 
   def update_home_page_content
     @en_content = EnFrontPageContent.first

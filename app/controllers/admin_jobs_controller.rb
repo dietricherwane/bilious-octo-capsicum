@@ -1,5 +1,6 @@
 class AdminJobsController < ApplicationController
   layout "administrator"
+  before_filter :authenticate_user!
 
   def admin_list_jobs
     @offers = Offer.where("validated IS NULL").order("created_at DESC")

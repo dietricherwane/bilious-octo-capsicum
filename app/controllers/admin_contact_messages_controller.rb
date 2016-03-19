@@ -1,5 +1,5 @@
 class AdminContactMessagesController < ApplicationController
-
+  before_filter :authenticate_user!
   layout "administrator"
 
   def index
