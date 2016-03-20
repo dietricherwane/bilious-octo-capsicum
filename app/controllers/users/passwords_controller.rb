@@ -12,18 +12,25 @@ class Users::PasswordsController < Devise::PasswordsController
 
   # POST /resource/password
   def create
-    self.resource = resource_class.send_reset_password_instructions(resource_params)
-    yield resource if block_given?
-
-    if successfully_sent?(resource)
-      if signed_in?(resource_name)
-        redirect_to new_user_registration_path
-      else
-        redirect_to new_user_session_path
-      end
-      #respond_with({}, location: after_sending_reset_password_instructions_path_for(resource_name))
+    if verify_recaptcha == false
+      self.resource = resource_class.new
+      flash.clear
+      flash.now[:error] = "Le captcha n'est pas valide"
+      render :new
     else
-      respond_with(resource)
+      self.resource = resource_class.send_reset_password_instructions(resource_params)
+      yield resource if block_given?
+
+      if successfully_sent?(resource)
+        if signed_in?(resource_name)
+          redirect_to new_user_registration_path
+        else
+          redirect_to new_user_session_path
+        end
+        #respond_with({}, location: after_sending_reset_password_instructions_path_for(resource_name))
+      else
+        respond_with(resource)
+      end
     end
   end
 

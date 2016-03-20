@@ -51,6 +51,8 @@
                                 </div>
                                 <%= f.text_area :content, placeholder: "Ecrivez votre message ici ...", rows: 5 %>
 
+                                <%= recaptcha_tags %>
+
                                 <%= f.submit "Valider" %>
                               <% end %>
                             </div>

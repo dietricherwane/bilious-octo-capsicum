@@ -15,7 +15,11 @@ class Companies::PasswordsController < Devise::PasswordsController
     self.resource = resource_class.send_reset_password_instructions(resource_params)
     yield resource if block_given?
 
-    if successfully_sent?(resource)
+    if verify_recaptcha == false
+      flash.now[:error] = "Le captcha n'est pas valide"
+    end
+
+    if successfully_sent?(resource) && flash.now[:error].blank?
       if signed_in?(resource_name)
         redirect_to new_company_registration_path
       else
@@ -38,7 +42,11 @@ class Companies::PasswordsController < Devise::PasswordsController
     self.resource = resource_class.reset_password_by_token(resource_params)
     yield resource if block_given?
 
-    if resource.errors.empty?
+    if verify_recaptcha == false
+      flash.now[:error] = "Le captcha n'est pas valide"
+    end
+
+    if resource.errors.empty? && flash.now[:error].blank?
       resource.unlock_access! if unlockable?(resource)
       flash_message = resource.active_for_authentication? ? :updated : :updated_not_active
       set_flash_message(:notice, flash_message) if is_flashing_format?

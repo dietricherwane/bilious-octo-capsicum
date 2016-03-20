@@ -1,3 +1,5 @@
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
 <!-- Title area -->
 <div class="titleArea">
     <div class="wrapper">
@@ -114,6 +116,10 @@
             <span class="formNote">Vous devez entrer votre mot de passe actuel pour appliquer les modifications</span>
           </div>
           <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <%= recaptcha_tags %>
         </div>
 
         <div class="formRow">

@@ -12,15 +12,19 @@ class ActivityCategoriesController < ApplicationController
   def create
     activity_category = params[:activity_category]
     @activity_category = ActivityCategory.new(params.require(:activity_category).permit(:fr_title, :en_title, :user_id).merge(user_id: (current_user.id rescue nil), publication_date: Date.new(activity_category["publication_date(1i)"].to_i, activity_category["publication_date(2i)"].to_i, activity_category["publication_date(3i)"].to_i)))
+    captchi = ""
+    if verify_recaptcha == false
+      captchi = "Le captcha n'est pas valide"
+    end
 
     @website_content_menu_style = "current"
     @activities_website_content_menu_style = "this"
 
-    if @activity_category.save
+    if captchi.blank? && @activity_category.save
       flash.now[:success] = "La catégorie d'activité a été correctement créée."
       @activity_category = ActivityCategory.new
     else
-      flash.now[:error] = @activity_category.errors.full_messages.map { |msg| "#{msg}<br />" }.join
+      flash.now[:error] = @activity_category.errors.full_messages.map { |msg| "#{msg}<br />" }.join + captchi
     end
 
     render :index
@@ -43,6 +47,10 @@ class ActivityCategoriesController < ApplicationController
     @activity_category = ActivityCategory.find_by_id(params[:activity_category][:id])
     @website_content_menu_style = "current"
     @activities_website_content_menu_style = "this"
+    captchi = ""
+    if verify_recaptcha == false
+      captchi = "Le captcha n'est pas valide"
+    end
 
     unless @activity_category
       flash.now[:error] = "Cette catégorie d'activités n'existe pas."
@@ -51,11 +59,11 @@ class ActivityCategoriesController < ApplicationController
       activity_category_params = params.require(:activity_category).permit(:fr_title, :en_title, :publication_date).merge(publication_date: Date.new(params[:activity_category]["publication_date(1i)"].to_i, params[:activity_category]["publication_date(2i)"].to_i, params[:activity_category]["publication_date(3i)"].to_i))
 
       @activity_category.assign_attributes(activity_category_params)
-      if @activity_category.valid?
+      if captchi.blank? && @activity_category.valid?
         @activity_category.save
         flash.now[:success] = "La catégorie d'activités a été mise à jour."
       else
-        flash.now[:error] = @activity_category.errors.full_messages.map { |msg| "#{msg}<br />" }.join
+        flash.now[:error] = @activity_category.errors.full_messages.map { |msg| "#{msg}<br />" }.join + captchi
       end
     end
 

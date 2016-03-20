@@ -1,3 +1,5 @@
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
 <!-- Title area -->
 <div class="titleArea">
     <div class="wrapper">
@@ -102,6 +104,8 @@
           </div>
           <div class="clear"></div>
         </div>
+
+        <%= recaptcha_tags %>
 
         <div class="formRow">
           <%= f.submit "Valider", class: 'basic' %>

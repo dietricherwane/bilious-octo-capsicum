@@ -177,14 +177,19 @@ class HomeController < ApplicationController
     @blog_theme = @blog_post.blog_theme
     @blog_posts = @blog_theme.blog_posts.order("created_at DESC")
     @blog_categories = BlogCategory.where("published IS NOT FALSE").order("created_at DESC")
+    captcha_message = ""
     select_front_menu_highlight_class("blog_menu_highlight_style")
     set_front_page_content
 
-    if @blog_post.save
+    if verify_recaptcha == false
+      captcha_message = "Le captcha n'est pas valide"
+    end
+
+    if @blog_post.save && captcha_message.blank?
       flash.now[:success] = "Votre message a été enregistré."
       @blog_post = BlogPost.new
     else
-      flash.now[:error] = @blog_post.errors.full_messages.map { |msg| "#{msg}<br />" }.join
+      flash.now[:error] = @blog_post.errors.full_messages.map { |msg| "#{msg}<br />" }.join + captcha_message
     end
 
     render :blog_theme
@@ -219,18 +224,23 @@ class HomeController < ApplicationController
     @email = params[:email]
     @subject = params[:subject]
     @content = params[:content]
+    captcha_message = ""
     select_front_menu_highlight_class("contact_menu_highlight_style")
 
     set_front_page_content
 
     @contact_form = ContactForm.new(params.require(:contact_form).permit(:name, :email, :subject, :content))
 
-    if @contact_form.save && verify_recaptcha
+    if verify_recaptcha == false
+      captcha_message = "Le captcha n'est pas valide"
+    end
+
+    if @contact_form.save && captcha_message.blank?
       flash.now[:success] = "Votre message au COCOFCI a été envoyé."
       @contact_form = ContactForm.new
       Notifier.contact_email(@name, @email, @subject, @content).deliver
     else
-      flash[:error] = @contact_form.errors.full_messages.map { |msg| "#{msg}<br />" }.join
+      flash[:error] = @contact_form.errors.full_messages.map { |msg| "#{msg}<br />" }.join + captcha_message
     end
 
     render :contact

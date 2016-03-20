@@ -7,6 +7,14 @@
 				<div class="form-singin-container">
 				  <%= company_error_messages! %>
 		      <%= job_flash_messages! %>
+
+		      <% unless @captchi_message.blank? %>
+		        <div class="alert alert-warning alert-dismissable job-alert error">
+				      <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-times-circle"></i></button>
+				      <%= @captchi_message %>
+			      </div>
+			    <% end %>
+
 					<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 						<div class="form-group">
 					    <%= f.text_field :email, class: "form-control input-form", placeholder: "Email" %>
@@ -15,6 +23,7 @@
 				    <div class="form-group">
 					    <%= f.password_field :password, class: "form-control input-form", placeholder: "Mot de passe", autocomplete: "off" %>
 					    <div class="singin-aksen"></div>
+					    <%= recaptcha_tags %>
 					    <%= f.submit "Valider", class: "btn btn-default btn-green" %>
 				    </div>
 					<% end %>

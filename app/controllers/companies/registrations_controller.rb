@@ -21,9 +21,13 @@ class Companies::RegistrationsController < Devise::RegistrationsController
   def create
     build_resource(sign_up_params.merge({profile_id: (Profile.find_by_name("Entreprise").id rescue nil)}))
 
+    if verify_recaptcha == false
+      flash.now[:error] = "Le captcha n'est pas valide"
+    end
+
     resource_saved = resource.save
     yield resource if block_given?
-    if resource_saved
+    if resource_saved && flash.now[:error].blank?
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_flashing_format?
         #sign_up(resource_name, resource)

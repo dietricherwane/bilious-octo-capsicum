@@ -1,3 +1,19 @@
+<script type="text/javascript">
+  var onloadCallback = function() {
+    // Renders the HTML element with id 'adcaptcha1' as a reCAPTCHA widget.
+    // The id of the reCAPTCHA widget is assigned to 'widgetId1'.
+    grecaptcha.render('adcaptcha1', {
+      'sitekey' : "<%= Recaptcha.configuration.public_key %>"
+    });
+    grecaptcha.render('adcaptcha2', {
+      'sitekey' : "<%= Recaptcha.configuration.public_key %>"
+    });
+    grecaptcha.render('adcaptcha3', {
+      'sitekey' : "<%= Recaptcha.configuration.public_key %>"
+    });
+  };
+</script>
+
 <!-- Title area -->
 <div class="titleArea">
     <div class="wrapper">
@@ -101,6 +117,8 @@
           <div class="clear"></div>
         </div>
 
+        <div id="adcaptcha1"></div>
+
         <div class="formRow">
           <%= f.submit "Valider", class: 'basic' %>
         </div>
@@ -126,6 +144,8 @@
           <div class="clear"></div>
         </div>
 
+        <div id="adcaptcha2"></div>
+
         <div class="formRow">
           <%= f.submit "Valider", class: 'basic' %>
         </div>
@@ -149,6 +169,8 @@
           <div class="clear"></div>
         </div>
 
+        <div id="adcaptcha3"></div>
+
         <div class="formRow">
           <%= f.submit "Valider", class: 'basic' %>
         </div>
@@ -157,3 +179,5 @@
   <% end %>
 </div>
 <!-- End Main content wrapper -->
+
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit&hl=fr" async defer></script>

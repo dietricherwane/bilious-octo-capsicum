@@ -1,3 +1,52 @@
+<script type="text/javascript">
+  var verifyCallback = function(response) {
+    alert(response);
+  };
+  var widgetId1;
+  var widgetId2;
+  var onloadCallback = function() {
+    // Renders the HTML element with id 'adcaptcha1' as a reCAPTCHA widget.
+    // The id of the reCAPTCHA widget is assigned to 'widgetId1'.
+    grecaptcha.render('adcaptcha1', {
+      'sitekey' : "<%= Recaptcha.configuration.public_key %>"
+    });
+    grecaptcha.render('adcaptcha2', {
+      'sitekey' : "<%= Recaptcha.configuration.public_key %>"
+    });
+    grecaptcha.render('adcaptcha3', {
+      'sitekey' : "<%= Recaptcha.configuration.public_key %>"
+    });
+    grecaptcha.render('adcaptcha4', {
+      'sitekey' : "<%= Recaptcha.configuration.public_key %>"
+    });
+    grecaptcha.render('adcaptcha5', {
+      'sitekey' : "<%= Recaptcha.configuration.public_key %>"
+    });
+    grecaptcha.render('adcaptcha6', {
+      'sitekey' : "<%= Recaptcha.configuration.public_key %>"
+    });
+    grecaptcha.render('adcaptcha7', {
+      'sitekey' : "<%= Recaptcha.configuration.public_key %>"
+    });
+    grecaptcha.render('adcaptcha8', {
+      'sitekey' : "<%= Recaptcha.configuration.public_key %>"
+    });
+    grecaptcha.render('adcaptcha9', {
+      'sitekey' : "<%= Recaptcha.configuration.public_key %>"
+    });
+    grecaptcha.render('adcaptcha10', {
+      'sitekey' : "<%= Recaptcha.configuration.public_key %>"
+    });
+    grecaptcha.render('adcaptcha11', {
+      'sitekey' : "<%= Recaptcha.configuration.public_key %>"
+    });
+    grecaptcha.render('adcaptcha12', {
+      'sitekey' : "<%= Recaptcha.configuration.public_key %>"
+    });
+  };
+</script>
+
+
 <!-- Title area -->
 <div class="titleArea">
     <div class="wrapper">
@@ -137,6 +186,9 @@
                 <div class="clear"></div>
               </div>
 
+              <%#= recaptcha_tags %>
+              <div id="adcaptcha1"></div>
+
               <div class="formRow">
                 <%= f.submit "Valider", class: 'basic' %>
               </div>
@@ -248,6 +300,9 @@
                 <div class="clear"></div>
               </div>
 
+              <%#= recaptcha_tags %>
+              <div id="adcaptcha2"></div>
+
               <div class="formRow">
                 <%= f.submit "Valider", class: 'basic' %>
               </div>
@@ -308,6 +363,8 @@
                 <div class="clear"></div>
               </div>
 
+              <div id="adcaptcha4"></div>
+
               <div class="formRow">
                 <%= f.submit "Valider", class: 'basic' %>
               </div>
@@ -362,6 +419,9 @@
                 </div>
                 <div class="clear"></div>
               </div>
+
+              <%#= recaptcha_tags %>
+              <div id="adcaptcha3"></div>
 
               <div class="formRow">
                 <%= f.submit "Valider", class: 'basic' %>
@@ -527,6 +587,9 @@
                 <div class="clear"></div>
               </div>
 
+              <%#= recaptcha_tags %>
+              <div id="adcaptcha5"></div>
+
               <div class="formRow">
                 <%= f.submit "Valider", class: 'basic' %>
               </div>
@@ -687,6 +750,9 @@
                 <div class="clear"></div>
               </div>
 
+              <%#= recaptcha_tags %>
+              <div id="adcaptcha6"></div>
+
               <div class="formRow">
                 <%= f.submit "Valider", class: 'basic' %>
               </div>
@@ -722,6 +788,9 @@
                 <div class="clear"></div>
               </div>
 
+              <%#= recaptcha_tags %>
+              <div id="adcaptcha7"></div>
+
               <div class="formRow">
                 <%= f.submit "Valider", class: 'basic' %>
               </div>
@@ -753,6 +822,9 @@
                 </div>
                 <div class="clear"></div>
               </div>
+
+              <%#= recaptcha_tags %>
+              <div id="adcaptcha8"></div>
 
               <div class="formRow">
                 <%= f.submit "Valider", class: 'basic' %>
@@ -901,6 +973,9 @@
                 <div class="clear"></div>
               </div>
 
+              <%#= recaptcha_tags %>
+              <div id="adcaptcha9"></div>
+
               <div class="formRow">
                 <%= f.submit "Valider", class: 'basic' %>
               </div>
@@ -1044,6 +1119,9 @@
                 <div class="clear"></div>
               </div>
 
+              <%#= recaptcha_tags %>
+              <div id="adcaptcha10"></div>
+
               <div class="formRow">
                 <%= f.submit "Valider", class: 'basic' %>
               </div>
@@ -1103,6 +1181,9 @@
                 <div class="clear"></div>
               </div>
 
+              <%#= recaptcha_tags %>
+              <div id="adcaptcha11"></div>
+
               <div class="formRow">
                 <%= f.submit "Valider", class: 'basic' %>
               </div>
@@ -1158,6 +1239,9 @@
                 <div class="clear"></div>
               </div>
 
+              <%#= recaptcha_tags %>
+              <div id="adcaptcha12"></div>
+
               <div class="formRow">
                 <%= f.submit "Valider", class: 'basic' %>
               </div>
@@ -1173,3 +1257,4 @@
 
 </div>
 <!-- End Main content wrapper -->
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit&hl=fr" async defer></script>

@@ -1,3 +1,5 @@
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
 <!-- Title area -->
 <div class="titleArea">
     <div class="wrapper">
@@ -116,6 +118,10 @@
             <%= f.password_field :password_confirmation, placeholder: "Veuillez confirmer le mot de passe", autocomplete: "off", class: 'form-control' %>
           </div>
           <div class="clear"></div>
+        </div>
+
+        <div class="formRow">
+          <%= recaptcha_tags %>
         </div>
 
         <div class="formRow">

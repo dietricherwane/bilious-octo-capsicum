@@ -25,7 +25,7 @@ module UsersHelper
 
     # Only allow a user to edit his own profile
     if current_user_id == user.id
-      html << %Q[<a href="#{edit_user_registration_path(user.id)}" class="tipS" original-title="Modifier le profil">#{image_tag('icons/color/pencil.png', alt: '')}</a>]
+      html << %Q[<a href="/#{I18n.locale}/users/edit.#{current_user.id}" class="tipS" original-title="Modifier le profil">#{image_tag('icons/color/pencil.png', alt: '')}</a>]
     end
 
 
