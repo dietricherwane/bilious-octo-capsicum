@@ -41,7 +41,7 @@
             <tr class="gradeA">
               <% css_class = (activity.published == false ? 'taskD' : 'taskPr') %>
               <td class = "<%= css_class %>">
-                <%= "#{activity.fr_title}" %>
+                <%= "#{activity.fr_title[0..45]}" %>
               </td>
               <td>
                 <%= "#{activity.activity_category.fr_title}" %>
