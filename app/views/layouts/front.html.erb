@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%= I18n.locale == :fr ? 'fr' : 'en' %>">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Site web du COCOFCI">
+<meta property="og:title" content="COCOFCI" />
+<meta property="og:type" content="Présentation du COCOFCI" />
+<meta property="og:url" content="http://competencesfeminines.gouv.ci" />
 <link rel="icon" href="/assets/icone.ico" type="image/x-ico" />
 <link rel="shortcut icon" href="/assets/icone.ico" />
 <title>COCOFCI</title>
@@ -12,13 +16,12 @@
 <% if controller_name == "home" && action_name == "index" %>
 <%= javascript_include_tag 'front/slider_initializer', 'data-turbolinks-track' => true %>
 <% end %>
-
 <script src='https://www.google.com/recaptcha/api.js'></script>
-
 <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.css"/>
-<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js"></script>
+
 
 <%= csrf_meta_tags %>
 </head>
@@ -45,8 +48,8 @@
 
                                 <span class="selectArrow"><span class=""><%= front_language_menu %></span></span>
                                 <div class="selectOptions" >
-                                    <span class="selectOption" data-value="french"><img src="<%= asset_path 'front/imgs/FR-Flag.ico' %>" alt="" width="22px"  /><%= link_to @front_page_content.home_toolbar_language_fr, set_user_locale_path("fr") %></span>
-                                    <span class="selectOption" data-value="english"><img src="<%= asset_path 'front/imgs/uk_flag.png' %>" alt="" /><%= link_to @front_page_content.home_toolbar_language_en, set_user_locale_path("en") %></span>
+                                    <span class="selectOption" data-value="french"><img src="<%= asset_path 'front/imgs/FR-Flag.ico' %>" alt="French flag" width="22px"  /><%= link_to @front_page_content.home_toolbar_language_fr, set_user_locale_path("fr") %></span>
+                                    <span class="selectOption" data-value="english"><img src="<%= asset_path 'front/imgs/uk_flag.png' %>" alt="English flag" /><%= link_to @front_page_content.home_toolbar_language_en, set_user_locale_path("en") %></span>
 
                                 </div>
                             </div>
@@ -82,7 +85,7 @@
 
                     <div class="logo_sect1">
                         <a href="http://www.chaireunesco-efpod.org/" target = "_blank"><%= image_tag @front_page_content.home_logo2.url(:logo), style: "margin-left: 15px;" %></a>
-                        <img src="<%= asset_path 'front/armoiries.jpg' %>" alt="" style = "margin-left: 15px;width:100px"  />
+                        <img src="<%= asset_path 'front/armoiries.jpg' %>" alt="Logo de la chaire" style = "margin-left: 15px;width:100px"  />
                     </div>
 
                     <nav>

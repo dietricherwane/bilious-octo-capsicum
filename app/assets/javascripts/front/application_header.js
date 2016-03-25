@@ -10,11 +10,10 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require ahoy
-//= require chartkick
-//= require jquery_ujs
-//= require jquery-migrate-1.2.1
+// require jquery
+// require chartkick
+// require jquery_ujs
+// require jquery-migrate-1.2.1
 // require turbolinks
 
 //= require front/jquery-1.9.1.min

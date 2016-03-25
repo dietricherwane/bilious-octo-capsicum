@@ -28,9 +28,9 @@ class HomeController < ApplicationController
   def gallery
     select_front_menu_highlight_class("gallery_menu_highlight_style")
 
-    @photo_galleries = GalleryType.find_by_name("Photos").gallery_categories
-    @video_galleries = GalleryType.find_by_name("Videos").gallery_categories
-    @documents_galleries = GalleryType.find_by_name("Documents").gallery_categories
+    @photo_galleries = GalleryType.find_by_name("Photos").gallery_categories.order("created_at DESC")
+    @video_galleries = GalleryType.find_by_name("Videos").gallery_categories.order("created_at DESC")
+    @documents_galleries = GalleryType.find_by_name("Documents").gallery_categories.order("created_at DESC")
 
     @gallery_categories = GalleryCategory.where("published IS NOT FALSE").order("publication_date DESC")
 
