@@ -41,7 +41,7 @@ class HomeController < ApplicationController
     select_front_menu_highlight_class("gallery_menu_highlight_style")
     set_front_page_content
 
-    @photo_galleries = GalleryType.find_by_name("Photos").gallery_categories.page(params[:page]).per(12)
+    @photo_galleries = GalleryType.find_by_name("Photos").gallery_categories.order("created_at DESC").page(params[:page]).per(12)
   end
 
   def photo_gallery_details
@@ -58,7 +58,7 @@ class HomeController < ApplicationController
     select_front_menu_highlight_class("gallery_menu_highlight_style")
     set_front_page_content
 
-    @documents_galleries = GalleryType.find_by_name("Documents").gallery_categories.page(params[:page]).per(6)
+    @documents_galleries = GalleryType.find_by_name("Documents").gallery_categories.order("created_at DESC").page(params[:page]).per(6)
   end
 
   def documents_gallery_details
@@ -75,7 +75,7 @@ class HomeController < ApplicationController
     select_front_menu_highlight_class("gallery_menu_highlight_style")
     set_front_page_content
 
-    @video_galleries = GalleryType.find_by_name("Videos").gallery_categories.page(params[:page]).per(6)
+    @video_galleries = GalleryType.find_by_name("Videos").gallery_categories.order("created_at DESC").page(params[:page]).per(6)
   end
 
   def video_gallery_details
