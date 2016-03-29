@@ -21,16 +21,16 @@ class AdminJobsController < ApplicationController
     expiration_date = Date.new(expiration_date["expiration_date(1i)"].to_i, expiration_date["expiration_date(2i)"].to_i, expiration_date["expiration_date(3i)"].to_i)
 
     @offer = Offer.new(params.require(:offer).permit(:activity_field_id, :title, :description, :studies_level_id, :min_years_of_experience, :max_years_of_experience, :profile, :contract_type_id, :country_id, :city, :position_available, :company_name).merge({user_id: (current_user.id rescue nil), expiration_date: expiration_date, validated: true, validated_by: current_user.id, validated_at: DateTime.now}))
-    captchi = ""
-    if verify_recaptcha == false
-      captchi = "Le captcha n'est pas valide"
-    end
+    #captchi = ""
+    #if verify_recaptcha == false
+      #captchi = "Le captcha n'est pas valide"
+    #end
 
     if (expiration_date < Date.today rescue true)
       @offer.errors.add(:expiration_date, "n'est pas valide")
     end
 
-    if captchi.blank? && @offer.save
+    if @offer.save#if captchi.blank? && @offer.save
       flash.now[:success] = "Votre offre a été correctement créée et validée."
       @offer = Offer.new
     else
