@@ -47,7 +47,7 @@ class Company < ActiveRecord::Base
   end
 
   # Validations
-  validates :logo, :name, :activity_field_id, :juridical_status_id, :commercial_id, :number_of_employee_id, :revenue, :telephone, :description, :profile_id, presence: true
+  validates :logo, :name, :activity_field_id, :juridical_status_id, :commercial_id, :number_of_employee_id, :revenue, :telephone, :description, presence: true
   validates :address, length: {minimum: 5, allow_blank: true}
   validates :telephone, :fax, :revenue, numericality: {message: "n'est pas numérique", allow_blank: true}
   validates :telephone, :fax, length: {minimum: 8, maximum: 13, allow_blank: true}
