@@ -271,6 +271,7 @@ class HomeController < ApplicationController
     if request.base_url + "/" == request.referrer
       back_url = request.referrer + I18n.locale.to_s
     else
+      back_url = request.referrer.sub( '/' + previous_locale.to_s, '/' + I18n.locale.to_s)
       back_url = request.referrer.sub( '/' + previous_locale.to_s + '/', '/' + I18n.locale.to_s + '/')
     end
 
