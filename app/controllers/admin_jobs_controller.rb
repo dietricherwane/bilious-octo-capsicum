@@ -34,7 +34,7 @@ class AdminJobsController < ApplicationController
       flash.now[:success] = "Votre offre a été correctement créée et validée."
       @offer = Offer.new
     else
-      flash.now[:error] = @offer.errors.full_messages.map { |msg| "#{msg}<br />" }.join + captchi
+      flash.now[:error] = @offer.errors.full_messages.map { |msg| "#{msg}<br />" }.join #+ captchi
     end
 
     render :admin_new_offer
