@@ -9,16 +9,12 @@ class AdminBlogThemesController < ApplicationController
 
   def create_blog_theme
     @blog_theme = BlogTheme.new(params.require(:blog_theme).permit(:title, :blogger_id, :blog_category_id, :content, :descriptive_image, :descriptive_video).merge(created_by: (current_user.id rescue nil)))
-    captchi = ""
-    if verify_recaptcha == false
-      captchi = "Le captcha n'est pas valide"
-    end
 
-    if captchi.blank? && @blog_theme.save
+    if @blog_theme.save
       flash.now[:success] = "Le thème de blog a été correctement créé."
       @blog_theme = BlogTheme.new
     else
-      flash[:error] = @blog_theme.errors.full_messages.map { |msg| "#{msg}<br />" }.join + captchi
+      flash[:error] = @blog_theme.errors.full_messages.map { |msg| "#{msg}<br />" }.join
     end
 
     redirect_to admin_blog_theme_path
@@ -35,21 +31,18 @@ class AdminBlogThemesController < ApplicationController
 
   def update_blog_theme
     @blog_theme = BlogTheme.find_by_id(params[:blog_theme][:id])
-    captchi = ""
-    if verify_recaptcha == false
-      captchi = "Le captcha n'est pas valide"
-    end
+
 
     unless @blog_theme
       flash.now[:error] = "Ce thème de blog n'existe pas."
       redirect_to :back
     else
       @blog_theme.assign_attributes(params.require(:blog_theme).permit(:title, :blogger_id, :blog_category_id, :content, :descriptive_image, :descriptive_video))
-      if captchi.blank? && @blog_theme.valid?
+      if @blog_theme.valid?
         @blog_theme.save
         flash.now[:success] = "Le thème de blog a été mis à jour."
       else
-        flash.now[:error] = @blog_theme.errors.full_messages.map { |msg| "#{msg}<br />" }.join + captchi
+        flash.now[:error] = @blog_theme.errors.full_messages.map { |msg| "#{msg}<br />" }.join
       end
     end
 

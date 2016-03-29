@@ -9,16 +9,12 @@ class AdminBlogCategoriesController < ApplicationController
 
   def create_blog_category
     @blog_category = BlogCategory.new(params.require(:blog_category).permit(:title).merge(created_by: (current_user.id rescue nil)))
-    captchi = ""
-    if verify_recaptcha == false
-      captchi = "Le captcha n'est pas valide"
-    end
 
-    if captchi.blank? && @blog_category.save
+    if @blog_category.save
       flash.now[:success] = "La catégorie de blog a été correctement créée."
       @blog_category = BlogCategory.new
     else
-      flash.now[:error] = @blog_category.errors.full_messages.map { |msg| "#{msg}<br />" }.join + captchi
+      flash.now[:error] = @blog_category.errors.full_messages.map { |msg| "#{msg}<br />" }.join
     end
 
     render :blog_category
@@ -35,21 +31,18 @@ class AdminBlogCategoriesController < ApplicationController
 
   def update_blog_category
     @blog_category = BlogCategory.find_by_id(params[:blog_category][:id])
-    captchi = ""
-    if verify_recaptcha == false
-      captchi = "Le captcha n'est pas valide"
-    end
+
 
     unless @blog_category
       flash.now[:error] = "Cette catégorie de blog n'existe pas."
       redirect_to :back
     else
       @blog_category.assign_attributes(params.require(:blog_category).permit(:title))
-      if captchi.blank? && @blog_category.valid?
+      if @blog_category.valid?
         @blog_category.save
         flash.now[:success] = "La catégorie de blog a été mise à jour."
       else
-        flash.now[:error] = @blog_category.errors.full_messages.map { |msg| "#{msg}<br />" }.join + captchi
+        flash.now[:error] = @blog_category.errors.full_messages.map { |msg| "#{msg}<br />" }.join
       end
     end
 

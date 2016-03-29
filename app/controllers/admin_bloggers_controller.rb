@@ -12,16 +12,13 @@ class AdminBloggersController < ApplicationController
     init_bloggers
 
     @blogger = Blogger.new(params.require(:blogger).permit(:title, :name, :content, :description_image, :description_text).merge(user_id: (current_user.id rescue nil)))
-    captchi = ""
-    if verify_recaptcha == false
-      captchi = "Le captcha n'est pas valide"
-    end
 
-    if captchi.blank? && @blogger.save
+
+    if @blogger.save
     flash[:success] = "Le bloggeur a été correctement créé."
       @blogger = Blogger.new
     else
-      flash[:error] = @blogger.errors.full_messages.map { |msg| "#{msg}<br />" }.join + captchi
+      flash[:error] = @blogger.errors.full_messages.map { |msg| "#{msg}<br />" }.join
     end
 
     redirect_to admin_blogger_path
@@ -44,21 +41,18 @@ class AdminBloggersController < ApplicationController
 
   def update_blogger
     @blogger = Blogger.find_by_id(params[:blogger][:id])
-    captchi = ""
-    if verify_recaptcha == false
-      captchi = "Le captcha n'est pas valide"
-    end
+
 
     unless @blogger
       flash[:error] = "Ce bloggeur n'existe pas."
       redirect_to :back
     else
       @blogger.assign_attributes(params.require(:blogger).permit(:title, :name, :content, :description_image, :description_text))
-      if captchi.blank? && @blogger.valid?
+      if @blogger.valid?
         @blogger.save
         flash.now[:success] = "Le bloggeur a été mis à jour."
       else
-        flash.now[:error] = @blogger.errors.full_messages.map { |msg| "#{msg}<br />" }.join + captchi
+        flash.now[:error] = @blogger.errors.full_messages.map { |msg| "#{msg}<br />" }.join
       end
     end
 

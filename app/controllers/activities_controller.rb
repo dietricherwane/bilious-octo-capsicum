@@ -13,12 +13,8 @@ class ActivitiesController < ApplicationController
 
     activity = params[:activity]
     @activity = Activity.new(params.require(:activity).permit(:activity_category_id, :fr_title, :en_title, :fr_content, :en_content, :publication_date, :user_id, :attachments_array, :videos).merge(user_id: (current_user.id rescue nil), publication_date: Date.new(activity["publication_date(1i)"].to_i, activity["publication_date(2i)"].to_i, activity["publication_date(3i)"].to_i)))
-    captchi = ""
-    if verify_recaptcha == false
-      captchi = "Le captcha n'est pas valide"
-    end
 
-    if captchi.blank? && @activity.save
+    if @activity.save
       unless params[:activity][:attachments_array].blank?
         params[:activity][:attachments_array].each do |key, array|
           @activity.activity_attachments.create(activity_id: @activity.id, attachment: key)
@@ -27,7 +23,7 @@ class ActivitiesController < ApplicationController
       flash.now[:success] = "L'activité a été correctement créée."
       @activity = Activity.new
     else
-      flash.now[:error] = @activity.errors.full_messages.map { |msg| "#{msg}<br />" }.join + captchi
+      flash.now[:error] = @activity.errors.full_messages.map { |msg| "#{msg}<br />" }.join
     end
 
     render :index
@@ -50,10 +46,7 @@ class ActivitiesController < ApplicationController
 
     @activity = Activity.find_by_id(params[:activity][:id])
     @video_links = @activity.videos.to_s.strip.split("|") rescue []
-    captchi = ""
-    if verify_recaptcha == false
-      captchi = "Le captcha n'est pas valide"
-    end
+
 
     if @activity.blank?
       flash.now[:error] = "Cette activité n'existe pas."
@@ -62,7 +55,7 @@ class ActivitiesController < ApplicationController
       activity_params = params.require(:activity).permit(:activity_category_id, :fr_title, :en_title, :fr_content, :en_content, :publication_date, :user_id, :attachments_array, :videos).merge(publication_date: Date.new(params[:activity]["publication_date(1i)"].to_i, params[:activity]["publication_date(2i)"].to_i, params[:activity]["publication_date(3i)"].to_i))
 
       @activity.assign_attributes(activity_params)
-      if captchi.blank? && @activity.valid?
+      if @activity.valid?
         @activity.save
         flash.now[:success] = "L'activité a été mise à jour."
         unless params[:activity][:attachments_array].blank?
@@ -71,7 +64,7 @@ class ActivitiesController < ApplicationController
           end
         end
       else
-        flash.now[:error] = @activity.errors.full_messages.map { |msg| "#{msg}<br />" }.join + captchi
+        flash.now[:error] = @activity.errors.full_messages.map { |msg| "#{msg}<br />" }.join
       end
     end
 
