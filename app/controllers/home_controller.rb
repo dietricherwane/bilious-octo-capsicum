@@ -271,13 +271,16 @@ class HomeController < ApplicationController
     if request.base_url + "/" == request.referrer
       back_url = request.referrer + I18n.locale.to_s
     else
-      back_url = request.referrer.sub( '/' + previous_locale.to_s, '/' + I18n.locale.to_s)
-      back_url = request.referrer.sub( '/' + previous_locale.to_s + '/', '/' + I18n.locale.to_s + '/')
+      back_url = request.referrer.sub(previous_locale.to_s, I18n.locale.to_s)
     end
 
     set_front_page_content
 
-    redirect_to back_url
+    redirect_to request.base_url + '/' + I18n.locale.to_s#back_url
+  end
+
+  def didi
+    render text: "Base URL = #{request.base_url} -- Referrer = #{request.referrer}"
   end
 
   def init_blog

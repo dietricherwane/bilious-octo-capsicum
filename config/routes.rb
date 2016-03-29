@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+get '/didi' => 'home#didi'
   #devise_for :companies
   scope "(:locale)", locale: /en|fr/ do
     root "home#index"
