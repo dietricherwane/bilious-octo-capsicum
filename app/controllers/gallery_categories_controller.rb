@@ -74,10 +74,10 @@ class GalleryCategoriesController < ApplicationController
     @website_content_menu_style = "current"
     @gallery_website_content_menu_style = "this"
     @video_links = @gallery_category.video_links.to_s.strip.split("|") rescue []
-    captchi = ""
-    if verify_recaptcha == false
-      captchi = "Le captcha n'est pas valide"
-    end
+    #captchi = ""
+    #if verify_recaptcha == false
+      #captchi = "Le captcha n'est pas valide"
+    #end
 
     unless @gallery_category
       flash.now[:error] = "Cette catégorie de galeries n'existe pas."
@@ -86,7 +86,7 @@ class GalleryCategoriesController < ApplicationController
       gallery_category_params = params.require(:gallery_category).permit(:fr_title, :en_title, :fr_description, :en_description, :publication_date, :photos_attachments_array, :pdf_attachments_array, :gallery_type_id, :id, :video_links).merge(publication_date: Date.new(params[:gallery_category]["publication_date(1i)"].to_i, params[:gallery_category]["publication_date(2i)"].to_i, params[:gallery_category]["publication_date(3i)"].to_i))
 
       @gallery_category.assign_attributes(gallery_category_params)
-      if captchi.blank? && @gallery_category.valid?
+      if @gallery_category.valid?
         unless params[:gallery_category][:photos_attachments_array].blank?
           params[:gallery_category][:photos_attachments_array].each do |key, array|
             @gallery_category.gallery_attachments.create(gallery_category_id: @gallery_category.id, photo_attachment: key)
@@ -100,7 +100,7 @@ class GalleryCategoriesController < ApplicationController
         @gallery_category.save
         flash.now[:success] = "La catégorie de galeries a été mise à jour."
       else
-        flash.now[:error] = @gallery_category.errors.full_messages.map { |msg| "#{msg}<br />" }.join + captchi
+        flash.now[:error] = @gallery_category.errors.full_messages.map { |msg| "#{msg}<br />" }.join #+ captchi
       end
     end
 
